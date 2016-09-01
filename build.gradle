@@ -25,7 +25,7 @@ def buildVersion() {
 
 task wrapper(type: Wrapper, description: 'Gradle Wrapper task') {
     gradleVersion = '3.0'
-    distributionUrl = "http://services.gradle.org/distributions/gradle-$gradleVersion-all.zip"
+    distributionUrl = "https://services.gradle.org/distributions/gradle-$gradleVersion-all.zip"
 }
 
 // 全局配置，对所有工程有效
