@@ -23,6 +23,11 @@ def buildVersion() {
     // return new Date().getTime();
 }
 
+task wrapper(type: Wrapper, description: 'Gradle Wrapper task') {
+    gradleVersion = '3.0'
+    distributionUrl = "http://services.gradle.org/distributions/gradle-$gradleVersion-all.zip"
+}
+
 // 全局配置，对所有工程有效
 allprojects {
     group 'net.cloudkit'
@@ -33,10 +38,6 @@ allprojects {
     apply plugin: 'eclipse'
     apply plugin: 'eclipse-wtp'
 
-    task wrapper(type: Wrapper, description: 'Gradle Wrapper task') {
-        gradleVersion = '3.0'
-        distributionUrl = "http://services.gradle.org/distributions/gradle-$gradleVersion-all.zip"
-    }
 }
 
 // 所有子项目共享配置
