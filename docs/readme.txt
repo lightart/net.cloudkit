@@ -19,3 +19,5 @@ https://light.hs.net/portal/not-support.html
 
 
 lightart/github
+
+encyclopedia
