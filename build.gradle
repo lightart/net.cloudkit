@@ -1,0 +1,357 @@
+/*
+ * Copyright (C) 2016. The CloudKit Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+// 包含gradle文件,引入jar包定义,定义的jar包可以直接在子项目中使用
+apply from: 'libraries.gradle'
+
+def buildVersion() {
+    // yyyyMMddHHmmss
+    return 'v' + new Date().format("yyyyMMdd", TimeZone.getTimeZone("UTC"))
+    // return new Date().getTime();
+}
+
+// 全局配置，对所有工程有效
+allprojects {
+    group 'net.cloudkit'
+    // RELEASE
+    version '1.0-SNAPSHOT'
+
+    apply plugin: 'idea'
+    apply plugin: 'eclipse'
+    apply plugin: 'eclipse-wtp'
+
+    task wrapper(type: Wrapper, description: 'Gradle Wrapper task') {
+        gradleVersion = '3.0'
+        distributionUrl = "http://services.gradle.org/distributions/gradle-$gradleVersion-all.zip"
+    }
+}
+
+// 所有子项目共享配置
+subprojects {
+
+    apply plugin: 'java'
+    // apply plugin: 'scala'
+    apply plugin: 'osgi'
+    // apply plugin: 'checkstyle'
+    // apply plugin: 'findbugs'
+    // apply plugin: 'jdepend'
+    // apply plugin: 'pmd'
+    // apply plugin: "jacoco"
+
+    // 默认为 build
+    // buildDir = "target"
+
+    /*
+    // 单独encoding设置
+    javadoc {
+        options.encoding = "UTF-8"
+    }
+    */
+
+    // 编译,生成JavaDoc和测试时注释的乱码问题
+    [compileJava, javadoc, compileTestJava]*.options*.encoding = 'UTF-8'
+
+    // GRADLE和IDEA集成时下载依赖源码和JavaDoc设置
+    idea {
+        module {
+            downloadJavadoc = false
+            downloadSources = false
+        }
+    }
+
+    // JVM 版本号要求
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+
+    /*
+    sourceSets {
+        main {
+            // manifest.srcFile 'MANIFEST.MF'
+            java.srcDirs = ['src/main/java']
+            resources.srcDirs = ['src/main/resources']
+            // 自定义Build 后main 的classes 目录或resources 目录的输出位置
+            output.resourcesDir = "${buildDir}/classes/main"
+            // output.classesDir = "${buildDir}/classes/main"
+
+            // output.resourcesDir = "src/main/webapp/WEB-INF/classes"
+            // output.classesDir = "src/main/webapp/WEB-INF/classes"
+        }
+        test {
+            java.srcDirs = ['src/test/java']
+            resources.srcDirs = ['src/test/resources']
+            // 自定义Build 后test 的classes 目录或resources 目录的输出位置
+            output.resourcesDir = "${buildDir}/classes/test"
+        }
+    }
+
+    // scala
+    sourceSets {
+        main {
+            scala
+                srcDirs = ['src/scala']
+            }
+        }
+        test {
+            scala
+                srcDirs = ['test/scala']
+            }
+        }
+    }
+    */
+
+    // tag::repositories[]
+    repositories {
+        // mavenCentral()别名，表示依赖是从Central Maven 2 仓库中获取。
+        // jcenter()别名，表示依赖是从Bintary’s JCenter Maven 仓库中获取。
+        // mavenLocal()别名，表示依赖是从本地的Maven仓库中获取。
+
+        // mavenLocal()
+        // mavenCentral()
+        // maven { url 'http://download.java.net/maven/2/' }
+        // maven { url 'http://120.25.65.250:7001/nexus/content/groups/public/' }
+        maven { url 'http://maven.aliyun.com/nexus/content/repositories/central/' }
+        // maven { url 'http://maven.oschina.net/content/groups/public/' }
+        // jcenter { url "http://jcenter.bintray.com/" }
+
+        // 配置Spring Maven仓库
+        // maven { url 'http://repo.spring.io/release/' }
+        // maven { url 'http://repo.spring.io/milestone/' }
+        // maven { url 'http://repo.spring.io/snapshot/' }
+
+        // 带认证的库
+        /*
+        maven{
+            credentials{
+                username 'admin'
+                password 'admin123'
+            }
+            url "http://localhost:8081/nexus/content/groups/public/"
+        }
+        */
+
+        /*
+        ivy {
+            url "http://ivy.petrikainulainen.net/repo"
+        }
+        ivy {
+            // URL can refer to a local directory
+            url "../local-repo"
+        }
+        */
+
+        // flatDir {
+        //    dirs 'libs'
+        // }
+
+        flatDir name: 'localRepository', dirs: 'libs'
+        // ${rootProject.projectDir} ${gradle.gradleHomeDir}
+        // flatDir(dirs: '$projectDir/libs')
+        // flatDir(dirs: '${rootProject.projectDir}/lib')
+    }
+    // end::repositories[]
+
+    /*
+    // 默认情况下gradle会选用版本最高的那个依赖，有时候会带来问题
+    configurations.all {
+        // 有版本冲突的时候强制使用指定的版本，对于相关依赖也同样有效
+        resolutionStrategy.force(
+                "org.springframework:spring-core:${springVersion}",
+        )
+    }
+    */
+
+    configurations {
+
+        // 需要忽略的包
+        all*.exclude group: 'commons-httpclient'
+        // 排除commons-logging依赖
+        all*.exclude group: 'commons-logging'
+        all*.exclude group: 'commons-beanutils', module: 'commons-beanutils'
+    }
+
+    // tag::dependencies[]
+    // 公共依赖配置
+    dependencies {
+
+        // 通用依赖
+        compile(
+
+                // logback
+                libraries.'logback-core',
+                libraries.'logback-classic',
+                // 添加SLF4J-JCL依赖，将对JCL的日志API调用转换为对SLF4J接口的调用
+                libraries.'jcl-over-slf4j',
+                libraries.'log4j-over-slf4j',
+                libraries.'jul-to-slf4j',
+                // 添加SLF4J接口依赖
+                libraries.'slf4j-api',
+                libraries.'logback-ext-spring',
+
+                // Guava工程包含了若干被Google的 Java项目广泛依赖 的核心库，例如：集合 [collections] 、缓存 [caching] 、原生类型支持 [primitives support] 、并发库 [concurrency libraries] 、通用注解 [common annotations] 、字符串处理 [string processing] 、I/O 等等。
+                libraries.'guava'
+
+                // 'org.scala-lang:scala-library:2.11.8'
+        )
+
+        // 依赖mave库中不存在的jar,包含父项目的libs和当前项目的libs下的所有jar
+        // 注意：这些libs目录是运行有子目录存在的
+        // fileTree(dir: "${rootProject.projectDir}/libs", include: '*.jar')
+        ext.jarTree = fileTree(dir: 'libs', include: '**/*.jar')
+        ext.rootProjectLibs = new File(rootProject.rootDir, 'libs').getAbsolutePath()
+        ext.jarTree += fileTree(dir: rootProjectLibs, include: '**/*.jar')
+        compile jarTree
+
+        // 测试依赖
+        testCompile(
+                libraries.'junit',
+                libraries.'spring-test'
+                // "org.scala-lang:scala-library:2.9.2"
+        )
+    }
+    // end::dependencies[]
+
+    /*
+    // 发布JAR包,执行gradle uploadArchives命令以发布JAR包
+    uploadArchives {
+        repositories {
+            flatDir {
+                dirs 'repos'
+            }
+        }
+    }
+    */
+
+    /*
+    // 根据不同的子项目个性化定义配置,':m1' 项目名称.
+    if ( ! subProject.name.startsWith( 'm1' ) ) {
+         apply plugin: 'java'
+         configurations {
+             // ...
+         }
+         dependencies {
+             // ...
+         }
+    }
+    // 或者使用configure来批量指定部分项目的配置,':m1' 项目名称.
+    configure(subprojects.findAll {it.name.contains('m1')}) {
+         apply plugin: 'war'
+    }
+    */
+
+    compileJava {
+        options.debug = version.endsWith('SNAPSHOT')
+    }
+
+    /*
+    compileScala {
+        scalaCompileOptions.useCompileDaemon = true
+        // optionally specify host and port of the daemon:
+        scalaCompileOptions.daemonServer = "localhost:4243"
+        scalaCompileOptions.useAnt = false
+    }
+
+    tasks.withType(ScalaCompile) {
+        configure(scalaCompileOptions.forkOptions) {
+            memoryMaximumSize = '1g'
+            jvmArgs = ['-XX:MaxPermSize=512m']
+        }
+    }
+    */
+
+    tasks.withType(JavaCompile) { options.encoding = "UTF-8" }
+
+    tasks.withType(GroovyCompile) { groovyOptions.encoding = "MacRoman" }
+
+    /*
+    // $ gradle production bootRun
+    // $ gradle development bootRun
+    bootRun {
+        addResources = false
+        systemProperties = System.properties
+        environment 'spring.profiles.active', 'production'
+        systemProperty 'spring.profiles.active', 'production'
+        main = 'net.cloudkit.xxxx.Launcher'
+    }
+
+    task production << {
+        bootRun.systemProperty 'spring.profiles.active', 'production'
+    }
+
+    task development << {
+        bootRun.systemProperty 'spring.profiles.active', 'development'
+    }
+    */
+
+    /*
+    task createJavaProject << {
+        sourceSets*.java.srcDirs*.each { it.mkdirs() }
+        sourceSets*.resources.srcDirs*.each { it.mkdirs() }
+    }
+
+    task createWebProject(dependsOn: createJavaProject) << {
+        def webAppDir = file("$webAppDirName")
+        def libDir = webAppDir / WEB - INF
+        webAppDir.mkdirs()
+        libDir.mkdirs()
+    }
+    */
+
+    // 显示项目下所有"compile jar".
+    /*
+    task listJars(description: '#Display all compile jars.') << {
+        println description
+        configurations.compile.each { File file -> println file.name }
+    }
+    */
+}
+
+// ;;;;;;;;;;;;;;;;;;;;;;;;;;; 配置多种环境 ;;;;;;;;;;;;;;;;;;;;;;;;;;;
+/*
+// production
+def activeProfile = 'development'
+
+ext {
+    if (!project.hasProperty("activeProfile")) {
+        println '没有配置数据环境，默认使用 开发环境'
+        activeProfile = "development"
+    }
+    println "使用数据库环境为:${project['development']}"
+}
+
+sourceSets {
+    main {
+        resources {
+            srcDir("src/main/resources")
+            if (project['env'] == 'dev') {
+                srcDir("src/main/resources-dev")
+            } else if (project['env'] == 'prod') {
+                srcDir('src/main/resources-prod')
+            }
+        }
+    }
+}
+
+def getProperties = {
+    def properties = new Properties()
+    def propertiesPath = sourceSets.main.resources.srcDirs[1].path;
+    file("propertiesPath/jdbc-mysql.properties").withInputStream { inputStream ->
+        properties.load(inputStream)
+    }
+    properties;
+}
+*/
+
+// http://wiki.jikexueyuan.com/project/gradle/

@@ -1,0 +1,520 @@
+/*
+ * Copyright (C) 2016. The CloudKit Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
+ * 依赖包的定义。
+ *
+ * 这种定义方式的优点是在顶级项目目录下引入，在子项目中也可以直接用了。
+ */
+// dependencies
+ext {
+    versions = [:]
+    libraries = [:]
+}
+
+// 一些会重复出现的jar包的版本号
+ext.versions += [
+
+    'spring'                    : '4.3.0.RELEASE',
+    'spring-data-jpa'           : '1.10.2.RELEASE',
+    'spring-ws'                 : '2.3.0.RELEASE',
+    'spring-integration'        : '4.3.1.RELEASE',
+    'spring-security'           : '4.1.0.RELEASE',
+    'spring-hateoas'            : '0.20.0.RELEASE',
+
+    'hibernate'                 : '5.2.0.Final',
+    'hibernate-search'          : '5.5.3.Final',
+    'hibernate-validator'       : '5.2.4.Final',
+    'hibernate-ogm'             : '5.0.0.Final',
+
+    'mybatis'                   : '3.4.0',
+
+    'querydsl'                  : '4.1.2',
+
+    // Ebean
+    'avaje-ebeanorm'            : '8.2.2',
+
+    'jersey'                    : '2.23.1',
+
+    'quartz'                    : '2.2.3',
+
+    'shiro'                     : '1.2.5',
+
+    'spymemcached'              : '2.12.0',
+
+    'ehcache-core'              : '2.6.11',
+
+    'jedis'                     : '2.7.3',
+
+    'grizzly'                   : '2.3.23',
+    'netty'                     : '5.0.0.Alpha2',
+
+    'cglib'                     : '3.2.0',
+    'javassist'                 : '3.20.0-GA',
+
+    'jasperreports'             : '6.2.0',
+
+    'itext'                     : '4.2.1',
+    'poi'                       : '3.13',
+
+    'zxing'                     : '3.2.1',
+
+    'velocity'                  : '1.7',
+    'freemarker'                : '2.3.23',
+    'thymeleaf'                 : '3.0.0.RELEASE',
+
+    'sitemesh'                  : '3.0.1',
+
+    'jackson'                   : '2.7.5',
+    'logback'                   : '1.1.7',
+    'slf4j'                     : '1.7.21',
+    'httpclient'                : '4.5.1',
+    'guava'                     : '19.0',
+
+    // 4.0.0-b01 3.1.0
+    'javax.servlet-api'         : '3.1.0',
+    'javax.servlet.jsp-api'     : '2.3.2-b02',
+    'javax.servlet.jsp.jstl-api': '1.2.1',
+
+    'aspectjweaver'             : '1.8.6',
+
+    'pjl-comp-filter'           : '1.7',
+
+    'javasimon'                 : '3.5.1',
+
+    'junit'                     : '4.12',
+    'hamcrest-core'             : '1.3'
+]
+
+// 各种可能会用到的jar包
+ext.libraries += [
+
+    // spring 4.0.5.RELEASE $versions.spring
+    "spring-core"                     : "org.springframework:spring-core:${versions.'spring'}",
+    "spring-beans"                    : "org.springframework:spring-beans:${versions.'spring'}",
+    "spring-tx"                       : "org.springframework:spring-tx:${versions.'spring'}",
+    "spring-context"                  : "org.springframework:spring-context:${versions.'spring'}",
+    "spring-context-support"          : "org.springframework:spring-context-support:${versions.'spring'}",
+
+    "spring-aop"                      : "org.springframework:spring-aop:${versions.'spring'}",
+    "spring-aspects"                  : "org.springframework:spring-aspects:${versions.'spring'}",
+    "spring-jdbc"                     : "org.springframework:spring-jdbc:${versions.'spring'}",
+    "spring-orm"                      : "org.springframework:spring-orm:${versions.'spring'}",
+    "spring-oxm"                      : "org.springframework:spring-oxm:${versions.'spring'}",
+
+    "spring-web"                      : "org.springframework:spring-web:${versions.'spring'}",
+    "spring-webmvc"                   : "org.springframework:spring-webmvc:${versions.'spring'}",
+
+    "spring-jms"                      : "org.springframework:spring-jms:${versions.'spring'}",
+
+    "spring-jdbc"                     : "org.springframework:spring-jdbc:${versions.'spring'}",
+
+    "spring-test"                     : "org.springframework:spring-test:${versions.'spring'}",
+
+    // spring-ws 2.2.0.RELEASE
+    "spring-ws"                       : "org.springframework.ws:spring-ws:${versions.'spring-ws'}",
+
+    // Spring data
+    // spring-data 1.6.0.RELEASE
+    "spring-data-jpa"                 : "org.springframework.data:spring-data-jpa:${versions.'spring-data-jpa'}",
+    // 1.7.0.BUILD-SNAPSHOT
+    "spring-data-redis"               : "org.springframework.data:spring-data-redis:1.7.2.RELEASE",
+    // 1.9.0.BUILD-SNAPSHOT
+    "spring-data-mongodb"             : "org.springframework.data:spring-data-mongodb:1.9.2.RELEASE",
+    // 2.5.0.BUILD-SNAPSHOT
+    "spring-data-rest-webmvc"         : "org.springframework.data:spring-data-rest-webmvc:2.5.2.RELEASE",
+
+    // Spring hateoas
+    "spring-hateoas"                  : "org.springframework.hateoas:spring-hateoas:${versions.'spring-hateoas'}",
+
+    // spring-integration 4.0.2.RELEASE
+    "spring-integration-core"         : "org.springframework.integration:spring-integration-core:${versions.'spring-integration'}",
+    "spring-integration-scripting"    : "org.springframework.integration:spring-integration-scripting:${versions.'spring-integration'}",
+    "spring-integration-jms"          : "org.springframework.integration:spring-integration-jms:${versions.'spring-integration'}",
+    "spring-integration-stream"       : "org.springframework.integration:spring-integration-stream:${versions.'spring-integration'}",
+    "spring-integration-file"         : "org.springframework.integration:spring-integration-file:${versions.'spring-integration'}",
+    "spring-integration-jpa"          : "org.springframework.integration:spring-integration-jpa:${versions.'spring-integration'}",
+    "spring-integration-ftp"          : "org.springframework.integration:spring-integration-ftp:${versions.'spring-integration'}",
+    "spring-integration-jdbc"         : "org.springframework.integration:spring-integration-jdbc:${versions.'spring-integration'}",
+    "spring-integration-ws"           : "org.springframework.integration:spring-integration-ws:${versions.'spring-integration'}",
+    "spring-integration-mail"         : "org.springframework.integration:spring-integration-mail:${versions.'spring-integration'}",
+    "spring-integration-xml"          : "org.springframework.integration:spring-integration-xml:${versions.'spring-integration'}",
+
+    "spring-session"                  : "org.springframework.session:spring-session:1.0.2.RELEASE",
+
+    "spring-boot-starter-web"         : "org.springframework.boot:spring-boot-starter-web:1.2.7.RELEASE",
+
+    "jaxws-spring"                    : "org.jvnet.jax-ws-commons.spring:jaxws-spring:1.9",
+
+    // Spring Security
+    "spring-security"                 : "org.springframework.security:spring-security:${versions.'spring-security'}",
+    "spring-security-core"            : "org.springframework.security:spring-security-core:${versions.'spring-security'}",
+    "spring-security-cas"             : "org.springframework.security:spring-security-cas:${versions.'spring-security'}",
+    "spring-security-data"            : "org.springframework.security:spring-security-data:${versions.'spring-security'}",
+    "spring-security-test"            : "org.springframework.security:spring-security-test:${versions.'spring-security'}",
+    "spring-security-remoting"        : "org.springframework.security:spring-security-remoting:${versions.'spring-security'}",
+    "spring-security-crypto"          : "org.springframework.security:spring-security-crypto:${versions.'spring-security'}",
+    "spring-security-messaging"       : "org.springframework.security:spring-security-messaging:${versions.'spring-security'}",
+    "spring-security-ldap"            : "org.springframework.security:spring-security-ldap:${versions.'spring-security'}",
+    "spring-security-acl"             : "org.springframework.security:spring-security-acl:${versions.'spring-security'}",
+    "spring-security-aspects"         : "org.springframework.security:spring-security-aspects:${versions.'spring-security'}",
+    "spring-security-openid"          : "org.springframework.security:spring-security-openid:${versions.'spring-security'}",
+    "spring-security-web"             : "org.springframework.security:spring-security-web:${versions.'spring-security'}",
+    "spring-security-config"          : "org.springframework.security:spring-security-config:${versions.'spring-security'}",
+    "spring-security-taglibs"         : "org.springframework.security:spring-security-taglibs:${versions.'spring-security'}",
+    "spring-security-oauth2"          : "org.springframework.security.oauth:spring-security-oauth2:2.0.8",
+
+    // hibernate
+    "hibernate-core"                  : "org.hibernate:hibernate-core:${versions.'hibernate'}",
+    "hibernate-entitymanager"         : "org.hibernate:hibernate-entitymanager:5.1.0.Final",
+    "hibernate-ehcache"               : "org.hibernate:hibernate-ehcache:${versions.'hibernate'}",
+    "hibernate-c3p0"                  : "org.hibernate:hibernate-c3p0:${versions.'hibernate'}",
+
+    // hibernate-search
+    "hibernate-search"                : "org.hibernate:hibernate-search:${versions.'hibernate-search'}",
+    // "hibernate-search-resources": "org.hibernate:hibernate-search-resources:${versions.'hibernate-search'}",
+
+    // hibernate-validator
+    "hibernate-validator"             : "org.hibernate:hibernate-validator:${versions.'hibernate-validator'}",
+
+    "hibernate-ogm-core"              : "org.hibernate.ogm:hibernate-ogm-core:${versions.'hibernate-ogm'}",
+    "hibernate-ogm-ehcache"           : "org.hibernate.ogm:hibernate-ogm-ehcache:${versions.'hibernate-ogm'}",
+    "hibernate-ogm-mongodb"           : "org.hibernate.ogm:hibernate-ogm-mongodb:${versions.'hibernate-ogm'}",
+    "hibernate-ogm-couchdb"           : "org.hibernate.ogm:hibernate-ogm-couchdb:${versions.'hibernate-ogm'}",
+    "hibernate-ogm-infinispan"        : "org.hibernate.ogm:hibernate-ogm-infinispan:${versions.'hibernate-ogm'}",
+    // 图形数据库Neo4j 5.0.0.Alpha1
+    "hibernate-ogm-neo4j"             : "org.hibernate.ogm:hibernate-ogm-neo4j:4.1.2.Final",
+
+    // 1.0.0.Final
+    "hibernate-jpa-2.1-api"           : "org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.0.Draft-16",
+
+    "mybatis"                         : "org.mybatis:mybatis:${versions.'mybatis'}",
+    "mybatis-spring"                  : "org.mybatis:mybatis-spring:1.2.3",
+
+    // Ebean
+    "avaje-ebeanorm"                  : "org.avaje.ebeanorm:avaje-ebeanorm:${versions.'avaje-ebeanorm'}",
+
+    "querydsl-core"                   : "com.querydsl:querydsl-jpa:${versions.'querydsl'}",
+    "querydsl-jpa"                    : "com.querydsl:querydsl-jpa:${versions.'querydsl'}",
+    "querydsl-jpa-codegen"            : "com.querydsl:querydsl-jpa-codegen:${versions.'querydsl'}",
+    "querydsl-apt"                    : "com.querydsl:querydsl-apt:${versions.'querydsl'}",
+    "querydsl-lucene5"                : "com.querydsl:querydsl-lucene5:${versions.'querydsl'}",
+    "querydsl-mongodb"                : "com.querydsl:querydsl-mongodb:${versions.'querydsl'}",
+    "querydsl-hibernate-search"       : "com.querydsl:querydsl-hibernate-search:${versions.'querydsl'}",
+
+    "quartz"                          : "org.quartz-scheduler:quartz:${versions.'quartz'}",
+    "quartz-jobs"                     : "org.quartz-scheduler:quartz-jobs:${versions.'quartz'}",
+
+    // "atomikos-ate": "com.atomikos:ate:4.0.0M4",
+    "atomikos-transactions"           : "com.atomikos:transactions:4.0.0M4",
+    "atomikos-transactions-jta"       : "com.atomikos:transactions-jta:4.0.0M4",
+    "atomikos-transactions-jdbc"      : "com.atomikos:transactions-jdbc:4.0.0M4",
+    "atomikos-transactions-hibernate4": "com.atomikos:transactions-hibernate4:4.0.0M4",
+    "atomikos-transactions-api"       : "com.atomikos:transactions-api:4.0.0M4",
+
+    // apache shiro
+    "shiro-all"                       : "org.apache.shiro:shiro-all:${versions.'shiro'}",
+    "shiro-core"                      : "org.apache.shiro:shiro-core:${versions.'shiro'}",
+    "shiro-web"                       : "org.apache.shiro:shiro-web:${versions.'shiro'}",
+    "shiro-ehcache"                   : "org.apache.shiro:shiro-ehcache:${versions.'shiro'}",
+    "shiro-spring"                    : "org.apache.shiro:shiro-spring:${versions.'shiro'}",
+    "shiro-cas"                       : "org.apache.shiro:shiro-cas:${versions.'shiro'}",
+
+    "javax.ws.rs-api"                 : "javax.ws.rs:javax.ws.rs-api:2.0.1",
+
+    // Jersey
+    "jax-rs-ri"                       : "org.glassfish.jersey:jax-rs-ri:2.0-rc1",
+    "jersey-media-kryo"               : "org.glassfish.jersey.media:jersey-media-kryo:${versions.'jersey'}",
+    "jersey-media-html-json"          : "org.glassfish.jersey.media:html-json:${versions.'jersey'}",
+    "jersey-media-json-jackson1"      : "org.glassfish.jersey.media:jersey-media-json-jackson1:${versions.'jersey'}",
+    "jersey-media-json-processing"    : "org.glassfish.jersey.media:jersey-media-json-processing:${versions.'jersey'}",
+    "jersey-media-json-jettison"      : "org.glassfish.jersey.media:jersey-media-json-jettison:${versions.'jersey'}",
+    "jersey-media-sse"                : "org.glassfish.jersey.media:jersey-media-sse:${versions.'jersey'}",
+    "jersey-media-multipart"          : "org.glassfish.jersey.media:jersey-media-multipart:${versions.'jersey'}",
+    "jersey-media-json-jackson"       : "org.glassfish.jersey.media:jersey-media-json-jackson:${versions.'jersey'}",
+    "jersey-media-moxy"               : "org.glassfish.jersey.media:jersey-media-moxy:${versions.'jersey'}",
+    "jersey-media-jaxb"               : "org.glassfish.jersey.media:jersey-media-jaxb:${versions.'jersey'}",
+    "jersey-media-json"               : "org.glassfish.jersey.media:jersey-media-json:2.0-m05-1",
+
+    "hk2"                             : "org.glassfish.hk2:hk2:2.5.0-b06",
+
+    // Servlet
+    "javax.servlet-api"               : "javax.servlet:javax.servlet-api:${versions.'javax.servlet-api'}",
+    "javax.servlet.jsp-api"           : "javax.servlet.jsp:javax.servlet.jsp-api:${versions.'javax.servlet.jsp-api'}",
+    "javax.servlet.jsp.jstl-api"      : "javax.servlet.jsp.jstl:javax.servlet.jsp.jstl-api:${versions.'javax.servlet.jsp.jstl-api'}",
+
+    // 页面传输压缩
+    "pjl-comp-filter"                 : "net.sourceforge.pjl-comp-filter:pjl-comp-filter:${versions.'pjl-comp-filter'}",
+
+    // NoSQL
+    "jedis"                           : "redis.clients:jedis:${versions.'jedis'}",
+    // memcached
+    "spymemcached"                    : "net.spy:spymemcached:${versions.'spymemcached'}",
+
+    // ehcache
+    "ehcache-core"                    : "net.sf.ehcache:ehcache-core:${versions.'ehcache-core'}",
+    "ehcache-web"                     : "net.sf.ehcache:ehcache-web:2.0.4",
+
+    "hystrix-core"                    : "com.netflix.hystrix:hystrix-core:1.4.20",
+
+    // 忽略common log，使用slf4j代替
+    "logback-classic"                 : "ch.qos.logback:logback-classic:${versions.'logback'}",
+    "logback-core"                    : "ch.qos.logback:logback-core:${versions.'logback'}",
+    // 代码直接调用commons-logging会被桥接到slf4j
+    "jcl-over-slf4j"                  : "org.slf4j:jcl-over-slf4j:${versions.'slf4j'}",
+    // 代码直接调用log4j会被桥接到slf4j
+    "log4j-over-slf4j"                : "org.slf4j:log4j-over-slf4j:${versions.'slf4j'}",
+    "jul-to-slf4j"                    : "org.slf4j:jul-to-slf4j:${versions.'slf4j'}",
+    // 代码直接调用java.utils.logging会被桥接到slf4j
+    "slf4j-api"                       : "org.slf4j:slf4j-api:${versions.'slf4j'}",
+    "logback-ext-spring"              : "org.logback-extensions:logback-ext-spring:0.1.4",
+
+    // log4jdbc
+    "log4jdbc"                        : "com.googlecode.log4jdbc:log4jdbc:1.2",
+
+    // jasperreports 5.6.0
+    "jasperreports"                   : "net.sf.jasperreports:jasperreports:${versions.'jasperreports'}",
+    "olap4j"                          : "org.olap4j:olap4j:1.1.0",
+
+    // barbecue 条形码
+    "barbecue"                        : "net.sourceforge.barbecue:barbecue:1.5-beta1",
+
+    // zxing 二维码
+    "zxing-core"                      : "com.google.zxing:core:${versions.'zxing'}",
+    "zxing-javase"                    : "com.google.zxing:javase:${versions.'zxing'}",
+
+    // PDF itext 4.2.1
+    // "itext": "com.lowagie:itext:4.2.2",
+    "itext"                           : "com.lowagie:itext:${versions.'itext'}",
+    "itext-rtf"                       : "com.lowagie:itext-rtf:2.1.7",
+    // Excel apache poi
+    "poi"                             : "org.apache.poi:poi:${versions.'poi'}",
+    "poi-ooxml"                       : "org.apache.poi:poi-ooxml:${versions.'poi'}",
+    "poi-ooxml-schemas"               : "org.apache.poi:poi-ooxml-schemas:${versions.'poi'}",
+
+    // "png-encoder": "com.keypoint:png-encoder:1.5",
+
+    // Jackson
+    // "jackson-core-asl": "org.codehaus.jackson:jackson-core-asl:1.9.13",
+    // "jackson-mapper-asl": "org.codehaus.jackson:jackson-mapper-asl:1.9.13",
+    // "jackson-jaxrs": "org.codehaus.jackson:jackson-jaxrs:1.9.13",
+
+    "jackson-core"                    : "com.fasterxml.jackson.core:jackson-core:${versions.'jackson'}",
+    "jackson-databind"                : "com.fasterxml.jackson.core:jackson-databind:${versions.'jackson'}",
+    "jackson-annotations"             : "com.fasterxml.jackson.core:jackson-annotations:${versions.'jackson'}",
+
+    "jackson-datatype-hibernate5"     : "com.fasterxml.jackson.datatype:jackson-datatype-hibernate5:${versions.'jackson'}",
+    "jackson-datatype-jdk8"           : "com.fasterxml.jackson.datatype:jackson-datatype-jdk8:${versions.'jackson'}",
+    "jackson-datatype-jdk7"           : "com.fasterxml.jackson.datatype:jackson-datatype-jdk7:${versions.'jackson'}",
+    "jackson-datatype-jsr353"         : "com.fasterxml.jackson.datatype:jackson-datatype-jsr353:${versions.'jackson'}",
+    "jackson-datatype-jsr310"         : "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:${versions.'jackson'}",
+    "jackson-datatype-json-org"       : "com.fasterxml.jackson.datatype:jackson-datatype-json-org:${versions.'jackson'}",
+    "jackson-datatype-joda"           : "com.fasterxml.jackson.datatype:jackson-datatype-joda:${versions.'jackson'}",
+    "jackson-datatype-hppc"           : "com.fasterxml.jackson.datatype:jackson-datatype-hppc:${versions.'jackson'}",
+    "jackson-datatype-guava"          : "com.fasterxml.jackson.datatype:jackson-datatype-guava:${versions.'jackson'}",
+
+    "jackson-dataformat-yaml"         : "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:${versions.'jackson'}",
+    "jackson-dataformat-xml"          : "com.fasterxml.jackson.dataformat:jackson-dataformat-xml:${versions.'jackson'}",
+    "jackson-dataformat-smile"        : "com.fasterxml.jackson.dataformat:jackson-dataformat-smile:${versions.'jackson'}",
+    "jackson-dataformat-protobuf"     : "com.fasterxml.jackson.dataformat:jackson-dataformat-protobuf:${versions.'jackson'}",
+    "jackson-dataformat-csv"          : "com.fasterxml.jackson.dataformat:jackson-dataformat-csv:${versions.'jackson'}",
+    "jackson-dataformat-cbor"         : "com.fasterxml.jackson.dataformat:jackson-dataformat-cbor:${versions.'jackson'}",
+    "jackson-dataformat-avro"         : "com.fasterxml.jackson.dataformat:jackson-dataformat-avro:${versions.'jackson'}",
+
+    "jackson-module-kotlin"           : "com.fasterxml.jackson.module:jackson-module-kotlin:2.6.3-3",
+    "jackson-module-scala_2.11"       : "com.fasterxml.jackson.module:jackson-module-scala_2.11:${versions.'jackson'}",
+    "jackson-module-osgi"             : "com.fasterxml.jackson.module:jackson-module-osgi:${versions.'jackson'}",
+    "jackson-module-mrbean"           : "com.fasterxml.jackson.module:jackson-module-mrbean:${versions.'jackson'}",
+    "jackson-module-jsonSchema"       : "com.fasterxml.jackson.module:jackson-module-jsonSchema:${versions.'jackson'}",
+    "jackson-module-jaxb-annotations" : "com.fasterxml.jackson.module:jackson-module-jaxb-annotations:${versions.'jackson'}",
+    "jackson-module-guice"            : "com.fasterxml.jackson.module:jackson-module-guice:${versions.'jackson'}",
+    "jackson-module-afterburner"      : "com.fasterxml.jackson.module:jackson-module-afterburner:${versions.'jackson'}",
+    "jackson-module-paranamer"        : "com.fasterxml.jackson.module:jackson-module-paranamer:${versions.'jackson'}",
+    "jackson-module-parameter-names"  : "com.fasterxml.jackson.module:jackson-module-parameter-names:${versions.'jackson'}",
+
+    "jackson-jaxrs-base"              : "com.fasterxml.jackson.jaxrs:jackson-jaxrs-base:${versions.'jackson'}",
+    "jackson-jaxrs-providers"         : "com.fasterxml.jackson.jaxrs:jackson-jaxrs-providers:${versions.'jackson'}",
+    "jackson-jaxrs-yaml-provider"     : "com.fasterxml.jackson.jaxrs:jackson-jaxrs-yaml-provider:${versions.'jackson'}",
+    "jackson-jaxrs-xml-provider"      : "com.fasterxml.jackson.jaxrs:jackson-jaxrs-xml-provider:${versions.'jackson'}",
+    "jackson-jaxrs-smile-provider"    : "com.fasterxml.jackson.jaxrs:jackson-jaxrs-smile-provider:${versions.'jackson'}",
+    "jackson-jaxrs-json-provider"     : "com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:${versions.'jackson'}",
+    "jackson-jaxrs-cbor-provider"     : "com.fasterxml.jackson.jaxrs:jackson-jaxrs-cbor-provider:${versions.'jackson'}",
+
+    "java-uuid-generator"             : "com.fasterxml.uuid:java-uuid-generator:3.1.4",
+
+    "json-lib"                        : "net.sf.json-lib:json-lib:2.4:jdk15",
+
+    "libsvm"                          : 'com.facebook.thirdparty:libsvm:3.18.1',
+    "dom4j"                           : 'org.dom4j:dom4j:2.0.0-RC1',
+    "mozilla-rhino"                   : 'org.mozilla:rhino:1.7.7',
+
+    // Apache
+    // "commons-dbcp": "commons-dbcp:commons-dbcp:1.4",
+    // "commons-lang": "commons-lang:commons-lang:2.6",
+    // "commons-pool": "commons-pool:commons-pool:1.6",
+    // "commons-logging": 'commons-logging:commons-logging:1.2',
+    "commons-codec"                   : "commons-codec:commons-codec:1.10",
+    "commons-net"                     : "commons-net:commons-net:3.3",
+    "commons-fileupload"              : "commons-fileupload:commons-fileupload:1.3.1",
+    "commons-beanutils"               : "commons-beanutils:commons-beanutils:1.9.2",
+    "commons-beanutils-core"          : "commons-beanutils:commons-beanutils-core:1.8.3",
+    "commons-configuration"           : "commons-configuration:commons-configuration:1.10",
+    "commons-lang3"                   : "org.apache.commons:commons-lang3:3.4",
+    "commons-dbcp2"                   : "org.apache.commons:commons-dbcp2:2.1.1",
+    "commons-collections4"            : "org.apache.commons:commons-collections4:4.0",
+    "commons-digester3"               : "org.apache.commons:commons-digester3:3.2",
+    "commons-io"                      : "org.apache.commons:commons-io:1.3.2",
+    "commons-pool2"                   : "org.apache.commons:commons-pool2:2.3",
+    "commons-compress"                : "org.apache.commons:commons-compress:1.10",
+
+    // apache httpclient
+    "httpclient"                      : "org.apache.httpcomponents:httpclient:${versions.'httpclient'}",
+    "httpmime"                        : "org.apache.httpcomponents:httpmime:${versions.'httpclient'}",
+    "httpcomponents-client"           : "org.apache.httpcomponents:httpcomponents-client:${versions.'httpclient'}",
+    "httpclient-osgi"                 : "org.apache.httpcomponents:httpclient-osgi:${versions.'httpclient'}",
+    "httpclient-win"                  : "org.apache.httpcomponents:httpclient-win:${versions.'httpclient'}",
+    "httpclient-cache"                : "org.apache.httpcomponents:httpclient-cache:${versions.'httpclient'}",
+    "fluent-hc"                       : "org.apache.httpcomponents:fluent-hc:${versions.'httpclient'}",
+
+    "aspectjweaver"                   : "org.aspectj:aspectjweaver:${versions.'aspectjweaver'}",
+
+    "velocity"                        : "org.apache.velocity:velocity:${versions.'velocity'}",
+    "freemarker"                      : "org.freemarker:freemarker:${versions.'freemarker'}",
+    // 面向Java的XML/HTML模板引擎
+    "thymeleaf"                       : "org.thymeleaf:thymeleaf:${versions.'thymeleaf'}",
+    "thymeleaf-spring4"               : "org.thymeleaf:thymeleaf-spring4:${versions.'thymeleaf'}",
+    "thymeleaf-testing"               : "org.thymeleaf:thymeleaf-testing:${versions.'thymeleaf'}",
+
+    "sitemesh"                        : "org.sitemesh:sitemesh:${versions.'sitemesh'}",
+
+    "urlrewritefilter"                : "org.tuckey:urlrewritefilter:4.0.4",
+
+    "persistence-api"                 : "javax.persistence:persistence-api:1.0.2",
+
+    // Java字节码生成开源框架 JDK 和CGLIB，Javassist，ASM
+    "cglib"                           : "cglib:cglib:${versions.'cglib'}",
+    "javassist"                       : "org.javassist:javassist:${versions.'javassist'}",
+    "asm"                             : "org.ow2.asm:asm:5.0.4",
+
+    // Ant
+    "ant"                             : "org.apache.ant:ant:1.9.6",
+
+    // XBean简化spring配置文件
+    "xbean-spring"                    : "org.apache.xbean:xbean-spring:4.4",
+
+    // 类BeanUtils DozerBeanMapper mapper=new DozerBeanMapper();book2=(Book)mapper.map(book1,com.denny_blue.dozerdemo.Book.class);
+    "dozer"                           : "net.sf.dozer:dozer:5.5.1",
+
+    // ActiveMQ
+    "activemq-all"                    : "org.apache.activemq:activemq-all:5.12.1",
+
+    // netty
+    "netty-all"                       : "io.netty:netty-all:${versions.'netty'}",
+
+    // grizzly
+    // Core framework
+    "grizzly-core"                    : "org.glassfish.grizzly:grizzly-core:${versions.'grizzly'}",
+    // Connection Pool
+    "grizzly-connection-pool"         : "org.glassfish.grizzly:connection-pool:${versions.'grizzly'}",
+    "grizzly-httpservice-bundle"      : "org.glassfish.grizzly.osgi:grizzly-httpservice-bundle:${versions.'grizzly'}",
+    "grizzly-httpservice"             : "org.glassfish.grizzly.osgi:grizzly-httpservice:${versions.'grizzly'}",
+    // JAX-WS
+    "grizzly-http-server-jaxws"       : "org.glassfish.grizzly:grizzly-http-server-jaxws:${versions.'grizzly'}",
+    "grizzly-http-all"                : "org.glassfish.grizzly:grizzly-http-all:${versions.'grizzly'}",
+    "grizzly-websockets-server"       : "org.glassfish.grizzly:grizzly-websockets-server:${versions.'grizzly'}",
+    "grizzly-comet-server"            : "org.glassfish.grizzly:grizzly-comet-server:${versions.'grizzly'}",
+    "grizzly-http-servlet-server"     : "org.glassfish.grizzly:grizzly-http-servlet-server:${versions.'grizzly'}",
+    "grizzly-http-servlet-extras"     : "org.glassfish.grizzly:grizzly-http-servlet-extras:${versions.'grizzly'}",
+    "grizzly-http-server-core"        : "org.glassfish.grizzly:grizzly-http-server-core:${versions.'grizzly'}",
+    "grizzly-http-server-multipart"   : "org.glassfish.grizzly:grizzly-http-server-multipart:${versions.'grizzly'}",
+    // Monitoring
+    "grizzly-http-server-monitoring"  : "org.glassfish.grizzly:grizzly-http-server-monitoring:${versions.'grizzly'}",
+    "grizzly-http-monitoring"         : "org.glassfish.grizzly:grizzly-http-monitoring:${versions.'grizzly'}",
+    "grizzly-framework-monitoring"    : "org.glassfish.grizzly:grizzly-framework-monitoring:${versions.'grizzly'}",
+    // SPDY
+    "grizzly-spdy"                    : "org.glassfish.grizzly:grizzly-spdy:${versions.'grizzly'}",
+    // Ajp
+    "grizzly-http-ajp"                : "org.glassfish.grizzly:grizzly-http-ajp:${versions.'grizzly'}",
+    // Port unification
+    "grizzly-portunif"                : "org.glassfish.grizzly:grizzly-portunif:${versions.'grizzly'}",
+    // WebSockets
+    "grizzly-websockets"              : "org.glassfish.grizzly:grizzly-websockets:${versions.'grizzly'}",
+    // Comet
+    "grizzly-comet"                   : "org.glassfish.grizzly:grizzly-comet:${versions.'grizzly'}",
+    // HTTP Server framework
+    "grizzly-http-servlet"            : "org.glassfish.grizzly:grizzly-http-servlet:${versions.'grizzly'}",
+    "grizzly-http2"                   : "org.glassfish.grizzly:grizzly-http2:${versions.'grizzly'}",
+    "grizzly-http-server"             : "org.glassfish.grizzly:grizzly-http-server:${versions.'grizzly'}",
+    // HTTP framework
+    "grizzly-http"                    : "org.glassfish.grizzly:grizzly-http:${versions.'grizzly'}",
+    "grizzly-framework"               : "org.glassfish.grizzly:grizzly-framework:${versions.'grizzly'}",
+    "grizzly-tls-sni"                 : "org.glassfish.grizzly:tls-sni:${versions.'grizzly'}",
+    "grizzly-config"                  : "org.glassfish.grizzly:grizzly-config:2.3.2",
+    "grizzly-thrift"                  : "org.glassfish.grizzly:grizzly-thrift:2.2.1",
+    "grizzly-http-client"             : "org.glassfish.grizzly:grizzly-http-client:1.9",
+    "grizzly-npn-bootstrap"           : "org.glassfish.grizzly:grizzly-npn-bootstrap:1.2",
+    "grizzly-npn-api"                 : "org.glassfish.grizzly:grizzly-npn-api:1.2",
+    "grizzly-npn-osgi"                : "org.glassfish.grizzly:grizzly-npn-osgi:1.2",
+    "grizzly-memcached"               : "org.glassfish.grizzly:grizzly-memcached:1.3.11",
+    "grizzly-rcm"                     : "org.glassfish.grizzly:grizzly-rcm:2.3.4",
+    "grizzly-utils"                   : "org.glassfish.grizzly:grizzly-utils:2.0.0-RC3",
+    "grizzly-servlet-webserver"       : "org.glassfish.grizzly:grizzly-servlet-webserver:2.0.0-M2",
+    "grizzly-http-webserver"          : "org.glassfish.grizzly:grizzly-http-webserver:2.0.0-M2",
+
+    // Mail
+    "javax.mail-api"                  : "javax.mail:javax.mail-api:1.5.5",
+
+    "activation"                      : "javax.activation:activation:1.1.1",
+
+    "h2"                              : "com.h2database:h2:1.4.189",
+    "mysql-connector-java"            : "mysql:mysql-connector-java:5.1.34",
+
+    "groovy-all"                      : "org.codehaus.groovy:groovy-all:2.4.4",
+
+    // monitor
+    "javasimon-core"                  : "org.javasimon:javasimon-core:${versions.'javasimon'}",
+    "javasimon-spring"                : "org.javasimon:javasimon-spring:${versions.'javasimon'}",
+    "javasimon-jdbc4"                 : "org.javasimon:javasimon-jdbc4:${versions.'javasimon'}",
+    "javasimon-console-embed"         : "org.javasimon:javasimon-console-embed:${versions.'javasimon'}",
+
+    // Other
+    "guava"                           : "com.google.guava:guava:${versions.'guava'}",
+    "htmlparser"                      : "org.htmlparser:htmlparser:2.1",
+    "mvel2"                           : "org.mvel:mvel2:2.2.7.Final",
+    "joda-time"                       : "joda-time:joda-time:2.9.1",
+    "joda-time-jsptags"               : "joda-time:joda-time-jsptags:1.1.1",
+    "xstream"                         : "com.thoughtworks.xstream:xstream:1.4.8",
+    "zip4j"                           : "net.lingala.zip4j:zip4j:1.3.2",
+
+    "im4java"                         : "org.im4java:im4java:1.4.0",
+    "bcprov-jdk15on"                  : "org.bouncycastle:bcprov-jdk15on:1.53",
+    "jsoup"                           : "org.jsoup:jsoup:1.8.3",
+
+    "jna"                             : "net.java.dev.jna:jna:4.2.1",
+    "jna-platform"                    : "net.java.dev.jna:jna-platform:4.2.1",
+
+    // "aliyun-openservices"          : "com.aliyun.openservices:aliyun-openservices:2.0.0-OTS",
+
+    // jolokia Restful JMX
+    "jolokia-core"                    : "org.jolokia:jolokia-core:1.3.2",
+    "rhino"                           : "org.mozilla:rhino:1.7.7",
+
+    // less
+    "less4j"                          : "com.github.sommeri:less4j：1.15.2",
+
+    "junit"                           : "junit:junit:${versions.'junit'}",
+    "hamcrest-core"                   : "org.hamcrest:hamcrest-core:${versions.'hamcrest-core'}"
+]

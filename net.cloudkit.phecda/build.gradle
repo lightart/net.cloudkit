@@ -1,0 +1,173 @@
+apply plugin: 'war'
+apply plugin: 'jetty'
+// apply plugin: 'application'
+
+/*
+plugins {
+    id: 'war'
+}
+*/
+
+// 如果是 JAVA 应用 apply plugin: 'application' 才设置
+//mainClassName = 'hello.HelloWorld'
+//// tag::jar[]
+// MANIFEST.MF 配置信息
+//jar {
+//    version =  '0.1.0'
+//    baseName = 'net.cloudkit.phecda'
+//
+//    manifest {
+//        /*
+//        MANIFEST.MF
+//        Manifest-Version: 1.0
+//        Implementation-Vendor: The Netty Project
+//        Implementation-Title: Netty/All-in-One
+//        Implementation-Version: 5.0.0.Alpha2
+//        Implementation-Vendor-Id: io.netty
+//        Built-By: norman
+//        Build-Jdk: 1.7.0_75
+//        Created-By: Apache Maven 3.2.3
+//        Archiver-Version: Plexus Archiver
+//        */
+//        attributes 'Implementation-Vendor': 'The CloudKit Project', 'Implementation-Title': 'Enterprises/CloudKit', 'Implementation-Version': version, 'Implementation-Vendor-Id': 'net.cloudkit.integration', 'Built-By': 'norman', 'Build-Jdk': '1.7.0_79', 'Created-By': 'Gradle 2.6', 'Archiver-Version': 'Plexus Archiver', 'Main-Class': 'net.cloudkit.integration.Bootstrap'
+//    }
+//
+//    /*
+//    into('libs') {
+//        from configurations.runtime
+//    }
+//    */
+//}
+//// end::jar[]
+
+// MANIFEST.MF 配置信息
+war {
+    manifest {
+        /*
+        MANIFEST.MF
+        Manifest-Version: 1.0
+        Implementation-Vendor: The Netty Project
+        Implementation-Title: Netty/All-in-One
+        Implementation-Version: 5.0.0.Alpha2
+        Implementation-Vendor-Id: io.netty
+        Built-By: norman
+        Build-Jdk: 1.7.0_75
+        Created-By: Apache Maven 3.2.3
+        Archiver-Version: Plexus Archiver
+        Manifest-Version: 1.0
+        Ant-Version: Apache Ant 1.6beta2
+        Created-By: 1.4.2_06-b03 (Sun Microsystems Inc.)
+        Main-Class: net.sourceforge.barbecue.Main
+        Build-Timestamp: 2007-05-06 10:30:18
+        Implementation-Title: Barbecue
+        Implementation-Version: 1.5-beta1
+        */
+        attributes 'Implementation-Vendor': 'The CloudKit Project', 'Implementation-Title': 'CloudKit', 'Implementation-Version': version, 'Implementation-Vendor-Id': 'net.cloudkit.enterprises', 'Built-By': 'norman', 'Build-Jdk': '1.7.0_79', 'Created-By': 'Gradle 2.6', 'Archiver-Version': 'Plexus Archiver'
+    }
+}
+
+// 设置 Project Facets
+//eclipse {
+//    wtp {
+//        facet {
+//            facet name: 'jst.web', type: Facet.FacetType.fixed
+//            facet name: 'wst.jsdt.web', type: Facet.FacetType.fixed
+//            facet name: 'jst.java', type: Facet.FacetType.fixed
+//            facet name: 'jst.web', version: '3.0'
+//            facet name: 'jst.java', version: '1.7'
+//            facet name: 'wst.jsdt.web', version: '1.0'
+//        }
+//    }
+//}
+
+// 设置 WebApp 根目录
+// webAppDirName = 'webapp'
+// 设置 Java 源码所在目录
+// sourceSets.main.java.srcDir 'src'
+
+// tag::dependencies[]
+dependencies {
+
+    // providedCompile 是在 war 插件下定义的
+    providedCompile(
+
+    )
+    compile(
+            // 依赖 cloudkit-commons 项目
+            // project(':cloudkit-commons'),
+
+    )
+    testCompile(
+
+    )
+}
+
+// unit test skipped
+// 禁用 gradle build 执行测试任务
+// gradle build -x test
+test.enabled = false
+// check.dependsOn.remove(test)
+// project(':subProject').tasks.withType(Test){
+//     enabled = false
+// }
+
+task copyJars(type: Copy) {
+    from configurations.runtime
+    // 目标位置
+    into 'src/main/webapp/WEB-INF/lib'
+}
+
+// 排除resources文件
+//processResources {
+//    exclude { "**/*.*" }
+//}
+
+/*
+task copyResource(dependsOn: build, type: Copy) {
+    def $conf = 'build/conf'
+    delete $conf
+    from sourceSets.main.resources.srcDirs
+    // 目标位置
+    into $conf
+}
+
+task copyJars(dependsOn: copyResource, type: Copy) {
+    def $libsDir = 'build/libs'
+    delete $libsDir
+    from configurations.runtime
+    // 目标位置
+    into $libsDir
+}
+*/
+
+//test {
+//    exclude '**/*IntegrationTest*'
+//}
+
+// Integration Test
+/*
+public class HelloIntegrationTest {
+    private static String HELLO_URL = "http://localhost:8080/hello";
+    @Test
+    public void testHello() throws Exception {
+        Client client = Client.create();
+        WebResource webResource = client.resource(HELLO_URL);
+        String response = webResource.get(String.class);
+        assertThat(response, is("Hello, World!"));
+    }
+}
+*/
+
+//task integrationTest(type: Test) {
+//    include '**/*IntegrationTest*'
+//    doFirst {
+//        jettyRun.httpPort = 8080    // Port for test
+//        jettyRun.daemon = true
+//        jettyRun.execute()
+//    }
+//    doLast {
+//        jettyStop.stopPort = 8091   // Port for stop signal
+//        jettyStop.stopKey = 'stopKey'
+//        jettyStop.execute()
+//    }
+//}
