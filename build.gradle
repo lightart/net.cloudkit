@@ -25,6 +25,8 @@ def buildVersion() {
 
 task wrapper(type: Wrapper, description: 'Gradle Wrapper task') {
     gradleVersion = '3.0'
+    // Need to configure the wrapper to point to the custom distribution
+    // distributionUrl = uri("../plugin/build/distributions/gradle-${gradle.gradleVersion}.zip")
     distributionUrl = "https://services.gradle.org/distributions/gradle-$gradleVersion-all.zip"
 }
 
@@ -78,6 +80,25 @@ subprojects {
     targetCompatibility = JavaVersion.VERSION_1_8
 
     /*
+    sourceSets {
+        main {
+            java {
+                srcDirs = ['src/java']
+            }
+            resources {
+                srcDirs = ['src/resources']
+            }
+        }
+        test {
+            java {
+                srcDir 'test/java'
+            }
+            resources {
+                srcDir 'test/resources'
+            }
+        }
+    }
+
     sourceSets {
         main {
             // manifest.srcFile 'MANIFEST.MF'
@@ -317,6 +338,10 @@ subprojects {
         configurations.compile.each { File file -> println file.name }
     }
     */
+
+    jar {
+        manifest.attributes provider: 'gradle'
+    }
 }
 
 // ;;;;;;;;;;;;;;;;;;;;;;;;;;; 配置多种环境 ;;;;;;;;;;;;;;;;;;;;;;;;;;;

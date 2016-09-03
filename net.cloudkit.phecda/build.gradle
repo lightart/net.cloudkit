@@ -88,6 +88,12 @@ war {
 // tag::dependencies[]
 dependencies {
 
+    /*
+    runtime module("commons-lang:commons-lang:2.4") {
+        dependency("commons-io:commons-io:1.2")
+    }
+    */
+
     // providedCompile 是在 war 插件下定义的
     providedCompile(
 
@@ -100,6 +106,23 @@ dependencies {
     testCompile(
 
     )
+
+    /*
+    tasks.withType(Checkstyle) {
+        reports {
+            xml.enabled false
+            html.enabled true
+            html.stylesheet resources.text.fromFile('config/xsl/checkstyle-custom.xsl')
+        }
+    }
+    tasks.withType(FindBugs) {
+        reports {
+            xml.enabled false
+            html.enabled true
+            html.stylesheet resources.text.fromFile('config/xsl/findbugs-custom.xsl')
+        }
+    }
+    */
 }
 
 // unit test skipped
