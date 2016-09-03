@@ -99,8 +99,9 @@ dependencies {
 
     )
     compile(
-            // 依赖 cloudkit-commons 项目
-            // project(':cloudkit-commons'),
+        // 依赖 cloudkit-commons 项目
+        // project(':cloudkit-commons'),
+
 
     )
     testCompile(
