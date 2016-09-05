@@ -30,3 +30,25 @@ encyclopedia
 　　$ echo /dev/null > filename
 　　$ echo > filename
 　　$ cat /dev/null > filename
+
+
+
+Spring boot项目打成war包部署到tomcat
+public class ServletInitializer extends SpringBootServletInitializer {
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(Starter.class);
+    }
+}
+
+OR
+
+@SpringBootApplication
+@ComponentScan
+@Import({DBConfiguration.class, ResourceConfiguration.class,AppConfiguration.class})
+public class Application extends SpringBootServletInitializer {
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(Application.class);
+    }
+}
