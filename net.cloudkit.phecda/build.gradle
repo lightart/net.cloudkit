@@ -11,7 +11,7 @@ buildscript {
 }
 
 apply plugin: 'eclipse-wtp'
-apply plugin: 'spring-boot'
+// apply plugin: 'spring-boot'
 apply plugin: 'war'
 // apply plugin: 'jetty'
 
@@ -113,9 +113,13 @@ dependencies {
     compile(
         // 依赖 cloudkit-commons 项目
         // project(':cloudkit-commons'),
-        libraries.'spring-core',
         libraries.'spring-boot',
-        // libraries.'spring-boot-starter-aop'
+        libraries.'spring-boot-starter-aop',
+        libraries.'spring-boot-starter-web',
+        libraries.'spring-boot-starter-data-jpa',
+        libraries.'spring-boot-starter-jdbc',
+        libraries.'spring-boot-starter-mail',
+        libraries.'spring-boot-starter-cache'
 
     )
 
@@ -138,11 +142,11 @@ dependencies {
 
 }
 
-dependencyManagement {
-    imports {
-        mavenBom "org.springframework.boot.experimental:spring-boot-dependencies-web-reactive:0.1.0.M1"
-    }
-}
+//dependencyManagement {
+//    imports {
+//        mavenBom "org.springframework.boot.experimental:spring-boot-dependencies-web-reactive:0.1.0.M1"
+//    }
+//}
 
 /*
 tasks.withType(Checkstyle) {

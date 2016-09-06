@@ -145,7 +145,7 @@ subprojects {
 
         // mavenLocal()
         mavenCentral()
-        // maven { url 'http://download.java.net/maven/2/' }
+        maven { url 'http://download.java.net/maven/2/' }
         // maven { url 'http://192.168.1.197:7001/nexus/content/groups/public/' }
         // maven { url 'http://192.168.1.197:8081/nexus/content/repositories/central/' }
         // maven { url 'http://maven.aliyun.com/nexus/content/repositories/central/' }
