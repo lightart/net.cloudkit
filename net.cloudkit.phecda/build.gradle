@@ -128,6 +128,10 @@ dependencies {
         dependency("commons-io:commons-io:1.2")
     }
     */
+    runtime(
+        libraries.'h2',
+        libraries.'mysql-connector-java'
+    )
 
     // providedCompile 是在 war 插件下定义的
     providedCompile(
@@ -141,12 +145,6 @@ dependencies {
 //    )
 
 }
-
-//dependencyManagement {
-//    imports {
-//        mavenBom "org.springframework.boot.experimental:spring-boot-dependencies-web-reactive:0.1.0.M1"
-//    }
-//}
 
 /*
 tasks.withType(Checkstyle) {
