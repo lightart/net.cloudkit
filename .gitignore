@@ -10,16 +10,12 @@
 #!.gitignore
 #!.idea
 #!/docs/
-#!/net.cloudkit.ecosystem/
-#!/net.cloudkit.relaxation/
 #!/gradle/
 #!gradlew
 #!gradlew.bat
 #!bulid.gradle
 #!libraries.gradle
 #!settings.gradle
-#!local.properties
-#!cloudkit.iml
 #!README.MD
 #!LICENSE
 #!CHANGELOG.md
