@@ -28,26 +28,26 @@ ext {
 // 一些会重复出现的jar包的版本号
 ext.versions += [
 
-    'spring'                    : '4.3.0.RELEASE',
+    'spring'                    : '4.3.2.RELEASE',
     'spring-data-jpa'           : '1.10.2.RELEASE',
     'spring-ws'                 : '2.3.0.RELEASE',
     'spring-integration'        : '4.3.1.RELEASE',
     'spring-security'           : '4.1.0.RELEASE',
-    'spring-hateoas'            : '0.20.0.RELEASE',
+    'spring-hateoas'            : '0.21.0.RELEASE',
 
-    'hibernate'                 : '5.2.0.Final',
-    'hibernate-search'          : '5.5.3.Final',
+    'hibernate'                 : '5.2.2.Final',
+    'hibernate-search'          : '5.5.4.Final',
     'hibernate-validator'       : '5.2.4.Final',
-    'hibernate-ogm'             : '5.0.0.Final',
+    'hibernate-ogm'             : '5.0.1.Final',
 
-    'mybatis'                   : '3.4.0',
+    'mybatis'                   : '3.4.1',
 
-    'querydsl'                  : '4.1.2',
+    'querydsl'                  : '4.1.4',
 
     // Ebean
     'avaje-ebeanorm'            : '8.2.2',
 
-    'jersey'                    : '2.23.1',
+    'jersey'                    : '2.23.2',
 
     'quartz'                    : '2.2.3',
 
@@ -62,26 +62,26 @@ ext.versions += [
     'grizzly'                   : '2.3.27',
     'netty'                     : '5.0.0.Alpha2',
 
-    'cglib'                     : '3.2.0',
+    'cglib'                     : '3.2.4',
     'javassist'                 : '3.20.0-GA',
 
-    'jasperreports'             : '6.2.0',
+    'jasperreports'             : '6.3.0',
 
-    'itext'                     : '4.2.1',
-    'poi'                       : '3.13',
+    'itext'                     : '4.2.2',
+    'poi'                       : '3.14',
 
     'zxing'                     : '3.2.1',
 
     'velocity'                  : '1.7',
     'freemarker'                : '2.3.23',
-    'thymeleaf'                 : '3.0.0.RELEASE',
+    'thymeleaf'                 : '3.0.1.RELEASE',
 
     'sitemesh'                  : '3.0.1',
 
-    'jackson'                   : '2.7.5',
+    'jackson'                   : '2.8.2',
     'logback'                   : '1.1.7',
     'slf4j'                     : '1.7.21',
-    'httpclient'                : '4.5.1',
+    'httpclient'                : '4.5.2',
     'guava'                     : '19.0',
 
     // 4.0.0-b01 3.1.0
@@ -153,9 +153,50 @@ ext.libraries += [
     "spring-integration-mail"         : "org.springframework.integration:spring-integration-mail:${versions.'spring-integration'}",
     "spring-integration-xml"          : "org.springframework.integration:spring-integration-xml:${versions.'spring-integration'}",
 
-    "spring-session"                  : "org.springframework.session:spring-session:1.0.2.RELEASE",
+    "spring-session"                  : "org.springframework.session:spring-session:1.2.1.RELEASE",
 
-    "spring-boot-starter-web"         : "org.springframework.boot:spring-boot-starter-web:1.2.7.RELEASE",
+    "spring-boot"                     : "org.springframework.boot:spring-boot:1.4.0.RELEASE",
+    "spring-boot-starter-web"         : "org.springframework.boot:spring-boot-starter-web:1.4.0.RELEASE",
+    "spring-boot-starter-aop"         : "org.springframework.boot:spring-boot-starter-aop:1.4.0.RELEASE",
+    "spring-boot-starter-ws"          : "org.springframework.boot:spring-boot-starter-ws:1.4.0.RELEASE",
+    "spring-boot-starter-web-services": "org.springframework.boot:spring-boot-starter-web-services:1.4.0.RELEASE",
+    "spring-boot-starter-redis"       : "org.springframework.boot:spring-boot-starter-redis:1.4.0.RELEASE",
+    "spring-boot-starter-logging"     : "org.springframework.boot:spring-boot-starter-logging:1.4.0.RELEASE",
+    "spring-boot-starter-autoconfigure": "org.springframework.boot:spring-boot-starter-autoconfigure:1.4.0.RELEASE",
+    "spring-boot-starter-thymeleaf"   : "org.springframework.boot:spring-boot-starter-thymeleaf:1.4.0.RELEASE",
+    "spring-boot-starter-freemarker"  : "org.springframework.boot:spring-boot-starter-freemarker:1.4.0.RELEASE",
+    "spring-boot-starter-jdbc"        : "org.springframework.boot:spring-boot-starter-jbdc:1.4.0.RELEASE",
+    "spring-boot-starter-websocket"   : "org.springframework.boot:spring-boot-starter-websocket:1.4.0.RELEASE",
+    "spring-boot-starter-validation"  : "org.springframework.boot:spring-boot-starter-validation:1.4.0.RELEASE",
+    "spring-boot-starter-cli"         : "org.springframework.boot:spring-boot-starter-cli:1.4.0.RELEASE",
+    "spring-boot-starter-jooq"        : "org.springframework.boot:spring-boot-starter-jooq:1.4.0.RELEASE",
+    "spring-boot-starter-tools"       : "org.springframework.boot:spring-boot-starter-tools:1.4.0.RELEASE",
+    "spring-boot-starter-actuator"       : "org.springframework.boot:spring-boot-starter-actuator:1.4.0.RELEASE",
+    "spring-boot-starter-build"       : "org.springframework.boot:spring-boot-starter-build:1.4.0.RELEASE",
+    "spring-boot-starter-test"        : "org.springframework.boot:spring-boot-starter-test:1.4.0.RELEASE",
+    "spring-boot-starter-mail"        : "org.springframework.boot:spring-boot-starter-mail:1.4.0.RELEASE",
+    "spring-boot-starter-jersey"      : "org.springframework.boot:spring-boot-starter-jersey:1.4.0.RELEASE",
+    "spring-boot-starter-cache"       : "org.springframework.boot:spring-boot-starter-cache:1.4.0.RELEASE",
+    "spring-boot-starter-mustache"       : "org.springframework.boot:spring-boot-starter-mustache:1.4.0.RELEASE",
+    "spring-boot-starter-remote-shell": "org.springframework.boot:spring-boot-starter-remote-shell:1.4.0.RELEASE",
+    "spring-boot-starter-data-jpa"    : "org.springframework.boot:spring-boot-starter-data-jpa:1.4.0.RELEASE",
+    "spring-boot-starter-jta-atomikos": "org.springframework.boot:spring-boot-starter-jta-atomikos:1.4.0.RELEASE",
+    "spring-boot-starter-jta-narayana": "org.springframework.boot:spring-boot-starter-jta-narayana:1.4.0.RELEASE",
+    "spring-boot-starter-jta-bitronix": "org.springframework.boot:spring-boot-starter-jta-bitronix:1.4.0.RELEASE",
+    "spring-boot-starter-data-mongodb": "org.springframework.boot:spring-boot-starter-data-mongodb:1.4.0.RELEASE",
+    "spring-boot-starter-data-jest"   : "org.springframework.boot:spring-boot-starter-data-jest:1.4.0.RELEASE",
+    "spring-boot-starter-data-rest"   : "org.springframework.boot:spring-boot-starter-data-rest:1.4.0.RELEASE",
+    "spring-boot-starter-data-redis"  : "org.springframework.boot:spring-boot-starter-data-redis:1.4.0.RELEASE",
+    "spring-boot-starter-data-solr"   : "org.springframework.boot:spring-boot-starter-data-solr:1.4.0.RELEASE",
+    "spring-boot-starter-data-neo4j"  : "org.springframework.boot:spring-boot-starter-data-neo4j:1.4.0.RELEASE",
+    "spring-boot-starter-data-couchbase"  : "org.springframework.boot:spring-boot-starter-data-couchbase:1.4.0.RELEASE",
+    "spring-boot-starter-data-cassandra"  : "org.springframework.boot:spring-boot-starter-data-cassandra:1.4.0.RELEASE",
+    "spring-boot-starter-data-gemfire": "org.springframework.boot:spring-boot-starter-data-gemfire:1.4.0.RELEASE",
+    "spring-boot-starter-data-elasticsearch": "org.springframework.boot:spring-boot-starter-data-elasticsearch:1.4.0.RELEASE",
+    "spring-boot-starter-tomcat"      : "org.springframework.boot:spring-boot-starter-tomcat:1.4.0.RELEASE",
+    "spring-boot-starter-jetty"       : "org.springframework.boot:spring-boot-starter-jetty:1.4.0.RELEASE",
+    "spring-boot-starter-undertow"    : "org.springframework.boot:spring-boot-starter-undertow:1.4.0.RELEASE",
+    "spring-boot-starter-integration" : "org.springframework.boot:spring-boot-starter-integration:1.4.0.RELEASE",
 
     "jaxws-spring"                    : "org.jvnet.jax-ws-commons.spring:jaxws-spring:1.9",
 
@@ -516,6 +557,7 @@ ext.libraries += [
     // less
     "less4j"                          : "com.github.sommeri:less4j：1.15.2",
 
+    // junit5
     "junit"                           : "junit:junit:${versions.'junit'}",
     "hamcrest-core"                   : "org.hamcrest:hamcrest-core:${versions.'hamcrest-core'}"
 ]
