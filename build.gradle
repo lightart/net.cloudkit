@@ -14,6 +14,9 @@
  * limitations under the License.
  */
 
+apply plugin: 'idea'
+apply plugin: 'eclipse'
+
 // 包含gradle文件,引入jar包定义,定义的jar包可以直接在子项目中使用
 apply from: 'libraries.gradle'
 
@@ -141,16 +144,17 @@ subprojects {
         // mavenLocal()别名，表示依赖是从本地的Maven仓库中获取。
 
         // mavenLocal()
-        // mavenCentral()
+        mavenCentral()
         // maven { url 'http://download.java.net/maven/2/' }
-        // maven { url 'http://120.25.65.250:7001/nexus/content/groups/public/' }
-        maven { url 'http://maven.aliyun.com/nexus/content/repositories/central/' }
+        // maven { url 'http://192.168.1.197:7001/nexus/content/groups/public/' }
+        // maven { url 'http://192.168.1.197:8081/nexus/content/repositories/central/' }
+        // maven { url 'http://maven.aliyun.com/nexus/content/repositories/central/' }
         // maven { url 'http://maven.oschina.net/content/groups/public/' }
         // jcenter { url "http://jcenter.bintray.com/" }
 
         // 配置Spring Maven仓库
+        maven { url 'http://repo.spring.io/milestone/' }
         // maven { url 'http://repo.spring.io/release/' }
-        // maven { url 'http://repo.spring.io/milestone/' }
         // maven { url 'http://repo.spring.io/snapshot/' }
 
         // 带认证的库
@@ -223,7 +227,7 @@ subprojects {
             libraries.'logback-ext-spring',
 
             // Guava工程包含了若干被Google的 Java项目广泛依赖 的核心库，例如：集合 [collections] 、缓存 [caching] 、原生类型支持 [primitives support] 、并发库 [concurrency libraries] 、通用注解 [common annotations] 、字符串处理 [string processing] 、I/O 等等。
-            libraries.'guava'
+            // libraries.'guava'
 
             // 'org.scala-lang:scala-library:2.11.8'
         )
@@ -240,7 +244,8 @@ subprojects {
         testCompile(
             libraries.'junit',
             libraries.'spring-test'
-            // "org.scala-lang:scala-library:2.9.2"
+            // 'org.scala-lang:scala-library:2.9.2'
+            // 'org.codehaus.groovy:groovy-all:2.3.11'
         )
     }
     // end::dependencies[]

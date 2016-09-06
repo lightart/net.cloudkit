@@ -1,5 +1,20 @@
+buildscript {
+    ext {
+        springBootVersion = '1.4.0.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'eclipse-wtp'
+apply plugin: 'spring-boot'
 apply plugin: 'war'
-apply plugin: 'jetty'
+// apply plugin: 'jetty'
+
 // apply plugin: 'application'
 
 /*
@@ -42,6 +57,9 @@ plugins {
 
 // MANIFEST.MF 配置信息
 war {
+    baseName = 'net.cloudkit.phecda'
+    // version = '0.0.1-SNAPSHOT'
+
     manifest {
         /*
         MANIFEST.MF
@@ -85,8 +103,21 @@ war {
 // 设置 Java 源码所在目录
 // sourceSets.main.java.srcDir 'src'
 
+configurations {
+    providedRuntime
+}
+
 // tag::dependencies[]
 dependencies {
+
+    compile(
+        // 依赖 cloudkit-commons 项目
+        // project(':cloudkit-commons'),
+        libraries.'spring-core',
+        libraries.'spring-boot',
+        // libraries.'spring-boot-starter-aop'
+
+    )
 
     /*
     runtime module("commons-lang:commons-lang:2.4") {
@@ -96,35 +127,39 @@ dependencies {
 
     // providedCompile 是在 war 插件下定义的
     providedCompile(
-
-    )
-    compile(
-        // 依赖 cloudkit-commons 项目
-        // project(':cloudkit-commons'),
-
-
-    )
-    testCompile(
-
+        libraries.'javax.servlet-api',
+        libraries.'javax.servlet.jsp-api',
+        libraries.'javax.servlet.jsp.jstl-api',
     )
 
-    /*
-    tasks.withType(Checkstyle) {
-        reports {
-            xml.enabled false
-            html.enabled true
-            html.stylesheet resources.text.fromFile('config/xsl/checkstyle-custom.xsl')
-        }
-    }
-    tasks.withType(FindBugs) {
-        reports {
-            xml.enabled false
-            html.enabled true
-            html.stylesheet resources.text.fromFile('config/xsl/findbugs-custom.xsl')
-        }
-    }
-    */
+//    testCompile(
+//
+//    )
+
 }
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.boot.experimental:spring-boot-dependencies-web-reactive:0.1.0.M1"
+    }
+}
+
+/*
+tasks.withType(Checkstyle) {
+    reports {
+        xml.enabled false
+        html.enabled true
+        html.stylesheet resources.text.fromFile('config/xsl/checkstyle-custom.xsl')
+    }
+}
+tasks.withType(FindBugs) {
+    reports {
+        xml.enabled false
+        html.enabled true
+        html.stylesheet resources.text.fromFile('config/xsl/findbugs-custom.xsl')
+    }
+}
+*/
 
 // unit test skipped
 // 禁用 gradle build 执行测试任务
