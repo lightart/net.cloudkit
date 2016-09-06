@@ -211,21 +211,21 @@ subprojects {
         // 通用依赖
         compile(
 
-                // logback
-                libraries.'logback-core',
-                libraries.'logback-classic',
-                // 添加SLF4J-JCL依赖，将对JCL的日志API调用转换为对SLF4J接口的调用
-                libraries.'jcl-over-slf4j',
-                libraries.'log4j-over-slf4j',
-                libraries.'jul-to-slf4j',
-                // 添加SLF4J接口依赖
-                libraries.'slf4j-api',
-                libraries.'logback-ext-spring',
+            // logback
+            libraries.'logback-core',
+            libraries.'logback-classic',
+            // 添加SLF4J-JCL依赖，将对JCL的日志API调用转换为对SLF4J接口的调用
+            libraries.'jcl-over-slf4j',
+            libraries.'log4j-over-slf4j',
+            libraries.'jul-to-slf4j',
+            // 添加SLF4J接口依赖
+            libraries.'slf4j-api',
+            libraries.'logback-ext-spring',
 
-                // Guava工程包含了若干被Google的 Java项目广泛依赖 的核心库，例如：集合 [collections] 、缓存 [caching] 、原生类型支持 [primitives support] 、并发库 [concurrency libraries] 、通用注解 [common annotations] 、字符串处理 [string processing] 、I/O 等等。
-                libraries.'guava'
+            // Guava工程包含了若干被Google的 Java项目广泛依赖 的核心库，例如：集合 [collections] 、缓存 [caching] 、原生类型支持 [primitives support] 、并发库 [concurrency libraries] 、通用注解 [common annotations] 、字符串处理 [string processing] 、I/O 等等。
+            libraries.'guava'
 
-                // 'org.scala-lang:scala-library:2.11.8'
+            // 'org.scala-lang:scala-library:2.11.8'
         )
 
         // 依赖mave库中不存在的jar,包含父项目的libs和当前项目的libs下的所有jar
@@ -238,9 +238,9 @@ subprojects {
 
         // 测试依赖
         testCompile(
-                libraries.'junit',
-                libraries.'spring-test'
-                // "org.scala-lang:scala-library:2.9.2"
+            libraries.'junit',
+            libraries.'spring-test'
+            // "org.scala-lang:scala-library:2.9.2"
         )
     }
     // end::dependencies[]
