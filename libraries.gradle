@@ -159,6 +159,7 @@ ext.libraries += [
     "spring-session"                        : "org.springframework.session:spring-session:1.2.1.RELEASE",
 
     "spring-boot"                           : "org.springframework.boot:spring-boot:${versions.'spring-boot'}",
+    "spring-boot-starter"                   : "org.springframework.boot:spring-boot-starter:${versions.'spring-boot'}",
     "spring-boot-starter-web"               : "org.springframework.boot:spring-boot-starter-web:${versions.'spring-boot'}",
     "spring-boot-starter-aop"               : "org.springframework.boot:spring-boot-starter-aop:${versions.'spring-boot'}",
     "spring-boot-starter-ws"                : "org.springframework.boot:spring-boot-starter-ws:${versions.'spring-boot'}",

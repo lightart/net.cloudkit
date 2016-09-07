@@ -113,13 +113,15 @@ dependencies {
     compile(
         // 依赖 cloudkit-commons 项目
         // project(':cloudkit-commons'),
-        libraries.'spring-boot',
+        libraries.'spring-boot-starter',
         libraries.'spring-boot-starter-aop',
         libraries.'spring-boot-starter-web',
         libraries.'spring-boot-starter-data-jpa',
         libraries.'spring-boot-starter-jdbc',
         libraries.'spring-boot-starter-mail',
-        libraries.'spring-boot-starter-cache'
+        libraries.'spring-boot-starter-cache',
+        libraries.'spring-boot-starter-validation',
+        libraries.'spring-boot-starter-actuator',
 
     )
 
