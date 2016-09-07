@@ -79,8 +79,8 @@ subprojects {
     }
 
     // JVM 版本号要求
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
+    // sourceCompatibility = JavaVersion.VERSION_1_8
+    // targetCompatibility = JavaVersion.VERSION_1_8
 
     /*
     sourceSets {
@@ -322,7 +322,6 @@ subprojects {
     }
     */
 
-    /*
     task createJavaProject << {
         sourceSets*.java.srcDirs*.each { it.mkdirs() }
         sourceSets*.resources.srcDirs*.each { it.mkdirs() }
@@ -330,11 +329,10 @@ subprojects {
 
     task createWebProject(dependsOn: createJavaProject) << {
         def webAppDir = file("$webAppDirName")
-        def libDir = webAppDir / WEB - INF
+        // def libDir = webAppDir/WEB-INF/libs
         webAppDir.mkdirs()
-        libDir.mkdirs()
+        // libDir.mkdirs()
     }
-    */
 
     // 显示项目下所有"compile jar".
     /*

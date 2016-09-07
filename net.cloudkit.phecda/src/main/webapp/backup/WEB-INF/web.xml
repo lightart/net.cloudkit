@@ -1,6 +1,5 @@
-<!--
 <?xml version="1.0" encoding="UTF-8"?>
-&lt;!&ndash;
+<!--
   ~ Copyright (C) 2016. The CloudKit Open Source Project
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,7 +13,7 @@
   ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
-  &ndash;&gt;
+  -->
 
 <web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -26,7 +25,7 @@
         <param-value>webapp.root</param-value>
     </context-param>
 
-    &lt;!&ndash;
+    <!--
     <servlet>
         &lt;!&ndash; Override init parameter to avoid nasty &ndash;&gt;
         &lt;!&ndash; file locking issue on windows.         &ndash;&gt;
@@ -41,15 +40,15 @@
         <servlet-name>default</servlet-name>
         <url-pattern>/resources/*</url-pattern>
     </servlet-mapping>
-    &ndash;&gt;
+    -->
 
-    &lt;!&ndash;
+    <!--
     Tomcat, Jetty, JBoss, and GlassFish 默认Servlet的名字 - "default"
     Google App Engine 默认Servlet的名字 - "_ah_default"
     Resin 默认Servlet的名字 - "resin-file"
     WebLogic 默认Servlet的名字  - "FileServlet"
     WebSphere  默认Servlet的名字 - "SimpleFileServlet"
-    &ndash;&gt;
+    -->
     <servlet-mapping>
         <servlet-name>default</servlet-name>
         <url-pattern>*.html</url-pattern>
@@ -89,16 +88,17 @@
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
-    &lt;!&ndash; 默认欢迎页 &ndash;&gt;
-    &lt;!&ndash; Servlet2.5以上可直接在此处执行Servlet应用,如<welcome-file>servlet/InitSystemParamServlet</welcome-file> &ndash;&gt;
-    &lt;!&ndash; 这里使用了SpringMVC提供的<mvc:view-controller>标签,实现了首页隐藏的目的,详见applicationContext.xml &ndash;&gt;
+    <!-- 默认欢迎页 -->
+    <!-- Servlet2.5以上可直接在此处执行Servlet应用,如<welcome-file>servlet/InitSystemParamServlet</welcome-file> -->
+    <!-- 这里使用了SpringMVC提供的<mvc:view-controller>标签,实现了首页隐藏的目的,详见applicationContext.xml -->
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
+        <!--
         <welcome-file>index.htm</welcome-file>
         <welcome-file>index.jsp</welcome-file>
         <welcome-file>default.html</welcome-file>
         <welcome-file>default.htm</welcome-file>
         <welcome-file>default.jsp</welcome-file>
+        -->
     </welcome-file-list>
 </web-app>
--->
