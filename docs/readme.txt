@@ -32,23 +32,6 @@ encyclopedia
 　　$ cat /dev/null > filename
 
 
+泛化、继承、实现、依赖、关联、聚合、组合
 
-Spring boot项目打成war包部署到tomcat
-public class ServletInitializer extends SpringBootServletInitializer {
-    @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(Starter.class);
-    }
-}
-
-OR
-
-@SpringBootApplication
-@ComponentScan
-@Import({DBConfiguration.class, ResourceConfiguration.class,AppConfiguration.class})
-public class Application extends SpringBootServletInitializer {
-    @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(Application.class);
-    }
-}
+工厂方法解耦 ClassLoader

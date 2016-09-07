@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 // @Configuration
 // @EnableAutoConfiguration
-// @ComponentScan(basePackages = "net.cloudkit.ecosystem")
+// @ComponentScan(basePackages = "net.cloudkit.phecda")
 
 // @SpringBootApplication same as @Configuration @EnableAutoConfiguration @ComponentScan
 @SpringBootApplication

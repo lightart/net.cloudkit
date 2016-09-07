@@ -85,7 +85,7 @@ plugins {
 
 war {
     baseName = 'net.cloudkit.phecda'
-    version = '0.0.1-SNAPSHOT'
+    // version = '0.0.1-SNAPSHOT'
 }
 
 repositories {

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015 The CloudKit Open Source Project
+ * Copyright (C) 2016. The CloudKit Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,10 +14,20 @@
  * limitations under the License.
  */
 
+package net.cloudkit.phecda;
+
+import net.cloudkit.phecda.infrastructure.configuration.RedisHttpSessionConfiguration;
+import org.springframework.session.web.context.AbstractHttpSessionApplicationInitializer;
+
 /**
- * package-info.java
+ * SpringSessionInitializer.java
  *
  * @author hongquanli <hongquanli@qq.com>
- * @version 1.0 2015年08月26日 上午11:38:34
+ * @version 1.0 2016/1/4 9:19
  */
-package net.cloudkit.phecda.domain.services;
+public class SpringSessionInitializer extends AbstractHttpSessionApplicationInitializer {
+
+    public SpringSessionInitializer() {
+        super(RedisHttpSessionConfiguration.class);
+    }
+}
