@@ -35,3 +35,32 @@ Resources
 
 泛化、继承、实现、依赖、关联、聚合、组合
 单例 多例 静态 线程安全
+
+Behavior
+Event
+Action
+Command
+
+Service
+
+Request
+Response
+Context
+Data
+
+Content-Type: MIME
+.xml text/xml
+.json text/json
+
+SearchCriteria
+
+attachment
+encoding
+version
+
+prototype
+
+singleton
+
+ConfigurableBeanFactory
+AbstractBeanFactory
