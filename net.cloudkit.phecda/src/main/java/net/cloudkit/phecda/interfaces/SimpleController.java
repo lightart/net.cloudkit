@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @Controller
-@EnableAutoConfiguration
+// @EnableAutoConfiguration
 public class SimpleController {
 
-    @RequestMapping(value ="/hello", method = RequestMethod.GET)
+    @RequestMapping(value ="/hello", method = {RequestMethod.GET, RequestMethod.POST})
     @ResponseBody
     public String hello(){
         return "hello world";

@@ -9,11 +9,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EntityScan("net.cloudkit.phecda.domain.model")
 @EnableJpaRepositories(basePackages = "net.cloudkit.phecda.domain")
 @EnableTransactionManagement
-
-// @Configuration
-// @EnableAutoConfiguration
-// @ComponentScan(basePackages = "net.cloudkit.phecda")
-
+// @Configuration @EnableAutoConfiguration @ComponentScan(basePackages = "net.cloudkit.phecda")
 // @SpringBootApplication same as @Configuration @EnableAutoConfiguration @ComponentScan
 @SpringBootApplication
 public class PhecdaApplication {

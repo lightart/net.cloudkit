@@ -72,8 +72,15 @@ prototype
 
 singleton
 
+Resources
+Representation
+State Transfer
+
 ConfigurableBeanFactory
 AbstractBeanFactory
+
+Search criteria/command
+
 
 support
 
