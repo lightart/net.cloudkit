@@ -132,6 +132,7 @@ dependencies {
         libraries.'spring-boot-starter-cache',
         libraries.'spring-boot-starter-validation',
         libraries.'spring-boot-starter-actuator',
+        libraries.'spring-boot-starter-logging',
         libraries.'spring-boot-starter-redis',
         libraries.'spring-boot-starter-data-jpa',
         libraries.'spring-boot-starter-data-redis',

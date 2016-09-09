@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
  * SimpleController.java
  */
 @RestController
-@Controller
-// @EnableAutoConfiguration
 public class SimpleController {
 
     @RequestMapping(value ="/hello", method = {RequestMethod.GET, RequestMethod.POST})
