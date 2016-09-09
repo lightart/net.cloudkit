@@ -58,6 +58,16 @@ attachment
 encoding
 version
 
+Backup
+Data
+Temp
+Video
+Attachment
+Config
+Image
+Favorite
+Docs
+
 prototype
 
 singleton
@@ -66,3 +76,104 @@ ConfigurableBeanFactory
 AbstractBeanFactory
 
 support
+
+// Request
+{
+    access_key:'',
+    source_address:'C0-3F-D5-E5-20-51',
+    mac:'',
+    compress_algorithm:''
+    signature_algorithm:''
+    encrypt_algorithm:'',
+    signature:'',
+    version:'1.0',
+    service:'Behavior, Event, Action, Command',
+    content_type:'text/json',
+    encoding:'UTF-8',
+    timestamp:'1445950906202',
+    description:'',
+    arguments:{
+        'props':{
+
+        }
+    },
+    data:{
+        offset:'',
+        limit:'',
+        content:''
+    }
+}
+
+// Response
+{
+    service:'',
+    status:'',
+    message:'',
+    timestamp:'1445950906202',
+    version:'1.0',
+    content_type:'text/json',
+    encoding:'UTF-8',
+    description:'',
+    arguments:{
+        'props':{
+
+        }
+    },
+    data:{
+        page_number:'Behavior, Event, Action, Command',
+        page_size:20,
+        total_elements:'',
+        total_pages:'',
+        is_first:true,
+        is_last:false,
+        has_next:'',
+        has_previous:'',
+        content:{
+            // ......
+        }
+    }
+}
+
+
+target
+
+{
+    “userKey”: “975bf42bdf837a1e43508a9bf6340420”,
+    “sourceAddress”: “120.2.6.5”,
+    “mac”: “C0-3F-D5-E5-20-51”,
+    “compressAlgorithm”: “gzip”,
+    “signatureAlgorithm”: “”,
+    “encryptAlgorithm”: “”,
+    “signature”: “”,
+    “encoding”: “UTF-8”,
+    “version”: “1.0”,
+    “timestamp”: “1445950906202”,
+    “description”: “”,
+    “arguments”: {
+        “props”: {
+            “key”: “value”,
+            ……
+        }
+    }
+}
+
+{
+    “responseCode”: “”,
+    “responseMessage”: “”,
+    “compressAlgorithm”: “gzip”,
+    “signatureAlgorithm”: “”,
+    “encryptAlgorithm”: “”,
+    “serviceResponseCode”: “”,
+    “serviceResponseMessage”: “”,
+    “exceptionDetail”: “”,
+    “encoding”: “UTF-8”,
+    “version”: “1.0”,
+    “timestamp”: “1445950906202”,
+    “description”: “”,
+    “arguments”: {
+        “props”: {
+            “key”: “value”,
+            ……
+        }
+    }
+}
