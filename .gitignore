@@ -5,6 +5,7 @@
 /.idea
 /out
 /data
+/temp
 
 # Except this file
 #!.gitignore
