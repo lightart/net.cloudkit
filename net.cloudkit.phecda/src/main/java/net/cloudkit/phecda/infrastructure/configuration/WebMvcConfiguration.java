@@ -23,4 +23,18 @@
 ////    }
 //
 //    // More overridden methods ...
+
+//@Override
+//public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
+//    configurer.enable();
+//    }
+//
+//@Bean
+//public InternalResourceViewResolver getViewResolver(){
+//    InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
+//    viewResolver.setPrefix("/WEB-INF/jsp/");
+//    viewResolver.setSuffix(".jsp");
+//    return viewResolver;
+//}
+
 //}

@@ -113,9 +113,11 @@ support
 
 // Response
 {
+    path:'',
     service:'',
     status:'',
     message:'',
+    error:'',
     timestamp:'1445950906202',
     version:'1.0',
     content_type:'text/json',

@@ -10,16 +10,13 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * ServiceController.java
  */
-// @RestController
-// @RequestMapping("/service")
+//@RestController
+//@RequestMapping("/service")
 @Controller
 public class ServiceController {
 
@@ -33,15 +30,21 @@ public class ServiceController {
         produces = "application/json"
         // , consumes="application/json"
     )
-    @ResponseBody
-    public Model service(HttpServletRequest request, HttpServletResponse response, Model model){
+    // @ResponseBody
+    public Map<String, String> service(HttpServletRequest request,
+                                       HttpServletResponse response, Model model){
         // InternalResourceViewResolver.FORWARD_URL_PREFIX | return "forward:/xxx";
         // InternalResourceViewResolver.REDIRECT_URL_PREFIX | return "redirect:/xxx"
         // ModelAndView modelAndView = new ModelAndView();
-        model.addAttribute("status", "ok");
+        // modelAndView.addObject("date", new Date());
+
+        // model.addAttribute("status", "ok");
 
         // City city = new City("BeiJing", "China");
-        return model;
+
+        Map<String, String> dataMap = new HashMap<>();
+        dataMap.put("status", "ok");
+        return dataMap;
     }
 
     /**
@@ -105,7 +108,7 @@ public class ServiceController {
     }
 
     @RequestMapping(value = "/res")
-    @ResponseBody
+    // @ResponseBody
     public ModelAndView res() {
         ModelAndView modelAndView = new ModelAndView();
         City city = new City("BeiJing", "China");
@@ -114,7 +117,7 @@ public class ServiceController {
     }
 
     @RequestMapping(value = "/find")
-    @ResponseBody
+    //@ResponseBody
     public Model find(Model model) {
         City city = new City("BeiJing", "China");
         model.addAttribute("user", city);
@@ -122,7 +125,7 @@ public class ServiceController {
     }
 
     @RequestMapping(value = "get_user_list", method = RequestMethod.GET)
-    @ResponseBody
+    //@ResponseBody
     public Map<String, Object> getUserList() {
 
         Map<String, Object> modelMap = new HashMap<>(3);

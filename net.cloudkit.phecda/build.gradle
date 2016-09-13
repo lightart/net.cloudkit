@@ -136,7 +136,6 @@ dependencies {
         libraries.'spring-boot-starter-redis',
         libraries.'spring-boot-starter-data-jpa',
         libraries.'spring-boot-starter-data-redis',
-
     )
 
     /*
@@ -155,6 +154,9 @@ dependencies {
         libraries.'javax.servlet.jsp-api',
         libraries.'javax.servlet.jsp.jstl-api',
     )
+    providedRuntime 'org.apache.tomcat.embed:tomcat-embed-jasper:9.0.0.M10'
+    providedRuntime 'org.apache.tomcat.embed:tomcat-embed-el:9.0.0.M10'
+    providedRuntime 'org.apache.tomcat.embed:tomcat-embed-core:9.0.0.M10'
 
 //    testCompile(
 //
