@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- java -Dlogback.configurationFile=/path/to/config.xml chapters.configuration.MyApp1 -->
+<configuration debug="true" scan="true" scanPeriod="30 seconds">
+
+    <!-- 日志存储目录 -->
+    <property name="LOG_DIR" value="D:/temp/logs/" />
+    <!-- 保留多少天的日志 -->
+    <property name="LOG_HIS_MAX" value="7" />
+
+    <!-- standard out，只在开发dev时使用 其它环境均关闭 OFF INFO DEBUG -->
+    <property name="STDOUT_LOG_LEVEL" value="DEBUG" />
+
+    <statusListener class="ch.qos.logback.core.status.OnConsoleStatusListener" />
+
+    <!-- ${APP_USER_HOME}/ -->
+    <!-- <property resource="conf.properties" /> -->
+
+    <jmxConfigurator />
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- encoders are assigned the type ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+        <!--
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>INFO</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        -->
+    </appender>
+
+    <appender name="ALL" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_DIR}/integration.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_DIR}/integration.%d{yyyy-MM-dd_HH}.%i.zip</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+            <!-- keep X days' worth of history -->
+            <maxHistory>${LOG_HIS_MAX}</maxHistory>
+            <cleanHistoryOnStart>true</cleanHistoryOnStart>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_DIR}/integration.error.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_DIR}/integration.%d{yyyy-MM-dd_HH}.%i.error.zip</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+            <!-- keep X days' worth of history -->
+            <maxHistory>${LOG_HIS_MAX}</maxHistory>
+            <cleanHistoryOnStart>true</cleanHistoryOnStart>
+        </rollingPolicy>
+        <!--
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>warn</level>
+        </filter>
+        -->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="org.springframework.data.rest" level="ERROR"/>
+    <logger name="org.springframework.data" level="ERROR"/>
+    <!-- project default level -->
+    <!--<logger name="net.cloudkit.enterprises" level="INFO" />-->
+    <!--log4jdbc -->
+    <logger name="jdbc.sqltiming" level="ERROR" />
+
+    <!-- cxf inbound/outbound logger -->
+    <!-- <logger name="org.apache.cxf.services" level="INFO" /> -->
+
+    <!-- root -->
+    <root level="${STDOUT_LOG_LEVEL}">
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="ALL" />
+        <appender-ref ref="ERROR" />
+    </root>
+</configuration>
+
+<!--
+logback.groovy
+//
+// Built on Mon May 18 08:01:46 CEST 2015 by logback-translator
+// For more information on configuration files in Groovy
+// please see http://logback.qos.ch/manual/groovy.html
+
+// For assistance related to this tool or configuration files
+// in general, please contact the logback user mailing list at
+//    http://qos.ch/mailman/listinfo/logback-user
+
+// For professional support please see
+//   http://www.qos.ch/shop/products/professionalSupport
+
+import ch.qos.logback.classic.encoder.PatternLayoutEncoder
+import ch.qos.logback.classic.filter.LevelFilter
+import ch.qos.logback.core.ConsoleAppender
+import ch.qos.logback.core.rolling.RollingFileAppender
+import ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP
+import ch.qos.logback.core.rolling.TimeBasedRollingPolicy
+
+import static ch.qos.logback.classic.Level.DEBUG
+import static ch.qos.logback.classic.Level.ERROR
+import static ch.qos.logback.classic.Level.INFO
+import static ch.qos.logback.core.spi.FilterReply.ACCEPT
+import static ch.qos.logback.core.spi.FilterReply.DENY
+
+appender("STDOUT", ConsoleAppender) {
+  encoder(PatternLayoutEncoder) {
+    pattern = "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+  }
+}
+appender("ALL", RollingFileAppender) {
+  file = "/mnt/data/temp/logs/enterprises.log"
+  rollingPolicy(TimeBasedRollingPolicy) {
+    fileNamePattern = "/mnt/data/temp/logs/enterprises.%d{yyyy-MM-dd_HH}.%i.zip"
+    timeBasedFileNamingAndTriggeringPolicy(SizeAndTimeBasedFNATP) {
+      maxFileSize = "10MB"
+    }
+  }
+  encoder(PatternLayoutEncoder) {
+    pattern = "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+  }
+}
+appender("ERROR", RollingFileAppender) {
+  file = "/mnt/data/temp/logs/enterprises.error.log"
+  rollingPolicy(TimeBasedRollingPolicy) {
+    fileNamePattern = "/mnt/data/temp/logs/enterprises.%d{yyyy-MM-dd_HH}.%i.error.zip"
+    timeBasedFileNamingAndTriggeringPolicy(SizeAndTimeBasedFNATP) {
+      maxFileSize = "10MB"
+    }
+  }
+  filter(LevelFilter) {
+    level = ERROR
+    onMatch = ACCEPT
+    onMismatch = DENY
+  }
+  encoder(PatternLayoutEncoder) {
+    pattern = "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+  }
+}
+logger("org.springframework.data.rest", DEBUG)
+logger("org.springframework.data", INFO)
+logger("net.cloudkit.enterprises", INFO)
+logger("jdbc.sqltiming", INFO)
+root(INFO, ["STDOUT", "ALL", "ERROR"])
+-->

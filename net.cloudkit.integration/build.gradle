@@ -1,0 +1,84 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+/*
+plugins {
+
+}
+*/
+
+// 如果是 JAVA 应用 apply plugin: 'application' 才设置
+mainClassName = 'net.cloudkit.integration.Bootstrap'
+
+// MANIFEST.MF 配置信息
+jar {
+    baseName = 'net.cloudkit.integration'
+
+    manifest {
+        /*
+        MANIFEST.MF
+        Manifest-Version: 1.0
+        Implementation-Vendor: The Netty Project
+        Implementation-Title: Netty/All-in-One
+        Implementation-Version: 5.0.0.Alpha2
+        Implementation-Vendor-Id: io.netty
+        Built-By: norman
+        Build-Jdk: 1.7.0_75
+        Created-By: Apache Maven 3.2.3
+        Archiver-Version: Plexus Archiver
+        */
+        attributes 'Implementation-Vendor': 'The CloudKit Project', 'Implementation-Title': 'Enterprises/CloudKit', 'Implementation-Version': version, 'Implementation-Vendor-Id': 'net.cloudkit.integration', 'Built-By': 'norman', 'Build-Jdk': '1.7.0_79', 'Created-By': 'Gradle 2.6', 'Archiver-Version': 'Plexus Archiver', 'Main-Class': 'net.cloudkit.integration.Bootstrap'
+    }
+
+    /*
+    into('libs') {
+        from configurations.runtime
+    }
+    */
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    compile(
+
+            // 依赖 cloudkit-commons 项目
+            // project(':cloudkit-commons'),
+
+            libraries.'spring-core',
+            libraries.'spring-integration-core',
+            libraries.'spring-integration-scripting',
+            libraries.'spring-integration-jms',
+            libraries.'spring-integration-stream',
+            libraries.'spring-integration-file',
+            libraries.'spring-integration-jpa',
+            libraries.'spring-integration-ftp',
+            libraries.'spring-integration-jdbc',
+            libraries.'spring-integration-ws',
+            libraries.'spring-integration-mail',
+            libraries.'spring-integration-xml',
+    )
+}
+
+processResources {
+    exclude { "**/*.*" }
+}
+
+task copyResource(dependsOn: build, type: Copy) {
+    def $conf = 'build/conf'
+    delete $conf
+    from sourceSets.main.resources.srcDirs
+    // 目标位置
+    into $conf
+}
+
+task copyJars(dependsOn: copyResource, type: Copy) {
+    def $libsDir = 'build/libs'
+    delete $libsDir
+    from configurations.runtime
+    // 目标位置
+    into $libsDir
+}

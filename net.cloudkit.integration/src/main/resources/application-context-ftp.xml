@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:int="http://www.springframework.org/schema/integration"
+       xmlns:int-file="http://www.springframework.org/schema/integration/file"
+       xmlns:int-ftp="http://www.springframework.org/schema/integration/ftp"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	   http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
+	   http://www.springframework.org/schema/integration/file http://www.springframework.org/schema/integration/file/spring-integration-file.xsd
+	   http://www.springframework.org/schema/integration/ftp http://www.springframework.org/schema/integration/ftp/spring-integration-ftp.xsd"
+       default-autowire="byName">
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- 发送消息 -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- FTP channel -->
+    <int:channel id="DECL_SEND_CHANNEL">
+        <int:interceptors>
+            <int:wire-tap channel="logging"/>
+        </int:interceptors>
+    </int:channel>
+    <int:channel id="DECL_SEND_FAILED_CHANNEL">
+        <int:interceptors>
+            <int:wire-tap channel="logging"/>
+        </int:interceptors>
+    </int:channel>
+
+    <int:channel id="DECL_SEND_SUCCESS_CHANNEL"/>
+    <int:channel id="DECL_SEND_FAILURE_CHANNEL"/>
+
+    <!-- 防止重复:prevent-duplicates="false" -->
+    <int-file:inbound-channel-adapter
+            channel="DECL_SEND_CHANNEL"
+            filename-pattern="*.xml"
+            directory="${decl.upload_directory}"
+            prevent-duplicates="false"
+            auto-create-directory="true"
+            use-watch-service="true">
+        <!-- fixed-rate="1000"  fixed-delay="1000" -->
+        <int:poller fixed-rate="1000" error-channel="DECL_SEND_FAILED_CHANNEL"/>
+    </int-file:inbound-channel-adapter>
+
+    <int-ftp:outbound-channel-adapter
+            charset="UTF-8"
+            channel="DECL_SEND_CHANNEL"
+            session-factory="ftpSessionFactory"
+            remote-file-separator="/"
+            temporary-remote-directory="${decl.remote_upload_temporary_directory}"
+            remote-directory="${decl.remote_upload_directory}"
+            remote-filename-generator-expression="payload.getName()"
+            auto-create-directory="true">
+        <int-ftp:request-handler-advice-chain>
+            <bean id="retryAdvice" class="org.springframework.integration.handler.advice.RequestHandlerRetryAdvice">
+                <property name="retryTemplate">
+                    <bean class="org.springframework.retry.support.RetryTemplate">
+                        <property name="backOffPolicy">
+                            <bean class="org.springframework.retry.backoff.ExponentialBackOffPolicy">
+                                <property name="initialInterval" value="5000"/>
+                                <property name="multiplier" value="3"/>
+                            </bean>
+                        </property>
+                    </bean>
+                </property>
+            </bean>
+            <bean class="org.springframework.integration.handler.advice.ExpressionEvaluatingRequestHandlerAdvice">
+                <property name="onSuccessExpression" value="payload"/>
+                <property name="successChannel" ref="DECL_SEND_SUCCESS_CHANNEL"/>
+                <property name="onFailureExpression" value="payload"/>
+                <property name="failureChannel" ref="DECL_SEND_FAILURE_CHANNEL"/>
+            </bean>
+        </int-ftp:request-handler-advice-chain>
+    </int-ftp:outbound-channel-adapter>
+
+    <int-file:outbound-channel-adapter
+            channel="DECL_SEND_SUCCESS_CHANNEL"
+            charset="UTF-8"
+            directory-expression="'${decl.upload_history_directory}' + T(java.io.File).separator + new java.text.SimpleDateFormat('yyyy/MM/dd/HH').format(new java.util.Date())"
+            mode="REPLACE"
+            temporary-file-suffix=".tmp"
+            auto-create-directory="true"
+            filename-generator-expression="payload.getName()"
+            delete-source-files="true"/>
+
+    <int-file:outbound-channel-adapter
+            channel="DECL_SEND_FAILURE_CHANNEL"
+            charset="UTF-8"
+            directory-expression="'${decl.upload_failed_directory}' + T(java.io.File).separator + new java.text.SimpleDateFormat('yyyy/MM/dd/HH').format(new java.util.Date())"
+            mode="REPLACE"
+            temporary-file-suffix=".tmp"
+            auto-create-directory="true"
+            filename-generator-expression="payload.getName()"
+            delete-source-files="true"/>
+
+    <!-- 报关单随附单据发送 -->
+    <int:channel id="DECL_ATTACHED_SEND_CHANNEL">
+        <int:interceptors>
+            <int:wire-tap channel="logging"/>
+        </int:interceptors>
+    </int:channel>
+    <int:channel id="DECL_ATTACHED_SEND_FAILED_CHANNEL">
+        <int:interceptors>
+            <int:wire-tap channel="logging"/>
+        </int:interceptors>
+    </int:channel>
+
+    <int-file:inbound-channel-adapter
+            channel="DECL_ATTACHED_SEND_CHANNEL"
+            filename-pattern="*.xml"
+            directory="${decl_attached.upload_directory}"
+            prevent-duplicates="false"
+            auto-create-directory="true"
+            use-watch-service="true">
+        <!-- fixed-rate="1000"  fixed-delay="1000" -->
+        <int:poller fixed-rate="1000" error-channel="DECL_ATTACHED_SEND_FAILED_CHANNEL"/>
+    </int-file:inbound-channel-adapter>
+
+    <int-ftp:outbound-channel-adapter
+            charset="UTF-8"
+            channel="DECL_ATTACHED_SEND_CHANNEL"
+            session-factory="ftpSessionFactory"
+            remote-file-separator="/"
+            temporary-remote-directory="${decl_attached.remote_upload_temporary_directory}"
+            remote-directory="${decl_attached.remote_upload_directory}"
+            remote-filename-generator-expression="payload.getName()"
+            auto-create-directory="true">
+        <int-ftp:request-handler-advice-chain>
+            <bean id="retryAdvice" class="org.springframework.integration.handler.advice.RequestHandlerRetryAdvice">
+                <property name="retryTemplate">
+                    <bean class="org.springframework.retry.support.RetryTemplate">
+                        <property name="backOffPolicy">
+                            <bean class="org.springframework.retry.backoff.ExponentialBackOffPolicy">
+                                <property name="initialInterval" value="5000"/>
+                                <property name="multiplier" value="3"/>
+                            </bean>
+                        </property>
+                    </bean>
+                </property>
+            </bean>
+            <bean class="org.springframework.integration.handler.advice.ExpressionEvaluatingRequestHandlerAdvice">
+                <property name="onSuccessExpression" value="payload"/>
+                <property name="successChannel" ref="DECL_ATTACHED_SEND_SUCCESS_CHANNEL"/>
+                <property name="onFailureExpression" value="payload"/>
+                <property name="failureChannel" ref="DECL_ATTACHED_SEND_FAILURE_CHANNEL"/>
+            </bean>
+        </int-ftp:request-handler-advice-chain>
+    </int-ftp:outbound-channel-adapter>
+
+    <int:channel id="DECL_ATTACHED_SEND_SUCCESS_CHANNEL"/>
+    <int:channel id="DECL_ATTACHED_SEND_FAILURE_CHANNEL"/>
+
+    <int-file:outbound-channel-adapter
+            channel="DECL_ATTACHED_SEND_SUCCESS_CHANNEL"
+            charset="UTF-8"
+            directory-expression="'${decl_attached.upload_history_directory}' + T(java.io.File).separator + new java.text.SimpleDateFormat('yyyy/MM/dd/HH').format(new java.util.Date())"
+            mode="REPLACE"
+            temporary-file-suffix=".tmp"
+            auto-create-directory="true"
+            filename-generator-expression="payload.getName()"
+            delete-source-files="true"/>
+
+    <int-file:outbound-channel-adapter
+            channel="DECL_ATTACHED_SEND_FAILURE_CHANNEL"
+            charset="UTF-8"
+            directory-expression="'${decl_attached.upload_failed_directory}' + T(java.io.File).separator + new java.text.SimpleDateFormat('yyyy/MM/dd/HH').format(new java.util.Date())"
+            mode="REPLACE"
+            temporary-file-suffix=".tmp"
+            auto-create-directory="true"
+            filename-generator-expression="payload.getName()"
+            delete-source-files="true"/>
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- 接收报关单回执 -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <int:channel id="DECL_RECEIPT_RECEIVE_CHANNEL">
+        <int:interceptors>
+            <int:wire-tap channel="logging"/>
+        </int:interceptors>
+    </int:channel>
+
+    <int-ftp:inbound-channel-adapter
+            channel="DECL_RECEIPT_RECEIVE_CHANNEL"
+            session-factory="ftpSessionFactory"
+            filename-pattern="TCS*"
+            remote-file-separator="/"
+            remote-directory="${decl.remote_download_directory}"
+            delete-remote-files="true"
+            local-directory="${decl.download_temp_directory}"
+            auto-create-local-directory="true">
+        <int:poller fixed-rate="1000"/>
+    </int-ftp:inbound-channel-adapter>
+
+    <int-file:outbound-channel-adapter
+            channel="DECL_RECEIPT_RECEIVE_CHANNEL"
+            charset="UTF-8"
+            directory="${decl.download_directory}"
+            filename-generator-expression="payload.getName()"
+            auto-create-directory="true"
+            delete-source-files="true"
+            mode="REPLACE">
+    </int-file:outbound-channel-adapter>
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- 接收清单回执 -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <int:channel id="CDL_RECEIPT_RECEIVE_CHANNEL">
+        <int:interceptors>
+            <int:wire-tap channel="logging"/>
+        </int:interceptors>
+    </int:channel>
+
+    <int-ftp:inbound-channel-adapter
+            channel="CDL_RECEIPT_RECEIVE_CHANNEL"
+            session-factory="ftpSessionFactory"
+            filename-pattern="CDL*"
+            remote-file-separator="/"
+            remote-directory="${cdl.remote_download_directory}"
+            delete-remote-files="true"
+            local-directory="${cdl.download_temp_directory}"
+            auto-create-local-directory="true">
+        <int:poller fixed-rate="1000" />
+    </int-ftp:inbound-channel-adapter>
+
+    <int-file:outbound-channel-adapter
+            channel="CDL_RECEIPT_RECEIVE_CHANNEL"
+            charset="UTF-8"
+            directory="${cdl.download_directory}"
+            filename-generator-expression="payload.getName()"
+            auto-create-directory="true"
+            delete-source-files="true"
+            mode="REPLACE">
+    </int-file:outbound-channel-adapter>
+
+    <!-- 导入spring配置 -->
+    <!-- <import resource=""/> -->
+</beans>
