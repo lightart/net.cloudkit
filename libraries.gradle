@@ -439,6 +439,7 @@ ext.libraries += [
 
     "velocity"                              : "org.apache.velocity:velocity:${versions.'velocity'}",
     "freemarker"                            : "org.freemarker:freemarker:${versions.'freemarker'}",
+
     // 面向Java的XML/HTML模板引擎
     "thymeleaf"                             : "org.thymeleaf:thymeleaf:${versions.'thymeleaf'}",
     "thymeleaf-spring4"                     : "org.thymeleaf:thymeleaf-spring4:${versions.'thymeleaf'}",

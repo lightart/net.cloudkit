@@ -1,6 +1,6 @@
 rootProject.name = 'net.cloudkit'
 
 // include 'net.cloudkit.xxx', 'net.cloudkit.xxx'
-include 'net.cloudkit.phecda'
 include 'net.cloudkit.common'
-
+include 'net.cloudkit.phecda'
+include 'net.cloudkit.integration'
