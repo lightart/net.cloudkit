@@ -15,9 +15,9 @@ import java.util.*;
 /**
  * ServiceController.java
  */
-//@RestController
+@RestController
 //@RequestMapping("/service")
-@Controller
+//@Controller
 public class ServiceController {
 
     // @PathVariable String version, @PathVariable String extension
@@ -30,12 +30,13 @@ public class ServiceController {
         produces = "application/json"
         // , consumes="application/json"
     )
-    // @ResponseBody
+    @ResponseBody
     public Map<String, String> service(HttpServletRequest request,
                                        HttpServletResponse response, Model model){
         // InternalResourceViewResolver.FORWARD_URL_PREFIX | return "forward:/xxx";
         // InternalResourceViewResolver.REDIRECT_URL_PREFIX | return "redirect:/xxx"
         // ModelAndView modelAndView = new ModelAndView();
+        // modelAndView.setViewName("/index");
         // modelAndView.addObject("date", new Date());
 
         // model.addAttribute("status", "ok");
@@ -89,13 +90,13 @@ public class ServiceController {
      * @return
      */
     // , @RequestBody String url
-    @RequestMapping(value = "/test")
-    @ResponseBody
+    @RequestMapping(value = "/test", produces = "application/json")
+    //@ResponseBody
     public Model test(@RequestParam("name") String name, @RequestParam int offset, @RequestParam int limit, Model model) {
 
         model.addAttribute("success", false);
         try {
-            List<String> data = new ArrayList<String>();
+            List<String> data = new ArrayList<>();
             data.add("123456");
             data.add("456789");
 
@@ -103,12 +104,13 @@ public class ServiceController {
             model.addAttribute("success", true);
         } catch (Exception e) {
             // logger.error(e.getMessage(), e);
+            e.printStackTrace();
         }
         return model;
     }
 
     @RequestMapping(value = "/res")
-    // @ResponseBody
+    @ResponseBody
     public ModelAndView res() {
         ModelAndView modelAndView = new ModelAndView();
         City city = new City("BeiJing", "China");
