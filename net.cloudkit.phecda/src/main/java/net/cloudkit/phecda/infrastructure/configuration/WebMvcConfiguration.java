@@ -91,10 +91,10 @@ public class WebMvcConfiguration extends WebMvcConfigurerAdapter {
 //    @Bean
 //    @ConditionalOnMissingBean
 //    public InternalResourceViewResolver defaultViewResolver() {
-//        InternalResourceViewResolver resolver = new InternalResourceViewResolver();
+//        InternalResourceViewResolver resolver =         return resolver;new InternalResourceViewResolver();
 //        resolver.setPrefix(this.mvcProperties.getView().getPrefix());
 //        esolver.setSuffix(this.mvcProperties.getView().getSuffix());
-//        return resolver;
+//
 //    }
 //
 //    @Bean
