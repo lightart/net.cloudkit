@@ -22,9 +22,9 @@ import java.util.*;
 /**
  * ServiceController.java
  */
-//@RestController
+@RestController
 //@RequestMapping("/service")
-@Controller
+//@Controller
 public class ServiceController {
 
 //    public static HttpHeaders httpHeaderExcelFileAttachment(final String fileName,
@@ -50,10 +50,10 @@ public class ServiceController {
     @RequestMapping(
         value ={"/service", "/service.json"},
         method = {RequestMethod.GET, RequestMethod.POST},
-        produces = "application/json"
-        // , consumes="application/json"
+        produces = "application/json",
+        consumes = "application/json"
     )
-    @ResponseBody
+    //@ResponseBody
     public Map<String, String> service(HttpServletRequest request,
                                        HttpServletResponse response, Model model){
         // InternalResourceViewResolver.FORWARD_URL_PREFIX | return "forward:/xxx";
