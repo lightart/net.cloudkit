@@ -63,7 +63,7 @@ public class WebMvcConfiguration extends WebMvcConfigurerAdapter {
         resolver.setContentNegotiationManager(beanFactory.getBean(ContentNegotiationManager.class));
         // ContentNegotiatingViewResolver uses all the other view resolvers to locate
         // a view so it should have a high precedence
-        MappingJackson2JsonView mappingJackson2JsonView = beanFactory.getBean(MappingJackson2JsonView.class);
+        MappingJackson2JsonView mappingJackson2JsonView = new MappingJackson2JsonView();
         mappingJackson2JsonView.setPrettyPrint(false);
         mappingJackson2JsonView.setDisableCaching(true);
         Set<String> jsonParameterNames = new HashSet<>();

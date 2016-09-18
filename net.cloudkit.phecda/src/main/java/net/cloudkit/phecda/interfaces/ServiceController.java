@@ -22,9 +22,9 @@ import java.util.*;
 /**
  * ServiceController.java
  */
-@RestController
+//@RestController
 //@RequestMapping("/service")
-//@Controller
+@Controller
 public class ServiceController {
 
 //    public static HttpHeaders httpHeaderExcelFileAttachment(final String fileName,
