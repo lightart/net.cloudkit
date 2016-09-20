@@ -45,9 +45,15 @@ public class DispatcherController {
         return responseData;
     }
 
-    @RequestMapping({"/", "/home", "index"})
-    public String home() {
-        return "/index";
-    }
+//    @RequestMapping({"/", "/home", "index"})
+//    public String home() {
+//        return "/index";
+//    }
+
+//    @RequestMapping(value = "saveUser", method = {RequestMethod.POST})
+//    @ResponseBody
+//    public void saveUser(@RequestBody List<User> users) {
+//        userService.batchSave(users);
+//    }
 
 }
