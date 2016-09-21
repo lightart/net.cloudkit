@@ -77,4 +77,3 @@ task copyJars(type: Copy) {
     // 目标位置
     into 'src/main/webapp/WEB-INF/lib'
 }
-
