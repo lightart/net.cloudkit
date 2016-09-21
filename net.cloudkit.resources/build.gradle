@@ -1,0 +1,80 @@
+apply plugin: 'war'
+
+war {
+    baseName = 'net.cloudkit.resources'
+    // version = '0.0.1-SNAPSHOT'
+}
+
+repositories {
+    mavenCentral()
+    maven { url "https://repo.spring.io/milestone" }
+}
+
+configurations {
+    providedRuntime
+}
+
+// tag::dependencies[]
+dependencies {
+
+    compile(
+        // 依赖 cloudkit-commons 项目
+        // project(':cloudkit-commons'),
+    )
+
+    /*
+    runtime module("commons-lang:commons-lang:2.4") {
+        dependency("commons-io:commons-io:1.2")
+    }
+    */
+
+    runtime(
+        libraries.'h2',
+        libraries.'mysql-connector-java'
+    )
+
+    // providedCompile 是在 war 插件下定义的
+    providedCompile(
+        libraries.'javax.servlet-api',
+        libraries.'javax.servlet.jsp-api',
+        libraries.'javax.servlet.jsp.jstl-api',
+    )
+
+//    testCompile(
+//
+//    )
+
+}
+
+/*
+tasks.withType(Checkstyle) {
+    reports {
+        xml.enabled false
+        html.enabled true
+        html.stylesheet resources.text.fromFile('config/xsl/checkstyle-custom.xsl')
+    }
+}
+tasks.withType(FindBugs) {
+    reports {
+        xml.enabled false
+        html.enabled true
+        html.stylesheet resources.text.fromFile('config/xsl/findbugs-custom.xsl')
+    }
+}
+*/
+
+// unit test skipped
+// 禁用 gradle build 执行测试任务
+// gradle build -x test
+test.enabled = false
+// check.dependsOn.remove(test)
+// project(':subProject').tasks.withType(Test){
+//     enabled = false
+// }
+
+task copyJars(type: Copy) {
+    from configurations.runtime
+    // 目标位置
+    into 'src/main/webapp/WEB-INF/lib'
+}
+
