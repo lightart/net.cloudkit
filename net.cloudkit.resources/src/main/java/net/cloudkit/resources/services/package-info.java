@@ -137,3 +137,7 @@ package net.cloudkit.resources.services;
 // 二十三、Flyweight，享元模式
 
 // Callable Future
+
+
+// ThreadLocal
+// initial
