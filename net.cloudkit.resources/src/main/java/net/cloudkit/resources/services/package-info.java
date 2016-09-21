@@ -28,6 +28,7 @@ package net.cloudkit.resources.services;
 // assembly facade proxy adapter bridge router
 // factory production/produce/producer consumption/consume/consumer strategy/policy context command event activator broker handler executor mapping/mapper invocation storage repository activity initialization completion
 // custom default
+// utility help common
 
 // Agent Delegator Broker Proxy
 // Observer
