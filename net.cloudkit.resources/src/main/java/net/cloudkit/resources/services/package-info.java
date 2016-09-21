@@ -147,3 +147,12 @@ package net.cloudkit.resources.services;
 // Savepoint
 // Relationship
 // stack
+
+// Dependency Injection
+// 关联（Association） 依赖（Dependency） 聚集（Aggregation） 分离（Separation）
+
+// User Interface Layer
+// Domain Logic Layer
+// Data Access Layer
+
+// 控制反转(Inversion of Control)与依赖注入(Dependency Injection)
