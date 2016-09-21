@@ -26,7 +26,7 @@ package net.cloudkit.resources.services;
 // Abstract
 
 // assembly facade proxy adapter bridge router
-// factory production/produce/producer consumption/consume/consumer strategy/policy context command event activator broker handler executor mapping/mapper invocation storage repository activity
+// factory production/produce/producer consumption/consume/consumer strategy/policy context command event activator broker handler executor mapping/mapper invocation storage repository activity initialization completion
 // custom default
 
 // Agent Delegator Broker Proxy
@@ -135,3 +135,5 @@ package net.cloudkit.resources.services;
 //二十一、Decrator，装饰模式：动态地给一个对象增加一些额外的职责，就增加的功能来说，Decorator模式相比生成子类更加灵活。
 //二十二、Bridge，桥模式：将抽象部分与它的实现部分相分离，使他们可以独立的变化。
 //二十三、Flyweight，享元模式
+
+// Callable Future
