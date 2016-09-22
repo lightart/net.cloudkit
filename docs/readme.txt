@@ -248,3 +248,6 @@ CZO: 现在排最后，等待接班的太子
 ╰⊙═⊙╯。oо○Thanks & BestRegards  *^o^*
 
 SwarmKit
+
+http://java-design-patterns.com/
+https://github.com/hoohack/DesignPattern
