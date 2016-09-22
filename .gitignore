@@ -3,6 +3,7 @@
 # Ignore everything in this directory
 /.gradle
 /.idea
+/gradle
 /out
 /data
 /temp
