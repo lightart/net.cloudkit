@@ -251,3 +251,7 @@ SwarmKit
 
 http://java-design-patterns.com/
 https://github.com/hoohack/DesignPattern
+
+MQTT
+
+http://iot.eclipse.org/projects
