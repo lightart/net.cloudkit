@@ -255,3 +255,89 @@ https://github.com/hoohack/DesignPattern
 MQTT
 
 http://iot.eclipse.org/projects
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Sign up
+Sign in/Log in
+Sign out
+
+console/workbench
+
+main
+
+connect?source=qq
+
+topic
+article
+
+commodity/product/goods
+goods,commodity,product,merchandise,wares这些名词都可表示“商品,货物”之意.
+products是产品
+goods是物品
+commodity是日用品
+merchandise是货物
+详细点就是：
+goods一般生活或商业用词,指销售或购入的商品.Goods 货物!
+commodity作“商品”解时系经济学名词,也可指日用品.
+product一般指工业产品,也可泛指各种各样的产品.
+merchandise正式用词,指商业上销售或商家拥有货物的总称.
+wares 指上市待卖的商品或货物.多用复数形式.
+merchandise 商品,泛指商品,不特指某一商品
+
+order
+
+shopping cart
+
+
+市场价 retail price
+加盟价 franchise price
+会员价 member price
+商品单位 product unit
+数量 amount
+编号 product ID
+单位 unit
+类别 category
+产品介绍 product description
+
+对不起，您还没有登陆 sorry, you didn't log in yet.
+添加购物 add to shopping cart
+商品已经成功添加您的购物车 product added to your shopping cart
+商品数量修改成功 product amount modified successfully
+购物车被清空 your shopping is emptied (Your shopping cart is empty)
+删除成功 deleted successfully
+
+您从何处知道本网站  Where you heard our site from
+
+递交 submit
+重写 reset
+
+你的数据添加成功 your information added successfully
+你的数据添加失败 add information failed
+
+申请会员成功 membership successfully registered
+申请失败 membership apply failed
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
