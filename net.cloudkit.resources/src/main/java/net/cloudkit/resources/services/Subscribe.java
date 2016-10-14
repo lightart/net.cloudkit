@@ -6,7 +6,11 @@ package net.cloudkit.resources.services;
 public class Subscribe {
 
 
-    public void Subscribe() {
+    public void subscribe() {
+
+    }
+
+    public void unsubscribe() {
 
     }
 }
