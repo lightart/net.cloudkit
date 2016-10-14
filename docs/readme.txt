@@ -263,9 +263,58 @@ Sign up
 Sign in/Log in
 Sign out
 
-console/workbench
+console/workbench/dashboard/main
 
-main
+merchant
+  products
+  orders
+  insights
+  promote
+    coupons
+      Add New Coupon
+  campaigns
+    Create Campaign
+  settings
+    account
+      The Basics
+    general
+      Brand Image
+    shipping/preferences
+      Shipping Rules
+    policy
+      Policies
+    payment
+    storefront
+      Storefront
+    notifications
+      Notifications
+  faq
+    about/merchants/resources/faq
+
+
+
+  cart
+  settings
+    profile
+      Edit Profile
+      Deactivate my account
+    preferences
+      Edit Preferences
+    password
+    notifications
+      Notifications
+    accounts
+      Connected Accounts
+    purchases
+      Orders
+    cards
+      Payment Methods
+    shipping
+      Shipping Addresses
+    credits
+      credit
+      referrals
+      giftcards
 
 connect?source=qq
 
@@ -328,15 +377,20 @@ shopping cart
 
 
 
+Payment method
+
+Order summary
+
+Choose a shipping address
+Review order
 
 
 
 
-
-
-
-
-
+Share
+Share this with friends
+Lists
+Save this to your profile
 
 
 
