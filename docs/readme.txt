@@ -316,6 +316,14 @@ merchant
       referrals
       giftcards
 
+
+    lists
+    wishlist
+    likes
+
+report
+
+
 connect?source=qq
 
 topic
