@@ -83,9 +83,17 @@ plugins {
 //    }
 //}
 
+//打包可以手动修改$env的值为 develpoment/test/prodction 进行切换不同的环境
+//def env = "test"
+//def env = project.hasProperty("profile") ?project['profile']: "development"
+// println "使用数据库环境为:$env"
+
 war {
     baseName = 'net.cloudkit.phecda'
     // version = '0.0.1-SNAPSHOT'
+
+    // 编译时切换不同的环境
+    // webXml = file("src/main/resources/$env/web.xml")
 }
 
 repositories {
