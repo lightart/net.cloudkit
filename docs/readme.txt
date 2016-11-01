@@ -453,3 +453,7 @@ org.apache.catalina.startup.Bootstrap "$@" start 2>&1 /
 service tomcat restart
 可以在Tomcat的logs目录底下找到以系统日期为结尾的catalina.out.yyyy-mm-dd的档案，这样子就成功了。
 后续就是持续观察看看是不是每天都有产生一个新的catalina.out.yyyy-mm-dd档案。然后再安排定期删除这些较旧的log檔即可。
+
+
+
+Paxos和Raft
