@@ -1,20 +1,29 @@
 package net.cloudkit.integration;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import net.cloudkit.integration.services.AbstractServiceExecutor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 import org.tanukisoftware.wrapper.WrapperListener;
 import org.tanukisoftware.wrapper.WrapperManager;
 
+/**
+ * 实现WrapperListener 由Java Service Wrapper执行
+ * http://wrapper.tanukisoftware.com/doc/english/download.jsp
+ */
 public class Bootstrap implements WrapperListener {
+
+    protected static Logger logger = LoggerFactory.getLogger(Bootstrap.class);
 
     private FileSystemXmlApplicationContext applicationContext = null;
 
+    /*
     private final static String[] integration = {
             "/application-context.xml",
-            "/application-context-ftp.xml",
+            "/backup/application-context-ftp.xml",
             "/application-context-task.xml"
     };
+    */
 
     /**
      * @param args
@@ -25,7 +34,7 @@ public class Bootstrap implements WrapperListener {
 
         // 打印参数
         for (String arg : args)
-            System.out.println(arg);
+            logger.debug(arg);
         WrapperManager.start(new Bootstrap(), args);
 
 
@@ -33,7 +42,7 @@ public class Bootstrap implements WrapperListener {
 
     @Override
     public void controlEvent(int event) {
-        System.out.println("controlEvent(" + event + ")");
+        logger.debug("controlEvent(" + event + ")");
         if ((event == WrapperManager.WRAPPER_CTRL_LOGOFF_EVENT) && (WrapperManager.isLaunchedAsService() || WrapperManager.isIgnoreUserLogoffs())) {
         } else {
             WrapperManager.stop(0);
@@ -45,10 +54,10 @@ public class Bootstrap implements WrapperListener {
         // 打印参数
         /*
         for (String arg : args)
-            System.out.println(arg);
+            logger.debug(arg);
         */
         for(int i = 0; i < args.length; i++) {
-            System.out.println("ARG[" + i + "]=" + args[i]);
+            logger.debug("ARG[" + i + "]=" + args[i]);
         }
 
         // Resource resource = new ClassPathResource("application-context.xml");
@@ -84,7 +93,7 @@ public class Bootstrap implements WrapperListener {
 
     @Override
     public int stop(int exitCode) {
-        System.out.println("stop(" + exitCode + ")");
+        logger.debug("stop(" + exitCode + ")");
         if(applicationContext != null) {
             applicationContext.stop();
         }

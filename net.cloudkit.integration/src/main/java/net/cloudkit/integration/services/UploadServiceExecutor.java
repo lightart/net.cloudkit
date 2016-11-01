@@ -1,7 +1,5 @@
 package net.cloudkit.integration.services;
 
-import org.springframework.stereotype.Component;
-
 import javax.xml.ws.Holder;
 import java.io.BufferedReader;
 import java.io.File;
@@ -15,13 +13,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * UploadServiceExecutor.java
+ * 上传服务 UploadServiceExecutor.java
  */
-// @Component
 public class UploadServiceExecutor extends AbstractServiceExecutor {
 
     public void execute(Settings settings, String serviceName, RequestContext serviceContext) {
-        logger.info(";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; UploadServiceExecutor ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;");
+        logger.debug(";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; UploadServiceExecutor ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;");
 
         // upload.receipt
         byte[] requestContext = getRequestContext(serviceContext).getBytes();

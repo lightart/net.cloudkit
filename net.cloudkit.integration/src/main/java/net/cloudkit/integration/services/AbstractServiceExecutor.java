@@ -1,8 +1,8 @@
 package net.cloudkit.integration.services;
 
+import net.cloudkit.integration.utils.SpringContextHolder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Component;
 
 import javax.xml.namespace.QName;
 import javax.xml.ws.Holder;
@@ -26,19 +26,28 @@ public abstract class AbstractServiceExecutor implements ServiceExecutor {
 
     protected static Logger logger = LoggerFactory.getLogger(AbstractServiceExecutor.class);
 
+    /** 接口地址 */
     public static final String WS_INTERFACE_SPEC_KEY = "ws.interface_spec";
 
+    /** properties 配置 */
     protected static Properties propertiesConfiguration;
 
+    // 初始化 properties 配置
     static {
         propertiesConfiguration = SpringContextHolder.getBean("propertiesConfiguration");
     }
 
-
     @Override
     public abstract void execute(Settings settings, String serviceName, RequestContext serviceContext);
 
+    /**
+     * 获取请求上下文
+     *
+     * @param requestContext
+     * @return
+     */
     protected String getRequestContext(RequestContext requestContext) {
+        // TODO 构造请求上下文
         return "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" +
                 "<requestContext xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns=\"http://www.cloudkit.net/schema/\">" +
                 "    <!-- 请求KEY（由平台分配，并绑定） -->" +
@@ -100,7 +109,7 @@ public abstract class AbstractServiceExecutor implements ServiceExecutor {
      * @param requestContext
      * @param requestData
      * @param responseData
-     * @return
+     * @return result
      * @throws MalformedURLException
      */
     protected byte[] invoke(String serviceName, byte[] requestContext, byte[] requestData, Holder<byte[]> responseData) throws MalformedURLException {
@@ -112,14 +121,14 @@ public abstract class AbstractServiceExecutor implements ServiceExecutor {
         // Holder<byte[]> responseData = new Holder<byte[]>();
         byte[] result = superPass.service(serviceName, requestContext, requestData, responseData);
 
-        // System.out.println("responseContext: \n" + new String(result) + "\nresponseData: \n" + new String(responseData.value));
-        // System.out.println();
+        // logger.debug("responseContext: \n" + new String(result) + "\nresponseData: \n" + new String(responseData.value));
         return result;
     }
 
     /**
      * zip解压缩
      *
+     * @param data
      * @param target 解压地址
      */
     protected void unzip(byte[] data, String target) {
@@ -129,7 +138,7 @@ public abstract class AbstractServiceExecutor implements ServiceExecutor {
         Path formalPath = Paths.get(target);
         Path tempPath = Paths.get(formalPath.getParent().toString() + File.separator + formalPath.getFileName() + "Temp");
         try {
-            //创建文件夹
+            // 创建文件夹
             if (Files.notExists(formalPath)) {
                 Files.createDirectories(tempPath);
             }
@@ -159,7 +168,8 @@ public abstract class AbstractServiceExecutor implements ServiceExecutor {
                 Files.move(pathFile, pathTo, StandardCopyOption.REPLACE_EXISTING);
             }
         } catch (Exception ex) {
-            ex.printStackTrace();
+            // ex.printStackTrace();
+            logger.error(ex.getMessage(), ex);
         } finally {
             if (zip != null) {
                 try {

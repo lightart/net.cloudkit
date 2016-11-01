@@ -402,4 +402,54 @@ Save this to your profile
 
 
 
+活锁
 
+解决Tomcat catalina.out 不断成长导致档案过大的问题
+Tomcat的网站上的说法http://wiki.apache.org/tomcat/FAQ/Logging#Q6：
+System.out 和 System.err 都被打印到 catalina.out。
+catalina.out 不会 rotate。
+如果您使用了 logging 机制，就不会有任何东西被写到标准输出了，所以这应该不会是个问题。
+可是实际上发现，虽然有设了log4j之类的 logging 机制，但写程序的人如果还是写成System.out.println()或是遇到exception时都来个e.printStackTrace()，这些输出最后还是通通送到catalina.out去了。日子久了，这个档案还是会日渐变大起来，如果没有加以管理最后就会长大成好几GB的庞然大物。（这时千万不要再用vi去开它了。）
+网络上找了一下，针对在Linux环境下执行Tomcat的部份，发现有个不错的工具软件cronolog可以协助Web Server之类的做 log 檔的 rotate，详细的运作原理可能大家得自己去这个网站上查，我的认知大致如下：
+Tomcat先把输出写到 console(标准输出) 然后透过 pipe (|) 转为 cronolog 的输入，由cronolog针对一个事先给定的文件名的命名规则，去过滤数据，定期关闭旧文件，然后再开启新档。如果我们将文件名的命名规则设为catalina.out.%Y-%m-%d，就可以做到每天开一个新的catalina.out.yyyy-mm-dd的档案了。
+以下是简单的过程说明：
+1.安装cronolog
+2.修改catalina.sh
+3.重新启动Tomcat
+
+1 安装cronolog
+wget http://cronolog.org/download/cronolog-1.6.2.tar.gz
+tar zxvf cronolog-1.6.2.tar.gz
+cd cronolog-1.6.2
+./configure
+make
+make install
+
+用which cronolog可以查到安装的路径，默认应该是/usr/local/sbin/cronolog，这个路径待会在修改catalina.sh时会用到。
+2 修改catalina.sh
+以Tomcat 6.0.24的版本为例
+2.1 第一步
+将
+if [ -z "$CATALINA_OUT" ] ; then
+CATALINA_OUT="$CATALINA_BASE"/logs/catalina.out
+fi
+修改为
+if [ -z "$CATALINA_OUT" ] ; then
+CATALINA_OUT="$CATALINA_BASE"/logs/catalina.out.%Y-%m-%d
+fi
+2.2 第二步
+将
+touch "$CATALINA_OUT"
+改为
+#touch "$CATALINA_OUT"
+2.3 第三步
+将
+org.apache.catalina.startup.Bootstrap "$@" start /
+>> "$CATALINA_OUT" 2>&1 &
+修改为
+org.apache.catalina.startup.Bootstrap "$@" start 2>&1 /
+| /usr/local/sbin/cronolog "$CATALINA_OUT" >> /dev/null &
+2.4 重新启动Tomcat
+service tomcat restart
+可以在Tomcat的logs目录底下找到以系统日期为结尾的catalina.out.yyyy-mm-dd的档案，这样子就成功了。
+后续就是持续观察看看是不是每天都有产生一个新的catalina.out.yyyy-mm-dd档案。然后再安排定期删除这些较旧的log檔即可。

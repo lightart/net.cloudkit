@@ -48,32 +48,6 @@
         -->
     </bean>
 
-    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-    <!-- FTP CONFIG. -->
-    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-    <bean id="ftpSessionFactory" class="org.springframework.integration.ftp.session.DefaultFtpSessionFactory">
-        <property name="host" value="${ftp.host}"/>
-        <property name="port" value="${ftp.port}"/>
-        <property name="username" value="${ftp.username}"/>
-        <property name="password" value="${ftp.password}"/>
-        <property name="clientMode" value="${ftp.client_mode}"/>
-        <property name="fileType" value="${ftp.file_type}"/>
-        <property name="bufferSize" value="${ftp.buffer_size}"/>
-        <property name="controlEncoding" value="${ftp.control_encoding}"/>
-    </bean>
-
-    <bean id="ftpCachingSessionFactory"
-          class="org.springframework.integration.file.remote.session.CachingSessionFactory">
-        <constructor-arg ref="ftpSessionFactory"/>
-        <constructor-arg value="10"/>
-        <property name="sessionWaitTimeout" value="${ftp.session_wait_timeout}"/>
-    </bean>
-
-    <int:logging-channel-adapter
-            id="logging"
-            expression="'Value of header id '.concat(headers.id)+' file:'+payload.getName()"
-            level="DEBUG"/>
-
     <!-- 导入spring配置 -->
     <!-- <import resource=""/> -->
 </beans>
