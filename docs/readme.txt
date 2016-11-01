@@ -457,3 +457,13 @@ service tomcat restart
 
 
 Paxos和Raft
+Consensus
+
+http://thesecretlivesofdata.com/raft/
+CAP原理和BASE思想
+http://www.jdon.com/37625
+分布式系统Paxos算法
+http://www.jdon.com/artichect/paxos.html
+
+2PC到3PC到Paxos到Raft到ISR
+https://segmentfault.com/a/1190000004474543
