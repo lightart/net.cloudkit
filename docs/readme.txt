@@ -467,3 +467,5 @@ http://www.jdon.com/artichect/paxos.html
 
 2PC到3PC到Paxos到Raft到ISR
 https://segmentfault.com/a/1190000004474543
+
+射线光学理论
