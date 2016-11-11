@@ -455,6 +455,74 @@ service tomcat restart
 后续就是持续观察看看是不是每天都有产生一个新的catalina.out.yyyy-mm-dd档案。然后再安排定期删除这些较旧的log檔即可。
 
 
+Linux下的tomcat产生的日志文件不象windows下的按时间时间和大小来处理，
+尽管也生成了日志文件catalina.2009-0x-0x.log类型的文件，但是其中的catalina.out文件依然增大；它为啥在增大，为啥在增大，原因我就不探究了。
+
+Tomcat的官方文档，由于是外文，偶还没有看明白di；
+http://tomcat.apache.org/tomcat-6.0-doc/logging.html
+据说是修改某些配置可以实现，希望高人指点，给个官方的解决方案；
+老是增大也不是办法，还是想其他办法搞定它为好：
+方法1—分割流
+使用cronolog工具切分Tomcat的catalina.out日志文件
+cronolog一个对日志切分的小工具，其主页在http://cronolog.org/，我们也可以用它来切分Apache的日志。
+具体的方法，您可以去google之，这个方法占网络搜索结果的主流；
+方法2—脚本流
+事情终究不过是个大文件处理的问题，强大的bash来搞定；
+使用cron每天来备份当前的catalina.out，然后清空他的内容；
+参考脚本如下：
+#!/bin/sh
+y=`date "+%Y"`
+m=`date "+%m"`
+d=`date "+%d"`
+cd /PATH /tomcat/logs
+cp catalina.out catalina.out.$y$m$d
+echo > catalina.out
+exit
+注意linux系统的cron服务是否启动，是否正常工作，还有脚本的存放路径（原因暂保密）
+
+方法3—猥琐流
+打开bin目录下的catalina.sh文件，终究不过是个bash文件，
+查找一下，catalina.out总共出现三次；
+部分截图：
+shift
+touch "$CATALINA_BASE"/logs/catalina.out
+if [ "$1" = "-security" ] ; then
+    echo "Using Security Manager"
+    shift
+    "$_RUNJAVA" $JAVA_OPTS "$LOGGING_CONFIG" $CATALINA_OPTS \
+      -Djava.endorsed.dirs="$JAVA_ENDORSED_DIRS" -classpath "$CLASSPATH" \
+      -Djava.security.manager \
+      -Djava.security.policy=="$CATALINA_BASE"/conf/catalina.policy \
+      -Dcatalina.base="$CATALINA_BASE" \
+      -Dcatalina.home="$CATALINA_HOME" \
+      -Djava.io.tmpdir="$CATALINA_TMPDIR" \
+      org.apache.catalina.startup.Bootstrap "$@" start \
+      >> "$CATALINA_BASE"/logs/catalina.out 2>&1 &
+      if [ ! -z "$CATALINA_PID" ]; then
+        echo $! > $CATALINA_PID
+      fi
+else
+    "$_RUNJAVA" $JAVA_OPTS "$LOGGING_CONFIG" $CATALINA_OPTS \
+      -Djava.endorsed.dirs="$JAVA_ENDORSED_DIRS" -classpath "$CLASSPATH" \
+      -Dcatalina.base="$CATALINA_BASE" \
+      -Dcatalina.home="$CATALINA_HOME" \
+      -Djava.io.tmpdir="$CATALINA_TMPDIR" \
+      org.apache.catalina.startup.Bootstrap "$@" start \
+      >> "$CATALINA_BASE"/logs/catalina.out 2>&1 &
+个人觉得也就是这里是写catalina.out文件的；让他写到一个其他的空设备如何？
+修改前注意原文件的catalina.sh的备份哟~！！
+修改以上代码中的
+>> "$CATALINA_BASE"/logs/catalina.out 2>&1 &
+为
+>> /dev/null 2>&1 &
+保存，然后启动tomcat，目前这个 catalina.out一直是空的了。
+这个方法是偶自己想到的，个人认为比较勇敢，目前还没有在生产环境测试过。虚拟机测试是通过的。
+
+方法4—人流
+这个方法其实就是linux系统管理员手工去删除，人工操作，简称“人流”；
+删除之前最好停止tomcat的服务；
+
+
 
 Paxos和Raft
 Consensus
