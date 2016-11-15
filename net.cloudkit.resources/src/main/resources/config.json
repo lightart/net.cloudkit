@@ -1,0 +1,71 @@
+[
+    {
+        "title": "",
+        "data": {
+            "total_count": "",
+            "elements": []
+        },
+        "is_compile": "false"
+    },
+    // Fragment
+    // Component
+    {
+        "props": [
+            "obj"
+        ],
+        "template": "<li>{{ obj.text }}</li>"
+    },
+    // Activity
+    {
+        // el
+        "apply_to": "",
+        "render_to": "",
+        "methods": {
+            // function
+        },
+        "data": {
+            "list": [
+                {
+                    "text": "Learn JavaScript"
+                },
+                {
+                    "text": "Learn Vue"
+                },
+                {
+                    "text": "Build something awesome"
+                }
+            ]
+        }
+    }
+]
+// Button
+// Link
+// LinkButton
+// Dropdown
+// Input,Text
+// TextArea
+// Select,Combox
+// Label
+// LinkLabel
+// Navbar
+// Menu
+// Tabs
+// Breadcrumb
+// Panel,Box,Jumbotron
+// Pagination
+// Header,Footer
+// Thumbnail
+// Alert
+// Tip
+// ProgressBar
+// Grid
+// Table
+// Divider
+// Image
+// Tree
+// List
+// Section
+
+// disabled enabled active
+
+// left right center top buttom
