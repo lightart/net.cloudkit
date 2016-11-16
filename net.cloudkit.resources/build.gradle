@@ -3,6 +3,22 @@ apply plugin: 'war'
 war {
     baseName = 'net.cloudkit.resources'
     // version = '0.0.1-SNAPSHOT'
+
+
+//    rootSpec.exclude("**/some-*.jar")
+//
+//    classpath = classpath.filter { file ->
+//        println file.name
+//        (
+//            !file.name.startsWith('gwt-dev') &&
+//                !file.name.startsWith('gwt-user') &&
+//                !file.name.startsWith('guava-gwt') &&
+//                !file.name.startsWith('gwtbootstrap3') &&
+//                !file.name.startsWith('gwtbootstrap3-extras') &&
+//                !file.name.startsWith('servlet-api')
+//        )
+//    }
+
 }
 
 repositories {
