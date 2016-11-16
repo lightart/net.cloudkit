@@ -33,6 +33,9 @@ configurations {
 // tag::dependencies[]
 dependencies {
 
+    // use providedCompile if you have source that relies on some classes for compiling
+    // use providedRuntime if you use it for testing and not compiling.
+
     compile(
         // 依赖 cloudkit-commons 项目
         // project(':cloudkit-commons'),

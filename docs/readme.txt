@@ -538,3 +538,15 @@ http://www.jdon.com/artichect/paxos.html
 https://segmentfault.com/a/1190000004474543
 
 射线光学理论
+
+
+
+<servlet>
+    <servlet-name>chapter2</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+    <init-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:spring-servlet-config.xml</param-value>
+    </init-param>
+</servlet>
