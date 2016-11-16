@@ -17,9 +17,11 @@
     },
     // Activity
     {
+        "id": "",
+        "name": "",
         // el
-        "apply_to": "",
-        "render_to": "",
+        "applyTo": "",
+        "renderTo": "",
         "methods": {
             // function
         },
