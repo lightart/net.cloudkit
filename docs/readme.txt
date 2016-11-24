@@ -558,3 +558,5 @@ https://github.com/facebookarchive/scribe
 http://chukwa.apache.org/
 http://flink.apache.org/
 http://kafka.apache.org/
+
+jackson
