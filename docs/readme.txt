@@ -550,3 +550,11 @@ https://segmentfault.com/a/1190000004474543
         <param-value>classpath:spring-servlet-config.xml</param-value>
     </init-param>
 </servlet>
+
+
+RabbitMq、ActiveMq、ZeroMq、kafka
+http://flume.apache.org/
+https://github.com/facebookarchive/scribe
+http://chukwa.apache.org/
+http://flink.apache.org/
+http://kafka.apache.org/
