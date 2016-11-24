@@ -39,6 +39,8 @@ dependencies {
     compile(
         // 依赖 cloudkit-commons 项目
         // project(':cloudkit-commons'),
+        'net.java.dev.jna:jna:4.2.2',
+        'net.java.dev.jna:jna-platform:4.2.2'
     )
 
     /*

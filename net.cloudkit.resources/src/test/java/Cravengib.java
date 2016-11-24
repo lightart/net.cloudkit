@@ -6,8 +6,8 @@ class Base{
 }
 public class Cravengib extends Base{
     public static void main(String arg[]){
-        Base cg = new Cravengib();
-        // Cravengib cg = new Cravengib();
+        // Base cg = new Cravengib();
+        Cravengib cg = new Cravengib();
         cg.amethod();
     }
     static void amethod(){

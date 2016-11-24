@@ -1,4 +1,4 @@
-package pattern_01;
+package pattern.pattern_01;
 
 public class CatFactory extends AbstractAnimalFactory {
 

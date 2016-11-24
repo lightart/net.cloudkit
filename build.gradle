@@ -145,11 +145,11 @@ subprojects {
         // mavenLocal()别名，表示依赖是从本地的Maven仓库中获取。
 
         // mavenLocal()
-        mavenCentral()
-        maven { url 'http://download.java.net/maven/2/' }
+        // mavenCentral()
+        // maven { url 'http://download.java.net/maven/2/' }
         // maven { url 'http://192.168.1.197:7001/nexus/content/groups/public/' }
         // maven { url 'http://192.168.1.197:8081/nexus/content/repositories/central/' }
-        // maven { url 'http://maven.aliyun.com/nexus/content/repositories/central/' }
+        maven { url 'http://maven.aliyun.com/nexus/content/repositories/central/' }
         // maven { url 'http://maven.oschina.net/content/groups/public/' }
         // jcenter { url "http://jcenter.bintray.com/" }
 
