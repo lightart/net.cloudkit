@@ -560,3 +560,4 @@ http://flink.apache.org/
 http://kafka.apache.org/
 
 jackson
+com.fasterxml.jackson
