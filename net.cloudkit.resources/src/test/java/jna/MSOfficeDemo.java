@@ -13,7 +13,7 @@ public class MSOfficeDemo {
         Ole32.INSTANCE.CoInitializeEx(Pointer.NULL, Ole32.COINIT_MULTITHREADED);
         try {
             MSOfficeDemo demo = new MSOfficeDemo();
-            //demo.testMSExcel();
+            demo.testMSExcel();
             demo.testMSWord();
         } finally {
             Ole32.INSTANCE.CoUninitialize();
@@ -23,7 +23,7 @@ public class MSOfficeDemo {
     public void testMSWord() throws IOException {
         File demoDocument = null;
         MSWord msWord = null;
-        System.out.println(Helper.tempDir);
+
         // http://msdn.microsoft.com/en-us/library/office/ff839952(v=office.15).aspx
         LONG wdFormatPDF = new LONG(17); // PDF format.
         LONG wdFormatRTF = new LONG(6); // Rich text format (RTF).
@@ -46,7 +46,6 @@ public class MSOfficeDemo {
 
             demoDocument = Helper.createNotExistingFile("jnatest", ".doc");
             Helper.extractClasspathFileToReal("D:\\jnatest.doc", demoDocument);
-
 
             msWord.openDocument(demoDocument.getAbsolutePath());
             msWord.insertText("Hello from JNA! \n\n");
@@ -84,7 +83,6 @@ public class MSOfficeDemo {
                 System.out.println("bstrSource: " + e.getExcepInfo().bstrSource);
                 System.out.println("bstrDescription: " + e.getExcepInfo().bstrDescription);
             }
-            e.printStackTrace();
         } finally {
             if (msWord != null) {
                 msWord.quit();
