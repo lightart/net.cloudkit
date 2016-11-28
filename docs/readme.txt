@@ -528,6 +528,8 @@ else
 Paxos和Raft
 Consensus
 
+Nginx（或Haproxy） +keepalived
+
 Keepalived
 ZooKeeper
 
