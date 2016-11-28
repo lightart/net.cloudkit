@@ -618,3 +618,6 @@ HA和负载均衡的区别
 
 
 http://blog.csdn.net/e421083458/article/details/30092795
+http://www.cnblogs.com/holbrook/archive/2012/10/25/2738475.html
+https://yq.aliyun.com/articles/24155
+http://blog.sina.com.cn/s/blog_4e424e2101007rie.html
