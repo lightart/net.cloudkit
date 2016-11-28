@@ -528,6 +528,9 @@ else
 Paxos和Raft
 Consensus
 
+Keepalived
+ZooKeeper
+
 http://thesecretlivesofdata.com/raft/
 CAP原理和BASE思想
 http://www.jdon.com/37625
