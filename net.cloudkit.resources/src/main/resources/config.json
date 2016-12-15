@@ -20,8 +20,8 @@
         "id": "",
         "name": "",
         // el
-        "applyTo": "",
-        "renderTo": "",
+        "apply": "",
+        "render": "",
         "methods": {
             // function
         },
