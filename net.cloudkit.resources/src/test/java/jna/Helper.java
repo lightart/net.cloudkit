@@ -24,7 +24,7 @@ public class Helper {
     }
 
     /**
-     * Extract data contained in classpath into a system accessible target file.
+     * Extract data contained in classpath into a system.ini accessible target file.
      *
      * @param localPath
      * @param target
