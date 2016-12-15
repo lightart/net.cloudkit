@@ -622,3 +622,22 @@ https://yq.aliyun.com/articles/24155
 http://blog.sina.com.cn/s/blog_4e424e2101007rie.html
 
 OpenVPN
+OpenGl
+WebGl
+
+
+http://www.firewalld.org/documentation/howto/open-a-port-or-service.html
+
+
+x        删除当前光标下的字符
+dw       删除光标之后的单词剩余部分。
+d$       删除光标之后的该行剩余部分。
+dd       删除当前行。
+
+c        功能和d相同，区别在于完成删除操作后进入INSERT MODE
+cc       也是删除当前行，然后进入INSERT MODE
+删除每行第一个字符    :%s/^.//g
+
+
+同步时间
+ntpdate 172.16.0.1

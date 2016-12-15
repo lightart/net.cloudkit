@@ -66,7 +66,7 @@ public class FileTest {
         is.close();
         fos.close();
 
-        // BASE64Encoder().encode(buffer)
+        // Base64Encoder().encode(buffer)
 
         // FileInputStream fis = new FileInputStream()
         // Files.newBufferedReader(Paths.get("E:/20161104151834754715.20161104151834754715"));
