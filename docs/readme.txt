@@ -659,3 +659,5 @@ ribbon用以实现负载均衡；实现软负载均衡，核心有三点：
 3.服务监听，检测失效的服务，高效剔除失效服务
 turbine是聚合服务器发送事件流数据的一个工具，hystrix的监控中，只能监控单个节点，实际生产中都为集群，因此可以通过turbine来监控集群下hystrix的metrics情况，通过eureka来发现hystrix服务。
 hystrix通过服务隔离、熔断(也可以称为断路)、降级等手段控制依赖服务的延迟与失败。
+
+http://www.ruanyifeng.com/
