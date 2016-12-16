@@ -644,3 +644,18 @@ ntpdate 172.16.0.1
 
 
 证明（递归）、算法（递归）、语言（λ演算[10]）、操作系统（指针）、编译器（λ演算）
+
+
+服务发现 zookeeper ,consul ,etcd
+zipkin为分布式链路调用监控系统，聚合各业务系统调用延迟数据，达到链路调用监控跟踪。
+
+netflix
+zuul用来提供动态路由、监控、授权、安全、调度等等的边缘服务(edge service)。
+feign是一个类似retrofit进行http调用框架，Feign makes writing Java http clients easier 使得编写http client代码更加简单。
+eureka 用以服务发现、服务注册，比较流行的有consul。
+ribbon用以实现负载均衡；实现软负载均衡，核心有三点：
+1.服务发现，发现依赖服务的列表
+2.服务选择规则，在多个服务中如何选择一个有效服务
+3.服务监听，检测失效的服务，高效剔除失效服务
+turbine是聚合服务器发送事件流数据的一个工具，hystrix的监控中，只能监控单个节点，实际生产中都为集群，因此可以通过turbine来监控集群下hystrix的metrics情况，通过eureka来发现hystrix服务。
+hystrix通过服务隔离、熔断(也可以称为断路)、降级等手段控制依赖服务的延迟与失败。
