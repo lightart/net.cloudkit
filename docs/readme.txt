@@ -661,3 +661,12 @@ turbine是聚合服务器发送事件流数据的一个工具，hystrix的监控
 hystrix通过服务隔离、熔断(也可以称为断路)、降级等手段控制依赖服务的延迟与失败。
 
 http://www.ruanyifeng.com/
+
+
+两种I/O多路复用模式：Reactor和Proactor
+
+RxJava: Reactive Extensions for the JVM
+Querydsl
+https://ebean-orm.github.io/
+http://ignite.apache.org/
+https://www.consul.io
