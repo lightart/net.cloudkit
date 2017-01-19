@@ -677,3 +677,5 @@ https://www.consul.io
  布隆过滤器(Bloom Filter)
 
 SNMP
+
+BPEL：全称为Business Process Execution Language,即业务流程执行语言，是一种使用XML编写的编程语言。用于自动化业务流程，也曾经被称作WSBPEL和 BPEL4WS。广泛使用于Web服务相关的项目开发中，优点为具有可移植性和有效保护了投资。
