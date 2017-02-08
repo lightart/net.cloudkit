@@ -1,0 +1,432 @@
+﻿<bean id="shiroSessionManager" class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager">
+	<property name="sessionDAO" ref="sessionDAO"/>
+	<!-- <property name="sessionValidationScheduler" ref="shiroSessionValidationScheduler"/> -->
+	<property name="sessionValidationInterval" value="1800000"/>  <!-- 相隔多久检查一次session的有效性 -->
+	<property name="globalSessionTimeout" value="1800000"/>  <!-- session 有效时间为半小时 （毫秒单位）-->
+	<property name="sessionIdCookie.domain" value=".xxx.com"/>
+	<property name="sessionIdCookie.name" value="jsid"/>
+	<property name="sessionIdCookie.path" value="/"/>
+	<!-- <property name="sessionListeners">
+		<list>
+			<bean class="com.concom.security.interfaces.listener.SessionListener"/>
+		</list>
+	</property> -->
+</bean>
+
+
+
+<!-- 会话Cookie模板 -->
+    <bean id="sessionIdCookie" class="org.apache.shiro.web.servlet.SimpleCookie">
+        <constructor-arg value="v_v-s-baidu"/>
+        <property name="httpOnly" value="true"/>
+        <property name="maxAge" value="-1"/>
+        <!-- 配置存储Session Cookie的domain为 一级域名 -->
+        <property name="domain" value=".sojson.com"/>
+    </bean>
+    <!-- custom shiro session listener -->
+    <bean id="customSessionListener" class="com.sojson.core.shiro.listenter.CustomSessionListener">
+        <property name="shiroSessionRepository" ref="jedisShiroSessionRepository"/>
+    </bean>
+    <bean id="rememberMeCookie" class="org.apache.shiro.web.servlet.SimpleCookie">
+        <constructor-arg value="v_v-re-baidu"/>
+        <property name="httpOnly" value="true"/>
+        <!-- 配置存储rememberMe Cookie的domain为 一级域名 -->
+        <property name="domain" value=".sojson.com"/>
+        <property name="maxAge" value="2592000"/><!-- 30天 -->
+    </bean>
+
+
+
+
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------------------------------
+Session  的每个回话的ID 生成器，我们用JavaUuidSessionIdGenerator （UUID 规则）。
+<!-- 会话Session ID生成器 -->
+<bean id="sessionIdGenerator" class="org.apache.shiro.session.mgt.eis.JavaUuidSessionIdGenerator"/>
+
+Session  的创建、获取、删除
+<!-- session 创建、删除、查询 -->
+<bean id="jedisShiroSessionRepository" class="com.sojson.core.shiro.cache.JedisShiroSessionRepository" >
+	 <property name="jedisManager" ref="jedisManager"/>
+</bean>
+
+Session  的监听生命周期
+<!-- custom shiro session listener -->
+<bean id="customShiroSessionDAO" class="com.sojson.core.shiro.CustomShiroSessionDAO">
+    <property name="shiroSessionRepository" ref="jedisShiroSessionRepository"/>
+    <property name="sessionIdGenerator" ref="sessionIdGenerator"/>
+</bean>
+
+Session  定时管理器（有效期）
+<!-- 会话验证调度器 -->
+<bean id="sessionValidationScheduler" class="org.apache.shiro.session.mgt.ExecutorServiceSessionValidationScheduler">
+     <!--检测时间间距，默认是60分钟-->
+     <property name="interval" value="${session.validate.timespan}"/>
+     <property name="sessionManager" ref="sessionManager"/>
+</bean>
+
+Session   cookie  模版配置
+<!-- 会话Cookie模板 -->
+<bean id="sessionIdCookie" class="org.apache.shiro.web.servlet.SimpleCookie">
+	<!--cookie的name，我故意取名叫xxxxbaidu -->
+    <constructor-arg value="v_v-s-baidu"/>
+    <property name="httpOnly" value="true"/>
+    <!--cookie的有效时间 -->
+    <property name="maxAge" value="-1"/>
+    <!-- 配置存储Session Cookie的domain为 一级域名 -->
+    <property name="domain" value=".itboy.net"/>
+</bean>
+
+Session  Manager 配置
+<!-- Session Manager -->
+<bean id="sessionManager" class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager">
+	<!-- 相隔多久检查一次session的有效性   -->
+ 	<property name="sessionValidationInterval" value="1800000"/>  
+ 	 <!-- session 有效时间为半小时 （毫秒单位）-->  
+<property name="globalSessionTimeout" value="1800000"/>
+   <property name="sessionDAO" ref="customShiroSessionDAO"/>
+   <!-- session 监听，可以多个。 -->
+   <property name="sessionListeners">
+       <list>
+           <ref bean="customSessionListener"/>
+       </list>
+   </property>
+   <!-- 间隔多少时间检查，不配置是60分钟 -->	
+  <property name="sessionValidationScheduler" ref="sessionValidationScheduler"/>
+  <!-- 是否开启 检测，默认开启 -->
+  <property name="sessionValidationSchedulerEnabled" value="true"/>
+   <!-- 是否删除无效的，默认也是开启 -->
+  <property name="deleteInvalidSessions" value="true"/>
+	<!-- 会话Cookie模板 -->
+   <property name="sessionIdCookie" ref="sessionIdCookie"/>
+</bean>
+
+
+Session  的创建、删除、查询 ，ShiroSessionRepository 接口定义。
+package com.sojson.core.shiro.session;
+import org.apache.shiro.session.Session;
+import java.io.Serializable;
+import java.util.Collection;
+/**
+ * custom shiro session manager interface
+ *
+ * @author zhoubaicheng
+ */
+public interface ShiroSessionRepository {
+	/**
+	 * 存储Session
+	 * @param session
+	 */
+    void saveSession(Session session);
+    /**
+     * 删除session
+     * @param sessionId
+     */
+    void deleteSession(Serializable sessionId);
+    /**
+     * 获取session
+     * @param sessionId
+     * @return
+     */
+    Session getSession(Serializable sessionId);
+    /**
+     * 获取所有sessoin
+     * @return
+     */
+    Collection<Session> getAllSessions();
+}
+
+
+Session  的创建、删除、查询实现。com.sojson.core.shiro.cache.JedisShiroSessionRepository 
+package com.sojson.core.shiro.cache;
+import java.io.Serializable;
+import java.util.Collection;
+import org.apache.log4j.Logger;
+import org.apache.shiro.session.Session;
+import com.sojson.common.utils.SerializeUtil;
+import com.sojson.core.shiro.session.ShiroSessionRepository;
+/**
+ * Session 管理
+ * @author sojson.com
+ *
+ */
+@SuppressWarnings("unchecked")
+public class JedisShiroSessionRepository implements ShiroSessionRepository {
+	private static Logger logger = Logger.getLogger(JedisShiroSessionRepository.class);
+    public static final String REDIS_SHIRO_SESSION = "sojson-shiro-session:";
+    //这里有个小BUG，因为Redis使用序列化后，Key反序列化回来发现前面有一段乱码，解决的办法是存储缓存不序列化
+    public static final String REDIS_SHIRO_ALL = "*sojson-shiro-session:*";
+    private static final int SESSION_VAL_TIME_SPAN = 18000;
+    private static final int DB_INDEX = 1;
+    private JedisManager jedisManager;
+    @Override
+    public void saveSession(Session session) {
+        if (session == null || session.getId() == null)
+            throw new NullPointerException("session is empty");
+        try {
+            byte[] key = SerializeUtil.serialize(buildRedisSessionKey(session.getId()));
+            byte[] value = SerializeUtil.serialize(session);
+            long sessionTimeOut = session.getTimeout() / 1000;
+            Long expireTime = sessionTimeOut + SESSION_VAL_TIME_SPAN + (5 * 60);
+            getJedisManager().saveValueByKey(DB_INDEX, key, value, expireTime.intValue());
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("save session error");
+        }
+    }
+    @Override
+    public void deleteSession(Serializable id) {
+        if (id == null) {
+            throw new NullPointerException("session id is empty");
+        }
+        try {
+            getJedisManager().deleteByKey(DB_INDEX,
+                    SerializeUtil.serialize(buildRedisSessionKey(id)));
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("delete session error");
+        }
+    }
+   
+	@Override
+    public Session getSession(Serializable id) {
+        if (id == null)
+            throw new NullPointerException("session id is empty");
+        Session session = null;
+        try {
+            byte[] value = getJedisManager().getValueByKey(DB_INDEX, SerializeUtil
+                    .serialize(buildRedisSessionKey(id)));
+            session = SerializeUtil.deserialize(value, Session.class);
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("get session error");
+        }
+        return session;
+    }
+    @Override
+    public Collection<Session> getAllSessions() {
+    	Collection<Session> sessions = null;
+		try {
+			sessions = getJedisManager().AllSession(DB_INDEX,REDIS_SHIRO_SESSION);
+		} catch (Exception e) {
+			logger.error("获取全部session异常");
+			e.printStackTrace();
+		}
+       
+        return sessions;
+    }
+    private String buildRedisSessionKey(Serializable sessionId) {
+        return REDIS_SHIRO_SESSION + sessionId;
+    }
+    public JedisManager getJedisManager() {
+        return jedisManager;
+    }
+    public void setJedisManager(JedisManager jedisManager) {
+        this.jedisManager = jedisManager;
+    }
+}
+
+CustomShiroSessionDAO的继承实现
+package com.sojson.core.shiro;
+import java.io.Serializable;
+import java.util.Collection;
+import org.apache.log4j.Logger;
+import org.apache.shiro.session.Session;
+import org.apache.shiro.session.UnknownSessionException;
+import org.apache.shiro.session.mgt.eis.AbstractSessionDAO;
+import com.sojson.core.shiro.session.ShiroSessionRepository;
+public class CustomShiroSessionDAO extends AbstractSessionDAO{ 
+	
+	private static Logger logger = Logger.getLogger(CustomShiroSessionDAO.class);
+	
+    private ShiroSessionRepository shiroSessionRepository;  
+  
+    public ShiroSessionRepository getShiroSessionRepository() {  
+        return shiroSessionRepository;  
+    }  
+  
+    public void setShiroSessionRepository(  
+            ShiroSessionRepository shiroSessionRepository) {  
+        this.shiroSessionRepository = shiroSessionRepository;  
+    }  
+  
+    @Override  
+    public void update(Session session) throws UnknownSessionException {  
+        getShiroSessionRepository().saveSession(session);  
+    }  
+  
+    @Override  
+    public void delete(Session session) {  
+        if (session == null) {  
+        	logger.error( 
+                    "session can not be null,delete failed");  
+            return;  
+        }  
+        Serializable id = session.getId();  
+        if (id != null)  
+            getShiroSessionRepository().deleteSession(id);  
+    }  
+  
+    @Override  
+    public Collection<Session> getActiveSessions() {  
+        return getShiroSessionRepository().getAllSessions();  
+    }  
+  
+    @Override  
+    protected Serializable doCreate(Session session) {  
+        Serializable sessionId = this.generateSessionId(session);  
+        this.assignSessionId(session, sessionId);  
+        getShiroSessionRepository().saveSession(session);  
+        return sessionId;  
+    }  
+  
+    @Override  
+    protected Session doReadSession(Serializable sessionId) {  
+        return getShiroSessionRepository().getSession(sessionId);  
+    } }
+
+----------------------------------------------------------------------------
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" ref="shiroFilter"/>
+        <property name="targetMethod" value="setFilterChainResolver"/>
+        <property name="arguments" ref="filterChainResolver"/>
+    </bean>
+    <bean id="filterChainResolver"   class="com.sfkj.platform.shiro.CustomPathMatchingFilterChainResolver">
+        <property name="customDefaultFilterChainManager" ref="filterChainManager"/>
+    </bean>
+    <bean id="filterChainManager"    class="com.sfkj.platform.shiro.CustomDefaultFilterChainManager">
+        <property name="loginUrl" value="/index/redirect.html"/>
+        <property name="successUrl" value="/index/redirect.html"/>
+        <property name="unauthorizedUrl" value="/index/unauthorizedUrl.html"/>
+        <property name="customFilters">
+            <util:map>
+                <entry key="kickout" value-ref="kickoutSessionControlFilter"/>
+                <entry key="sysUser" value-ref="sysUserFilter"/>
+            </util:map>
+        </property>
+        <property name="defaultFilterChainDefinitions">
+            <value>
+                <!-- /login = authc
+                /logout = logout
+                /unauthorized.jsp = authc
+                /** = user,sysUser  -->
+                /admin/**=kickout
+                /** =anon
+            </value>
+        </property>
+    </bean>
+     <bean id="sysUserFilter" class="com.sfkj.platform.shiro.SysUserFilter"/>
+    <bean id="kickoutSessionControlFilter"   class="com.sfkj.platform.shiro.KickoutSessionControlFilter">
+        <property name="cacheManager" ref="cacheManager"/>
+        <property name="sessionManager" ref="sessionManager"/>
+        <property name="kickoutAfter" value="false"/>
+        <property name="maxSession" value="1"/>
+        <property name="kickoutUrl" value="/index/kickoutUrl.html"/>
+    </bean>
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <property name="securityManager" ref="securityManager" />
+    </bean>
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="realm" ref="userRealm" />
+        <property name="cacheManager" ref="cacheManager" />
+        <property name="sessionManager" ref="sessionManager"/>
+    </bean>
+    <bean id="userRealm" class="com.sfkj.platform.shiro.UserRealm"/>
+     <!-- 缓存管理器 使用Ehcache实现 -->
+    <bean id="cacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
+        <property name="cacheManager" ref="ehCacheManager"/>
+        <property name="cacheManagerConfigFile" value="classpath:ehcache-shiro.xml"/>
+    </bean>
+    <bean id="ehCacheManager" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean"/>
+
+      <!-- 会话管理器 -->
+    <bean id="sessionManager" class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager">
+        <property name="globalSessionTimeout" value="604800000"/>
+        <property name="deleteInvalidSessions" value="true"/>
+        <property name="sessionValidationSchedulerEnabled" value="true"/>
+        <!--  <property name="sessionValidationScheduler" ref="sessionValidationScheduler"/>  -->
+        <property name="sessionDAO" ref="sessionDAO"/>
+        <property name="sessionIdCookieEnabled" value="true"/>
+        <property name="sessionIdCookie" ref="sessionIdCookie"/>
+    </bean>
+    <!-- 会话验证调度器 -->
+    <!--<bean id="sessionValidationScheduler" class="org.apache.shiro.session.mgt.quartz.QuartzSessionValidationScheduler">
+        <property name="sessionValidationInterval" value="1800000"/>
+        <property name="sessionManager" ref="sessionManager"/>
+    </bean> -->
+    <!-- 会话DAO -->
+    <bean id="sessionDAO" class="org.apache.shiro.session.mgt.eis.EnterpriseCacheSessionDAO">
+        <property name="activeSessionsCacheName" value="shiro-activeSessionCache"/>
+        <property name="sessionIdGenerator" ref="sessionIdGenerator"/>
+    </bean>
+    <!-- 会话ID生成器 -->
+    <bean id="sessionIdGenerator" class="org.apache.shiro.session.mgt.eis.JavaUuidSessionIdGenerator"/>
+     <!-- 会话Cookie模板 -->
+    <bean id="sessionIdCookie" class="org.apache.shiro.web.servlet.SimpleCookie">
+        <constructor-arg value="sid"/>
+        <property name="httpOnly" value="true"/>
+        <property name="maxAge" value="-1"/>
+    </bean>
+
+     <!-- Shiro生命周期处理器-->
+    <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
+-----------------------------------------------------------------------------------------------------------------
+<!-- 会话验证调度器 -->
+    <bean id="sessionValidationScheduler"
+          class="org.apache.shiro.session.mgt.ExecutorServiceSessionValidationScheduler">
+        <!--检测时间间距，默认是60分钟-->
+        <property name="interval" value="${session.validate.timespan}"/>
+        <property name="sessionManager" ref="sessionManager"/>
+    </bean>
+
+    <!-- 会话Cookie模板 -->
+    <bean id="sessionIdCookie" class="org.apache.shiro.web.servlet.SimpleCookie">
+        <!--cookie的name -->
+        <constructor-arg value="v_v-s-gmy"/>
+        <property name="httpOnly" value="true"/>
+        <!--cookie的有效时间 -->
+        <property name="maxAge" value="-1"/>
+        <!-- 配置存储Session Cookie的domain为 一级域名 -->
+        <property name="domain" value=".guanmaoyun.com"/>
+    </bean>
+
+    <!-- 会话ID生成器 -->
+    <bean id="sessionIdGenerator" class="org.apache.shiro.session.mgt.eis.JavaUuidSessionIdGenerator"/>
+
+    <!-- 会话DAO -->
+    <bean id="sessionDAO" class="org.apache.shiro.session.mgt.eis.EnterpriseCacheSessionDAO">
+        <property name="activeSessionsCacheName" value="shiro-activeSessionCache"/>
+        <property name="sessionIdGenerator" ref="sessionIdGenerator"/>
+    </bean>
+
+    <!-- Session Manager -->
+    <bean id="sessionManager" class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager">
+        <!-- 相隔多久检查一次session的有效性   -->
+        <property name="sessionValidationInterval" value="1800000"/>
+        <!-- session 有效时间为半小时 （毫秒单位）-->
+        <property name="globalSessionTimeout" value="1800000"/>
+        <property name="sessionDAO" ref="sessionDAO"/>
+        <!-- session 监听，可以多个。 -->
+        <!--
+        <property name="sessionListeners">
+            <list>
+                <ref bean="customSessionListener"/>
+            </list>
+        </property>
+        -->
+        <!-- 间隔多少时间检查，不配置是60分钟 -->
+        <property name="sessionValidationScheduler" ref="sessionValidationScheduler"/>
+        <!-- 是否开启 检测，默认开启 -->
+        <property name="sessionValidationSchedulerEnabled" value="true"/>
+        <!-- 是否删除无效的，默认也是开启 -->
+        <property name="deleteInvalidSessions" value="true"/>
+        <!-- 会话Cookie模板 -->
+        <property name="sessionIdCookie" ref="sessionIdCookie"/>
+    </bean>

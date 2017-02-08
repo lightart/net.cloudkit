@@ -679,3 +679,16 @@ https://www.consul.io
 SNMP
 
 BPEL：全称为Business Process Execution Language,即业务流程执行语言，是一种使用XML编写的编程语言。用于自动化业务流程，也曾经被称作WSBPEL和 BPEL4WS。广泛使用于Web服务相关的项目开发中，优点为具有可移植性和有效保护了投资。
+
+
+Spring Security
+
+under active development.
+has much more community support.
+Spring security has extensions providing support for both Oauth and kerberos and SAML.
+
+Shiro
+
+Does not support saml or Oauth.
+Makes no mention of supporting before and after security policies.
+Active development seems limited, the website still contains erroneous information.
