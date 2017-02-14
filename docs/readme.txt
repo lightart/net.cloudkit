@@ -692,3 +692,22 @@ Shiro
 Does not support saml or Oauth.
 Makes no mention of supporting before and after security policies.
 Active development seems limited, the website still contains erroneous information.
+
+
+DevOps
+
+
+领域通用语言（UBIQUITOUS LANGUAGE）
+UnitOfWork
+Factory
+Repository
+Event Sourcing
+Aggregate，Aggregate Root
+Domain Service
+Value Object
+Entity
+
+User Interface
+Application
+Domain
+Infrastructure
