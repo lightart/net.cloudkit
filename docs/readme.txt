@@ -711,3 +711,8 @@ User Interface
 Application
 Domain
 Infrastructure
+
+事务
+池化
+虚拟
+存储
