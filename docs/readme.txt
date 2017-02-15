@@ -769,17 +769,17 @@ hibernate 4.1之后对于HQL中查询参数的占位符做了改进，如果仍�
 比如老的占位符查询代码片段：
 String hql = "select t from Blog t where t.site=?";
 Query query = getSession().createQuery(hql);
-query.setParameter(0, "micmiu.com");
+query.setParameter(0, "simple.com");
 方法一：改成命名参数的方式：
 
 // 命名参数的方式
 String hql2 = "select t from Blog t where t.site=:site";
 Query query2 = getSession().createQuery(hql2);
-query2.setParameter("site", "micmiu.com");
+query2.setParameter("site", "simple.com");
 方法二：改成JPA占位符的方式：
 
 // JPA占位符方式
 String hql3 = "select t from Blog t where t.site=?0";
 Query query3 = getSession().createQuery(hql3);
-query2.setParameter(0, "micmiu.com");
+query2.setParameter(0, "simple.com");
 其中"?"后面的"0"代表索引位置，在HQL语句中可重复出现，并不一定要从0开始，可以是任何数字，只是参数要与其对应上。
