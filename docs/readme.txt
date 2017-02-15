@@ -756,3 +756,30 @@ RC	N	N	Y	Y	Y
 RR	N	N	N	N	Y
 S	N	N	N	N	N
 (注：LU：丢失更新；DR：脏读；NRR：非重复读；SLU：二类丢失更新；PR：幻像读)
+
+
+
+Hibernate占位符问题[use named parameters or JPA-style positional parameters instead.]
+
+hibernate 4.1之后对于HQL中查询参数的占位符做了改进，如果仍然用老式的占位符会有类似如下的告警信息：
+
+[main] WARN  [org.hibernate.hql.internal.ast.HqlSqlWalker] – [DEPRECATION] Encountered positional parameter near line 1, column 95.  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+从告警提示信息中可以看出，它建议用命名参数或者JPA占位符两中种方法来代替老的占位符查询方法。
+
+比如老的占位符查询代码片段：
+String hql = "select t from Blog t where t.site=?";
+Query query = getSession().createQuery(hql);
+query.setParameter(0, "micmiu.com");
+方法一：改成命名参数的方式：
+
+// 命名参数的方式
+String hql2 = "select t from Blog t where t.site=:site";
+Query query2 = getSession().createQuery(hql2);
+query2.setParameter("site", "micmiu.com");
+方法二：改成JPA占位符的方式：
+
+// JPA占位符方式
+String hql3 = "select t from Blog t where t.site=?0";
+Query query3 = getSession().createQuery(hql3);
+query2.setParameter(0, "micmiu.com");
+其中"?"后面的"0"代表索引位置，在HQL语句中可重复出现，并不一定要从0开始，可以是任何数字，只是参数要与其对应上。
