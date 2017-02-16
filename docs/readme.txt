@@ -783,3 +783,6 @@ String hql3 = "select t from Blog t where t.site=?0";
 Query query3 = getSession().createQuery(hql3);
 query2.setParameter(0, "simple.com");
 其中"?"后面的"0"代表索引位置，在HQL语句中可重复出现，并不一定要从0开始，可以是任何数字，只是参数要与其对应上。
+
+
+
