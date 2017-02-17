@@ -786,3 +786,8 @@ query2.setParameter(0, "simple.com");
 
 
 EventSource
+
+svelte
+
+Kubernetes
+TensorFlow
