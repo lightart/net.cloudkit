@@ -19,6 +19,10 @@ public class Test {
         System.out.println(b <<= 1);
         int c = 2;
         System.out.println(c >>= 1);
+
+
+        // System.out.println(Math.floor(12.92F));
+        // System.out.println(Math.ceil(12.92F));
     }
 }
 
