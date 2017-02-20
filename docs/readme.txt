@@ -791,3 +791,5 @@ svelte
 
 Kubernetes
 TensorFlow
+
+Lamda
