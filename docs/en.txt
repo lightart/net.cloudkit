@@ -15,3 +15,16 @@ adjective 形容词
 
 preposition 介词
 英 [,prepə'zɪʃ(ə)n] 美 [,prɛpə'zɪʃən]
+
+conjunction 连接词
+英 [kən'dʒʌŋ(k)ʃ(ə)n]
+美 [kən'dʒʌŋkʃən]
+
+vt.
+vi.
+
+
+主格:I/we/you/he/she/it/they
+宾格:me/us/you/him/her/it/them
+所有格:my/our/your/his/her/its/their
+mine/ours/yours/his/hers/its/yours/theirs
