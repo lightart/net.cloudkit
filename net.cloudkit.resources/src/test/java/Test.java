@@ -15,17 +15,29 @@ public class Test {
         }
         */
 
+        /*
         int b = 2;
         System.out.println(b <<= 1);
         int c = 2;
         System.out.println(c >>= 1);
-
+        */
 
         // System.out.println(Math.floor(12.92F));
         // System.out.println(Math.ceil(12.92F));
+
+        int x = 1;    // x指向内存地址A，内容是整数1
+        int y = x;    // y指向同样的内存地址A，内容是整数1
+        x = 2;        // x指向另一个内存地址B，内容是整数2。y仍然指向地址A，内容是1。
+        System.out.println(y);
+        System.out.println(x);
+
+        Integer x_1 = 1;
+        Integer y_1 = x_1;
+        x_1 = 2;
+        System.out.println(y_1);
+        System.out.println(x_1);
     }
 }
-
 
 
 
