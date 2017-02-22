@@ -795,4 +795,71 @@ TensorFlow
 Lamda
 
 Trie树
-LRU Least Recently Used
+
+LFU Least Frequently Used 最近最少使用算法，一定时间段内使用次数（频率）最少的那个被移除；
+LRU Least Recently Used 最久未使用算法，使用时间距离现在最久的那个被移除；
+LRU2 Least Recently Used 2 最少使用 twice
+LIRS Low Inter-reference Recency Set
+ARC Adaptive Replacement Cache
+MRU Most Recently Used
+FIFO First in First out 先进先出算法，即先放入缓存的先被移除；
+Second Chance
+CLock
+Simple time-based
+Extended time-based expiration
+Sliding time-based expiration
+LeftOver 机制
+Random Cache
+
+
+Two Queues（2Q）
+
+1.最佳置换算法(Optimal)：它是由Belady于1966年提出的一种理论上的算法。其所选择的被淘汰页面，将是以后永不使用的或许是在最长(未来)时间内不再被访问的页面。采用最佳置换算法，通常可保证获得最低的缺页率。但由于人目前还无法预知一个进程在内存的若干个页面中，哪一个页面是未来最长时间内不再被访问的，因而该算法是无法实现的，便可以利用此算法来评价其它算法。
+2.先进先出(FIFO)页面置换算法：这是最早出现的置换算法。该算法总是淘汰最先进入内存的页面，即选择在内存中驻留时间最久的页面予以淘汰。该算法实现简单只需把一个进程已调入内存的页面，按先后次序链接成一个队列，并设置一个指针，称为替换指针，使它总是指向最老的页面。
+3.LRU置换算法：这是本次设计的重点。
+4.CLOCK置换算法：a,简单CLOCK置换算法；b,改进型CLOCK算法。LRU算法是较好的一种算法，而由于LRU在硬件上要求较多，在实际应用中多采用LRU的近似算法。CLOCK算法就是用得较多的一种LRU近似算法。
+5.最少使用(LFU:Least Frequently Used)置换算法：在采用该算法时，应为在内存中的每个页面设置一个移位寄存器骼来记录该页面被访问的频率。该置换算法选择在最近时期使用最少的页面为淘汰页。
+6.页面缓冲算法(PBA：Page Buffering Algorithm)
+
+TTL（Time To Live ）
+存活期，即从缓存中创建时间点开始直到它到期的一个时间段（不管在这个时间段内有没有访问都将过期）
+
+TTI（Time To Idle）
+空闲期，即一个数据多久没被访问将从缓存中移除的时间。
+
+缓存命中率
+
+即从缓存中读取数据的次数 与 总读取次数的比率，命中率越高越好：
+命中率 = 从缓存中读取次数 / (总读取次数[从缓存中读取次数 + 从慢速设备上读取的次数])
+Miss率 = 没有从缓存中读取的次数 / (总读取次数[从缓存中读取次数 + 从慢速设备上读取的次数])
+------------------------------------------------------------------------------------------------------------------------
+
+GB/T 7714-2005
+制定机构：国家质量监督检验检疫总局和中国标准化管委会
+适用范围：国内发表刊物（自然科学国际上采用AMA格式，新闻报刊采用Chicago格式）
+引用格式：作者名+作品名+标识码+刊物名+年份+刊号+页码
+插注格式：中括号扩上数字标号，加上标  e.g. XXX[3]
+Borst S, Gupta V, Walid A. Distributed Caching Algorithms for Content Distribution Networks[C]// Conference on Information Communications. IEEE Press, 2010:1478-1486.
+
+APA
+制定机构：美国心理学会 American Psychological Association
+适用范围：主要是心理学、教育学、社会科学
+引用格式：作者名+年份+作品名+刊物名斜体+刊号斜体+页码
+插注格式：“作者和日期”的引用方式和“括号内引用法”  e.g. (ABC, 1999)
+Borst, S., Gupta, V., & Walid, A. (2010). Distributed Caching Algorithms for Content Distribution Networks. Conference on Information Communications (Vol.54, pp.1478-1486). IEEE Press.
+
+MLA
+制定机构：美国现代语言协会 Modern Language Association
+适用范围：主要人文学科，如文学、比较文学、文学批评和文化研究等
+引用格式：作者名+引号作品名+刊物名斜体+刊号+年份+页码
+插注格式：作者加页码的引用，不在引用时标注日期  e.g. (ABC 53)
+Borst, S, V. Gupta, and A. Walid. "Distributed Caching Algorithms for Content Distribution Networks." Conference on Information Communications IEEE Press, 2010:1478-1486.
+
+
+title="Cost-aware WWW proxy caching algorithms",
+author="Cao, Pei and Irani, Sandy",
+booktitle={Usenix Symposium on Internet Technologies and Systems on Usenix Symposium on Internet Technologies and Systems},
+pages="18-18",
+year="1997",
+
+
