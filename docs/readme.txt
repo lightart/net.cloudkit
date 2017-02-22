@@ -796,6 +796,9 @@ Lamda
 
 Trie树
 
+------------------------------------------------------------------------------------------------------------------------
+http://blog.jobbole.com/30940/
+
 LFU Least Frequently Used 最近最少使用算法，一定时间段内使用次数（频率）最少的那个被移除；
 LRU Least Recently Used 最久未使用算法，使用时间距离现在最久的那个被移除；
 LRU2 Least Recently Used 2 最少使用 twice
