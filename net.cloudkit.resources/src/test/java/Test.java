@@ -1,6 +1,8 @@
 
 public class Test {
 
+    private static final String ALPHA_NUMERIC_STRING = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
     public static void main(String[] args) {
         // Package pkg = Test.class.getPackage();
         // System.out.println((pkg != null ? pkg.getImplementationVersion() : null));
@@ -36,6 +38,15 @@ public class Test {
         x_1 = 2;
         System.out.println(y_1);
         System.out.println(x_1);
+    }
+
+    public static String randomAlphaNumeric(int count) {
+        StringBuilder builder = new StringBuilder();
+        while (count-- != 0) {
+            int character = (int)(Math.random()*ALPHA_NUMERIC_STRING.length());
+            builder.append(ALPHA_NUMERIC_STRING.charAt(character));
+        }
+        return builder.toString();
     }
 }
 
