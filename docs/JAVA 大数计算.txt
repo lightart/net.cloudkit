@@ -1,0 +1,28 @@
+JAVA 大数计算
+
+valueOf(param); 将参数转换为制定的类型
+比如 int a=3;
+BigInteger b = BigInteger.valueOf(a);
+则b=3;
+String s = "12345";
+BigInteger c=BigInteger.valueOf(s);
+则c = 12345;
+
+add(); 大整数相加
+BigInteger a=new BigInteger(“23”);
+BigInteger b=new BigInteger(“34”);
+a.add(b);
+
+subtract(); 相减
+multiply(); 相乘
+divide(); 相除取整
+remainder(); 取余
+pow(); a.pow(b) = a ^ b
+gcd(); 最大公约数
+abs(); 绝对值
+negate(); 取反数
+mod(); a.mod(b) = a % b = a.remainder(b);
+max();
+min();
+public int compareTo();
+boolean equals(); 是否相等
