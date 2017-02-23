@@ -45,15 +45,15 @@ public class MyRSA {
 
         Map<String, byte[]> keyMap = generateKeyBytes();
 
-        // 加密
+        // 加密 公钥默认使用的是X.509编码
         PublicKey publicKey = restorePublicKey(keyMap.get(PUBLIC_KEY));
 
-        byte[] encodedText = RSAEncode(publicKey, PLAIN_TEXT.getBytes());
-        System.out.println("RSA encoded: " + Base64Encrypt.encode(encodedText));
+        byte[] encodedText = encode(publicKey, PLAIN_TEXT.getBytes());
+        System.out.println("RSA encoded: " + new String(Base64Encrypt.encode(encodedText)));
 
-        // 解密
+        // 解密 私钥默认采用的是PKCS #8编码
         PrivateKey privateKey = restorePrivateKey(keyMap.get(PRIVATE_KEY));
-        System.out.println("RSA decoded: " + RSADecode(privateKey, encodedText));
+        System.out.println("RSA decoded: " + decode(privateKey, encodedText));
     }
 
     /**
@@ -64,9 +64,11 @@ public class MyRSA {
     public static Map<String, byte[]> generateKeyBytes() {
 
         try {
+            // RSA加密算法：创建密钥对，长度采用2048
             KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance(KEY_ALGORITHM);
             keyPairGenerator.initialize(KEY_SIZE);
             KeyPair keyPair = keyPairGenerator.generateKeyPair();
+            // 分别得到公钥和私钥
             RSAPublicKey publicKey = (RSAPublicKey) keyPair.getPublic();
             RSAPrivateKey privateKey = (RSAPrivateKey) keyPair.getPrivate();
 
@@ -124,10 +126,10 @@ public class MyRSA {
      * 加密，三步走。
      *
      * @param key
-     * @param plainText
+     * @param plainText origin
      * @return
      */
-    public static byte[] RSAEncode(PublicKey key, byte[] plainText) {
+    public static byte[] encode(PublicKey key, byte[] plainText) {
 
         try {
             Cipher cipher = Cipher.getInstance(CIPHER_ALGORITHM);
@@ -150,7 +152,7 @@ public class MyRSA {
      * @param encodedText
      * @return
      */
-    public static String RSADecode(PrivateKey key, byte[] encodedText) {
+    public static String decode(PrivateKey key, byte[] encodedText) {
 
         try {
             Cipher cipher = Cipher.getInstance(CIPHER_ALGORITHM);
