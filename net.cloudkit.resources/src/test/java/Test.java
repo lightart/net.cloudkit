@@ -1,3 +1,6 @@
+import com.sun.xml.internal.fastinfoset.algorithm.UUIDEncodingAlgorithm;
+
+import java.util.UUID;
 
 public class Test {
 
@@ -38,6 +41,13 @@ public class Test {
         x_1 = 2;
         System.out.println(y_1);
         System.out.println(x_1);
+
+        // UUIDEncodingAlgorithm
+        UUID initUUID = UUID.randomUUID();
+        long uniqueIdentifier = initUUID.getLeastSignificantBits() + initUUID.getMostSignificantBits();
+        System.out.println(uniqueIdentifier);
+
+
     }
 
     public static String randomAlphaNumeric(int count) {
