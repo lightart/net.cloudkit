@@ -32,7 +32,7 @@ public class HttpClientTest {
 
         for (Map<String, Object> dictMap : dictList) {
 
-            // https://www.shanbay.com/bdc/vocabulary/3131/
+            // https://www.shanbay.com/bdc/vocabulary/1/
 
             // http://dict.youdao.com/w/a/
             // http://dict.youdao.com/dictvoice?audio=abdomen&type=1
