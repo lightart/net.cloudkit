@@ -40,7 +40,13 @@ dependencies {
         // 依赖 cloudkit-commons 项目
         // project(':cloudkit-commons'),
         'net.java.dev.jna:jna:4.2.2',
-        'net.java.dev.jna:jna-platform:4.2.2'
+        'net.java.dev.jna:jna-platform:4.2.2',
+
+        libraries.'httpclient',
+        "org.jsoup:jsoup:1.8.3",
+        libraries.'mysql-connector-java',
+        libraries.'jackson-core',
+        libraries.'jackson-databind'
     )
 
     /*
