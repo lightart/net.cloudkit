@@ -45,7 +45,7 @@ public class HttpClientTest {
 
                 Document doc = Jsoup.connect("http://dict.youdao.com/w/" + word)
                     .userAgent("Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36")
-                    .cookie("DICT_UGC", "1c4a57959489c909810f142b1751150c|hongquanli@126.com; domain=.youdao.com")
+                    // .cookie("DICT_UGC", "1c4a57959489c909810f142b1751150c|hongquanli@126.com; domain=.youdao.com")
                     .timeout(3000).get();
 
                 // pronounce
@@ -104,18 +104,20 @@ public class HttpClientTest {
                         System.out.println(new String(Base64Encrypt.encode(bytes)));
                         voiceList.add(new String(Base64Encrypt.encode(bytes)));
 
+                        /*
                         // write the inputStream to a FileOutputStream
                         FileOutputStream fos = new FileOutputStream(new File("D:/voices/" + word + "_" + i + ".mp3"));
-                        /*
+                        #
                         int read = 0;
                         byte[] temps = new byte[1024];
                         while ((read = is.read(temps)) != -1) {
                             fos.write(temps, 0, read);
                         }
-                        */
+                        #
                         fos.write(bytes);
                         System.out.println("Done!");
                         fos.close();
+                        */
 
                         is.close();
 
