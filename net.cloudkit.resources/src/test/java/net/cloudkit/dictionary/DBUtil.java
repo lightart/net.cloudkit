@@ -42,6 +42,8 @@ public class DBUtil {
     private static String password = "root";
     private static String driverName = "com.mysql.jdbc.Driver";
 
+    private static Connection connection = null;
+
     static {
         Properties props = new Properties();
         try {
@@ -72,8 +74,8 @@ public class DBUtil {
      * @throws SQLException
      */
     public static Connection getConnection() throws SQLException {
-        Connection connection = connectionThreadLocal.get();
-        //if (connection == null) {
+        // Connection connection = connectionThreadLocal.get();
+        if (connection == null) {
             try {
                 Class.forName(driverName);
                 if (username != null && password != null) {
@@ -91,7 +93,7 @@ public class DBUtil {
             // connection = dataSource.getConnection();
             // connection.setAutoCommit(true);
             connectionThreadLocal.set(connection);
-        //}
+        }
         return connection;
     }
 
@@ -187,13 +189,13 @@ public class DBUtil {
                     e.printStackTrace();
                 }
             }
-            if (connection != null) {
-                try {
-                    connection.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
+//            if (connection != null) {
+//                try {
+//                    connection.close();
+//                } catch (SQLException e) {
+//                    e.printStackTrace();
+//                }
+//            }
         }
         return rowCount;
     }
@@ -240,13 +242,13 @@ public class DBUtil {
                     e.printStackTrace();
                 }
             }
-            if (connection != null) {
-                try {
-                    connection.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
+//            if (connection != null) {
+//                try {
+//                    connection.close();
+//                } catch (SQLException e) {
+//                    e.printStackTrace();
+//                }
+//            }
         }
         return results;
     }

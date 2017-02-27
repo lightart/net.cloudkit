@@ -27,41 +27,43 @@ public class HttpClientTest {
 
     public static void main(String[] args) {
 
-        ParsingService parsingService = new ParsingService();
-        List<Map<String, Object>> dictList = parsingService.getDictionaryList();
+        while (true) {
+            ParsingService parsingService = new ParsingService();
+            List<Map<String, Object>> dictList = parsingService.getDictionaryList2();
 
-        for (Map<String, Object> dictMap : dictList) {
+            for (Map<String, Object> dictMap : dictList) {
+                System.out.println("==================================================");
 
-            // https://www.shanbay.com/bdc/vocabulary/1/
+                // https://www.shanbay.com/bdc/vocabulary/1/
 
-            // http://dict.youdao.com/w/a/
-            // http://dict.youdao.com/dictvoice?audio=abdomen&type=1
-            // http://dict.youdao.com/dictvoice?audio=abdomen&type=2
+                // http://dict.youdao.com/w/a/
+                // http://dict.youdao.com/dictvoice?audio=abdomen&type=1
+                // http://dict.youdao.com/dictvoice?audio=abdomen&type=2
 
-            // String word = "abacus";
-            String word = (String) dictMap.get("word");
+                // String word = "abacus";
+                String word = (String) dictMap.get("word");
 
-            try {
+                try {
 
-                Document doc = Jsoup.connect("http://dict.youdao.com/w/" + word)
-                    .userAgent("Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36")
-                    // .cookie("DICT_UGC", "1c4a57959489c909810f142b1751150c|hongquanli@126.com; domain=.youdao.com")
-                    .timeout(3000).get();
+                    Document doc = Jsoup.connect("http://dict.youdao.com/w/" + word)
+                        .userAgent("Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36")
+                        // .cookie("DICT_UGC", "1c4a57959489c909810f142b1751150c|hongquanli@126.com; domain=.youdao.com")
+                        .timeout(3000).get();
 
-                // pronounce
-                // String title = doc.title();
-                List<String> pronounceList = new ArrayList<>();
-                Elements pronounceElements = doc.select("div#phrsListTab span.pronounce");
-                // for (Element element:elements) {}
-                for (int i = 0; i < pronounceElements.size(); i++) {
-                    System.out.println(pronounceElements.get(i).text());
-                    pronounceList.add(pronounceElements.get(i).text());
-                    if (i == 1) {
-                        break;
+                    // pronounce
+                    // String title = doc.title();
+                    List<String> pronounceList = new ArrayList<>();
+                    Elements pronounceElements = doc.select("div#phrsListTab span.pronounce");
+                    // for (Element element:elements) {}
+                    for (int i = 0; i < pronounceElements.size(); i++) {
+                        System.out.println(pronounceElements.get(i).text());
+                        pronounceList.add(pronounceElements.get(i).text());
+                        if (i == 1) {
+                            break;
+                        }
                     }
-                }
 
-                // explain
+           /*     // explain
                 List<String> explainList = new ArrayList<>();
                 Elements explainElements = doc.getElementsByClass("trans-container");
                 for (int i = 0; i < explainElements.size(); i++) {
@@ -104,7 +106,7 @@ public class HttpClientTest {
                         System.out.println(new String(Base64Encrypt.encode(bytes)));
                         voiceList.add(new String(Base64Encrypt.encode(bytes)));
 
-                        /*
+                        *//*
                         // write the inputStream to a FileOutputStream
                         FileOutputStream fos = new FileOutputStream(new File("D:/voices/" + word + "_" + i + ".mp3"));
                         #
@@ -117,7 +119,7 @@ public class HttpClientTest {
                         fos.write(bytes);
                         System.out.println("Done!");
                         fos.close();
-                        */
+                        *//*
 
                         is.close();
 
@@ -128,11 +130,11 @@ public class HttpClientTest {
                     }
                 }
 
-                /*
+                *//*
                 String pronounce = new ObjectMapper().writeValueAsString(pronounceList);
                 String explain = new ObjectMapper().writeValueAsString(explainList);
                 String voice = new ObjectMapper().writeValueAsString(voiceList);
-                */
+                *//*
 
                 String pronounce = listToString(pronounceList, ",");
                 String explain = listToString(explainList, "<br />");
@@ -140,11 +142,15 @@ public class HttpClientTest {
 
                 System.out.println(pronounce);
 
-                parsingService.updateDictionary(word, pronounce, explain, additional, voice);
-            } catch (IOException e) {
-                e.printStackTrace();
+                parsingService.updateDictionary(word, pronounce, explain, additional, voice);*/
+
+                    String pronounce = listToString(pronounceList, ",");
+                    parsingService.updateDictionary2(word, pronounce);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                // break;
             }
-            // break;
         }
     }
 
