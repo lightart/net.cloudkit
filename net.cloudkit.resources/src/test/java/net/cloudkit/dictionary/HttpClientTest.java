@@ -35,6 +35,8 @@ public class HttpClientTest {
                 System.out.println("==================================================");
 
                 // https://www.shanbay.com/bdc/vocabulary/1/
+                // http://dict.cn/popular
+                // http://www.iciba.com/period
 
                 // http://dict.youdao.com/w/a/
                 // http://dict.youdao.com/dictvoice?audio=abdomen&type=1
@@ -45,10 +47,24 @@ public class HttpClientTest {
 
                 try {
 
-                    Document doc = Jsoup.connect("http://dict.youdao.com/w/" + word)
+                    // http://dict.youdao.com/w/
+                    Document doc = Jsoup.connect("http://youdao.com/w/eng/" + word)
                         .userAgent("Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36")
-                        // .cookie("DICT_UGC", "1c4a57959489c909810f142b1751150c|hongquanli@126.com; domain=.youdao.com")
-                        .timeout(3000).get();
+                        // .cookie("DICT_UGC", "1c4a57959489c909810f142b1751150c|123@126.com; domain=.youdao.com")
+                        //
+//                        .cookie("_ntes_nnid", "6600c803461f228b3afa612420546746,1487843452268")
+//                        .cookie("OUTFOX_SEARCH_USER_ID_NCOO", "1983990659.9118056")
+//                        .cookie("YOUDAO_EAD_UUID", "7a31e5c7-2ec7-44a4-904f-af098cd1d652")
+//                        .cookie("tabRecord.authTrans", "#authDictTrans; search-popup-show=-1")
+//                        .cookie("OUTFOX_SEARCH_USER_ID", "396130949@183.14.30.233")
+//                        .cookie("JSESSIONID", "abc3Cnbju3eqC8-qnr9Pv")
+//                        .cookie("DICT_UGC", "be3af0da19b5c5e6aa4e17bd8d90b28a|")
+//                        .cookie("webDict_HdAD", "\"{\"req\":\"http://dict.youdao.com\",\"width\":960,\"height\":240,\"showtime\":5000,\"fadetime\":500,\"notShowInterval\":3,\"notShowInDays\":false,\"lastShowDate\":\"Mon Nov 08 2010\"}\"")
+//                        .cookie("___rl__test__cookies", "1488168882179")
+//                        .cookie("PICUGC_FLASH", "")
+//                        .cookie("PICUGC_SESSION", "90fbe28fda40b5ff04f343a261160ce83d3439fc-")
+                        .timeout(5000)
+                        .get();
 
                     // pronounce
                     // String title = doc.title();
@@ -150,6 +166,12 @@ public class HttpClientTest {
                     e.printStackTrace();
                 }
                 // break;
+
+                try {
+                    Thread.sleep(5000L);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }

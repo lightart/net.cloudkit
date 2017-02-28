@@ -18,7 +18,7 @@ public class ParsingService {
     }
 
     public List<Map<String, Object>> getDictionaryList2() {
-        String sql = "SELECT d.word FROM dict d WHERE d.word NOT LIKE '% %' AND d.pronounce IS NULL LIMIT 100";
+        String sql = "SELECT d.word FROM dict d WHERE d.word NOT LIKE '% %' AND d.pronounce IS NULL";
         List<Map<String, Object>> results = DBUtil.query(sql);
         return results;
     }
