@@ -867,3 +867,14 @@ year="1997",
 
 
 物理内存、页面文件、交换区和虚拟内存
+
+
+设置中文编码
+$vi /etc/sysconfig/i18n
+内容如下：
+LANG="zh_CN.UTF-8"
+SUPPORTED="zh_CN:zh:en_US.UTF-8:en_US:en:zh_CN.GB18030"
+SYSFONT="latarcyrheb-sun16"
+
+让配置生效
+$source /etc/sysconfig/i18n
