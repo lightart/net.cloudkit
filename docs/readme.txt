@@ -878,3 +878,6 @@ SYSFONT="latarcyrheb-sun16"
 
 让配置生效
 $source /etc/sysconfig/i18n
+
+
+Moore状态机和Mealy状态机
