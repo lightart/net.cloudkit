@@ -892,3 +892,7 @@ Moore状态机和Mealy状态机
 XML、JSON、ProtocolBuffer、Lua
 
 anonymous,guest
+
+
+ntpdate cn.pool.ntp.org
+更新完后要用 clock -w 或 hwclock -w 实时间写入到BIOS中，这样下次启动时，时间就会自动更新了。
