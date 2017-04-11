@@ -5,4 +5,5 @@ include 'net.cloudkit.common'
 include 'net.cloudkit.phecda'
 include 'net.cloudkit.integration'
 include 'net.cloudkit.resources'
+include 'net.cloudkit.transform'
 

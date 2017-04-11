@@ -174,7 +174,7 @@ public class HttpClientTest2 {
                 String exempli_gratia_user = listToString(exUserList, "<br />");
                 String notes = listToString(noteList, "<br />");
                 String voices = listToString(voiceList, ";");
-                parsingService.insertDictionary(word, null, definitions, explain, exempli_gratia_sys, exempli_gratia_user, notes, voices);
+                parsingService.insertDict(word, null, definitions, explain, exempli_gratia_sys, exempli_gratia_user, notes, voices);
 
             } catch (IOException e) {
                 e.printStackTrace();

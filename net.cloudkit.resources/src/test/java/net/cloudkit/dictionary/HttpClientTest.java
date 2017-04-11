@@ -29,7 +29,7 @@ public class HttpClientTest {
 
         while (true) {
             ParsingService parsingService = new ParsingService();
-            List<Map<String, Object>> dictList = parsingService.getDictionaryList2();
+            List<Map<String, Object>> dictList = parsingService.getDictList();
 
             for (Map<String, Object> dictMap : dictList) {
                 System.out.println("==================================================");
@@ -66,102 +66,104 @@ public class HttpClientTest {
                         .timeout(5000)
                         .get();
 
-                    // pronounce
-                    // String title = doc.title();
-                    List<String> pronounceList = new ArrayList<>();
-                    Elements pronounceElements = doc.select("div#phrsListTab span.pronounce");
-                    // for (Element element:elements) {}
-                    for (int i = 0; i < pronounceElements.size(); i++) {
-                        System.out.println(pronounceElements.get(i).text());
-                        pronounceList.add(pronounceElements.get(i).text());
-                        if (i == 1) {
+//                    // pronounce
+//                    // String title = doc.title();
+//                    List<String> pronounceList = new ArrayList<>();
+//                    Elements pronounceElements = doc.select("div#phrsListTab span.pronounce");
+//                    // for (Element element:elements) {}
+//                    for (int i = 0; i < pronounceElements.size(); i++) {
+//                        System.out.println(pronounceElements.get(i).text());
+//                        pronounceList.add(pronounceElements.get(i).text());
+//                        if (i == 1) {
+//                            break;
+//                        }
+//                    }
+
+                    // explain
+                    List<String> explainList = new ArrayList<>();
+                    Elements explainElements = doc.getElementsByClass("trans-container");
+                    for (int i = 0; i < explainElements.size(); i++) {
+                        Elements explainElementItems = explainElements.get(i).getElementsByTag("li");
+                        for (int j = 0; j < explainElementItems.size(); j++) {
+                            System.out.println(explainElementItems.get(j).text());
+                            explainList.add(explainElementItems.get(j).text());
+                        }
+                        if (i == 0) {
                             break;
                         }
                     }
 
-           /*     // explain
-                List<String> explainList = new ArrayList<>();
-                Elements explainElements = doc.getElementsByClass("trans-container");
-                for (int i = 0; i < explainElements.size(); i++) {
-                    Elements explainElementItems = explainElements.get(i).getElementsByTag("li");
-                    for (int j = 0; j < explainElementItems.size(); j++) {
-                        System.out.println(explainElementItems.get(j).text());
-                        explainList.add(explainElementItems.get(j).text());
-                    }
-                    if (i == 0) {
-                        break;
-                    }
-                }
-
-                // additional
-                String additional = null;
-                Elements additionalElements = doc.select("div#phrsListTab p.additional");
-                for (int i = 0; i < additionalElements.size(); i++) {
-                    System.out.println(additionalElements.get(i).text());
-                    additional = additionalElements.get(i).text();
-                    if (i == 0) {
-                        break;
-                    }
-                }
-
-                // voice
-                List<String> voiceList = new ArrayList<>();
-                for (int i = 0; i < 2; i++) {
-                    try {
-                        URL url = new URL("http://dict.youdao.com/dictvoice?audio=" + word + "&type=" + i);
-                        InputStream is = url.openStream();
-
-                        ByteArrayOutputStream byteArrOut = new ByteArrayOutputStream();
-                        byte[] temp = new byte[1024];
-                        int len = 0;
-                        while ((len = is.read(temp, 0, 1024)) != -1) {
-                            byteArrOut.write(temp, 0, len);
+                    // additional
+                    String additional = null;
+                    Elements additionalElements = doc.select("div#phrsListTab p.additional");
+                    for (int i = 0; i < additionalElements.size(); i++) {
+                        System.out.println(additionalElements.get(i).text());
+                        additional = additionalElements.get(i).text();
+                        if (i == 0) {
+                            break;
                         }
-                        byteArrOut.flush();
-                        byte[] bytes = byteArrOut.toByteArray();
-                        System.out.println(new String(Base64Encrypt.encode(bytes)));
-                        voiceList.add(new String(Base64Encrypt.encode(bytes)));
-
-                        *//*
-                        // write the inputStream to a FileOutputStream
-                        FileOutputStream fos = new FileOutputStream(new File("D:/voices/" + word + "_" + i + ".mp3"));
-                        #
-                        int read = 0;
-                        byte[] temps = new byte[1024];
-                        while ((read = is.read(temps)) != -1) {
-                            fos.write(temps, 0, read);
-                        }
-                        #
-                        fos.write(bytes);
-                        System.out.println("Done!");
-                        fos.close();
-                        *//*
-
-                        is.close();
-
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    } finally {
-                        // is.close();
                     }
-                }
 
-                *//*
-                String pronounce = new ObjectMapper().writeValueAsString(pronounceList);
-                String explain = new ObjectMapper().writeValueAsString(explainList);
-                String voice = new ObjectMapper().writeValueAsString(voiceList);
-                *//*
+                    // voice
+                    List<String> voiceList = new ArrayList<>();
+                    for (int i = 0; i < 2; i++) {
+                        try {
+                            URL url = new URL("http://dict.youdao.com/dictvoice?audio=" + word + "&type=" + i);
+                            InputStream is = url.openStream();
 
-                String pronounce = listToString(pronounceList, ",");
-                String explain = listToString(explainList, "<br />");
-                String voice = listToString(voiceList, ";");
+                            ByteArrayOutputStream byteArrOut = new ByteArrayOutputStream();
+                            byte[] temp = new byte[1024];
+                            int len = 0;
+                            while ((len = is.read(temp, 0, 1024)) != -1) {
+                                byteArrOut.write(temp, 0, len);
+                            }
+                            byteArrOut.flush();
+                            byte[] bytes = byteArrOut.toByteArray();
+                            System.out.println(new String(Base64Encrypt.encode(bytes)));
+                            voiceList.add(new String(Base64Encrypt.encode(bytes)));
 
-                System.out.println(pronounce);
 
-                parsingService.updateDictionary(word, pronounce, explain, additional, voice);*/
+//                            // write the inputStream to a FileOutputStream
+//                            FileOutputStream fos = new FileOutputStream(new File("D:/voices/" + word + "_" + i + ".mp3"));
+//                        #
+//                            int read = 0;
+//                            byte[] temps = new byte[1024];
+//                            while ((read = is.read(temps)) != -1) {
+//                                fos.write(temps, 0, read);
+//                            }
+//                        #
+//                            fos.write(bytes);
+//                            System.out.println("Done!");
+//                            fos.close();
 
-                    String pronounce = listToString(pronounceList, ",");
-                    parsingService.updateDictionary2(word, pronounce);
+
+                            is.close();
+
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        } finally {
+                            // is.close();
+                        }
+                    }
+
+
+//                String pronounce = new ObjectMapper().writeValueAsString(pronounceList);
+//                String explain = new ObjectMapper().writeValueAsString(explainList);
+//                String voice = new ObjectMapper().writeValueAsString(voiceList);
+
+
+//                String pronounce = listToString(pronounceList, ",");
+                    String explain = listToString(explainList, "<br />");
+                    String voice = listToString(voiceList, ";");
+
+//                System.out.println(pronounce);
+
+//                parsingService.updateDictionary(word, pronounce, explain, additional, voice);
+
+                    parsingService.updateDict2(word, explain, additional, voice);
+
+                    // String pronounce = listToString(pronounceList, ",");
+                    // parsingService.updateDict(word, pronounce);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
