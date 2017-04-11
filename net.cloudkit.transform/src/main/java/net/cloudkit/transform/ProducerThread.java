@@ -12,7 +12,7 @@ import java.util.Map;
 import java.util.concurrent.BlockingQueue;
 
 /**
- * 生产者
+ * 生产者 lightart
  *
  * @author hongquanli <hongquanli@qq.com>
  * @version 1.0 2011-10-8 下午12:31:44
