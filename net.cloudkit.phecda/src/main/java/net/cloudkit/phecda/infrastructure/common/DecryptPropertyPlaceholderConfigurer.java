@@ -11,14 +11,6 @@
 //import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
 //import org.springframework.core.io.Resource;
 //
-///**
-// * <一句话功能简述>
-// *
-// * @author  []
-// * @version  [版本号, 2011-12-6]
-// * @see  [相关类/方法]
-// * @since  [产品/模块版本]
-// */
 //public class DecryptPropertyPlaceholderConfigurer extends PropertyPlaceholderConfigurer {
 //    private Resource[] locations;
 //
