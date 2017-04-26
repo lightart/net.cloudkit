@@ -971,3 +971,6 @@ http://ramdajs.com/
 
 
 master slave backup
+
+gzip是一种数据格式，默认且目前仅使用deflate算法压缩data部分；
+deflate是一种压缩算法,是huffman编码的一种加强。
