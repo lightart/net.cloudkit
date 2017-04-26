@@ -974,3 +974,53 @@ master slave backup
 
 gzip是一种数据格式，默认且目前仅使用deflate算法压缩data部分；
 deflate是一种压缩算法,是huffman编码的一种加强。
+
+
+gcc生成.a静态库和.so动态库文件
+
+o 生成静态库的方法
+$ gcc -c gdfontwu.c
+$ gcc -c gdfontliu.c
+$ gcc -c gdfontbin.c
+$ ar rc libgdfont.a gdfontwu.o gdfontliu.o gdfontbin.o
+(ranlib libgdfont.a 可生成索引)
+用 nm libgdfont.a 来看里面的目标文件和导出函数（带 T 标记）。
+
+o 生成动态库的方法
+$ gcc -c gdfontwu.c
+$ gcc -c gdfontliu.c
+$ gcc -c gdfontbin.c
+$ gcc -o libgdfont.so -shared -fPIC gdfontwu.o gdfontliu.o gdfontbin.o
+-fPIC：表示编译为位置独立的代码，不用此选项的话编译后的代码
+是位置相关的所以动态载入时是通过代码拷贝的方式来满足不同进程
+需要，而不能达到真正代码段共享的目的。可用 nm libgdfont.so 来看
+里面导出的函数（带 T 标记）。
+用动态库的好处是：更新了动态库之后链结它的程序不用重新编译。
+
+o 用法
+在 websrv.c 中：
+/* websrv.c */
+#include "gdfontwu.h"
+#include "gdfontliu.h"
+#include "gdfontbin.h"
+int getpng()
+{
+    ...
+    gdImageChar(..., gdFontWu, ...);
+    gdImageChar(..., gdFontLiu, ...);
+    gdImageChar(..., gdFontBin, ...);
+    ...
+    return 0;
+}
+> 静态库:
+$ gcc -c websrv.c
+$ gcc -o websrv websrv.o libgdfont.a
+
+> 动态库：
+$ gcc -o websrv websrv.o -L. -lgdfont
+$ LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH ./websrv
+LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH ldd main
+可以看到 websrv 程序所链结的动态库。把 libgdfont.so 放到
+/etc/ld.so.conf 中列出的目录下就可以不用先指定环境变
+，注意先 ldconfig 刷新系统动态库的缓存
+还有一种 ld -rpath dir 这样的方法可避免设定环境变量
