@@ -1024,3 +1024,6 @@ LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH ldd main
 /etc/ld.so.conf 中列出的目录下就可以不用先指定环境变
 ，注意先 ldconfig 刷新系统动态库的缓存
 还有一种 ld -rpath dir 这样的方法可避免设定环境变量
+
+
+X11/Xlib
