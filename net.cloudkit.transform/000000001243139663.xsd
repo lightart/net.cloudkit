@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="DecMessage" type="DecMessageType"/>
+  <xs:complexType name="DecMessageType">
+    <xs:sequence>
+      <xs:element type="DecHeadType" name="DecHead"/>
+      <xs:element type="DecListsType" name="DecLists"/>
+      <xs:element type="DecContainersType" name="DecContainers"/>
+      <xs:element type="DecLicenseDocusType" name="DecLicenseDocus"/>
+      <xs:element type="BizOrdInfoType" name="BizOrdInfo"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="LicenseDocuType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="DocuCode"/>
+      <xs:element type="xs:string" name="CertCode"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DecHeadType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="SeqNo"/>
+      <xs:element type="xs:string" name="IEFlag"/>
+      <xs:element type="xs:string" name="Type"/>
+      <xs:element type="xs:string" name="AgentCode"/>
+      <xs:element type="xs:string" name="ApprNo"/>
+      <xs:element type="xs:string" name="BillNo"/>
+      <xs:element type="xs:string" name="CustomMaster"/>
+      <xs:element type="xs:string" name="CutMode"/>
+      <xs:element type="xs:string" name="DistinatePort"/>
+      <xs:element type="xs:string" name="DistrictCode"/>
+      <xs:element type="xs:string" name="FeeCurr"/>
+      <xs:element type="xs:string" name="FeeMark"/>
+      <xs:element type="xs:string" name="FeeRate"/>
+      <xs:element type="xs:string" name="GrossWet"/>
+      <xs:element type="xs:string" name="DeclDate"/>
+      <xs:element type="xs:string" name="ReleaseDate"/>
+      <xs:element type="xs:string" name="IEDate"/>
+      <xs:element type="xs:string" name="IEPort"/>
+      <xs:element type="xs:string" name="InRatio"/>
+      <xs:element type="xs:string" name="InsurCurr"/>
+      <xs:element type="xs:string" name="InsurMark"/>
+      <xs:element type="xs:string" name="InsurRate"/>
+      <xs:element type="xs:string" name="LicenseNo"/>
+      <xs:element type="xs:string" name="ManualNo"/>
+      <xs:element type="xs:string" name="NetWt"/>
+      <xs:element type="xs:string" name="OtherCurr"/>
+      <xs:element type="xs:string" name="OtherMark"/>
+      <xs:element type="xs:string" name="OtherRate"/>
+      <xs:element type="xs:string" name="OwnerCode"/>
+      <xs:element type="xs:string" name="PackNo"/>
+      <xs:element type="xs:string" name="PayWay"/>
+      <xs:element type="xs:string" name="PaymentMark"/>
+      <xs:element type="xs:string" name="TradeCode"/>
+      <xs:element type="xs:string" name="TradeCountry"/>
+      <xs:element type="xs:string" name="TradeMode"/>
+      <xs:element type="xs:string" name="TrafMode"/>
+      <xs:element type="xs:string" name="TransMode"/>
+      <xs:element type="xs:string" name="WrapType"/>
+      <xs:element type="xs:string" name="EntryId"/>
+      <xs:element type="xs:string" name="PreEntryId"/>
+      <xs:element type="xs:string" name="EdiId"/>
+      <xs:element type="xs:string" name="Risk"/>
+      <xs:element type="xs:string" name="CopCode"/>
+      <xs:element type="xs:string" name="EntryType"/>
+      <xs:element type="xs:string" name="PDate"/>
+      <xs:element type="xs:string" name="TypistNo"/>
+      <xs:element type="xs:string" name="InputerName"/>
+      <xs:element type="xs:string" name="PartenerID"/>
+      <xs:element type="xs:string" name="TgdNo"/>
+      <xs:element type="xs:string" name="DataSource"/>
+      <xs:element type="xs:string" name="DeclTrnRel"/>
+      <xs:element type="xs:string" name="ChkSurety"/>
+      <xs:element type="xs:string" name="BillType"/>
+      <xs:element type="xs:string" name="AgentCodeScc"/>
+      <xs:element type="xs:string" name="OwnerCodeScc"/>
+      <xs:element type="xs:string" name="TradeCodeScc"/>
+      <xs:element type="xs:string" name="CopCodeScc"/>
+      <xs:element type="xs:string" name="PromiseItmes"/>
+      <xs:element type="xs:string" name="TradeAreaCode"/>
+      <xs:element type="xs:string" name="AgentName"/>
+      <xs:element type="xs:string" name="ContrNo"/>
+      <xs:element type="xs:string" name="CopName"/>
+      <xs:element type="xs:string" name="NoteS"/>
+      <xs:element type="xs:string" name="OwnerName"/>
+      <xs:element type="xs:string" name="TradeName"/>
+      <xs:element type="xs:string" name="TrafName"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DecListType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="ClassMark"/>
+      <xs:element type="xs:string" name="CodeTS"/>
+      <xs:element type="xs:string" name="ContrItem"/>
+      <xs:element name="DeclPrice">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="50.7577"/>
+            <xs:enumeration value="104.55"/>
+            <xs:enumeration value="1.1"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="xs:string" name="DutyMode"/>
+      <xs:element type="xs:string" name="Factor"/>
+      <xs:element name="GNo">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="1"/>
+            <xs:enumeration value="2"/>
+            <xs:enumeration value="3"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="xs:string" name="OriginCountry"/>
+      <xs:element type="xs:string" name="TradeCurr"/>
+      <xs:element name="DeclTotal">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="6598.5"/>
+            <xs:enumeration value="2613.75"/>
+            <xs:enumeration value="132.0"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="GQty">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="130.0"/>
+            <xs:enumeration value="25.0"/>
+            <xs:enumeration value="120.0"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="FirstQty">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="1482.0"/>
+            <xs:enumeration value="481.1"/>
+            <xs:enumeration value="24.0"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="xs:string" name="SecondQty"/>
+      <xs:element type="xs:string" name="GUnit"/>
+      <xs:element type="xs:string" name="FirstUnit"/>
+      <xs:element type="xs:string" name="SecondUnit"/>
+      <xs:element type="xs:string" name="UseTo"/>
+      <xs:element type="xs:string" name="WorkUsd"/>
+      <xs:element type="xs:string" name="ExgNo"/>
+      <xs:element type="xs:string" name="ExgVersion"/>
+      <xs:element type="xs:string" name="DestinationCountry"/>
+      <xs:element name="GModel">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="电脑用|PHANTEKS牌|ENTHOO PRO型|不带电源"/>
+            <xs:enumeration value="电脑用|PHANTEKS牌|ENTHOO PRIMO型|不带电源"/>
+            <xs:enumeration value="电脑用|PHANTEKS牌|无型号"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="GName">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="电脑机箱"/>
+            <xs:enumeration value="电脑机箱配件(脚垫)"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DecListsType">
+    <xs:sequence>
+      <xs:element type="DecListType" name="DecList" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DecContainersType">
+    <xs:sequence>
+      <xs:element type="ContainerType" name="Container" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ContainerType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="ContainerId"/>
+      <xs:element type="xs:string" name="ContainerMd"/>
+      <xs:element type="xs:string" name="ContainerWt"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DecLicenseDocusType">
+    <xs:sequence>
+      <xs:element type="LicenseDocuType" name="LicenseDocu" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="BizOrdInfoType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="JobDate"/>
+      <xs:element type="xs:string" name="ClientCode"/>
+      <xs:element type="xs:string" name="ClientName"/>
+      <xs:element type="xs:string" name="JobNo"/>
+      <xs:element type="xs:string" name="ProjectNo"/>
+      <xs:element type="xs:string" name="ClientRefNo"/>
+      <xs:element type="xs:string" name="DeptCode"/>
+      <xs:element type="xs:string" name="JobRemark"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
