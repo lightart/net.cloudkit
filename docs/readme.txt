@@ -1027,3 +1027,4 @@ LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH ldd main
 
 
 X11/Xlib
+framebuffer
