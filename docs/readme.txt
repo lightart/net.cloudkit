@@ -1026,5 +1026,6 @@ LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH ldd main
 还有一种 ld -rpath dir 这样的方法可避免设定环境变量
 
 
+https://www.x.org/wiki/
 X11/Xlib
 framebuffer
