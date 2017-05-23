@@ -1029,3 +1029,5 @@ LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH ldd main
 https://www.x.org/wiki/
 X11/Xlib
 framebuffer
+
+https://www.viksoe.dk/code/
