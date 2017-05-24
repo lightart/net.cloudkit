@@ -1042,3 +1042,80 @@ https://www.x.org/docs/X11/xlib.pdf
 http://www.jianshu.com/u/1f0067e24ff8
 
 三面娜迦
+
+
+
+
+
+Cron Expressions
+1）Cron表达式的格式：秒 分 时 日 月 周 年(可选)。
+
+Cron Expressions Allowed Fields and Values
+字段名(Name)          Required       允许的值(Allowed Values)        允许的特殊字符(Allowed Special Characters)
+秒(Seconds)          Y              0-59                           , - * /
+分(Minutes)          Y              0-59                           , - * /
+时(Hours)            Y              0-23                           , - * /
+日(Day-of-Month)     Y              1-31                           , - * ? / L W C
+月(Month)            Y              0-11 or JAN-DEC                , - * /
+周(Day-of-Week)      Y              1-7 or SUN-SAT                 , - * ? / L C #
+年(Year 可选)         N              empty, 1970-2099               , - * /
+
+“*”字符：代表整个时间段.
+“?”字符：表示不确定的值
+“,”字符：指定数个值
+“-”字符：指定一个值的范围
+“/”字符：指定一个值的增加幅度。n/m表示从n开始，每次增加m
+“L”字符：用在日表示一个月中的最后一天，用在周表示该月最后一个星期X
+“W”字符：指定离给定日期最近的工作日(周一到周五)
+“#”字符：表示该月第几个周X。6#3表示该月第3个周五
+
+每一个字段都有一套可以指定有效值，如
+Seconds(秒)：可以用数字0－59 表示，
+Minutes(分)：可以用数字0－59 表示，
+Hours(时)：可以用数字0-23表示,
+Day-of-Month(天)：可以用数字1-31 中的任一一个值，但要注意一些特别的月份
+Month(月)：可以用0-11 或用字符串  “JAN, FEB, MAR, APR, MAY, JUN, JUL, AUG, SEP, OCT, NOV and DEC” 表示
+Day-of-Week(每周)：可以用数字1-7表示（1 ＝ 星期日）或用字符口串“SUN, MON, TUE, WED, THU, FRI and SAT”表示
+
+“*”: 代表整个时间段.
+“/”：为特别单位，表示为“每”如“0/15”表示每隔15分钟执行一次,“0”表示为从“0”分开始, “3/20”表示表示每隔20分钟执行一次，“3”表示从第3分钟开始执行
+“?”：表示每月的某一天，或第周的某一天
+“L”：用于每月，或每周，表示为每月的最后一天，或每个月的最后星期几如“6L”表示“每月的最后一个星期五”
+“W”：表示为最近工作日，如“15W”放在每月（day-of-month）字段上表示为“到本月15日最近的工作日”
+“#”：是用来指定“的”每月第n个工作日,例 在每周（day-of-week）这个字段中内容为"6#3" or "FRI#3" 则表示“每月第三个星期五”
+
+例:"0 0 12 ? * WED" 在每星期三下午12:00 执行,("WED")可以替换成 "MON-FRI", "MON, WED, FRI"甚至"MON-WED,SAT".
+
+2）Cron表达式范例：
+每隔5秒执行一次：*/5 * * * * ?
+每隔1分钟执行一次：0 */1 * * * ?
+每天23点执行一次：0 0 23 * * ?
+每天凌晨1点执行一次：0 0 1 * * ?
+每月1号凌晨1点执行一次：0 0 1 1 * ?
+每月最后一天23点执行一次：0 0 23 L * ?
+每周星期天凌晨1点实行一次：0 0 1 ? * L
+在26分、29分、33分执行一次：0 26,29,33 * * * ?
+每天的0点、13点、18点、21点都执行一次：0 0 0,13,18,21 * * ?
+
+Here are some more examples:
+
+Expression	                Means
+0 0 12 * * ?	        	Fire at 12:00 PM (noon) every day
+0 15 10 ? * *	        	Fire at 10:15 AM every day
+0 15 10 * * ?	        	Fire at 10:15 AM every day
+0 15 10 * * ? *	        	Fire at 10:15 AM every day
+0 15 10 * * ? 2005	    	Fire at 10:15 AM every day during the year 2005
+0 * 14 * * ?	        	Fire every minute starting at 2:00 PM and ending at 2:59 PM, every day
+0 0/5 14 * * ?	        	Fire every 5 minutes starting at 2:00 PM and ending at 2:55 PM, every day
+0 0/5 14,18 * * ?	    	Fire every 5 minutes starting at 2:00 PM and ending at 2:55 PM, AND fire every 5 minutes starting at 6:00 PM and ending at 6:55 PM, every day
+0 0-5 14 * * ?	        	Fire every minute starting at 2:00 PM and ending at 2:05 PM, every day
+0 10,44 14 ? 3 WED	    	Fire at 2:10 PM and at 2:44 PM every Wednesday in the month of March
+0 15 10 ? * MON-FRI	    	Fire at 10:15 AM every Monday, Tuesday, Wednesday, Thursday and Friday
+0 15 10 15 * ?	        	Fire at 10:15 AM on the 15th day of every month
+0 15 10 L * ?	        	Fire at 10:15 AM on the last day of every month
+0 15 10 ? * 6L	        	Fire at 10:15 AM on the last Friday of every month
+0 15 10 ? * 6L	        	Fire at 10:15 AM on the last Friday of every month
+0 15 10 ? * 6L 2002-2005	Fire at 10:15 AM on every last friday of every month during the years 2002, 2003, 2004, and 2005
+0 15 10 ? * 6#3	        	Fire at 10:15 AM on the third Friday of every month
+0 0 12 1/5 * ?	        	Fire at 12 PM (noon) every 5 days every month, starting on the first day of the month
+0 11 11 11 11 ?	        	Fire every November 11 at 11:11 AM
