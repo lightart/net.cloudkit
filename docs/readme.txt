@@ -1025,6 +1025,8 @@ LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH ldd main
 ，注意先 ldconfig 刷新系统动态库的缓存
 还有一种 ld -rpath dir 这样的方法可避免设定环境变量
 
+RxJava
+http://reactivex.io/languages.html
 
 https://www.x.org/wiki/
 X11/Xlib
