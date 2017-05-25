@@ -1122,3 +1122,6 @@ Expression	                Means
 
 
 Wireless
+
+一致性哈希算法
+https://github.com/icloudkit/coding-interview-university/blob/master/translations/README-cn.md
