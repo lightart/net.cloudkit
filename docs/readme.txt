@@ -1136,3 +1136,23 @@ monitor
 overview
 
 developer
+
+
+yiwan.net
+yinyi.net
+
+for /l %i in (1,1,99) do @type nul>%i.pdf
+
+-------------------------------------------------------------------------------------------
+$('body').append("<input type=\"text\" id=\"pdf-view\" />");
+
+var listItem = "";
+var i = 1;
+
+self.setInterval(function(){
+    listItem = $('#outer_page_' + i).html();
+    // console.log(listItem);
+	$('#pdf-view').val($('#pdf-view').val() + listItem);
+    $('#nextPageButton').click();
+    i++;
+}, 1000);

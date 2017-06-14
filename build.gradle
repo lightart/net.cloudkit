@@ -154,7 +154,7 @@ subprojects {
         // jcenter { url "http://jcenter.bintray.com/" }
 
         // 配置Spring Maven仓库
-        maven { url 'http://repo.spring.io/milestone/' }
+        // maven { url 'http://repo.spring.io/milestone/' }
         // maven { url 'http://repo.spring.io/release/' }
         // maven { url 'http://repo.spring.io/snapshot/' }
 

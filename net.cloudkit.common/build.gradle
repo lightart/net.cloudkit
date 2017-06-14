@@ -10,5 +10,8 @@ repositories {
 }
 
 dependencies {
+    compile(
+        libraries.'itext'
+    )
     // testCompile group: 'junit', name: 'junit', version: '4.11'
 }
