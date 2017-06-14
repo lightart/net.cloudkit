@@ -14,7 +14,7 @@ public class MergePDF {
 
             File[] files = new File("D:\\Desktop\\pdf").listFiles();
             List<InputStream> pdfs = new LinkedList<>();
-            for(File file : files) {
+            for (File file : files) {
                 pdfs.add(new FileInputStream(file));
             }
 
@@ -25,13 +25,13 @@ public class MergePDF {
             }
 
             OutputStream output = new FileOutputStream(name);
-            MergePDF.concatPDFs(pdfs, output, true);
+            MergePDF.merge(pdfs, output, true);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public static void concatPDFs(List<InputStream> streamOfPDFFiles, OutputStream outputStream, boolean paginate) {
+    public static void merge(List<InputStream> streamOfPDFFiles, OutputStream outputStream, boolean paginate) {
 
         Document document = new Document();
         try {
@@ -78,9 +78,8 @@ public class MergePDF {
                     if (paginate) {
                         cb.beginText();
                         cb.setFontAndSize(bf, 9);
-                        cb.showTextAligned(PdfContentByte.ALIGN_CENTER, ""
-                                + currentPageNumber + " of " + totalPages, 520,
-                            5, 0);
+                        cb.showTextAligned(PdfContentByte.ALIGN_CENTER,
+                            "" + currentPageNumber + " of " + totalPages, 520, 5, 0);
                         cb.endText();
                     }
                 }
