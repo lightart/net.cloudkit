@@ -25,7 +25,7 @@ public class MergePDF {
             }
 
             OutputStream output = new FileOutputStream(name);
-            MergePDF.merge(pdfs, output, true);
+            MergePDF.merge(pdfs, output, false);
         } catch (Exception e) {
             e.printStackTrace();
         }
