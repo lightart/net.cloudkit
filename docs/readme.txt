@@ -1139,7 +1139,6 @@ developer
 
 
 yiwan.net
-yinyi.net
 
 for /l %i in (1,1,99) do @type nul>%i.pdf
 
