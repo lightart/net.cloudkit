@@ -787,7 +787,9 @@ query2.setParameter(0, "simple.com");
 
 EventSource
 
-svelte
+sveltejs
+vuejs
+cyclejs
 
 Kubernetes
 TensorFlow
