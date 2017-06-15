@@ -50,6 +50,9 @@ public class ClassLoaderTest {
             e.printStackTrace();
         }
 
+
+        // TODO javassist cglib ASM
+        // http://www.blogjava.net/hello-yun/archive/2014/09/28/418365.html
     }
 
     static class MyClassLoader extends URLClassLoader {
