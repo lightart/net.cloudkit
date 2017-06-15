@@ -1171,3 +1171,32 @@ self.setInterval(function(){
 
 智慧未来
 生态系统
+
+发现、分享、创造\缔造生活之美
+
+
+您每个夜晚都会休息
+但您的梦想却依然清醒
+因为抱负从不歇息
+激情从不歇息
+目标从不歇息
+希望从不歇息
+机会从不歇息
+这个世界也从不歇息
+所以 我们不分国界
+不分昼夜
+为您全力实现每个梦想
+所以 花旗从不歇息
+
+Every night you sleep
+But your dreams are wide awake because
+Ambitions never sleep
+Aspirations never sleep
+Goals never sleep
+Hopes never sleep
+Opportunities never sleep
+The world never sleeps
+That's why we work around the world
+That's why we work around the clock
+To turn dreams into realities
+That's why Citi never sleeps
