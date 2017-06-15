@@ -90,3 +90,6 @@ vverb(s) (动)动词
 [VP]Verb Pattern(动型)动词类型
 v iverb intransitive(不及物动词)不及物动词
 vt verb transitive (及物动词)及物动词
+
+
+http://www.enbus.cn/
