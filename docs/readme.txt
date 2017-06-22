@@ -1222,3 +1222,5 @@ That's why Citi never sleeps
 
 
 Sketch
+
+Java内存对象的逃逸分析
