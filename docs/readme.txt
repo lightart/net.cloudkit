@@ -1289,3 +1289,4 @@ xen
 xen-hvm
 
 
+LXC：linux Container
