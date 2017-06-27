@@ -1257,16 +1257,6 @@ Java内存对象的逃逸分析
 
 
 
-
-
-
-
-
-
-
-
-
-
 如何判断VPS是基于哪种虚拟技术？
 Xen、OpenVZ、Xen HVM、KVM还是VMware
 
@@ -1289,5 +1279,13 @@ make && make install
 
 再运行 virt-what ，脚本就会判断出当前环境所使用的虚拟技术，VPS侦探用手头上的VPS测试成功率还是比较高的。
 
+腾讯云
+[root@VM_223_239_centos ~]# virt-what
+kvm
+
+阿里云
+[root@iZ285h4y5m0Z ~]# virt-what
+xen
+xen-hvm
 
 
