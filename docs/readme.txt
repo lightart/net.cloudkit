@@ -1290,3 +1290,5 @@ xen-hvm
 
 
 LXC：linux Container
+
+https://www.packtpub.com/
