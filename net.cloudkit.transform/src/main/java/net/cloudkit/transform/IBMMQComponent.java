@@ -250,8 +250,18 @@ public class IBMMQComponent {
                     } else {
                         saveReceiveObject(bytes);
                     }
-                } catch (Exception e) {
-                    throw e;
+                } catch (MQException e) {
+                    // 并发取出时可能已取空
+                    if(e.completionCode == 2033) {
+                        /*
+                        if(LOG.isDebugEnabled()) {
+                            LOG.debug("Queue [" + this.toString() + "] is empty.");
+                        }
+                        */
+                        break;
+                    } else {
+                        throw e;
+                    }
                 }
             }
 
