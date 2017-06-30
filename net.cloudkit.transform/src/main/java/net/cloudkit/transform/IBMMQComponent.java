@@ -9,9 +9,18 @@ import java.io.IOException;
 import java.util.Properties;
 import java.util.UUID;
 
+/**
+ *
+ * API reason codes
+ * https://www.ibm.com/support/knowledgecenter/SSFKSJ_9.0.0/com.ibm.mq.tro.doc/q040710_.htm
+ *
+ * IBM MQ Downloads
+ * https://www.ibm.com/developerworks/mydeveloperworks/blogs/messaging/entry/downloads?lang=en
+ */
 public class IBMMQComponent {
 
     public static void main(String[] args) {
+
         // 回执 QLCqhz01 QTCqhz01
         // IBMMQComponent mq = new IBMMQComponent("120.76.96.117", Integer.valueOf(1401), "SYSTEM.DEF.SVRCONN", "QMCqhz01", "TEST_LOCAL", "D:\\trans_mq\\downloads");
         IBMMQComponent mq = new IBMMQComponent();
@@ -19,7 +28,7 @@ public class IBMMQComponent {
         mq.setPort(1401);
         mq.setChannel("SYSTEM.DEF.SVRCONN");
         mq.setQueueManagerName("QMCqhz01");
-        mq.setQueueName("TEST_LOCAL");
+        mq.setQueueName("QTCqhz01");
         mq.setCcsid(Integer.valueOf(819));
         mq.setReceivePath("D:\\trans_mq\\downloads");
         // mq.setUserId("Administrator");
@@ -38,17 +47,20 @@ public class IBMMQComponent {
 //            }
 //        };
 
-        try {
-            mq.receive();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        while (true) {
+            System.out.print(":");
+            try {
+                mq.receive();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
-//        try {
-//            Thread.sleep(100000L);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
+            try {
+                Thread.sleep(3000L);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public static int MQ_DEFAULT_PORT = 1414;
@@ -115,7 +127,7 @@ public class IBMMQComponent {
              * CMQC.MQOO_FAIL_IF_QUIESCING: The MQOPEN call fails if the queue manager is in quiescing state. This option is valid for all types of object.
              * CMQC.MQOO_INQUIRE: Open the object to query attributes.
              *
-             * https://www.ibm.com/support/knowledgecenter/SSFKSJ_7.5.0/com.ibm.mq.javadoc.doc/WMQJavaClasses/com/ibm/mq/constants/CMQC.html
+             * https://www.ibm.com/support/knowledgecenter/SSFKSJ_9.0.0/com.ibm.mq.javadoc.doc/WMQJavaClasses/com/ibm/mq/constants/CMQC.html
              */
             int openOptions = CMQC.MQOO_OUTPUT | CMQC.MQOO_FAIL_IF_QUIESCING | CMQC.MQOO_INQUIRE;
 
@@ -191,7 +203,7 @@ public class IBMMQComponent {
              * CMQC.MQGMO_FAIL_IF_QUIESCING: Force the MQGET call to fail if the queue manager is in the quiescing state.
              * CMQC.MQOO_INQUIRE: Open the object to query attributes.
              *
-             * https://www.ibm.com/support/knowledgecenter/SSFKSJ_7.5.0/com.ibm.mq.javadoc.doc/WMQJavaClasses/com/ibm/mq/constants/CMQC.html
+             * https://www.ibm.com/support/knowledgecenter/SSFKSJ_9.0.0/com.ibm.mq.javadoc.doc/WMQJavaClasses/com/ibm/mq/constants/CMQC.html
              */
             int openOptions = CMQC.MQGMO_SYNCPOINT | CMQC.MQGMO_FAIL_IF_QUIESCING | CMQC.MQOO_INQUIRE;
 
