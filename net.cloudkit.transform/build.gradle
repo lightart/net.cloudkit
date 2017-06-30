@@ -11,7 +11,8 @@ repositories {
 dependencies {
     compile(
         'org.apache.xmlbeans:xmlbeans:2.6.0',
-        'mysql:mysql-connector-java:5.1.34'
+        'mysql:mysql-connector-java:5.1.34',
+        libraries.'commons-io'
     )
     testCompile group: 'junit', name: 'junit', version: '4.11'
 }

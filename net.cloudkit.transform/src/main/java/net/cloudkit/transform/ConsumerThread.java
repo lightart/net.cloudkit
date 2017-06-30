@@ -37,7 +37,7 @@ public class ConsumerThread extends Thread {
                 historyPath = (Path) dataMap.get("history_path");
                 failedPath = (Path) dataMap.get("failed_path");
 
-                System.out.println("Number of products in the queue after consumption: " + queue.size() + " " + System.currentTimeMillis());
+                System.out.println("Number of products in the queueName after consumption: " + queue.size() + " " + System.currentTimeMillis());
             } catch (InterruptedException ex) {
                 // TODO Auto-generated catch block
                 ex.printStackTrace();

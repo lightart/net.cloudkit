@@ -85,15 +85,15 @@ public class TaskTest {
     /*
     public static void main(String[] args) {
 
-        ArrayBlockingQueue<String> queue = new ArrayBlockingQueue<String>(10);
+        ArrayBlockingQueue<String> queueName = new ArrayBlockingQueue<String>(10);
 
-        Producer producer1 = new Producer("producer1", queue);
-        Producer producer2 = new Producer("producer2", queue);
-        Producer producer3 = new Producer("producer2", queue);
+        Producer producer1 = new Producer("producer1", queueName);
+        Producer producer2 = new Producer("producer2", queueName);
+        Producer producer3 = new Producer("producer2", queueName);
 
-        Consumer consumer1 = new Consumer(queue);
-        Consumer consumer2 = new Consumer(queue);
-        Consumer consumer3 = new Consumer(queue);
+        Consumer consumer1 = new Consumer(queueName);
+        Consumer consumer2 = new Consumer(queueName);
+        Consumer consumer3 = new Consumer(queueName);
 
         new Thread(producer1).start();
         new Thread(producer2).start();

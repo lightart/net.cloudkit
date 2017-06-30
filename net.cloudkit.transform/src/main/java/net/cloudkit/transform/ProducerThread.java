@@ -62,7 +62,7 @@ public class ProducerThread extends Thread {
                 dataMap.put("failed_path", failedPath);
 
                 queue.put(dataMap);
-                System.out.println("Number of products in the queue after production: " + queue.size());
+                System.out.println("Number of products in the queueName after production: " + queue.size());
 
             } catch (IOException | XmlException | InterruptedException ex) {
                 // TODO Auto-generated catch block
