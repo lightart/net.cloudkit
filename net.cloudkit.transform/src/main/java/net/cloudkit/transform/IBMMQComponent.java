@@ -26,7 +26,7 @@ public class IBMMQComponent {
         mq.setPort(1401);
         mq.setChannel("SYSTEM.DEF.SVRCONN");
         mq.setQueueManagerName("QMCqhz01");
-        mq.setQueueName("QTCqhz01");
+        mq.setQueueName("TEST_LOCAL");
         mq.setCcsid(Integer.valueOf(819));
         mq.setReceivePath("D:\\trans_mq\\downloads");
         // mq.setUserId("Administrator");
