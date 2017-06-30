@@ -46,7 +46,6 @@ public class IBMMQComponent {
 //        };
 
         while (true) {
-            System.out.print(":");
             try {
                 mq.receive();
             } catch (Exception e) {
@@ -63,6 +62,7 @@ public class IBMMQComponent {
 
     public static int MQ_DEFAULT_PORT = 1414;
     public static int MQ_DEFAULT_CCSID = 1381;
+    public static String MQ_DEFAULT_CONN_CHANNEL = "SYSTEM.DEF.SVRCONN";
 
     // MQ服务器的IP地址
     private String hostname;
@@ -70,13 +70,13 @@ public class IBMMQComponent {
     private Integer port = MQ_DEFAULT_PORT;
 
     // 服务器连接的通道
-    private String channel;
+    private String channel = MQ_DEFAULT_CONN_CHANNEL;
     // MQ的队列管理器名称
     private String queueManagerName;
     // MQ远程队列的名称
     private String queueName;
     // 服务器MQ服务使用的编码 1381
-    private Integer ccsid;
+    private Integer ccsid = MQ_DEFAULT_CCSID;
 
     private String userId;
     private String password;
