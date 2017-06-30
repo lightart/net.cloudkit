@@ -2,11 +2,11 @@ package net.cloudkit.transform;
 
 import com.ibm.mq.*;
 import com.ibm.mq.constants.CMQC;
-import com.ibm.mq.constants.MQConstants;
 import org.apache.commons.io.FileUtils;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Properties;
 import java.util.UUID;
 
 public class IBMMQComponent {
@@ -22,7 +22,7 @@ public class IBMMQComponent {
         mq.setQueueName("TEST_LOCAL");
         mq.setCcsid(Integer.valueOf(819));
         mq.setReceivePath("D:\\trans_mq\\downloads");
-        // mq.setUserid("Administrator");
+        // mq.setUserId("Administrator");
         // mq.setPassword("password");
 
 //        try {
@@ -68,7 +68,7 @@ public class IBMMQComponent {
     // 服务器MQ服务使用的编码 1381
     private Integer ccsid;
 
-    private String userid;
+    private String userId;
     private String password;
 
     private String receivePath;
@@ -110,16 +110,25 @@ public class IBMMQComponent {
             queueManager = createConnection();
 
             // 设置将要连接的队列属性
-            // 目标为远程队列，所有这里不可以用MQOO_INPUT_AS_Q_DEF属性 int openOptions = CMQC.MQOO_INPUT_AS_Q_DEF | CMQC.MQOO_OUTPUT;
-            // 适合远程队列与本地队列
-            int openOptions = CMQC.MQOO_OUTPUT | CMQC.MQOO_FAIL_IF_QUIESCING;
+            /**
+             * CMQC.MQOO_OUTPUT: Open the queue to put messages.
+             * CMQC.MQOO_FAIL_IF_QUIESCING: The MQOPEN call fails if the queue manager is in quiescing state. This option is valid for all types of object.
+             * CMQC.MQOO_INQUIRE: Open the object to query attributes.
+             *
+             * https://www.ibm.com/support/knowledgecenter/SSFKSJ_7.5.0/com.ibm.mq.javadoc.doc/WMQJavaClasses/com/ibm/mq/constants/CMQC.html
+             */
+            int openOptions = CMQC.MQOO_OUTPUT | CMQC.MQOO_FAIL_IF_QUIESCING | CMQC.MQOO_INQUIRE;
 
             queue = queueManager.accessQueue(this.queueName, openOptions, null, null, null);
             // delete the queue when it is closed
             //queue.setCloseOptions(MQConstants.MQCO_DELETE)
 
+            // TODO
+            //currentDepth = queue.getCurrentDepth();
+
             // 定义一个消息
             MQMessage message = new MQMessage();
+            //message.format = CMQC.MQFMT_STRING;
             message.correlationId = id.getBytes();
             // 将数据放入消息缓冲区
             message.write(data);
@@ -131,6 +140,7 @@ public class IBMMQComponent {
             queueManager.commit();
             return;
         } finally {
+            /*
             try {
                 if (queue != null) {
                     queue.close();
@@ -139,6 +149,9 @@ public class IBMMQComponent {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+            */
+
+            /*
             if (queueManager != null) {
                 try {
                     queueManager.close();
@@ -147,6 +160,9 @@ public class IBMMQComponent {
                     e2.printStackTrace();
                 }
             }
+            */
+            closeQueue(queue);
+            closeConnection(queueManager);
         }
     }
 
@@ -170,19 +186,25 @@ public class IBMMQComponent {
         MQQueueManager queueManager = null;
         try {
             queueManager = createConnection();
-            // int openOptions = CMQC.MQOO_INPUT_AS_Q_DEF | CMQC.MQOO_OUTPUT | CMQC.MQOO_INQUIRE | CMQC.MQGMO_SYNCPOINT | CMQC.MQGMO_WAIT | CMQC.MQGMO_FAIL_IF_QUIESCING;
-            int openOptions = CMQC.MQGMO_SYNCPOINT | CMQC.MQGMO_FAIL_IF_QUIESCING;
+            /**
+             * CMQC.MQGMO_SYNCPOINT: The request is to operate within the normal unit-of-work protocols.
+             * CMQC.MQGMO_FAIL_IF_QUIESCING: Force the MQGET call to fail if the queue manager is in the quiescing state.
+             * CMQC.MQOO_INQUIRE: Open the object to query attributes.
+             *
+             * https://www.ibm.com/support/knowledgecenter/SSFKSJ_7.5.0/com.ibm.mq.javadoc.doc/WMQJavaClasses/com/ibm/mq/constants/CMQC.html
+             */
+            int openOptions = CMQC.MQGMO_SYNCPOINT | CMQC.MQGMO_FAIL_IF_QUIESCING | CMQC.MQOO_INQUIRE;
 
             queue = queueManager.accessQueue(this.queueName, openOptions, null, null, null);
             // delete the queue when it is closed
             //queue.setCloseOptions(MQConstants.MQCO_DELETE)
 
             MQGetMessageOptions gmo = new MQGetMessageOptions();
-            // 2; Get messages under sync point control 在同步点控制下获取消息
+            // Get messages under sync point control 在同步点控制下获取消息
             gmo.options += CMQC.MQGMO_SYNCPOINT;
-            // 1; Wait if no messages on the Queue 如果在队列上没有消息则等待
+            // Wait if no messages on the Queue 如果在队列上没有消息则等待
             gmo.options += CMQC.MQGMO_WAIT;
-            // 8192; Fail if Qeue Manager Quiescing 如果队列管理器停顿则失败
+            // Fail if Qeue Manager Quiescing 如果队列管理器停顿则失败
             gmo.options += CMQC.MQGMO_FAIL_IF_QUIESCING;
             // Sets the time limit for the wait. 设置等待的毫秒时间限制
             gmo.waitInterval = 100;
@@ -195,18 +217,23 @@ public class IBMMQComponent {
             boolean flag = true;
             while (flag) {
                 try {
-                    MQMessage inMsg = new MQMessage();
-                    // 从队列中取出消息
-                    queue.get(inMsg, gmo);
+                    MQMessage inMessage = new MQMessage();
 
-                    byte[] bb = new byte[inMsg.getDataLength()];
-                    inMsg.readFully(bb);
+                    // TODO
+                    //currentDepth = queue.getCurrentDepth();
+                    queue.getCurrentDepth();
+
+                    // 从队列中取出消息
+                    queue.get(inMessage, gmo);
+
+                    byte[] bytes = new byte[inMessage.getDataLength()];
+                    inMessage.readFully(bytes);
 
                     // queueManager.commit();
                     if (this.ibmMQReceiveCallback != null) {
-                        this.ibmMQReceiveCallback.execute(bb);
+                        this.ibmMQReceiveCallback.execute(bytes);
                     } else {
-                        saveReceiveObject(bb);
+                        saveReceiveObject(bytes);
                     }
                 } catch (Exception e) {
                     if (((e instanceof MQException)) && (e.getMessage() != null) && (e.getMessage().contains("2033"))) {
@@ -218,6 +245,7 @@ public class IBMMQComponent {
             }
             return;
         } finally {
+            /*
             try {
                 if (queue != null) {
                     queue.close();
@@ -226,7 +254,9 @@ public class IBMMQComponent {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+            */
 
+            /*
             if (queueManager != null) {
                 try {
                     queueManager.close();
@@ -235,6 +265,10 @@ public class IBMMQComponent {
                     e.printStackTrace();
                 }
             }
+            */
+
+            closeQueue(queue);
+            closeConnection(queueManager);
         }
     }
 
@@ -262,22 +296,49 @@ public class IBMMQComponent {
      */
     public MQQueueManager createConnection() throws MQException {
         MQEnvironment.hostname = this.hostname;
+        MQEnvironment.port = this.port.intValue();
         MQEnvironment.channel = this.channel;
-        if (this.userid != null) {
-            MQEnvironment.userID = this.userid;
+        if (this.ccsid != null) {
+            MQEnvironment.CCSID = this.ccsid.intValue();
+        }
+        if (this.userId != null) {
+            MQEnvironment.userID = this.userId;
         }
         if (this.password != null) {
             MQEnvironment.password = this.password;
         }
-        if (this.ccsid != null) {
-            MQEnvironment.CCSID = this.ccsid.intValue();
-        }
-        MQEnvironment.port = this.port.intValue();
         MQEnvironment.properties.put("transport", "MQSeries");
 
+        /*
+        Properties props = new Properties();
+        props.put("hostname", this.hostname);
+        props.put("port", Integer.valueOf(this.port));
+        props.put("channel", this.channel);
+        props.put("CCSID", Integer.valueOf(this.ccsid));
+        if(this.userId != null) {
+            props.put("userID", this.userId);
+        }
+        if(this.password != null) {
+            props.put("password", this.password);
+        }
+        */
+
         // 初始化队列管理器对象并连接
+        //MQQueueManager queueManager = new MQQueueManager(this.queueManagerName, props);
         MQQueueManager queueManager = new MQQueueManager(this.queueManagerName);
+
         return queueManager;
+    }
+
+    public void closeQueue(MQQueue queue) {
+        try {
+            if (queue != null) {
+                queue.close();
+                queue = null;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -328,12 +389,12 @@ public class IBMMQComponent {
         this.queueManagerName = queueManagerName;
     }
 
-    public String getUserid() {
-        return this.userid;
+    public String getUserId() {
+        return this.userId;
     }
 
-    public void setUserid(String userid) {
-        this.userid = userid;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public String getPassword() {
