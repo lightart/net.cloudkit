@@ -6,14 +6,12 @@ import org.apache.commons.io.FileUtils;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Properties;
 import java.util.UUID;
 
 /**
- *
  * API reason codes
  * https://www.ibm.com/support/knowledgecenter/SSFKSJ_9.0.0/com.ibm.mq.tro.doc/q040710_.htm
- *
+ * <p>
  * IBM MQ Downloads
  * https://www.ibm.com/developerworks/mydeveloperworks/blogs/messaging/entry/downloads?lang=en
  */
@@ -221,22 +219,27 @@ public class IBMMQComponent {
             // Sets the time limit for the wait. 设置等待的毫秒时间限制
             gmo.waitInterval = 100;
 
-             // 关闭了就重新打开
-            if(queueManager==null || !queueManager.isConnected()){
+            // 关闭了就重新打开
+            if (queueManager == null || !queueManager.isConnected()) {
                 queueManager = new MQQueueManager(getQueueManagerName());
             }
 
-            boolean flag = true;
-            while (flag) {
+            int currentDepth = queue.getCurrentDepth();
+            System.out.println("该队列当前的深度为:" + currentDepth);
+
+            // 取出消息方法一 isOverload
+            while (currentDepth-- > 0) {
                 try {
                     MQMessage inMessage = new MQMessage();
 
-                    // TODO
-                    //currentDepth = queue.getCurrentDepth();
-                    queue.getCurrentDepth();
-
                     // 从队列中取出消息
                     queue.get(inMessage, gmo);
+
+                    // LOG.info("Consumed one message from [" + this.toString() + "].");
+                    // LOG.info("消息的大小为：" + inMessage.getDataLength());
+                    // new Long((long)inMessage.getTotalMessageLength())
+                    // Long.valueOf(inMessage.putDateTime.getTimeInMillis())
+                    // LOG.info("消息的内容：\n" + inMessage.readStringOfByteLength(inMessage.getDataLength()));
 
                     byte[] bytes = new byte[inMessage.getDataLength()];
                     inMessage.readFully(bytes);
@@ -248,13 +251,49 @@ public class IBMMQComponent {
                         saveReceiveObject(bytes);
                     }
                 } catch (Exception e) {
+                    throw e;
+                }
+            }
+
+            // 取出消息方法二
+            /*
+            boolean flag = true;
+            while (flag) {
+                try {
+                    MQMessage inMessage = new MQMessage();
+
+                    // 从队列中取出消息
+                    queue.get(inMessage, gmo);
+                    System.out.println("消息的大小为：" + inMessage.getDataLength());
+                    System.out.println("消息的内容：\n" + inMessage.readStringOfByteLength(inMessage.getDataLength()));
+
+                    byte[] bytes = new byte[inMessage.getDataLength()];
+                    inMessage.readFully(bytes);
+
+                    // queueManager.commit();
+                    if (this.ibmMQReceiveCallback != null) {
+                        this.ibmMQReceiveCallback.execute(bytes);
+                    } else {
+                        saveReceiveObject(bytes);
+                    }
+                } catch (MQException e) {
                     if (((e instanceof MQException)) && (e.getMessage() != null) && (e.getMessage().contains("2033"))) {
                         flag = false;
                     } else {
                         throw e;
                     }
+
+                    *//*
+                    if(e.completionCode == 2033) {
+                        if(LOG.isDebugEnabled()) {
+                            LOG.debug("Queue [" + this.toString() + "] is empty.");
+                        }
+                        break;
+                    }
+                    *//*
                 }
             }
+            */
             return;
         } finally {
             /*
@@ -346,10 +385,11 @@ public class IBMMQComponent {
         try {
             if (queue != null) {
                 queue.close();
-                queue = null;
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            //LOG.error("Failed to close MQQueue.", e);
+        } finally {
+            queue = null;
         }
     }
 
@@ -364,7 +404,10 @@ public class IBMMQComponent {
                 queueManager.close();
                 queueManager.disconnect();
             } catch (Exception e) {
-                e.printStackTrace();
+                // e.printStackTrace();
+                //LOG.error("Failed to close MQQueueManager.", e);
+            } finally {
+                queueManager = null;
             }
         }
     }
@@ -447,5 +490,9 @@ public class IBMMQComponent {
 
     public void setIbmMQReceiveCallback(IBMMQReceiveCallback ibmMQReceiveCallback) {
         this.ibmMQReceiveCallback = ibmMQReceiveCallback;
+    }
+
+    public String toString() {
+        return this.getClass().getName() + ", { IBM MQ://" + (this.userId != null && !this.userId.isEmpty()?this.userId + "@":"") + this.hostname + ":" + this.port + "/" + this.queueManagerName + "/" + this.channel + "/" + this.queueName;
     }
 }
