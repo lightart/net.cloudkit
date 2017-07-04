@@ -26,3 +26,6 @@
 两阶段的第二阶段中事务处理器向数据库服务器发出"确认提交"请求，数据库服务器把事务的"可以提交"状态改为"提交完成"状态，然后返回应答。
 从严格意义上说，两阶段提交并没有完全解决网络通讯危险期的问题，但因为第二阶段的处理很简单，只是修改了事务的状态，与第一阶段相比其处理时间极短，所
 以危险期极短，发生事务提交故障的可能性几乎不存在。
+
+
+http://www.javaworld.com/article/2077963/open-source-tools/distributed-transactions-in-spring--with-and-without-xa.html
