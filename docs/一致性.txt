@@ -27,5 +27,8 @@
 从严格意义上说，两阶段提交并没有完全解决网络通讯危险期的问题，但因为第二阶段的处理很简单，只是修改了事务的状态，与第一阶段相比其处理时间极短，所
 以危险期极短，发生事务提交故障的可能性几乎不存在。
 
+三阶段提交协议(3PC Three Phrase Commit)
+针对两阶段提交存在的问题，三阶段提交协议通过引入一个“预询盘”阶段，以及超时策略来减少整个集群的阻塞时间，提升系统性能。三阶段提交的三个阶段分别为
+can_commit，pre_commit，do_commit。
 
 http://www.javaworld.com/article/2077963/open-source-tools/distributed-transactions-in-spring--with-and-without-xa.html
