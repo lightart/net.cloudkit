@@ -1,5 +1,5 @@
-两阶段提交
-一阶段提交(Best Efforts 1PC模式)
+两阶段提交(2PC Two Phase Commit)
+一阶段提交(Best Efforts, 1PC One Phase Commit)
 事务补偿机制
 
 三个概念：
