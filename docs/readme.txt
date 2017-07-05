@@ -1313,3 +1313,7 @@ http://en.wikipedia.org/wiki/ransac
 
 一致性哈希算法在1997年由麻省理工学院提出的一种分布式哈希（DHT）实现算法，设计目标是为了解决因特网中的热点(Hot spot)问题，初衷和CARP十分类似。一
 致性哈希修正了CARP使用的简 单哈希算法带来的问题，使得分布式哈希（DHT）可以在P2P环境中真正得到应用。
+
+
+企业集成模式:设计、构建及部署消息传递解决方案
+http://www.enterpriseintegrationpatterns.com/
