@@ -26,7 +26,12 @@ public class ClassLoaderTest {
         }
 
 
-        // TODO
+        // TODO SecureClassLoader
+
+//        // Class.forName()
+//        String str = "用户输入的字符串" ;
+//        Class clazz = Class.forName(str);
+//        clazz.newInstance();
 
         URL[] urls = new URL[]{};
         MyClassLoader classLoader = new MyClassLoader(urls, null);
