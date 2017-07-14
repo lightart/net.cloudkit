@@ -428,12 +428,6 @@ ext.libraries += [
 
     // apache httpclient
     "httpclient"                            : "org.apache.httpcomponents:httpclient:${versions.'httpclient'}",
-    "httpmime"                              : "org.apache.httpcomponents:httpmime:${versions.'httpclient'}",
-    "httpcomponents-client"                 : "org.apache.httpcomponents:httpcomponents-client:${versions.'httpclient'}",
-    "httpclient-osgi"                       : "org.apache.httpcomponents:httpclient-osgi:${versions.'httpclient'}",
-    "httpclient-win"                        : "org.apache.httpcomponents:httpclient-win:${versions.'httpclient'}",
-    "httpclient-cache"                      : "org.apache.httpcomponents:httpclient-cache:${versions.'httpclient'}",
-    "fluent-hc"                             : "org.apache.httpcomponents:fluent-hc:${versions.'httpclient'}",
 
     "aspectjweaver"                         : "org.aspectj:aspectjweaver:${versions.'aspectjweaver'}",
 
