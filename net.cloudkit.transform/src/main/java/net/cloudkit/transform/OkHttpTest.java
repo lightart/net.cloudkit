@@ -5,18 +5,24 @@ import okhttp3.*;
 import org.apache.commons.compress.compressors.bzip2.BZip2CompressorInputStream;
 import org.apache.commons.compress.compressors.bzip2.BZip2CompressorOutputStream;
 import org.apache.commons.compress.compressors.gzip.GzipCompressorOutputStream;
+import org.apache.log4j.spi.LoggerFactory;
 
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Logger;
 
+/**
+ * Apache HttpComponents http://hc.apache.org/
+ * OkHttp http://square.github.io/okhttp/
+ */
 public class OkHttpTest {
 
     public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
 
-    OkHttpClient client = new OkHttpClient();
+    private OkHttpClient client = new OkHttpClient();
 
     public static void main(String[] args) {
 
@@ -39,7 +45,7 @@ public class OkHttpTest {
             String message = new String(Base64Encrypt.encode(baos.toByteArray()), "UTF-8");
             System.out.println(message);
 
-            /*
+            /**
             // 解压
             ByteArrayOutputStream baos2 = new ByteArrayOutputStream();
             // BZip2CompressorInputStream bzIn = new BZip2CompressorInputStream(new ByteArrayInputStream(baos.toByteArray()));
@@ -122,10 +128,28 @@ public class OkHttpTest {
      */
     public String post(String url, Map<String, String> params) throws IOException {
         // RequestBody body = RequestBody.create(JSON, params);
-
-        MultipartBody.Builder builder = new MultipartBody.Builder().setType(MultipartBody.FORM);
+        // MultipartBody.Builder builder = new MultipartBody.Builder().setType(MultipartBody.FORM);
+        FormBody.Builder builder = new FormBody.Builder();
         for(Map.Entry<String, String> entry : params.entrySet()) {
-            builder.addFormDataPart(entry.getKey(), entry.getValue());
+            /**
+            // MultipartBody
+            .addPart(
+                Headers.of("Content-Disposition", "form-data; name=\"file\"; filename=\"" + fileName + "\""),
+                RequestBody.create(MEDIA_TYPE_PNG, file)
+            )
+            .addPart(
+                Headers.of("Content-Disposition", "form-data; name=\"imagetype\""),
+                RequestBody.create(null, imageType)
+            )
+            .addPart(
+                Headers.of("Content-Disposition", "form-data; name=\"userphone\""),
+                RequestBody.create(null, userPhone)
+             )
+             builder.addFormDataPart(entry.getKey(), entry.getValue());
+             */
+
+            // FormBody
+            builder.add(entry.getKey(), entry.getValue());
         }
         RequestBody body = builder.build();
 
