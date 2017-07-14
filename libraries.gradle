@@ -84,7 +84,7 @@ ext.versions += [
     'jackson'                   : '2.8.2',
     'logback'                   : '1.1.7',
     'slf4j'                     : '1.7.21',
-    'httpclient'                : '4.5.2',
+    'httpclient'                : '4.5.3',
     'guava'                     : '19.0',
 
     // 4.0.0-b01 3.1.0
