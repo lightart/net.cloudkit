@@ -424,7 +424,7 @@ ext.libraries += [
     "commons-digester3"                     : "org.apache.commons:commons-digester3:3.2",
     "commons-io"                            : "org.apache.commons:commons-io:1.3.2",
     "commons-pool2"                         : "org.apache.commons:commons-pool2:2.3",
-    "commons-compress"                      : "org.apache.commons:commons-compress:1.10",
+    "commons-compress"                      : "org.apache.commons:commons-compress:1.14",
 
     // apache httpclient
     "httpclient"                            : "org.apache.httpcomponents:httpclient:${versions.'httpclient'}",

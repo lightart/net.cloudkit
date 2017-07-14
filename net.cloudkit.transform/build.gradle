@@ -13,7 +13,8 @@ dependencies {
         'org.apache.xmlbeans:xmlbeans:2.6.0',
         'mysql:mysql-connector-java:5.1.34',
         'com.squareup.okhttp3:okhttp:3.8.1',
-        libraries.'commons-io'
+        libraries.'commons-io',
+        libraries.'commons-compress'
     )
     testCompile group: 'junit', name: 'junit', version: '4.11'
 }
