@@ -23,7 +23,7 @@ public class OkHttpTest {
         OkHttpTest okHttpTest = new OkHttpTest();
         try {
 
-            // GZIP 压缩
+            // GZIP 压缩 http://commons.apache.org/proper/commons-compress/examples.html
             InputStream in = Files.newInputStream(Paths.get("F:\\SVN\\docs\\用户需求\\易航线\\主报文.xml"));
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             // BZip2CompressorOutputStream bzOut = new BZip2CompressorOutputStream(baos);
