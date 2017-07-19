@@ -1,26 +1,43 @@
+/*
+ * Copyright (C) 2015 The CloudKit Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package net.cloudkit.transform;
 
-
 import okhttp3.*;
-import org.apache.commons.compress.compressors.bzip2.BZip2CompressorInputStream;
-import org.apache.commons.compress.compressors.bzip2.BZip2CompressorOutputStream;
+import org.apache.commons.compress.compressors.gzip.GzipCompressorInputStream;
 import org.apache.commons.compress.compressors.gzip.GzipCompressorOutputStream;
-import org.apache.log4j.spi.LoggerFactory;
 
-import java.io.*;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Logger;
 
 /**
  * Apache HttpComponents http://hc.apache.org/
  * OkHttp http://square.github.io/okhttp/
+ *
+ * @author hongquanli <hongquanli@qq.com>
+ * @version 1.0 2017-07-19 10:11:44
  */
 public class OkHttpTest {
 
-    public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
+    // public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
 
     private OkHttpClient client = new OkHttpClient();
 
@@ -29,6 +46,19 @@ public class OkHttpTest {
         OkHttpTest okHttpTest = new OkHttpTest();
         try {
 
+            // TODO 获取token
+            // Properties
+            Map<String, String>  params1 = new HashMap<>();
+            params1.put("clientPlatformCode", "20000");
+            params1.put("key", "e5646b8d21d725da2qwefdhcjh81cc2575f9d67e");
+
+            String val = okHttpTest.post(
+                "http://test.21eline.com:8030/api/get_token.html",
+                params1
+            );
+            System.out.println(convertUnicode(val));
+
+            // TODO 上传报文
             // GZIP 压缩 http://commons.apache.org/proper/commons-compress/examples.html
             InputStream in = Files.newInputStream(Paths.get("F:\\SVN\\docs\\用户需求\\易航线\\主报文.xml"));
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -45,35 +75,6 @@ public class OkHttpTest {
             String message = new String(Base64Encrypt.encode(baos.toByteArray()), "UTF-8");
             System.out.println(message);
 
-            /**
-            // 解压
-            ByteArrayOutputStream baos2 = new ByteArrayOutputStream();
-            // BZip2CompressorInputStream bzIn = new BZip2CompressorInputStream(new ByteArrayInputStream(baos.toByteArray()));
-            GzipCompressorInputStream bzIn = new GzipCompressorInputStream(new ByteArrayInputStream(baos.toByteArray()));
-            final byte[] buffer2 = new byte[1024];
-            int c = 0;
-            while (-1 != (c = bzIn.read(buffer2))) {
-                baos2.write(buffer2, 0, c);
-            }
-            baos2.close();
-            bzIn.close();
-            System.out.println(new String(baos2.toByteArray(), "UTF-8"));
-            */
-
-            // Properties
-            Map<String, String>  params1 = new HashMap<>();
-            params1.put("clientPlatformCode", "20000");
-            params1.put("key", "e5646b8d21d725da2qwefdhcjh81cc2575f9d67e");
-
-            // 获取token
-            String val = okHttpTest.post(
-                "http://test.21eline.com:8030/api/get_token.html",
-                params1
-            );
-            System.out.println(convertUnicode(val));
-
-
-            // 上传报文
             Map<String, String>  params2 = new HashMap<>();
             params2.put("main_xml", message);
 
@@ -83,19 +84,45 @@ public class OkHttpTest {
             );
             System.out.println(convertUnicode(val2));
 
-            // 查询报关单当前状态
+            // TODO 查询报关单当前状态
             Map<String, String>  params3 = new HashMap<>();
-            params3.put("clientCompanyCode", "20000");
+            params3.put("clientCompanyCode", "test");
             params3.put("taskId", "10001323231112311223138");
             params3.put("importExportFlag", "e");
             params3.put("clientPlatformCode", "20000");
-            params3.put("token", "b3fefd259790d3a");
+            params3.put("token", "1b368da70292abe");
 
             String val3 = okHttpTest.post(
-                "http://test.21eline.com:8030//api/bg_status.html",
+                "http://test.21eline.com:8030/api/bg_status.html",
                 params3
             );
             System.out.println(convertUnicode(val3));
+
+            // TODO 查询已上传的报关单数据
+            Map<String, String>  params4 = new HashMap<>();
+            params4.put("clientCompanyCode", "test");
+            params4.put("taskId", "10001323231112311223138");
+            params4.put("importExportFlag", "e");
+            params4.put("clientPlatformCode", "20000");
+            params4.put("token", "1b368da70292abe");
+
+            String val4 = okHttpTest.post(
+                "http://test.21eline.com:8030/api/get_bg_main.html",
+                params4
+            );
+            System.out.println(convertUnicode(val4));
+
+            // 解压
+            ByteArrayOutputStream baos2 = new ByteArrayOutputStream();
+            GzipCompressorInputStream bzIn = new GzipCompressorInputStream(new ByteArrayInputStream(Base64Encrypt.decode(val4.getBytes())));
+            final byte[] buffer2 = new byte[1024];
+            int c = 0;
+            while (-1 != (c = bzIn.read(buffer2))) {
+                baos2.write(buffer2, 0, c);
+            }
+            baos2.close();
+            bzIn.close();
+            System.out.println(new String(baos2.toByteArray(), "UTF-8"));
         } catch (IOException e) {
             e.printStackTrace();
         }
