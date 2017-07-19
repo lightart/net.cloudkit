@@ -90,7 +90,7 @@ public class OkHttpTest {
             params3.put("taskId", "10001323231112311223138");
             params3.put("importExportFlag", "e");
             params3.put("clientPlatformCode", "20000");
-            params3.put("token", "1b368da70292abe");
+            params3.put("token", "f9f91871d91a8aa");
 
             String val3 = okHttpTest.post(
                 "http://test.21eline.com:8030/api/bg_status.html",
@@ -104,7 +104,7 @@ public class OkHttpTest {
             params4.put("taskId", "10001323231112311223138");
             params4.put("importExportFlag", "e");
             params4.put("clientPlatformCode", "20000");
-            params4.put("token", "1b368da70292abe");
+            params4.put("token", "f9f91871d91a8aa");
 
             String val4 = okHttpTest.post(
                 "http://test.21eline.com:8030/api/get_bg_main.html",
