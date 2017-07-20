@@ -1347,3 +1347,110 @@ Monitor 服务健康度和质量
 自动化运维
 
 SOA服务化，消息中间件，远程调用中间件，缓存中间件，服务调度，监控，部署，网关
+
+
+
+{
+    "name": "some-app",
+    "description": "description",
+    "namespace": "default",
+    "env": {
+        "name": "local",
+        "description": "the nodes of local environments",
+        "nodes": [],
+        "storages": []
+    },
+    "healthcheck_retry_times": 10,
+    "healthcheck_interval": 10,
+    "stack_provision_timeout": 1200000000000,
+    "stack_destroy_timeout": 1200000000000,
+    "stack_update_timeout": 1200000000000,
+    "stack_scale_timeout": 1200000000000,
+    "env_variables": [
+        {
+            "name": "INFRASTRUCTURE_PROVIDER",
+            "value": "aws"
+        },
+        {
+            "name": "SCRIPT_LOG_LEVEL",
+            "value": "WARNING"
+        }
+    ],
+
+   "deployments": [
+        {
+            "name": "backend-server",
+            "image": "172.31.13.51/megaese/tomcat-server",
+            "image_version": "1.8",
+            "type": "Stateless",
+            "description": "the backend-server component deployment information",
+            "instance_count": 3,
+            "require_resource": {
+                "cpu": "300m",
+                "memory": "512Mi"
+            },
+            "limit_resource": {
+                "cpu": "500m",
+                "memory": "1Gi"
+            },
+            "storage_mounts": [],
+            "coloring_nodes": [
+                "ip-172-31-10-103",
+                "ip-172-31-9-252",
+                "ip-172-31-14-200"
+            ],
+            "configurations": [
+                "{\n\"httpPort\": 9527,\n\"stage\": \"test\"\n}"
+            ],
+            "initial_delay_seconds": 90,
+            "healthcheck_retry_times": 30,
+            "named_ports": [
+                {
+                    "name": "httpPort",
+                    "port": 8080,
+                    "is_host_port": false
+                }
+            ],
+            "is_node_port": false,
+            "node_port_policy": "default",
+            "env_variables": []
+        },
+
+        {
+            "name": "fontend-server",
+            "image": "172.31.13.51/megaease/reactjs-web",
+            "image_version": "1.8",
+            "type": "Stateless",
+            "description": "the reactjs-web component deployment information ",
+            "instance_count": 1,
+            "require_resource": {
+                "cpu": "200m",
+                "memory": "128Mi"
+            },
+            "limit_resource": {
+                "cpu": "500m",
+                "memory": "1Gi"
+            },
+            "storage_mounts": [],
+            "coloring_nodes": [
+                "ip-172-31-2-1"
+            ],
+            "configurations": [
+                "{\n\"httpPort\": 8080,\n\"stage\": \"test\"\n}"
+            ],
+            "initial_delay_seconds": 60,
+            "named_ports": [
+                {
+                    "name": "httpPort",
+                    "port": 80,
+                    "is_host_port": true
+                }
+            ],
+            "is_node_port": true,
+            "node_port_policy": "default",
+            "env_variables": []
+        }
+    ],
+    "healthchecker_image": "172.31.13.51/megaease/cmdagent",
+    "healthchecker_image_version": "1.1"
+}
