@@ -1334,3 +1334,16 @@ REPL
 JSON API
 JIT(Just-in-time)
 http://javamoney.github.io/
+
+API Gateway
+流量控制
+熔断技术
+微服务编排和调度
+Monitor 服务健康度和质量
+灾难备份
+自动化性能伸缩
+多租户和云化服务
+资源调度
+自动化运维
+
+SOA服务化，消息中间件，远程调用中间件，缓存中间件，服务调度，监控，部署，网关
