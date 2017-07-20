@@ -1,37 +1,37 @@
 {
-    "queue-manager": {
+    "queue_manager": {
         "id": "TEST_TRANS_QM",
         "name": "TEST_TRANS_QM",
         "hostname": "120.76.96.117",
         "port": "1401",
-        "queue-manager-name": "QMCqhz01",
+        "queue_manager_name": "QMCqhz01",
         "CCSID": "819",
-        "user-id": "",
+        "user_id": "",
         "password": "",
         "channel": "SYSTEM.DEF.SVRCONN",
         "inbound": {
-            // fixed-delay fixed-rate cron
+            // fixed_delay fixed_rate cron
             // ref method
             // filter
             // converter
             // interceptor
             // message size limit
             // 添加消息头
-            "queue-name": "TEST_LOCAL",
+            "queue_name": "TEST_LOCAL",
             "charset": "UTF-8",
             "mode": "REPLACE|IGNORE|FAIL|APPEND",
-            "temporary-file-suffix": ".tmp",
-            "auto-create-directory": "true",
+            "temporary_file_suffix": ".tmp",
+            "auto_create_directory": "true",
             "directory": "D:\\trans_mq\\inbound",
-            "directory-expression": "yyyy/MM/dd/HH",
-            "filename-expression": ""
+            "directory_expression": "yyyy/MM/dd/HH",
+            "filename_expression": ""
         },
         "outbound": {
             // 消息头处理
-            "queue-name": "TEST_REMOTE",
-            "filename-pattern": "*.xml",
-            "delete-source-files": "true",
-            "auto-create-directory": "true",
+            "queue_name": "TEST_REMOTE",
+            "filename_pattern": "*.xml",
+            "delete_source_files": "true",
+            "auto_create_directory": "true",
             "directory": "D:\\trans_mq\\outbound"
         }
     }
