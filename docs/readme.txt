@@ -1326,7 +1326,7 @@ cPanel
 
 okhttp
 
-java9
+JAVA 9
 Jigsaw
 REPL
 JSON API
