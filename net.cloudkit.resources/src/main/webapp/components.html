@@ -117,28 +117,37 @@
             padding: 0 6px 0 6px;line-height: 21px;color: #7f7f7f;background: #f6f9fa;margin: 3px 8px 0 0;
         }
         .common-main .explore .toolbar .thumbs a:hover {background: #d1fafa;}
+        .common-main .explore .toolbar .qrcode {position: relative;}
+        .common-main .explore .toolbar .qrcode:hover .qrcode-popup {display: block;}
+        .common-main .explore .toolbar .qrcode-popup {
+            display: none;position: absolute;width: 160px;height: 185px;background-color: #fff;
+            top: 32px;left: -80px;border: 1px solid #eee;
+        }
+        .common-main .explore .toolbar .qrcode-popup p {
+            text-align: center;color: #777;font-size: 15px;margin: 15px auto 10px;
+        }
         .common-main .explore .toolbar .more {position: relative;}
-        .common-main .explore .toolbar .more:hover .more-panel {display: block;}
+        .common-main .explore .toolbar .more:hover .more-popup {display: block;}
 
-        .common-main .explore .toolbar .more-panel {
+        .common-main .explore .toolbar .more-popup {
             position: absolute;display: none;width: 114px;left: -48px;top: 32px;z-index: 999;
             box-shadow: 0 0 5px 2px #f1f1f1;border: 1px solid #d9d9d9;border-radius: 4px;
             background: #fff;font-size: 13px;
         }
-        .common-main .explore .toolbar .more-panel .arrow-up {
+        .common-main .explore .toolbar .more-popup .arrow-up {
             position: absolute;top: -10px;left: 46px;
             border-left: 10px solid transparent;border-right: 10px solid transparent;border-bottom: 10px solid #d9d9d9;
         }
-        .common-main .explore .toolbar .more-panel .arrow-up i {
+        .common-main .explore .toolbar .more-popup .arrow-up i {
             position: absolute;top: 1px;left: -10px;content: '.';height: 0;overflow: hidden;
             border-left: 10px solid transparent;border-right: 10px solid transparent;border-bottom: 10px solid #fff;
         }
-        .common-main .explore .toolbar .more-panel .placeholder {
+        .common-main .explore .toolbar .more-popup .placeholder {
             position: absolute;height: 18px;width: 100%;left: 0;top: -18px;
         }
-        .common-main .explore .toolbar .more-panel li {line-height: 30px;height: 30px;text-align: left;padding: 0 8px;}
-        .common-main .explore .toolbar .more-panel a {cursor: pointer;position: relative;}
-        .common-main .explore .toolbar .more-panel li:hover {background: #f1f1f1;}
+        .common-main .explore .toolbar .more-popup li {line-height: 30px;height: 30px;text-align: left;padding: 0 8px;}
+        .common-main .explore .toolbar .more-popup a {cursor: pointer;position: relative;}
+        .common-main .explore .toolbar .more-popup li:hover {background: #f1f1f1;}
 
         /* #common-footer */
         .common-footer {margin: 0 auto;background: #fff;color: #999;}
@@ -465,6 +474,10 @@ M4.859,11.299H0.996v3.863h3.864V11.299z M10.011,11.299H6.147v3.863h3.864V11.299z
                             <svg aria-hidden="true" class="octicon octicon-qrcode" viewBox="0 0 16 16" width="16" height="16">
                                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#octicon-qrcode"></use>
                             </svg>
+                            <div class="qrcode-popup">
+                                <p>扫码下载</p>
+                                <img src="http://www.wandoujia.com/api/qr?s=5&amp;c=http://www.wandoujia.com/apps/com.nowcasting.activity">
+                            </div>
                         </a>
                         <!--
                         <a class="go-to-buy">购买</a>
@@ -483,7 +496,7 @@ M4.859,11.299H0.996v3.863h3.864V11.299z M10.011,11.299H6.147v3.863h3.864V11.299z
                             <svg aria-hidden="true" class="octicon octicon-more" viewBox="0 0 16 16" width="16" height="16">
                                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#octicon-more"></use>
                             </svg>
-                            <div class="more-panel">
+                            <div class="more-popup">
                                 <span class="arrow-up">
                                     <i></i>
                                 </span>
@@ -591,7 +604,7 @@ M4.859,11.299H0.996v3.863h3.864V11.299z M10.011,11.299H6.147v3.863h3.864V11.299z
                             <svg aria-hidden="true" class="octicon octicon-more" viewBox="0 0 16 16" width="16" height="16">
                                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#octicon-more"></use>
                             </svg>
-                            <div class="more-panel">
+                            <div class="more-popup">
                                 <span class="arrow-up">
                                     <i></i>
                                 </span>
@@ -708,7 +721,7 @@ M4.859,11.299H0.996v3.863h3.864V11.299z M10.011,11.299H6.147v3.863h3.864V11.299z
                             <svg aria-hidden="true" class="octicon octicon-more" viewBox="0 0 16 16" width="16" height="16">
                                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#octicon-more"></use>
                             </svg>
-                            <div class="more-panel">
+                            <div class="more-popup">
                                 <span class="arrow-up">
                                     <i></i>
                                 </span>
