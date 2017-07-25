@@ -101,7 +101,7 @@
             /*border-bottom: 1px solid #eee;*/
         }
 
-        .common-main .explore ul li {float: left;width: 490px;}
+        .common-main .explore ul li.small-view {float: left;width: 490px;}
         .common-main .explore ul li.large-view {float: left;width: 980px;}
 
         .common-main .explore .figure-item {margin: 0 auto;padding: 16px 0;}
@@ -117,6 +117,41 @@
             padding: 0 6px 0 6px;line-height: 21px;color: #7f7f7f;background: #f6f9fa;margin: 3px 8px 0 0;
         }
         .common-main .explore .toolbar .thumbs a:hover {background: #d1fafa;}
+        .common-main .explore .toolbar .more {position: relative;}
+        .common-main .explore .toolbar .more-panel {
+            position: absolute;
+            /*display: none;*/
+            width: 114px;
+            left: -48px;
+            top: 32px;
+            z-index: 999;
+            box-shadow: 0 0 5px 2px #f1f1f1;
+            border: 1px solid #d9d9d9;
+            border-radius: 4px;
+            background: #fff;
+            font-size: 13px;
+        }
+        .common-main .explore .toolbar .more-panel .arrow-up {
+            position: absolute;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 10px solid #d9d9d9;
+            top: -10px;
+            left: 46px;
+        }
+        .common-main .explore .toolbar .more-panel li {
+            line-height: 30px;
+            height: 30px;
+            text-align: left;
+            padding: 0 8px;
+        }
+        .common-main .explore .toolbar .more-panel a {
+            cursor: pointer;
+            position: relative;
+        }
+        .common-main .explore .toolbar .more-panel li:hover {
+            background: #f1f1f1;
+        }
 
         /* #common-footer */
         .common-footer {margin: 0 auto;background: #fff;color: #999;}
@@ -461,6 +496,17 @@ M4.859,11.299H0.996v3.863h3.864V11.299z M10.011,11.299H6.147v3.863h3.864V11.299z
                             <svg aria-hidden="true" class="octicon octicon-more" viewBox="0 0 16 16">
                                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#octicon-more"></use>
                             </svg>
+                            <div class="more-panel">
+                                <span class="arrow-up"></span>
+                                <!-- more-list report 举报 delete 删除 edit 编辑 question 问题 thank 感谢-->
+                                <ul class="more-list">
+                                    <li class="report">举报</li>
+                                    <li class="delete">删除</li>
+                                    <li class="edit">编辑</li>
+                                    <li class="question">问题</li>
+                                    <li class="thank">感谢</li>
+                                </ul>
+                            </div>
                         </a>
                         <!-- tags -->
                         <div class="tags">
@@ -477,20 +523,11 @@ M4.859,11.299H0.996v3.863h3.864V11.299z M10.011,11.299H6.147v3.863h3.864V11.299z
                         </div>
                         -->
 
-                        <!-- more-list report 举报 delete 删除 edit 编辑 question 问题 thank 感谢-->
-                        <!--
-                        <ul class="more-list">
-                            <li class="report">举报</li>
-                            <li class="delete">删除</li>
-                            <li class="edit">编辑</li>
-                            <li class="question">问题</li>
-                            <li class="thank">感谢</li>
-                        </ul>
-                        -->
+
                     </div>
                 </figure>
             </li>
-            <li>
+            <li class="small-view">
                 <!-- review-item figure-item article-item -->
                 <figure class="figure-item">
                     <!--<div class="topic"></div>-->
@@ -593,7 +630,7 @@ M4.859,11.299H0.996v3.863h3.864V11.299z M10.011,11.299H6.147v3.863h3.864V11.299z
                     </div>
                 </figure>
             </li>
-            <li>
+            <li class="small-view">
                 <!-- review-item figure-item article-item -->
                 <figure class="figure-item">
                     <!--<div class="topic"></div>-->
