@@ -121,17 +121,18 @@
         .common-main .explore .toolbar .qrcode:hover .qrcode-popup {display: block;}
         .common-main .explore .toolbar .qrcode-popup {
             display: none;position: absolute;width: 160px;height: 185px;background-color: #fff;
-            top: 32px;left: -80px;border: 1px solid #eee;
+            top: 32px;left: -80px;border: 1px solid #eee;z-index: 999;box-shadow: 0 0 5px 2px #f1f1f1;
         }
         .common-main .explore .toolbar .qrcode-popup p {
-            text-align: center;color: #777;font-size: 15px;margin: 15px auto 10px;
+            text-align: center;color: #777;font-size: 15px;margin: 10px 0 4px 0;
         }
+        .common-main .explore .toolbar .qrcode-popup img {display: block;width: 120px;height: 120px;margin: 0 auto 10px auto;}
         .common-main .explore .toolbar .more {position: relative;}
         .common-main .explore .toolbar .more:hover .more-popup {display: block;}
 
         .common-main .explore .toolbar .more-popup {
             position: absolute;display: none;width: 114px;left: -48px;top: 32px;z-index: 999;
-            box-shadow: 0 0 5px 2px #f1f1f1;border: 1px solid #d9d9d9;border-radius: 4px;
+            box-shadow: 0 0 5px 2px #f1f1f1;border: 1px solid #d9d9d9;border-radius: 3px;
             background: #fff;font-size: 13px;
         }
         .common-main .explore .toolbar .more-popup .arrow-up {
@@ -476,7 +477,7 @@ M4.859,11.299H0.996v3.863h3.864V11.299z M10.011,11.299H6.147v3.863h3.864V11.299z
                             </svg>
                             <div class="qrcode-popup">
                                 <p>扫码下载</p>
-                                <img src="http://www.wandoujia.com/api/qr?s=5&amp;c=http://www.wandoujia.com/apps/com.nowcasting.activity">
+                                <img src="http://repos.cloudkit.net/images/qrcode.png" width="120" height="120" />
                             </div>
                         </a>
                         <!--
@@ -503,11 +504,16 @@ M4.859,11.299H0.996v3.863h3.864V11.299z M10.011,11.299H6.147v3.863h3.864V11.299z
                                 <span class="placeholder"></span>
                                 <!-- more-list report 举报 delete 删除 edit 编辑 question 问题 thank 感谢-->
                                 <ul class="more-list">
+                                    <li class="">分享给QQ好友</li>
+                                    <li class="">分享到QQ空间</li>
+                                    <li class="report">举报</li>
+                                    <!--
                                     <li class="report">举报</li>
                                     <li class="delete">删除</li>
                                     <li class="edit">编辑</li>
                                     <li class="question">问题</li>
                                     <li class="thank">感谢</li>
+                                    -->
                                 </ul>
                             </div>
                         </a>
@@ -611,11 +617,16 @@ M4.859,11.299H0.996v3.863h3.864V11.299z M10.011,11.299H6.147v3.863h3.864V11.299z
                                 <span class="placeholder"></span>
                                 <!-- more-list report 举报 delete 删除 edit 编辑 question 问题 thank 感谢-->
                                 <ul class="more-list">
+                                    <li class="">分享给QQ好友</li>
+                                    <li class="">分享到QQ空间</li>
+                                    <li class="report">举报</li>
+                                    <!--
                                     <li class="report">举报</li>
                                     <li class="delete">删除</li>
                                     <li class="edit">编辑</li>
                                     <li class="question">问题</li>
                                     <li class="thank">感谢</li>
+                                    -->
                                 </ul>
                             </div>
                         </a>
@@ -728,11 +739,16 @@ M4.859,11.299H0.996v3.863h3.864V11.299z M10.011,11.299H6.147v3.863h3.864V11.299z
                                 <span class="placeholder"></span>
                                 <!-- more-list report 举报 delete 删除 edit 编辑 question 问题 thank 感谢-->
                                 <ul class="more-list">
+                                    <li class="">分享给QQ好友</li>
+                                    <li class="">分享到QQ空间</li>
+                                    <li class="report">举报</li>
+                                    <!--
                                     <li class="report">举报</li>
                                     <li class="delete">删除</li>
                                     <li class="edit">编辑</li>
                                     <li class="question">问题</li>
                                     <li class="thank">感谢</li>
+                                    -->
                                 </ul>
                             </div>
                         </a>
