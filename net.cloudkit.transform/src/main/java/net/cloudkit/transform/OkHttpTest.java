@@ -151,7 +151,7 @@ public class OkHttpTest {
             params1.put("BatchNo", "");
             params1.put("MessageStatus", "");
             params1.put("ContentType", "");
-            params1.put("Content", new String(Base64Encrypt.encode("2017-07-26 15:56:10".getBytes())));
+            params1.put("Content", message);
 
             String val = okHttpTest.post(
                 "http://gatewaytest.transgd.com.cn:5656/invoke/LL_SZWLC_GW.customsDec.http/receive",
