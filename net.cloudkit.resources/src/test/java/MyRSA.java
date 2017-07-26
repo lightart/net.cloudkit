@@ -123,7 +123,7 @@ public class MyRSA {
     }
 
     /**
-     * 加密，三步走。
+     * 加密
      *
      * @param key
      * @param plainText origin
@@ -146,7 +146,7 @@ public class MyRSA {
     }
 
     /**
-     * 解密，三步走。
+     * 解密
      *
      * @param key
      * @param encodedText
