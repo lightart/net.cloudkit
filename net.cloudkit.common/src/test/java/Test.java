@@ -25,6 +25,8 @@ public class Test {
             Class[] args1 = new Class[1];
             args1[0] = String[].class;
 
+            // getDeclaredMethod 返回一个 Method 对象，该对象反映此 Class 对象所表示的类或接口的指定已声明方法。
+            // getMethod 返回一个 Method 对象，它反映此 Class 对象所表示的类或接口的指定公共成员方法。
             Method method = loadClass.getDeclaredMethod("main", args1);
             method.setAccessible(true);
             String[][] arguments = new String[1][];
