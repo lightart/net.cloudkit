@@ -91,6 +91,17 @@
         .common-header .site-top .utility .hot-keywords {padding: 2px 0;}
         .common-header .site-top .utility .hot-keywords a {margin: 0 0 0 8px;}
 
+        .common-header .navigation {
+            margin: 0 auto;list-style: none;background: #c00;width: 980px;
+            display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;
+            -webkit-flex-flow: row wrap;justify-content: flex-start;
+            font-size: 14px;height: 36px;line-height: 12px;
+        }
+        .common-header .navigation a {
+            text-decoration: none;display: block;padding: 12px 24px;color: white;
+        }
+        .common-header .navigation a:hover {background: #c00;}
+
         /* #campaign-banner */
         .campaign-banner {margin: 16px auto;padding: 0 16px;width: 980px;height: 90px;}
 
@@ -167,6 +178,8 @@
         }
         .common-footer .corporation-links .social-links {position: absolute;right: 0;top: 0;}
         */
+
+
     </style>
 </head>
 <body>
@@ -356,6 +369,7 @@ M4.859,11.299H0.996v3.863h3.864V11.299z M10.011,11.299H6.147v3.863h3.864V11.299z
 </svg>
 
 <header class="common-header">
+
     <div class="site-nav">
         <div class="site-nav-links">
             <!-- nav-links -->
@@ -394,6 +408,7 @@ M4.859,11.299H0.996v3.863h3.864V11.299z M10.011,11.299H6.147v3.863h3.864V11.299z
             </div>
         </div>
     </div>
+
     <div class="site-top">
         <div class="brand">
             <a href="#" class="logo">logo</a>
@@ -412,7 +427,16 @@ M4.859,11.299H0.996v3.863h3.864V11.299z M10.011,11.299H6.147v3.863h3.864V11.299z
             </div>
         </div>
     </div>
+
+    <ul class="navigation">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Products</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
 </header>
+
+
 
 <div class="campaign-banner">
     <a href="#" target="_blank">
