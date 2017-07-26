@@ -14,8 +14,6 @@ public class ClassLoaderTest {
         System.out.println(loader.getParent().getParent());
         */
 
-
-
         String jarName = "C.jar";
         try {
             File file = new File(jarName);

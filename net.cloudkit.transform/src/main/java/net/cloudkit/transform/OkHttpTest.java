@@ -46,83 +46,118 @@ public class OkHttpTest {
         OkHttpTest okHttpTest = new OkHttpTest();
         try {
 
-            // TODO 获取token
-            // Properties
-            Map<String, String>  params1 = new HashMap<>();
-            params1.put("clientPlatformCode", "20000");
-            params1.put("key", "e5646b8d21d725da2qwefdhcjh81cc2575f9d67e");
+//            // TODO 获取token
+//            // Properties
+//            Map<String, String>  params1 = new HashMap<>();
+//            params1.put("clientPlatformCode", "20000");
+//            params1.put("key", "e5646b8d21d725da2qwefdhcjh81cc2575f9d67e");
+//
+//            String val = okHttpTest.post(
+//                "http://test.21eline.com:8030/api/get_token.html",
+//                params1
+//            );
+//            System.out.println(convertUnicode(val));
+//
+//            // TODO 上传报文
+//            // GZIP 压缩 http://commons.apache.org/proper/commons-compress/examples.html
+//            InputStream in = Files.newInputStream(Paths.get("F:\\SVN\\docs\\用户需求\\易航线\\主报文.xml"));
+//            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+//            // BZip2CompressorOutputStream bzOut = new BZip2CompressorOutputStream(baos);
+//            GzipCompressorOutputStream bzOut = new GzipCompressorOutputStream(baos);
+//            final byte[] buffer = new byte[1024];
+//            int n = 0;
+//            while (-1 != (n = in.read(buffer))) {
+//                bzOut.write(buffer, 0, n);
+//            }
+//            bzOut.close();
+//            in.close();
+//
+//            String message = new String(Base64Encrypt.encode(baos.toByteArray()), "UTF-8");
+//            System.out.println(message);
+//
+//            Map<String, String>  params2 = new HashMap<>();
+//            params2.put("main_xml", message);
+//
+//            String val2 = okHttpTest.post(
+//                "http://test.21eline.com:8030/api/bg_simple_validate.html",
+//                params2
+//            );
+//            System.out.println(convertUnicode(val2));
+//
+//            // TODO 查询报关单当前状态
+//            Map<String, String>  params3 = new HashMap<>();
+//            params3.put("clientCompanyCode", "test");
+//            params3.put("taskId", "10001323231112311223138");
+//            params3.put("importExportFlag", "e");
+//            params3.put("clientPlatformCode", "20000");
+//            params3.put("token", "f9f91871d91a8aa");
+//
+//            String val3 = okHttpTest.post(
+//                "http://test.21eline.com:8030/api/bg_status.html",
+//                params3
+//            );
+//            System.out.println(convertUnicode(val3));
+//
+//            // TODO 查询已上传的报关单数据
+//            Map<String, String>  params4 = new HashMap<>();
+//            params4.put("clientCompanyCode", "test");
+//            params4.put("taskId", "10001323231112311223138");
+//            params4.put("importExportFlag", "e");
+//            params4.put("clientPlatformCode", "20000");
+//            params4.put("token", "f9f91871d91a8aa");
+//
+//            String val4 = okHttpTest.post(
+//                "http://test.21eline.com:8030/api/get_bg_main.html",
+//                params4
+//            );
+//            System.out.println(convertUnicode(val4));
+//
+//            // 解压
+//            ByteArrayOutputStream baos2 = new ByteArrayOutputStream();
+//            GzipCompressorInputStream bzIn = new GzipCompressorInputStream(new ByteArrayInputStream(Base64Encrypt.decode(val4.getBytes())));
+//            final byte[] buffer2 = new byte[1024];
+//            int c = 0;
+//            while (-1 != (c = bzIn.read(buffer2))) {
+//                baos2.write(buffer2, 0, c);
+//            }
+//            baos2.close();
+//            bzIn.close();
+//            System.out.println(new String(baos2.toByteArray(), "UTF-8"));
 
-            String val = okHttpTest.post(
-                "http://test.21eline.com:8030/api/get_token.html",
-                params1
-            );
-            System.out.println(convertUnicode(val));
 
-            // TODO 上传报文
-            // GZIP 压缩 http://commons.apache.org/proper/commons-compress/examples.html
-            InputStream in = Files.newInputStream(Paths.get("F:\\SVN\\docs\\用户需求\\易航线\\主报文.xml"));
+
+            InputStream in = Files.newInputStream(Paths.get("F:\\SVN\\docs\\用户需求\\中外运\\报关单导入.xml"));
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            // BZip2CompressorOutputStream bzOut = new BZip2CompressorOutputStream(baos);
-            GzipCompressorOutputStream bzOut = new GzipCompressorOutputStream(baos);
             final byte[] buffer = new byte[1024];
             int n = 0;
             while (-1 != (n = in.read(buffer))) {
-                bzOut.write(buffer, 0, n);
+                baos.write(buffer, 0, n);
             }
-            bzOut.close();
+            baos.close();
             in.close();
 
             String message = new String(Base64Encrypt.encode(baos.toByteArray()), "UTF-8");
             System.out.println(message);
+            // String m = new String(Base64Encrypt.decode(message.getBytes()), "UTF-8");
+            // System.out.println(m);
 
-            Map<String, String>  params2 = new HashMap<>();
-            params2.put("main_xml", message);
+            Map<String, String>  params1 = new HashMap<>();
+            params1.put("Sender", "Guangmaoyun");
+            params1.put("Receiver", "Sino");
+            params1.put("MessageType", "xml_BGD");
+            params1.put("Version", "");
+            params1.put("DocumentId", "");
+            params1.put("BizKey", "");
+            params1.put("BatchNo", "");
+            params1.put("MessageStatus", "");
+            params1.put("ContentType", "");
+            params1.put("Content", new String(Base64Encrypt.encode("2017-07-26 15:56:10".getBytes())));
 
-            String val2 = okHttpTest.post(
-                "http://test.21eline.com:8030/api/bg_simple_validate.html",
-                params2
+            String val = okHttpTest.post(
+                "http://gatewaytest.transgd.com.cn:5656/invoke/LL_SZWLC_GW.customsDec.http/receive",
+                params1
             );
-            System.out.println(convertUnicode(val2));
-
-            // TODO 查询报关单当前状态
-            Map<String, String>  params3 = new HashMap<>();
-            params3.put("clientCompanyCode", "test");
-            params3.put("taskId", "10001323231112311223138");
-            params3.put("importExportFlag", "e");
-            params3.put("clientPlatformCode", "20000");
-            params3.put("token", "f9f91871d91a8aa");
-
-            String val3 = okHttpTest.post(
-                "http://test.21eline.com:8030/api/bg_status.html",
-                params3
-            );
-            System.out.println(convertUnicode(val3));
-
-            // TODO 查询已上传的报关单数据
-            Map<String, String>  params4 = new HashMap<>();
-            params4.put("clientCompanyCode", "test");
-            params4.put("taskId", "10001323231112311223138");
-            params4.put("importExportFlag", "e");
-            params4.put("clientPlatformCode", "20000");
-            params4.put("token", "f9f91871d91a8aa");
-
-            String val4 = okHttpTest.post(
-                "http://test.21eline.com:8030/api/get_bg_main.html",
-                params4
-            );
-            System.out.println(convertUnicode(val4));
-
-            // 解压
-            ByteArrayOutputStream baos2 = new ByteArrayOutputStream();
-            GzipCompressorInputStream bzIn = new GzipCompressorInputStream(new ByteArrayInputStream(Base64Encrypt.decode(val4.getBytes())));
-            final byte[] buffer2 = new byte[1024];
-            int c = 0;
-            while (-1 != (c = bzIn.read(buffer2))) {
-                baos2.write(buffer2, 0, c);
-            }
-            baos2.close();
-            bzIn.close();
-            System.out.println(new String(baos2.toByteArray(), "UTF-8"));
+            System.out.println(convertUnicode(val));
         } catch (IOException e) {
             e.printStackTrace();
         }
