@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Generator" content="EditPlus®">
+    <meta name="Author" content="">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <title>Document</title>
+    <style type="text/css">
+        /* */
+        .flex-container {
+            padding: 0;margin: 0;list-style: none;
+            display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;
+            -webkit-flex-flow: row wrap;justify-content: space-around;
+        }
+
+        .flex-item {
+            background: tomato;width: 200px;height: 150px;margin: 8px;line-height: 150px;
+            color: white;font-weight: bold;font-size: 3em;text-align: center;
+        }
+
+        /* */
+        .navigation {
+            list-style: none;margin: 0;background: deepskyblue;
+            display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;
+            -webkit-flex-flow: row wrap;justify-content: flex-end;
+        }
+
+        .navigation a {
+            text-decoration: none;display: block;padding: 1em;color: white;
+        }
+
+        .navigation a:hover {background: #00b7f5;}
+
+        @media all and (max-width: 800px) {
+            .navigation {justify-content: space-around;}
+        }
+
+        @media all and (max-width: 600px) {
+            .navigation {-webkit-flex-flow: column wrap;flex-flow: column wrap;padding: 0;}
+
+            .navigation a {
+                text-align: center;padding: 10px;border-top: 1px solid rgba(255, 255, 255, 0.3);
+                border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            }
+
+            .navigation li:last-of-type a {
+                border-bottom: none;
+            }
+        }
+
+        /* */
+        .wrapper {
+            display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;
+            -webkit-flex-flow: row wrap;flex-flow: row wrap;font-weight: bold;text-align: center;
+        }
+
+        .wrapper > * {padding: 10px;flex: 1 100%;}
+        .header {background: tomato;}
+        .footer {background: lightgreen;}
+        .main {text-align: left;background: deepskyblue;}
+        .aside-1 {background: gold;}
+        .aside-2 {background: hotpink;}
+
+        @media all and (min-width: 600px) {
+            .aside {flex: 1 auto;}
+        }
+
+        @media all and (min-width: 800px) {
+            .main {flex: 3 0px;}
+            .aside-1 {order: 1;}
+            .main {order: 2;}
+            .aside-2 {order: 3;}
+            .footer {order: 4;}
+        }
+
+        body {padding: 2em;}
+
+
+
+
+        .newspaper {
+            -webkit-columns:100px 3; /* Safari and Chrome */
+            -moz-columns:100px 3; /* Firefox */
+            columns:100px 3;
+
+            -moz-column-count:3; /* Firefox */
+            -webkit-column-count:3; /* Safari and Chrome */
+            column-count:3;
+
+            -moz-column-gap:30px; /* Firefox */
+            -webkit-column-gap:30px; /* Safari and Chrome */
+            column-gap:30px;
+
+            /*-moz-column-rule:4px outset #ff0000; !* Firefox *!*/
+            /*-webkit-column-rule:4px outset #ff0000; !* Safari and Chrome *!*/
+            /*column-rule:4px outset #ff0000;*/
+        }
+    </style>
+</head>
+<body>
+<ul class="flex-container">
+    <li class="flex-item">1</li>
+    <li class="flex-item">2</li>
+    <li class="flex-item">3</li>
+    <li class="flex-item">4</li>
+    <li class="flex-item">5</li>
+    <li class="flex-item">6</li>
+</ul>
+
+
+<ul class="navigation">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Products</a></li>
+    <li><a href="#">Contact</a></li>
+</ul>
+
+
+<div class="wrapper">
+    <header class="header">Header</header>
+    <article class="main">
+        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum
+            tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas
+            semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+    </article>
+    <aside class="aside aside-1">Aside 1</aside>
+    <aside class="aside aside-2">Aside 2</aside>
+    <footer class="footer">Footer</footer>
+</div>
+
+
+
+<div class="newspaper">
+    人民网北京2月24日电 (记者 刘阳)国家发展改革委近日发出通知，决定自2月25日零时起将汽、柴油价格每吨分别提高300元和290元，折算到90号汽油和0号柴油（全国平均）每升零售价格分别提高0.22元和0.25元。此次国内成品油价格调整幅度，是按照现行国内成品油价格形成机制，根据国际市场油价变化情况确定的。去年11月16日国内成品油价格调整以来，受市场预期欧美经济复苏前景向好以及中东局势持续动荡等因素影响，国际市场原油价格先抑后扬，2月上旬WTI和布伦特原油期货价格再次回升至每桶95美元和115美元以上。虽然近两日价格有所回落，但国内油价挂钩的国际市场三种原油连续22个工作日移动平均价格上涨幅度已超过4%，达到国内成品油价格调整的边界条件。通知指出，这次成品油调价后，国家将按照已建立的补贴机制，继续对种粮农民、渔业（含远洋渔业）、林业、城市公交、农村道路客运（含岛际和农村水路客运）等给予补贴。同时，为保证市场物价基本稳定，防止连锁涨价，对与居民生活密切相关的铁路客运、城市公交、农村道路客运（含岛际和农村水路客运）价格不作调整。通知要求，中石油、中石化、中海油三大公司要组织好成品油生产和调运，保持合理库存，加强综合协调和应急调度，保障成品油供应。各级价格主管部门要加大市场监督检查力度，依法查处不执行国家价格政策，以及囤积居奇、造谣惑众、合谋涨价、搭车涨价等违法行为，维护正常市场秩序。
+</div>
+
+</body>
+</html>

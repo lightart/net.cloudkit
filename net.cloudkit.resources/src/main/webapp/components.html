@@ -101,10 +101,13 @@
             /*border-bottom: 1px solid #eee;*/
         }
 
-        .common-main .explore ul li.small-view {float: left;width: 490px;}
-        .common-main .explore ul li.large-view {float: left;width: 980px;}
+        .common-main .explore ul li.explore-view {float: left;width: 980px;}
 
-        .common-main .explore .figure-item {margin: 0 auto;padding: 16px 0;}
+        .common-main .explore .figure-item {margin: 0 auto;margin: 16px 0;}
+        .common-main .explore .figure-item.small-view-left {
+            float: left;width: 459px;padding-right: 30px;border-right: 1px solid #d9d9d9;
+        }
+        .common-main .explore .figure-item.small-view-right {float: right;width: 460px;padding-left: 30px;}
         .common-main .explore .figure-item .title a {color: #333;font-size: 22px;}
         .common-main .explore .figure-item .attribute {color: #999; padding: 8px 0;}
         .common-main .explore .figure-item .thumbnail img {/*border-radius: 3px;*/}
@@ -121,7 +124,7 @@
         .common-main .explore .toolbar .qrcode:hover .qrcode-popup {display: block;}
         .common-main .explore .toolbar .qrcode-popup {
             display: none;position: absolute;width: 160px;height: 185px;background-color: #fff;
-            top: 32px;left: -80px;border: 1px solid #eee;z-index: 999;box-shadow: 0 0 5px 2px #f1f1f1;
+            top: 32px;left: -80px;border: 1px solid #d9d9d9;/*#eee*/z-index: 999;box-shadow: 0 0 5px 2px #f1f1f1;
         }
         .common-main .explore .toolbar .qrcode-popup p {
             text-align: center;color: #777;font-size: 15px;margin: 10px 0 4px 0;
@@ -411,10 +414,16 @@ M4.859,11.299H0.996v3.863h3.864V11.299z M10.011,11.299H6.147v3.863h3.864V11.299z
     </div>
 </header>
 
+<div class="campaign-banner">
+    <a href="#" target="_blank">
+        <img src="http://repos.cloudkit.net/images/cad4c0ce-d6da-42c4-be97-67262c9acf0a.jpg" width="980" alt="去发现·去美好">
+    </a>
+</div>
+
 <main class="common-main">
     <div class="explore">
         <ul>
-            <li class="large-view">
+            <li class="explore-view">
                 <!-- review-item figure-item article-item -->
                 <figure class="figure-item">
                     <!--<div class="topic"></div>-->
@@ -536,9 +545,9 @@ M4.859,11.299H0.996v3.863h3.864V11.299z M10.011,11.299H6.147v3.863h3.864V11.299z
                     </div>
                 </figure>
             </li>
-            <li class="small-view">
+            <li class="explore-view">
                 <!-- review-item figure-item article-item -->
-                <figure class="figure-item">
+                <figure class="figure-item small-view-left">
                     <!--<div class="topic"></div>-->
                     <!-- title -->
                     <figcaption class="title">
@@ -552,7 +561,7 @@ M4.859,11.299H0.996v3.863h3.864V11.299z M10.011,11.299H6.147v3.863h3.864V11.299z
                     <p class="abstract">Hi，近期越来越多的用户在主站上分享商品，但是上传以后，会不解为什么没有被选中。原因究竟是什么呢？明明上传的商品很符合果...</p>
 
                     <!-- thumbnail -->
-                    <img class="thumbnail" src="http://repos.cloudkit.net/images/c99c77faa6af3ba4209ccca0f45c77ea_623_350.png" width="490" height="350" />
+                    <img class="thumbnail" src="http://repos.cloudkit.net/images/c99c77faa6af3ba4209ccca0f45c77ea_623_350.png" width="460" height="246" />
                     <!-- toolbar actions figure-buttons -->
                     <div class="toolbar">
                         <!-- thumbs thumb-up thumb-down vote vote-up vote-down-->
@@ -597,6 +606,10 @@ M4.859,11.299H0.996v3.863h3.864V11.299z M10.011,11.299H6.147v3.863h3.864V11.299z
                             <svg aria-hidden="true" class="octicon octicon-qrcode" viewBox="0 0 16 16" width="16" height="16">
                                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#octicon-qrcode"></use>
                             </svg>
+                            <div class="qrcode-popup">
+                                <p>扫码下载</p>
+                                <img src="http://repos.cloudkit.net/images/qrcode.png" width="120" height="120" />
+                            </div>
                         </a>
                         <!--
                         <a class="go-to-buy">购买</a>
@@ -657,10 +670,9 @@ M4.859,11.299H0.996v3.863h3.864V11.299z M10.011,11.299H6.147v3.863h3.864V11.299z
                         -->
                     </div>
                 </figure>
-            </li>
-            <li class="small-view">
+
                 <!-- review-item figure-item article-item -->
-                <figure class="figure-item">
+                <figure class="figure-item small-view-right">
                     <!--<div class="topic"></div>-->
                     <!-- title -->
                     <figcaption class="title">
@@ -674,7 +686,7 @@ M4.859,11.299H0.996v3.863h3.864V11.299z M10.011,11.299H6.147v3.863h3.864V11.299z
                     <p class="abstract">Hi，近期越来越多的用户在主站上分享商品，但是上传以后，会不解为什么没有被选中。原因究竟是什么呢？明明上传的商品很符合果...</p>
 
                     <!-- thumbnail -->
-                    <img class="thumbnail" src="http://repos.cloudkit.net/images/20168151022407648657966316030_688a8f145fd0b72144f3494c8fcbc531.jpg" width="490" height="350" />
+                    <img class="thumbnail" src="http://repos.cloudkit.net/images/20168151022407648657966316030_688a8f145fd0b72144f3494c8fcbc531.jpg" width="460" height="246" />
                     <!-- toolbar actions figure-buttons -->
                     <div class="toolbar">
                         <!-- thumbs thumb-up thumb-down vote vote-up vote-down-->
@@ -719,6 +731,10 @@ M4.859,11.299H0.996v3.863h3.864V11.299z M10.011,11.299H6.147v3.863h3.864V11.299z
                             <svg aria-hidden="true" class="octicon octicon-qrcode" viewBox="0 0 16 16" width="16" height="16">
                                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#octicon-qrcode"></use>
                             </svg>
+                            <div class="qrcode-popup">
+                                <p>扫码下载</p>
+                                <img src="http://repos.cloudkit.net/images/qrcode.png" width="120" height="120" />
+                            </div>
                         </a>
                         <!--
                         <a class="go-to-buy">购买</a>
