@@ -1319,7 +1319,7 @@ http://en.wikipedia.org/wiki/ransac
 http://www.enterpriseintegrationpatterns.com/
 
 
-WebAssembly
+
 
 cPanel
 
@@ -1454,3 +1454,9 @@ SOA服务化，消息中间件，远程调用中间件，缓存中间件，服�
     "healthchecker_image": "172.31.13.51/megaease/cmdagent",
     "healthchecker_image_version": "1.1"
 }
+
+
+CSS3 Grid Layout
+Service Worker
+HTML5 Web Worker
+WebAssembly
