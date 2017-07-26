@@ -6,6 +6,15 @@ import java.net.URLClassLoader;
 public class ClassLoaderTest {
 
     public static void main(String[] args) {
+
+        /*
+        ClassLoader loader = ClassLoaderTest.class.getClassLoader();
+        System.out.println(loader.toString());
+        System.out.println(loader.getParent().toString());
+        System.out.println(loader.getParent().getParent());
+        */
+
+
         String jarName = "C.jar";
         try {
             File file = new File(jarName);
