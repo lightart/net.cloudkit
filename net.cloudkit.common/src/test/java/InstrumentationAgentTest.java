@@ -4,6 +4,7 @@ import java.lang.instrument.Instrumentation;
 import java.lang.instrument.UnmodifiableClassException;
 
 /**
+ * 监测器 类定义动态改变和操作
  * https://www.ibm.com/developerworks/cn/java/j-lo-jse61/index.html
  * <p>
  * manifest
