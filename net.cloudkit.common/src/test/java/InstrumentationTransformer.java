@@ -7,7 +7,9 @@ import java.lang.instrument.ClassFileTransformer;
 import java.lang.instrument.IllegalClassFormatException;
 import java.security.ProtectionDomain;
 
-public class MyTransformer implements ClassFileTransformer {
+public class InstrumentationTransformer implements ClassFileTransformer {
+
+    public static final String CLASS_NUMBER_RETURNS_SEC = "TransClass.class.2";
 
     /**
      * transform
@@ -26,6 +28,7 @@ public class MyTransformer implements ClassFileTransformer {
         ProtectionDomain protectionDomain, byte[] classfileBuffer
     ) throws IllegalClassFormatException {
 
+        /*
         byte[] transformed = null;
         System.out.println("Transforming " + className);
 
@@ -50,27 +53,33 @@ public class MyTransformer implements ClassFileTransformer {
             }
         }
         return transformed;
+        */
+
+        if (!className.equals("TransClass")) {
+            return null;
+        }
+        return getBytesFromFile(CLASS_NUMBER_RETURNS_SEC);
     }
 
-    /**
-     * Do method
-     *
-     * @param method
-     * @throws NotFoundException
-     * @throws CannotCompileException
-     */
-    private void doMethod(CtBehavior method) throws NotFoundException,
-        CannotCompileException {
-        // method.insertBefore("long stime = System.nanoTime();");
-        // method.insertAfter("System.out.println(\"leave "+method.getName()+" and time:\"+(System.nanoTime()-stime));");
-        method.instrument(new ExprEditor() {
-            public void edit(MethodCall m) throws CannotCompileException {
-                m.replace("{ long stime = System.nanoTime(); $_ = $proceed($$); System.out.println(\""
-                    + m.getClassName() + "." + m.getMethodName()
-                    + ":\"+(System.nanoTime()-stime));}");
-            }
-        });
-    }
+//    /**
+//     * Do method
+//     *
+//     * @param method
+//     * @throws NotFoundException
+//     * @throws CannotCompileException
+//     */
+//    private void doMethod(CtBehavior method) throws NotFoundException,
+//        CannotCompileException {
+//        // method.insertBefore("long stime = System.nanoTime();");
+//        // method.insertAfter("System.out.println(\"leave "+method.getName()+" and time:\"+(System.nanoTime()-stime));");
+//        method.instrument(new ExprEditor() {
+//            public void edit(MethodCall m) throws CannotCompileException {
+//                m.replace("{ long stime = System.nanoTime(); $_ = $proceed($$); System.out.println(\""
+//                    + m.getClassName() + "." + m.getMethodName()
+//                    + ":\"+(System.nanoTime()-stime));}");
+//            }
+//        });
+//    }
 
 
     /**

@@ -14,8 +14,12 @@ public class Test {
      */
     public static void main(String[] args) {
         try {
-            ClassLoader classLoader = new URLClassLoader(new URL[]{new File("E:\\temp\\MergePDF.class").toURI().toURL()});
-            Class loadClass = classLoader.loadClass("MergePDF");
+            // ClassLoader classLoader = new URLClassLoader(new URL[]{new File("E:\\temp\\MergePDF.class").toURI().toURL()});
+            // Class loadClass = classLoader.loadClass("MergePDF");
+
+            MyClassLoader classLoader = new MyClassLoader("E:\\temp\\");
+            Class loadClass = classLoader.findClass("MergePDF");
+
             Object loadObject = loadClass.newInstance();
 
             Class[] args1 = new Class[1];
@@ -27,8 +31,8 @@ public class Test {
             arguments[0] = new String[]{"Hello,world"};
             method.invoke(loadObject, arguments);
 
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
+//        } catch (MalformedURLException e) {
+//            e.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {
@@ -40,6 +44,7 @@ public class Test {
         } catch (InvocationTargetException e) {
             e.printStackTrace();
         }
+
     }
 }
 
