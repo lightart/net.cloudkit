@@ -1,10 +1,11 @@
 import java.lang.instrument.ClassDefinition;
+import java.lang.instrument.ClassFileTransformer;
 import java.lang.instrument.Instrumentation;
 import java.lang.instrument.UnmodifiableClassException;
 
 /**
  * https://www.ibm.com/developerworks/cn/java/j-lo-jse61/index.html
- *
+ * <p>
  * manifest
  * Manifest-Version: 1.0
  * Premain-Class: Premain
@@ -28,10 +29,17 @@ public class InstrumentationAgentTest {
 
         /*
         // Set up the class-file transformer.
-        ClassFileTransformer trans = new InstrumentationTransformer();
+        ClassFileTransformer instrumentationTransformer = new InstrumentationTransformer();
 
         System.out.println("Adding a InstrumentationTransformer instance to the JVM.");
-        inst.addTransformer(trans);
+        inst.addTransformer(instrumentationTransformer);
+
+        // agent 包之中的 Manifest 所设定的特性 Can-Set-Native-Method-Prefix 设置成true
+        if (!inst.isNativeMethodPrefixSupported()) {
+            return; // 如果无法设置，则返回
+        }
+        // 设置 native 函数的 prefix，注意这个下划线必须由用户自己规定
+        inst.setNativeMethodPrefix(instrumentationTransformer, "prefix_");
         */
 
         // 可以批量转换类定义
