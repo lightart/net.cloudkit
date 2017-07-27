@@ -15,7 +15,7 @@ public class Test {
             // ClassLoader classLoader = new URLClassLoader(new URL[]{new File("E:\\temp\\MergePDF.class").toURI().toURL()});
             // Class loadClass = classLoader.loadClass("MergePDF");
 
-            MyClassLoader classLoader = new MyClassLoader("E:\\temp\\");
+            GeneralClassLoader classLoader = new GeneralClassLoader("E:\\temp\\");
             Class loadClass = classLoader.findClass("MergePDF");
 
             Object loadObject = loadClass.newInstance();
