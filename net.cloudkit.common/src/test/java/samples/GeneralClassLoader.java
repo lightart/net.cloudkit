@@ -1,13 +1,15 @@
+package samples;
+
 import java.io.*;
 import java.nio.ByteBuffer;
 import java.nio.channels.Channels;
 import java.nio.channels.FileChannel;
 import java.nio.channels.WritableByteChannel;
 
-public class MyClassLoader extends ClassLoader {
+public class GeneralClassLoader extends ClassLoader {
     private String fileName;
 
-    public MyClassLoader(String fileName) {
+    public GeneralClassLoader(String fileName) {
         this.fileName = fileName;
     }
 
