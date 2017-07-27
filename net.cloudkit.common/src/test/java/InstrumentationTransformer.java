@@ -7,6 +7,10 @@ import java.lang.instrument.ClassFileTransformer;
 import java.lang.instrument.IllegalClassFormatException;
 import java.security.ProtectionDomain;
 
+/**
+ * GeneralTransformer ClassFileTransformer
+ *
+ */
 public class InstrumentationTransformer implements ClassFileTransformer {
 
     public static final String CLASS_NUMBER_RETURNS_SEC = "TransClass.class.2";
@@ -32,6 +36,7 @@ public class InstrumentationTransformer implements ClassFileTransformer {
         byte[] transformed = null;
         System.out.println("Transforming " + className);
 
+        // javassist
         ClassPool pool = ClassPool.getDefault();
         CtClass cl = null;
         try {

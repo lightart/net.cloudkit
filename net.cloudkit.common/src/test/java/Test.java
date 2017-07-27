@@ -47,6 +47,110 @@ public class Test {
             e.printStackTrace();
         }
 
+
+//        // 热部署（hotswap）
+//        // "我有一个问题。hotswap能够保证新创建的类采用新的版本。如何使正在运行的线程类的实例或者在集合中的类的实例替换为最新的？”
+//        // John， 这篇文章讲的在线升级与热替换无法对正在运行的类的实例进行升级，属于“半”热替换。
+//
+//        // https://www.ibm.com/developerworks/cn/java/j-lo-hotswapcls/index.html
+//        // https://www.ibm.com/developerworks/cn/java/j-lo-hotdeploy/index.html
+//        // https://www.ibm.com/developerworks/cn/java/l-multithreading/
+//        // https://www.ibm.com/developerworks/cn/java/l-protectjava/index.html
+//        // JDK 和CGLIB,Javassist,ASM
+//        // https://www.ibm.com/developerworks/cn/java/j-dyn0302/index.html
+//        try {
+//            FileSystemClassLoader cl = new FileSystemClassLoader("../swap", new String[]{"Foo"});
+//            Class cls = cl.loadClass("Foo");
+//            IFoo foo = (IFoo)cls.newInstance();
+//            foo.sayHello();
+//        } catch(Exception ex) {
+//            ex.printStackTrace();
+//        }
+//
+//
+//        // 升级控制实体关键代码
+//        class UpgradeController extends ActiveObject{
+//            int nready  = 0;
+//            int nfinished = 0;
+//            Worker[] workers;
+//    ......
+//            // 收到外部升级命令消息时，会触发该方法被调用
+//            public void askForUpgrade() {
+//                for(int i=0; i<workers.length; i++)
+//                    workers[i].getTaskQueue().enqueue(new PrepareUpgradeCmd(workers[i]));
+//            }
+//
+//            // 收到工作实体回应的准备就绪命令消息时，会触发该方法被调用
+//            public void readyForUpgrade(String worker_name) {
+//                nready++;
+//                if(nready == workers.length){
+//                    for(int i=0; i<workers.length; i++)
+//                        workers[i].getControlQueue().enqueue(new
+//                            StartUpgradeCmd(workers[i]));
+//                }
+//            }
+//
+//            // 收到工作实体回应的升级完毕命令消息时，会触发该方法被调用
+//            public void finishUpgrade(String worker_name) {
+//                nfinished++;
+//                if(nfinished == workers.length){
+//                    for(int i=0; i<workers.length; i++)
+//                        workers[i].getControlQueue().enqueue(new
+//                            ContineWorkCmd(workers[i]));
+//
+//                }
+//            }
+//
+//    ......
+//
+//        }
+//
+//        // 工作实体关键代码
+//        class Worker extends ActiveObject{
+//            UpgradeController ugc;
+//            HotswapCL hscl;
+//            IFoo foo;
+//            String state = "hello world!";
+//
+//    ......
+//
+//            // 收到升级控制实体的准备升级命令消息时，会触发该方法被调用
+//            public void prepareUpgrade() {
+//                switchToControlQueue();
+//                ugc.getMsgQueue().enqueue(new ReadyForUpdateCMD(ugc,this));
+//            }
+//
+//            // 收到升级控制实体的开始升级命令消息时，会触发该方法被调用
+//            public void startUpgrade(String worker_name) {
+//                doUpgrade();
+//                ugc.getMsgQueue().enqueue(new FinishUpgradeCMD(ugc,this));
+//            }
+//
+//            // 收到升级控制实体的继续工作命令消息时，会触发该方法被调用
+//            public void continueWork(String worker_name) {
+//                switchToTaskQueue();
+//            }
+//
+//            // 收到定时命令消息时，会触发该方法被调用
+//            public void doWork() {
+//                foo.sayHello();
+//            }
+//
+//            // 实际升级动作
+//            private void doUpgrade() {
+//                hscl = new HowswapCL("../swap", new String[]{"Foo"});
+//                Class cls = hscl.loadClass("Foo");
+//                foo = (IFoo)cls.newInstance();
+//                foo.SetState(state);
+//            }
+//        }
+//
+//        // IFoo 接口定义
+//        interface IFoo {
+//            void SetState(String);
+//            void sayHello();
+//        }
+
     }
 
 
