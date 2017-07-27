@@ -1467,3 +1467,19 @@ java.lang.instrument
 
 
 RandomAccessFile
+
+
+// ASYNC asynchronous
+function PDFSign(params, fun) {
+    console.log('1-----------------');
+    fun();
+}
+
+function PDFSignFun(params) {
+    var isFinish = false;
+    PDFSign(params, function(){
+        // isFinish = true;
+        console.log('2-----------------');
+    })
+    while(!isFinish) {}
+}
