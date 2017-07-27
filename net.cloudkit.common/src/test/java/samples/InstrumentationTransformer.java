@@ -1,3 +1,5 @@
+package samples;
+
 import javassist.*;
 import javassist.expr.ExprEditor;
 import javassist.expr.MethodCall;
@@ -13,7 +15,7 @@ import java.security.ProtectionDomain;
  */
 public class InstrumentationTransformer implements ClassFileTransformer {
 
-    public static final String CLASS_NUMBER_RETURNS_SEC = "TransClass.class.2";
+    public static final String CLASS_NUMBER_RETURNS_SEC = "samples.TransClass.class.2";
 
     /**
      * transform
@@ -60,7 +62,7 @@ public class InstrumentationTransformer implements ClassFileTransformer {
         return transformed;
         */
 
-        if (!className.equals("TransClass")) {
+        if (!className.equals("samples.TransClass")) {
             return null;
         }
         return getBytesFromFile(CLASS_NUMBER_RETURNS_SEC);

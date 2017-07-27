@@ -1,3 +1,4 @@
+package samples;
 
 public class TransClass {
     public int getNumber() {

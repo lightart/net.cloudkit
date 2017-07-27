@@ -1,3 +1,5 @@
+package samples;
+
 import java.io.File;
 import java.lang.reflect.Method;
 import java.net.URL;
@@ -8,7 +10,7 @@ public class ClassLoaderTest {
     public static void main(String[] args) {
 
         /*
-        ClassLoader loader = ClassLoaderTest.class.getClassLoader();
+        ClassLoader loader = samples.ClassLoaderTest.class.getClassLoader();
         System.out.println(loader.toString());
         System.out.println(loader.getParent().toString());
         System.out.println(loader.getParent().getParent());

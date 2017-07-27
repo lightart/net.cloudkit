@@ -1,5 +1,6 @@
+package samples;
+
 import java.lang.instrument.ClassDefinition;
-import java.lang.instrument.ClassFileTransformer;
 import java.lang.instrument.Instrumentation;
 import java.lang.instrument.UnmodifiableClassException;
 
@@ -12,7 +13,7 @@ import java.lang.instrument.UnmodifiableClassException;
  * Premain-Class: Premain
  * <p>
  * java -javaagent:jar 文件的位置 [= 传入 premain 的参数 ]
- * java –javaagent:InstrumentationAgent.jar –cp InstrumentationAgent.jar TestMain
+ * java –javaagent:InstrumentationAgent.jar –cp InstrumentationAgent.jar samples.TestMain
  */
 public class InstrumentationAgentTest {
 
@@ -26,13 +27,13 @@ public class InstrumentationAgentTest {
      **/
     public static void premain(String agentArgs, Instrumentation inst)
         throws ClassNotFoundException, UnmodifiableClassException {
-        System.out.println("InstrumentationAgentTest.premain() was called.");
+        System.out.println("samples.InstrumentationAgentTest.premain() was called.");
 
         /*
         // Set up the class-file transformer.
-        ClassFileTransformer instrumentationTransformer = new InstrumentationTransformer();
+        ClassFileTransformer instrumentationTransformer = new samples.InstrumentationTransformer();
 
-        System.out.println("Adding a InstrumentationTransformer instance to the JVM.");
+        System.out.println("Adding a samples.InstrumentationTransformer instance to the JVM.");
         inst.addTransformer(instrumentationTransformer);
 
         // agent 包之中的 Manifest 所设定的特性 Can-Set-Native-Method-Prefix 设置成true
@@ -66,7 +67,7 @@ public class InstrumentationAgentTest {
         inst.addTransformer(new InstrumentationTransformer(), true);
 
         // 可以批量转换类定义
-        // inst.retransformClasses(TransClass.class);
+        // inst.retransformClasses(samples.TransClass.class);
         inst.retransformClasses(new Class[]{TransClass.class});
 
         // BootClassPath / SystemClassPath 的动态增补

@@ -1,3 +1,5 @@
+package samples;
+
 import javassist.*;
 
 import java.io.File;
@@ -16,7 +18,7 @@ import java.util.Properties;
  *
  * publicstaticvoid premain(String agentArgs, Instrumentation inst){
  *     System.out.println("premain-1." + agentArgs);
- *     inst.addTransformer(new MonitorTransformer());
+ *     inst.addTransformer(new samples.MonitorTransformer());
  * }
  *
  * MAINFESR.MF

@@ -1,8 +1,9 @@
+package samples;
 
 public class TestMain {
 
     public static void main(String[] args) throws InterruptedException {
-        // System.out.println(new TransClass().getNumber());
+        // System.out.println(new samples.TransClass().getNumber());
 
         System.out.println(new TransClass().getNumber());
         int count = 0;

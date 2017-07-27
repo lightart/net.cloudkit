@@ -1,9 +1,7 @@
-import java.io.File;
+package samples;
+
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLClassLoader;
 
 public class Test {
 
@@ -59,7 +57,7 @@ public class Test {
 //        // JDK 和CGLIB,Javassist,ASM
 //        // https://www.ibm.com/developerworks/cn/java/j-dyn0302/index.html
 //        try {
-//            FileSystemClassLoader cl = new FileSystemClassLoader("../swap", new String[]{"Foo"});
+//            samples.FileSystemClassLoader cl = new samples.FileSystemClassLoader("../swap", new String[]{"Foo"});
 //            Class cls = cl.loadClass("Foo");
 //            IFoo foo = (IFoo)cls.newInstance();
 //            foo.sayHello();
