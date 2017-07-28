@@ -1487,3 +1487,6 @@ function PDFSignFun(params) {
 
 RBAC 基于角色的访问控制 (Role-Based Access Control)
 权限系统只有适合的，没有通用的，如果要通用的就基于RBAC就可以了，权限系统涉及的问题太多，效率也是问题，权限的继承也是问题，所以要根据自己的项目做才好
+
+
+扁平化的权限设计
