@@ -1511,3 +1511,5 @@ libGDX
 
 
 NFV，即网络功能虚拟化，Network Function Virtualization
+
+CAS（Compare and swap）比较和替换是设计并发算法时用到的一种技术
