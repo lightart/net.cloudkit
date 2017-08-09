@@ -1508,3 +1508,6 @@ Cocos2D
 Unity3D
 AndEngine
 libGDX
+
+
+NFV，即网络功能虚拟化，Network Function Virtualization
