@@ -1525,6 +1525,12 @@ SERIABLABLE
 事务处理 概念与技术 Jim Gray
 transaction processing concepts and techniques pdf
 
+第四范式：数据密集的科学发现
+
+E-Science
+
 Ken Thompson
 Dennis Ritchie
 Rob Pike
+RISC之父John Cocke
+Edsger Wybe Dijkstra
