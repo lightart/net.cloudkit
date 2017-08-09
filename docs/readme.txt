@@ -1522,5 +1522,9 @@ READ UNCOMMITED
 SERIABLABLE
 
 
-事务处理 概念与技术
+事务处理 概念与技术 Jim Gray
 transaction processing concepts and techniques pdf
+
+Ken Thompson
+Dennis Ritchie
+Rob Pike
