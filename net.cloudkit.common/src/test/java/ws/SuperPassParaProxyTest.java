@@ -223,7 +223,7 @@ public class SuperPassParaProxyTest {
 
         // System.out.println(new String(data));
         // System.out.println(new String(responseData.value, "UTF-8"));
-        FileOutputStream fos = new FileOutputStream("D:/test.xml");
+        FileOutputStream fos = new FileOutputStream("D:/code.xml");
         OutputStreamWriter osw = new OutputStreamWriter(fos, "UTF-8");
         osw.write(new String(data));
         osw.flush();
