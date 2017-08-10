@@ -1521,6 +1521,11 @@ READ COMMITED
 READ UNCOMMITED
 SERIABLABLE
 
+Serializable (串行化)：可避免脏读、不可重复读、幻读的发生。
+Repeatable read (可重复读)：可避免脏读、不可重复读的发生。
+Read committed (读已提交)：可避免脏读的发生。
+Read uncommitted (读未提交)：最低级别，任何情况都无法保证。
+
 
 事务处理 概念与技术 Jim Gray
 transaction processing concepts and techniques pdf
