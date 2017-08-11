@@ -1486,6 +1486,9 @@ function PDFSignFun(params) {
 
 
 RBAC 基于角色的访问控制 (Role-Based Access Control)
+https://en.wikipedia.org/wiki/NIST_RBAC_model
+基于角色的访问控制(Role-Based Access Control)作为传统访问控制(自主访问，强制访问)的有前景的代替受到广泛的关注。在RBAC中，权限与角色相关联，用户通过成为适当角色的成员而得到这些角色的权限。这就极大地简化了权限的管理。在一个组织中，角色是为了完成各种工作而创造，用户则依据它的责任和资格来被指派相应的角色，用户可以很容易地从一个角色被指派到另一个角色。角色可依新的需求和系统的合并而赋予新的权限，而权限也可根据需要而从某角色中回收。角色与角色的关系可以建立起来以囊括更广泛的客观情况。
+
 权限系统只有适合的，没有通用的，如果要通用的就基于RBAC就可以了，权限系统涉及的问题太多，效率也是问题，权限的继承也是问题，所以要根据自己的项目做才好
 
 
@@ -1565,7 +1568,6 @@ CAP原则又称CAP定理，指的是在一个分布式系统中， Consistency(�
 
 CQRS
 命令查询职责分离（CQRS，Command Query Responsibility Segregation）是一种应用架构模式，它会将应用分为两部分：查询部分（查看模型）和命令部分（写入模型）。每一部分都负责处理特定的操作集——分别也就是读取类型和写入类型。CQRS概念最初是由Greg Young提出和积极倡导的。它是CQS（命令-查询分离）理念的自然延伸，CQS理念由Bertrand Meyers提出，主张将方法分为命令和查询。CQRS使用了相同的原则，不过将其扩大到了整个系统中。
-
 
 业务流程管理（Business Process Management，BPM）
 业务流程改进（BPI Business process improvement,流程改进)自从流程再造思想诞生以来，对于"再造"的理解就存在不同的看法。且不说由Reengineering 衍生而来的Redesign(再设计)、Reorganization(再组织)、Reposition(再定位)、Revitalization(再生)等分支观点，以及由此激发的人们Re-everything(再造一切)的激情。单是能用来矫正或丰富BPR(Business process reengineering,流程再造)的定义的就有BPI(Business process improvement,流程改进)、BMR(Business model reengineering,生意模式再造)、BPM(Business process management,流程管理)和IPR(Industrial process reengineering)。
