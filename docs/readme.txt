@@ -1534,6 +1534,8 @@ Enterprise Integration Patterns : Designing, Building, and Deploying Messaging S
 
 第四范式：数据密集的科学发现
 
+The Manager’s Path 作者 Camille Fournier
+
 E-Science
 
 Ken Thompson
