@@ -1535,6 +1535,10 @@ Enterprise Integration Patterns : Designing, Building, and Deploying Messaging S
 第四范式：数据密集的科学发现
 
 The Manager’s Path 作者 Camille Fournier
+感知与响应 作者 Jeff Gothelf 和Joshua Seiden
+Doing It - Management 3.0 Experiences 作者 Ralph van Roosmalen
+Scaling Lean 作者 Ash Maurya
+It's All Upside Down 作者 Paul McMahon
 
 E-Science
 
@@ -1558,5 +1562,8 @@ CAP原则又称CAP定理，指的是在一个分布式系统中， Consistency(�
 一致性(C):在分布式系统中的所有数据备份，在同一时刻是否同样的值。(等同于所有节点访问同一份最新的数据副本)
 可用性(A):在集群中一部分节点故障后，集群整体是否还能响应客户端的读写请求。(对数据更新具备高可用性)
 分区容忍性(P):以实际效果而言，分区相当于对通信的时限要求。系统如果不能在时限内达成数据一致性，就意味着发生了分区的情况，必须就当前操作在C和A之间做出选择。
+
+CQRS
+命令查询职责分离（CQRS，Command Query Responsibility Segregation）是一种应用架构模式，它会将应用分为两部分：查询部分（查看模型）和命令部分（写入模型）。每一部分都负责处理特定的操作集——分别也就是读取类型和写入类型。CQRS概念最初是由Greg Young提出和积极倡导的。它是CQS（命令-查询分离）理念的自然延伸，CQS理念由Bertrand Meyers提出，主张将方法分为命令和查询。CQRS使用了相同的原则，不过将其扩大到了整个系统中。
 
 钛合金
