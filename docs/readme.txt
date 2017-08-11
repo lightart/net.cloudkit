@@ -1566,4 +1566,11 @@ CAP原则又称CAP定理，指的是在一个分布式系统中， Consistency(�
 CQRS
 命令查询职责分离（CQRS，Command Query Responsibility Segregation）是一种应用架构模式，它会将应用分为两部分：查询部分（查看模型）和命令部分（写入模型）。每一部分都负责处理特定的操作集——分别也就是读取类型和写入类型。CQRS概念最初是由Greg Young提出和积极倡导的。它是CQS（命令-查询分离）理念的自然延伸，CQS理念由Bertrand Meyers提出，主张将方法分为命令和查询。CQRS使用了相同的原则，不过将其扩大到了整个系统中。
 
+
+业务流程管理（Business Process Management，BPM）
+业务流程改进（BPI Business process improvement,流程改进)自从流程再造思想诞生以来，对于"再造"的理解就存在不同的看法。且不说由Reengineering 衍生而来的Redesign(再设计)、Reorganization(再组织)、Reposition(再定位)、Revitalization(再生)等分支观点，以及由此激发的人们Re-everything(再造一切)的激情。单是能用来矫正或丰富BPR(Business process reengineering,流程再造)的定义的就有BPI(Business process improvement,流程改进)、BMR(Business model reengineering,生意模式再造)、BPM(Business process management,流程管理)和IPR(Industrial process reengineering)。
+业务流程重组(Business Process Reengineering，BPR)最早由美国的Michael Hammer 和James Champy提出，在20世纪90年代达到了全盛的一种管理思想。强调以业务流程为改造对象和中心、以关心客户的需求和满意度为目标、对现有的业务流程进行根本的再思考和彻底的再设计，利用先进的制造技术、信息技术以及现代的管理手段、最大限度地实现技术上的功能集成和管理上的职能集成，以打破传统的职能型组织结构，建立全新的过程型组织结构，从而实现企业经营在成本、质量、服务和速度等方面的戏剧性的改善。
+
+工作流管理、EAI、流程自动化、流程集成、流程建模、流程优化
+
 钛合金
