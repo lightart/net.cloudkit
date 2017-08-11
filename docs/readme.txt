@@ -1547,3 +1547,6 @@ TPC-B
 TPC-C
 
 ACID，指数据库事务正确执行的四个基本要素的缩写。包含:原子性(Atomicity)、一致性(Consistency)、隔离性(Isolation)、持久性(Durability)。一个支持事务(Transaction)的数据库，必需要具有这四种特性，否则在事务过程(Transaction processing)当中无法保证数据的正确性，交易过程极可能达不到交易方的要求。
+
+
+钛合金
