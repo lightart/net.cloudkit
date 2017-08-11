@@ -1530,6 +1530,8 @@ Read uncommitted (读未提交)：最低级别，任何情况都无法保证。
 事务处理 概念与技术 Jim Gray
 transaction processing concepts and techniques pdf
 
+Enterprise Integration Patterns : Designing, Building, and Deploying Messaging Solutions
+
 第四范式：数据密集的科学发现
 
 E-Science
