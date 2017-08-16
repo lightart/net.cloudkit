@@ -1,0 +1,182 @@
+//{
+//    "userId": "userId-01001111",
+//    "platId": "platId-0123131",
+//    "msgType": "",
+//    "format": "json",
+//    "compress": "0",
+//    "functionCode": "",
+//    "signature": "userId-01001111||platId-0123131||signaturelsdfjslfsfjlsdfdsjlfsafafsafa",
+//    "data": "{preDecHead:{"cusCiqNo":"","rcvgdTradeCode":"1101919107","agentCode":"1101919107","agentName":"中国山货花卉进出口公司","ownerCode":"1101919107","ownerName":"中国山货花卉进出口公司","coOwner":"1","customMaster":"0102","entryType":"M","billNo":"123123","iEDate":"2017-09-09","distinatePort":"101","districtCode":"11049","cusTrafMode":"0","trafName":"运输工具名称1","cusVoyageNo":"123123","cusTradeNationCode":"103","cusTradeCountry":"142","iEPort":"0100","contrNo":"1231","billType":"1","copNo":"892819009","supvModeCdde":"0110","cutMode":"101","licenseNo":"11-11-11111111111111","wrapType":"1","packNo":2,"feeRate":"1.1","feeMark":"1","grossWt":332,"netWt":23,"paymentMark":"1","transMode":"2","feeCurr":"2","relativeId":"111111111111111111","relmanNo":"111111111111","bonNo":"123","customsField":"213","otherMark":"1","otherRate":12,"dclTrnRelFlag":"0","promiseItems":"999","noteS":"321","consigneeCname":"中国山货花卉进出口公司","cusIEFlag":"E","cusRemark":"00000"},decListVoList:[{preDecList:{"codeTs":"2001100000","gName":"用醋或醋酸制作的黄瓜及小黄瓜2","gModel":"1|1|1","cusOriginCountry":"102","destinationCountry":"102","tradeCurr":"110","declPrice":20.13,"declTotal":205.93,"gQty":10.23,"gUnit":"035","qty1":11,"unit1":"035",\t\t\t\t"qty2":"",\t\t\t\t"unit2":"","dutyMode":"1","wrapType":"1","cusSupvDmd":"AB","cusCiqNo":"","gNo":1}},{preDecList:{"codeTs":"2001100000","gName":"用醋或醋酸制作的黄瓜及小黄瓜3","gModel":"1|1|1","supvDmd":"R/S","cusOriginCountry":"102","destinationCountry":"102","tradeCurr":"110","declPrice":1,"declTotal":11,"gQty":11,"gUnit":"035","qty1":11,"unit1":"035","dutyMode":"1","wrapType":"1","cusSupvDmd":"AB","cusCiqNo":"","gNo":2}}],preDecContainer:[{"containerNo":"123","containerMdCode":"L","containerWt":327.1,\t\t\t"contSeqNo":1,"cusCiqNo":""},{"containerNo":"456","containerMdCode":"S","containerWt":654.9,"contSeqNo":2,"cusCiqNo":""}],preDecDoc:[{"attTypeCode":"00000001","attFmtTypeCode":"US","attEdocNo":"123456789012","entOrigFileName":"xxx.pdf","signDate":"2017-09-09","bizTypeCode":"DECEDOC","uploadOpTypeCode":"F","attSeqNo":1,"cusCiqNo":""},{"attTypeCode":"00000002","attFmtTypeCode":"US","attEdocNo":"123456789011",\t\t\t"entOrigFileName":"xxx1.pdf","signDate":"2017-09-09","bizTypeCode":"DECEDOC","uploadOpTypeCode":"F","attSeqNo":2,"cusCiqNo":"I20170000000009994"}],preDecLicense:[{"acmpFormCode":"1","acmpFormNo":"11","cusCiqNo":"","formSeqNo":1},{"acmpFormCode":"2","acmpFormNo":"22","cusCiqNo":"","formSeqNo":2}],decSign:{"cusCiqNo":"","iccardId":"8950000038754","operType":"C","sign":"m1DT2NVSaXit+nkoQ9g/doFo05OByK0VLZMmx5CttpVqSninvqYRa7FJZ4s58j0hdMaJokGSqsNlGRDaQcqFU67ma08jodUtJqP3aTts4LT1/dgrgN0lKvhEd5oFBFnswx38Rw5XOoOUseo2AoO/C0HFB8vHKVEm3BI4bCUxaqE003d","signDate":"2017-09-09","signCertNo":"4328491"}"
+//}
+
+
+//{
+//    "preDecHead": {
+//        "cusCiqNo": "",
+//        "rcvgdTradeCode": "1101919107",
+//        "agentCode": "1101919107",
+//        "agentName": "中国山货花卉进出口公司",
+//        "ownerCode": "1101919107",
+//        "ownerName": "中国山货花卉进出口公司",
+//        "coOwner": "1",
+//        "customMaster": "0102",
+//        "entryType": "M",
+//        "billNo": "123123",
+//        "iEDate": "2017-09-09",
+//        "distinatePort": "101",
+//        "districtCode": "11049",
+//        "cusTrafMode": "0",
+//        "trafName": "运输工具名称1",
+//        "cusVoyageNo": "123123",
+//        "cusTradeNationCode": "103",
+//        "cusTradeCountry": "142",
+//        "iEPort": "0100",
+//        "contrNo": "1231",
+//        "billType": "1",
+//        "copNo": "892819009",
+//        "supvModeCdde": "0110",
+//        "cutMode": "101",
+//        "licenseNo": "11-11-11111111111111",
+//        "wrapType": "1",
+//        "packNo": 2,
+//        "feeRate": "1.1",
+//        "feeMark": "1",
+//        "grossWt": 332,
+//        "netWt": 23,
+//        "paymentMark": "1",
+//        "transMode": "2",
+//        "feeCurr": "2",
+//        "relativeId": "111111111111111111",
+//        "relmanNo": "111111111111",
+//        "bonNo": "123",
+//        "customsField": "213",
+//        "otherMark": "1",
+//        "otherRate": 12,
+//        "dclTrnRelFlag": "0",
+//        "promiseItems": "999",
+//        "noteS": "321",
+//        "consigneeCname": "中国山货花卉进出口公司",
+//        "cusIEFlag": "E",
+//        "cusRemark": "00000"
+//    },
+//    "decListVoList": [{
+//            "preDecList": {
+//                "codeTs": "2001100000",
+//                "gName": "用醋或醋酸制作的黄瓜及小黄瓜2",
+//                "gModel": "1|1|1",
+//                "cusOriginCountry": "102",
+//                "destinationCountry": "102",
+//                "tradeCurr": "110",
+//                "declPrice": 20.13,
+//                "declTotal": 205.93,
+//                "gQty": 10.23,
+//                "gUnit": "035",
+//                "qty1": 11,
+//                "unit1": "035",
+//                "qty2": "",
+//                "unit2": "",
+//                "dutyMode": "1",
+//                "wrapType": "1",
+//                "cusSupvDmd": "AB",
+//                "cusCiqNo": "",
+//                "gNo": 1
+//            }
+//        },
+//        {
+//            "preDecList": {
+//                "codeTs": "2001100000",
+//                "gName": "用醋或醋酸制作的黄瓜及小黄瓜3",
+//                "gModel": "1|1|1",
+//                "supvDmd": "R/S",
+//                "cusOriginCountry": "102",
+//                "destinationCountry": "102",
+//                "tradeCurr": "110",
+//                "declPrice": 1,
+//                "declTotal": 11,
+//                "gQty": 11,
+//                "gUnit": "035",
+//                "qty1": 11,
+//                "unit1": "035",
+//                "dutyMode": "1",
+//                "wrapType": "1",
+//                "cusSupvDmd": "AB",
+//                "cusCiqNo": "",
+//                "gNo": 2
+//            }
+//        }
+//    ],
+//    "preDecContainer": [
+//        {
+//            "containerNo": "123",
+//            "containerMdCode": "L",
+//            "containerWt": 327.1,
+//            "contSeqNo": 1,
+//            "cusCiqNo": ""
+//        },
+//        {
+//            "containerNo": "456",
+//            "containerMdCode": "S",
+//            "containerWt": 654.9,
+//            "contSeqNo": 2,
+//            "cusCiqNo": ""
+//        }
+//    ],
+//    "preDecDoc": [
+//        {
+//            "attTypeCode": "00000001",
+//            "attFmtTypeCode": "US",
+//            "attEdocNo": "123456789012",
+//            "entOrigFileName": "xxx.pdf",
+//            "signDate": "2017-09-09",
+//            "bizTypeCode": "DECEDOC",
+//            "uploadOpTypeCode": "F",
+//            "attSeqNo": 1,
+//            "cusCiqNo": ""
+//        },
+//        {
+//            "attTypeCode": "00000002",
+//            "attFmtTypeCode": "US",
+//            "attEdocNo": "123456789011",
+//            "entOrigFileName": "xxx1.pdf",
+//            "signDate": "2017-09-09",
+//            "bizTypeCode": "DECEDOC",
+//            "uploadOpTypeCode": "F",
+//            "attSeqNo": 2,
+//            "cusCiqNo": "I20170000000009994"
+//        }
+//    ],
+//    "preDecLicense": [
+//        {
+//            "acmpFormCode": "1",
+//            "acmpFormNo": "11",
+//            "cusCiqNo": "",
+//            "formSeqNo": 1
+//        },
+//        {
+//            "acmpFormCode": "2",
+//            "acmpFormNo": "22",
+//            "cusCiqNo": "",
+//            "formSeqNo": 2
+//        }
+//    ],
+//    "decSign": {
+//        "cusCiqNo": "",
+//        "iccardId": "8950000038754",
+//        "operType": "C",
+//        "sign": "m1DT2NVSaXit+nkoQ9g/doFo05OByK0VLZMmx5CttpVqSninvqYRa7FJZ4s58j0hdMaJokGSqsNlGRDaQcqFU67ma08jodUtJqP3aTts4LT1/dgrgN0lKvhEd5oFBFnswx38Rw5XOoOUseo2AoO/C0HFB8vHKVEm3BI4bCUxaqE003d",
+//        "signDate": "2017-09-09",
+//        "signCertNo": "4328491"
+//    }
+//}
+
+
+
+{
+    "userId": "userId-01001111",
+    "platId": "platId-0123131",
+    "msgType":"DEC003",
+    "functionCode":"0",
+    "format": "json",
+    "compress":"0",
+    "data": "{\"cusCiqNo\":\"I20170000000009795\",\"businessType\":\"DEC\",\"inDocVo\":[{\"attachment\":[],\"attTypeCode\":\"00000003\",\"attFmtTypeCode\":\"US\",\"attEdocNo\":\"20170425007283\",\"entOrigFileName\":\"201704253658922874750000007283.pdf\",\"belongWkunitCode\":\"1001\",\"signWkunitCode\":\"1101919107\",\"uploadOpTypeCode\":\"F\",\"attSeqNo\":151}]}"
+}
