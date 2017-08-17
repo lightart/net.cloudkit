@@ -1631,20 +1631,22 @@ Region Zone
 线程池
 断路器(自动熔断)、资源隔离、快速失败、自我修复
 鉴权、限流、监控、日志、统计、灰度发布、流量转发、跨域、配置管理、过滤器、隔离、重试、容错、尝试恢复
+配置管理、服务发现、断路器、智能路由、微代理、控制总线、一次性Token、全局锁、决策竞选、分布式会话和集群状态
 幂等性
 分布式事务（二段提交）
 热更新
 微服务编排引擎 Conductor
-
+https://www.consul.io/ (Service Discovery and Configuration)
 
 TensorFlow
 
 
 Netflix的开源文化与技术
+http://netflix.github.io/
 
-Netflix Conductor
+Netflix Conductor 流程的反转控制
 Netflix Suro
-Netflix Vectorflow
+Netflix Vectorflow 开源神经网络库
 
 大数据
 
