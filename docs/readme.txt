@@ -1574,7 +1574,6 @@ Rob Pike
 RISC之父John Cocke
 Edsger Wybe Dijkstra
 
-
 OLTP OLAT
 TPC-A
 TPC-B
