@@ -1180,6 +1180,8 @@ self.setInterval(function(){
 每个人都有自己的生活
 每个人都会有梦想，有大梦想，有小梦想
 
+最优解
+
 如赛场
 未分级
 
@@ -1738,3 +1740,6 @@ RMI(Remote Method Invocation，远程方法调用)
 服务自动注册与发现
 
 https://springcloud.cc/
+
+
+
