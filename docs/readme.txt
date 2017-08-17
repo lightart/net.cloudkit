@@ -1603,3 +1603,39 @@ image css url file -
 
 XA
 X/Open DTP
+
+Microservice
+
+Configuration Management 统一的配置管理
+Centralized Configuration Management
+Application Monitoring 性能监控/告警
+Backup/Recovery 云部署管理 回滚/推送
+Service Discovery 服务注册/发现
+软负载均衡
+Automatic Registration
+Circuit Breaker 断路器
+Chaos Monkey 主动破坏自身环境来发现弱点
+Token Management
+Message Queue
+API Gateway Service （动态路由，监控，弹性，安全 dynamic routing, filter, monitoring, resiliency, security）
+HTTP REST Client
+
+Authentication (OAuth SSO Token)
+Transformations
+Logging
+Caching
+Rate-Limiting
+
+Region Zone
+
+线程池
+断路器(自动熔断)、资源隔离、快速失败、自我修复
+鉴权、限流、监控、日志、统计、灰度发布、流量转发、跨域、配置管理、过滤器、隔离、重试、容错、尝试恢复
+幂等性
+分布式事务（二段提交）
+热更新
+微服务编排引擎 Conductor
+
+
+TensorFlow
+Vectorflow
