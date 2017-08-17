@@ -1296,8 +1296,23 @@ xen-hvm
 
 
 LXC：linux Container
+Docker
+Kubernetes
+
+CoreOS
+A new way to think about servers
+CoreOS is Linux for massive server deployments
+
+etcd Raft
+
+Git
+VirtualBox
 
 https://www.packtpub.com/
+
+坂村健 (Ken Sakamura)
+TRON是一项开放式的实时操作系统内核设计项目，它是"The Real-time Operating system Nucleus"(实时操作系统内核)的缩写。
+
 
 进程间通信IPC Inter-Process Communication
 由于内存管理的一些机制，导致两个进程间并不能直接的进行通信(在独立的用户空间),因此我们需要利用一些介质来完成两个进程之间的通信。以下是常用的进程间通信方式。
