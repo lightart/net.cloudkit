@@ -1707,3 +1707,15 @@ MSL：一个可扩展的、灵活的安全消息协议，可解决大量安全�
 Falcor：允许应用程序把所有远端的数据源用一个单独的JSON Graph来表示，提高了数据抓取效率
 Restify：一个基于Nodejs的REST应用框架，支持服务器端和客户端
 RxJS：JavaScript的Reactive扩展库
+
+
+
+服务注册中心	Zookeeper	Spring Cloud Netflix Eureka
+服务调用方式	RPC	REST API
+服务网关	    Spring Cloud Netflix Zuul
+断路器	    Spring Cloud Netflix Hystrix
+分布式配置	Spring Cloud Config
+服务跟踪	    Spring Cloud Sleuth
+消息总线	    Spring Cloud Bus
+数据流	    Spring Cloud Stream
+批量任务	    Spring Cloud Task
