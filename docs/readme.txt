@@ -1710,7 +1710,7 @@ RxJS：JavaScript的Reactive扩展库
 
 
 
-服务注册中心	Zookeeper	Spring Cloud Netflix Eureka
+服务注册中心	Zookeeper Spring Cloud Netflix Eureka
 服务调用方式	RPC	REST API
 服务网关	    Spring Cloud Netflix Zuul
 断路器	    Spring Cloud Netflix Hystrix
