@@ -1719,3 +1719,18 @@ RxJS：JavaScript的Reactive扩展库
 消息总线	    Spring Cloud Bus
 数据流	    Spring Cloud Stream
 批量任务	    Spring Cloud Task
+
+
+RMI、Dubbo、Hessain、WebService、HTTP
+Protobuf、Thrift、Kyro
+gRPC
+
+RESTful API
+JSON-RPC
+
+Hessian、spring httpinvoke
+
+Binary-RPC(Remote Procedure Call Protocol，远程过程调用协议)
+RMI(Remote Method Invocation，远程方法调用)
+软负载均衡及容错
+服务自动注册与发现
