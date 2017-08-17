@@ -1770,3 +1770,6 @@ OpenID是IDP提供一个身份唯一标识把第三方的应用帐号绑定到�
 SAML支持XACML协议进行权限控制。
 CAS本身没有授权，也没有权限控制，但是CAS支持SAML，所以就支持了权限控制。
 SAML协议较OAUTH来说确实比较复杂，但是功能也十分强大，支持认证，权限控制和用户属性。
+
+http://microservices.io/
+http://www.enterpriseintegrationpatterns.com/
