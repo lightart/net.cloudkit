@@ -1773,3 +1773,4 @@ SAML协议较OAUTH来说确实比较复杂，但是功能也十分强大，支�
 
 http://microservices.io/
 http://www.enterpriseintegrationpatterns.com/
+http://www.workflowpatterns.com/
