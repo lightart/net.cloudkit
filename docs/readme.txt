@@ -1295,6 +1295,8 @@ xen
 xen-hvm
 
 
+Kernel
+
 LXC：linux Container
 Docker
 Kubernetes
