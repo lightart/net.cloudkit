@@ -1776,3 +1776,6 @@ http://www.enterpriseintegrationpatterns.com/
 http://www.workflowpatterns.com/
 https://mitpress.mit.edu/
 http://mitpress-ebooks.mit.edu/
+
+Microservice Patterns
+https://www.manning.com
