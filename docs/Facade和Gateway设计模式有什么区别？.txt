@@ -61,7 +61,7 @@ While Facade simplifies a more complex API, it’s usually done by the writer of
 当您考虑架构模式时，请考虑节​​点。当您考虑设计模式时，请考虑类/对象。
 节点是以下的抽象：设备 – 硬件和系统软件 – 例如OS，平台/框架等。系统软件是”assigned”到设备。节点”encapsulates”既包括设备和系统软件，又与包含架构的其他节点相关。
 网关是将服务器节点与客户端节点隔离的节点 – 客户端节点不能直接连接到服务器节点。网关接收连接，然后建立与目的节点的连接。
-参考文献
 
+参考文献
 What is the difference between Facade and Gateway design patterns?
 (https://stackoverflow.com/questions/4422211/what-is-the-difference-between-facade-and-gateway-design-patterns?answertab=votes)
