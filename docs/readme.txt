@@ -1658,6 +1658,18 @@ Region Zone
 分布式事务（二段提交）
 热更新
 微服务编排引擎 Conductor
+降级（本地缓存）
+重试机制
+熔断机制
+负载均衡
+
+API Gateway
+服务间调用
+服务发现
+服务容错
+服务部署
+数据调用
+
 https://www.consul.io/ (Service Discovery and Configuration)
 
 TensorFlow
@@ -1776,6 +1788,9 @@ http://www.enterpriseintegrationpatterns.com/
 http://www.workflowpatterns.com/
 https://mitpress.mit.edu/
 http://mitpress-ebooks.mit.edu/
+https://martinfowler.com/
 
 Microservice Patterns
 https://www.manning.com
+
+https://salttiger.com/
