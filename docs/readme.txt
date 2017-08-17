@@ -1728,6 +1728,8 @@ gRPC
 RESTful API
 JSON-RPC
 
+GraphQL
+
 Hessian、spring httpinvoke
 
 Binary-RPC(Remote Procedure Call Protocol，远程过程调用协议)
