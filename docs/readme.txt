@@ -1762,4 +1762,16 @@ RMI(Remote Method Invocation，远程方法调用)
 https://springcloud.cc/
 
 
+LDAP是轻量目录访问协议，英文全称是Lightweight Directory Access Protocol，一般都简称为LDAP。
+SAML即安全断言标记语言，英文全称是Security Assertion Markup Language。
 
+OAUTH、OPENID、SAML、CAS
+
+OAUTH、OPENID、SAML、CAS做统一认证与授权时有什么区别，为何业界一股脑都使用oauth？
+OPENID、SAML、CAS不能进行授 权的操作码？
+我感觉好像都可以，还是因为OAUTH2.0协议在第三方调用开发上比较简单，比较轻量级，所以大家都采用oauth？
+首先SSO和权限控制是两回事。
+OpenID是IDP提供一个身份唯一标识把第三方的应用帐号绑定到唯一标识上，只起到了认证的作用。
+SAML支持XACML协议进行权限控制。
+CAS本身没有授权，也没有权限控制，但是CAS支持SAML，所以就支持了权限控制。
+SAML协议较OAUTH来说确实比较复杂，但是功能也十分强大，支持认证，权限控制和用户属性。
