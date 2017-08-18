@@ -1797,9 +1797,12 @@ https://mitpress.mit.edu/
 http://mitpress-ebooks.mit.edu/
 https://read.douban.com
 https://book.douban.com
+http://www.informit.com
 
 https://salttiger.com/
 http://www.foxebook.net/
 https://coderprog.com/
 https://avxhm.se/ebooks/programming_development/
+
+http://jdk.java.net
 
