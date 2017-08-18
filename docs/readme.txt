@@ -1795,6 +1795,11 @@ https://www.packtpub.com
 https://www.oreilly.com/
 https://mitpress.mit.edu/
 http://mitpress-ebooks.mit.edu/
+https://read.douban.com
+https://book.douban.com
 
 https://salttiger.com/
+http://www.foxebook.net/
+https://coderprog.com/
+https://avxhm.se/ebooks/programming_development/
 
