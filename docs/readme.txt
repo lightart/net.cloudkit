@@ -1783,6 +1783,9 @@ SAML支持XACML协议进行权限控制。
 CAS本身没有授权，也没有权限控制，但是CAS支持SAML，所以就支持了权限控制。
 SAML协议较OAUTH来说确实比较复杂，但是功能也十分强大，支持认证，权限控制和用户属性。
 
+DevOps 软件开发、运维和质量保证三个部门之间的沟通、协作和集成所采用的流程、方法和体系的一个集合。
+SRE是指Site Reliability Engineering(网站可靠性工程)。网站可靠性工程师是软件工程师和系统管理员的结合，一个SRE工程师基本上需要掌握很多知识:算法，数据结构，编程能力，网络编程，分布式系统，可扩展架构，故障排除。
+
 http://microservices.io/
 http://www.enterpriseintegrationpatterns.com/
 http://www.workflowpatterns.com/
@@ -1798,6 +1801,7 @@ http://mitpress-ebooks.mit.edu/
 https://read.douban.com
 https://book.douban.com
 http://www.informit.com
+https://www.nostarch.com
 
 https://salttiger.com/
 http://www.foxebook.net/
