@@ -1786,11 +1786,15 @@ SAML协议较OAUTH来说确实比较复杂，但是功能也十分强大，支�
 http://microservices.io/
 http://www.enterpriseintegrationpatterns.com/
 http://www.workflowpatterns.com/
-https://mitpress.mit.edu/
-http://mitpress-ebooks.mit.edu/
 https://martinfowler.com/
 
 Microservice Patterns
+
 https://www.manning.com
+https://www.packtpub.com
+https://www.oreilly.com/
+https://mitpress.mit.edu/
+http://mitpress-ebooks.mit.edu/
 
 https://salttiger.com/
+
