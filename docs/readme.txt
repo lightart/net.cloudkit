@@ -1802,6 +1802,7 @@ https://read.douban.com
 https://book.douban.com
 http://www.informit.com
 https://www.nostarch.com
+https://www.objc.io
 
 https://salttiger.com/
 http://www.foxebook.net/
@@ -1809,4 +1810,6 @@ https://coderprog.com/
 https://avxhm.se/ebooks/programming_development/
 
 http://jdk.java.net
+
+http://www.123rf.com.cn/
 
