@@ -587,6 +587,8 @@ http://www.json.org/json-zh.html
 XML、JSON、ProtocolBuffer、Lua
 http://lua-users.org/wiki/JsonModules
 
+http://thrift.apache.org
+
 
 
 Zookeeper在集群负载均衡中的应用
@@ -1763,6 +1765,8 @@ GraphQL
 
 Hessian、spring httpinvoke
 
+protobuf,json,xml,binary,Thrift
+
 Binary-RPC(Remote Procedure Call Protocol，远程过程调用协议)
 RMI(Remote Method Invocation，远程方法调用)
 软负载均衡及容错
@@ -1817,3 +1821,6 @@ http://www.123rf.com.cn/
 
 
 https://www.nginx.com/
+
+
+
