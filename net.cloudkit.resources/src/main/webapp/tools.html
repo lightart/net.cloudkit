@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html class="windows" lang="zh" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Greenth Technologies">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="robots" content="index, follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>viewport</title>
+
+    <link href="https://cdn.bootcss.com/normalize/7.0.0/normalize.min.css" rel="stylesheet" />
+    <!--<link href="/resources/stylesheets/styles.css" rel="stylesheet" type="text/css">-->
+    <style type="text/css">
+        html, body {width: 100%;height: 100%;}
+        body {font: 400 16px/1.4 "Helvetica Neue","Segoe UI",sans-serif,"Arial";}
+        .viewport {width: 100%;height: 100%;}
+        /** 240px **/
+        .viewport .sidebar {float: left;background: #d6d6d6;width: 35px;height: 100%;border-right: 1px #bfbfbf solid;}
+        .viewport .sidebar ul{list-style: none;color: #525252;margin: 0;padding: 0;}
+        .viewport .sidebar ul.option-bottom {position: absolute;bottom: 0;}
+        .viewport .sidebar ul li{padding: 8px;}
+        .viewport .main-panel {margin-left: 36px;background: #ededed;height: 100%;}
+
+        .viewport .statusbar {height: 25px;background: #d6d6d6;border-top: 1px #bfbfbf solid;}
+        .viewport .statusbar ul{list-style: none;color: #525252;margin: 0;padding: 0;}
+        .viewport .statusbar ul li{padding: 3px 8px;float: left;}
+        .viewport .statusbar ul li a{float: left;margin: 0;padding: 0;}
+    </style>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="position:absolute;width:0;height:0;visibility:hidden">
+    <defs>
+        <symbol viewBox="0 0 16 16" id="octicon-menu">
+            <title>menu</title>
+            <g>
+                <path d="M4.859,4.859H0.996V0.996h3.864V4.859z M10.011,0.996H6.147v3.864h3.864V0.996z M15.162,0.996h-3.863v3.864h3.863V0.996z
+	 M4.859,6.147H0.996v3.864h3.864V6.147z M10.011,6.147H6.147v3.864h3.864V6.147z M15.162,6.147h-3.863v3.864h3.863V6.147z
+	 M4.859,11.299H0.996v3.863h3.864V11.299z M10.011,11.299H6.147v3.863h3.864V11.299z M15.162,11.299h-3.863v3.863h3.863V11.299z"></path>
+            </g>
+        </symbol>
+
+        <symbol viewBox="0 0 16 16" id="octicon-bookmarks">
+            <title>bookmarks</title>
+            <g>
+                <path d="M214.558118 60.235294v931.177412l282.262588-196.969412L783.058824 990.810353V60.235294H214.558118zM722.823529 876.483765l-226.243764-155.286589-221.726118 154.684236V120.470588H722.823529v756.013177z"></path>
+            </g>
+        </symbol>
+    </defs>
+</svg>
+
+<div class="viewport">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <ul>
+            <li>
+                <a href="#">
+                    <svg aria-hidden="true" class="octicon octicon-menu" viewBox="0 0 16 16" width="16" height="16">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#octicon-menu"></use>
+                    </svg>
+                </a>
+                <!--
+                <a href="#">
+                    <svg aria-hidden="true" class="octicon octicon-bookmarks" viewBox="0 0 16 16" width="16" height="16">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#octicon-bookmarks"></use>
+                    </svg>
+                </a>
+                -->
+            </li>
+            <li>
+                <a href="#">
+                    <svg aria-hidden="true" class="octicon octicon-menu" viewBox="0 0 16 16" width="16" height="16">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#octicon-menu"></use>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <svg aria-hidden="true" class="octicon octicon-menu" viewBox="0 0 16 16" width="16" height="16">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#octicon-menu"></use>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <svg aria-hidden="true" class="octicon octicon-menu" viewBox="0 0 16 16" width="16" height="16">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#octicon-menu"></use>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <svg aria-hidden="true" class="octicon octicon-menu" viewBox="0 0 16 16" width="16" height="16">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#octicon-menu"></use>
+                    </svg>
+                </a>
+            </li>
+        </ul>
+
+        <ul class="option-bottom">
+            <li>
+                <a href="#">
+                    <svg aria-hidden="true" class="octicon octicon-menu" viewBox="0 0 16 16" width="16" height="16">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#octicon-menu"></use>
+                    </svg>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="main-panel">
+
+    </div>
+
+    <!-- Status Bar -->
+    <div class="statusbar">
+        <ul>
+            <li>
+                <a href="#">
+                    <svg aria-hidden="true" class="octicon octicon-menu" viewBox="0 0 16 16" width="16" height="16">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#octicon-menu"></use>
+                    </svg>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>
