@@ -16,15 +16,17 @@
         body {font: 400 16px/1.4 "Helvetica Neue","Segoe UI",sans-serif,"Arial";}
         .viewport {width: 100%;height: 100%;}
         /** 240px **/
-        .viewport .sidebar {float: left;background: #d6d6d6;width: 35px;height: 100%;border-right: 1px #bfbfbf solid;}
-        .viewport .sidebar ul{list-style: none;color: #525252;margin: 0;padding: 0;}
-        .viewport .sidebar ul.option-bottom {position: absolute;bottom: 0;}
-        .viewport .sidebar ul li{padding: 8px;}
-        .viewport .main-panel {margin-left: 36px;background: #ededed;height: 100%;}
+        .viewport .main-wrapper{width: 100%;height: 100%;}
+        .viewport .main-wrapper .sidebar {float: left;position: relative;background: #d6d6d6;width: 35px;height: 100%;border-right: 1px #bfbfbf solid;}
+        .viewport .main-wrapper .sidebar ul{list-style: none;color: #525252;margin: 0;padding: 0;}
+        .viewport .main-wrapper .sidebar ul.option-bottom {position: absolute;bottom: 0px;}
+        .viewport .main-wrapper .sidebar ul li{padding: 8px;}
+
+        .viewport .main-wrapper .main-panel {margin-left: 36px;background: #ededed;height: 100%;margin-top: -26px;}
 
         .viewport .statusbar {height: 25px;background: #d6d6d6;border-top: 1px #bfbfbf solid;}
         .viewport .statusbar ul{list-style: none;color: #525252;margin: 0;padding: 0;}
-        .viewport .statusbar ul li{padding: 3px 8px;float: left;}
+        .viewport .statusbar ul li{padding: 0 8px;float: left;}
         .viewport .statusbar ul li a{float: left;margin: 0;padding: 0;}
     </style>
 <body>
@@ -50,77 +52,77 @@
 
 <div class="viewport">
 
-    <!-- Sidebar -->
-    <div class="sidebar">
-        <ul>
-            <li>
-                <a href="#">
-                    <svg aria-hidden="true" class="octicon octicon-menu" viewBox="0 0 16 16" width="16" height="16">
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#octicon-menu"></use>
-                    </svg>
-                </a>
-                <!--
-                <a href="#">
-                    <svg aria-hidden="true" class="octicon octicon-bookmarks" viewBox="0 0 16 16" width="16" height="16">
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#octicon-bookmarks"></use>
-                    </svg>
-                </a>
-                -->
-            </li>
-            <li>
-                <a href="#">
-                    <svg aria-hidden="true" class="octicon octicon-menu" viewBox="0 0 16 16" width="16" height="16">
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#octicon-menu"></use>
-                    </svg>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <svg aria-hidden="true" class="octicon octicon-menu" viewBox="0 0 16 16" width="16" height="16">
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#octicon-menu"></use>
-                    </svg>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <svg aria-hidden="true" class="octicon octicon-menu" viewBox="0 0 16 16" width="16" height="16">
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#octicon-menu"></use>
-                    </svg>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <svg aria-hidden="true" class="octicon octicon-menu" viewBox="0 0 16 16" width="16" height="16">
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#octicon-menu"></use>
-                    </svg>
-                </a>
-            </li>
-        </ul>
+    <div class="main-wrapper">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <ul>
+                <li>
+                    <a href="#">
+                        <svg aria-hidden="true" class="octicon octicon-menu" viewBox="0 0 16 16" width="16" height="16">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#octicon-menu"></use>
+                        </svg>
+                    </a>
+                    <!--
+                    <a href="#">
+                        <svg aria-hidden="true" class="octicon octicon-bookmarks" viewBox="0 0 16 16" width="16" height="16">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#octicon-bookmarks"></use>
+                        </svg>
+                    </a>
+                    -->
+                </li>
+                <li>
+                    <a href="#">
+                        <svg aria-hidden="true" class="octicon octicon-menu" viewBox="0 0 16 16" width="16" height="16">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#octicon-menu"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <svg aria-hidden="true" class="octicon octicon-menu" viewBox="0 0 16 16" width="16" height="16">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#octicon-menu"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <svg aria-hidden="true" class="octicon octicon-menu" viewBox="0 0 16 16" width="16" height="16">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#octicon-menu"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <svg aria-hidden="true" class="octicon octicon-menu" viewBox="0 0 16 16" width="16" height="16">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#octicon-menu"></use>
+                        </svg>
+                    </a>
+                </li>
+            </ul>
 
-        <ul class="option-bottom">
-            <li>
-                <a href="#">
-                    <svg aria-hidden="true" class="octicon octicon-menu" viewBox="0 0 16 16" width="16" height="16">
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#octicon-menu"></use>
-                    </svg>
-                </a>
-            </li>
-        </ul>
-    </div>
+            <ul class="option-bottom">
+                <li>
+                    <a href="#">
+                        <svg aria-hidden="true" class="octicon octicon-menu" viewBox="0 0 16 16" width="16" height="16">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#octicon-menu"></use>
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+        </div>
 
-    <div class="main-panel">
+        <div class="main-panel">
 
+        </div>
     </div>
 
     <!-- Status Bar -->
     <div class="statusbar">
         <ul>
             <li>
-                <a href="#">
-                    <svg aria-hidden="true" class="octicon octicon-menu" viewBox="0 0 16 16" width="16" height="16">
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#octicon-menu"></use>
-                    </svg>
-                </a>
+                <svg aria-hidden="true" class="octicon octicon-menu" viewBox="0 0 16 16" width="16" height="16">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#octicon-menu"></use>
+                </svg>
             </li>
         </ul>
     </div>
