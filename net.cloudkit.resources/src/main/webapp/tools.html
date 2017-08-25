@@ -14,20 +14,22 @@
     <style type="text/css">
         html, body {width: 100%;height: 100%;}
         body {font: 400 16px/1.4 "Helvetica Neue","Segoe UI",sans-serif,"Arial";}
+
         .viewport {width: 100%;height: 100%;}
-        /** 240px **/
-        .viewport .main-wrapper{width: 100%;height: 100%;}
-        .viewport .main-wrapper .sidebar {float: left;position: relative;background: #d6d6d6;width: 35px;height: 100%;border-right: 1px #bfbfbf solid;}
+        .viewport .main-wrapper{width: calc(100%);height: calc(100% - 26px);overflow:hidden;}
+        .viewport .main-wrapper .sidebar{position: relative;float: left;background: #d6d6d6;width: 35px;height: 100%;border-right: 1px #bfbfbf solid;}
         .viewport .main-wrapper .sidebar ul{list-style: none;color: #525252;margin: 0;padding: 0;}
-        .viewport .main-wrapper .sidebar ul.option-bottom {position: absolute;bottom: 0px;}
-        .viewport .main-wrapper .sidebar ul li{padding: 8px;}
+        .viewport .main-wrapper .sidebar ul.option-bottom{position: absolute;bottom: 0px;}
+        .viewport .main-wrapper .sidebar ul li{width: 36px;}
+        .viewport .main-wrapper .sidebar ul li a{float: left;padding: 10px;}
+        .viewport .main-wrapper .sidebar ul li.active a{background: #ededed;border-top: 1px #bfbfbf solid;border-bottom: 1px #bfbfbf solid;}
 
-        .viewport .main-wrapper .main-panel {margin-left: 36px;background: #ededed;height: 100%;margin-top: -26px;}
+        .viewport .main-wrapper .main-panel {margin-left: 36px;background: #ededed;width: 100%;height: 100%;padding: 0;}
 
-        .viewport .statusbar {height: 25px;background: #d6d6d6;border-top: 1px #bfbfbf solid;}
+        .viewport .statusbar{height: 25px;width: 100%;background: #d6d6d6;border-top: 1px #bfbfbf solid;}
         .viewport .statusbar ul{list-style: none;color: #525252;margin: 0;padding: 0;}
-        .viewport .statusbar ul li{padding: 0 8px;float: left;}
-        .viewport .statusbar ul li a{float: left;margin: 0;padding: 0;}
+        .viewport .statusbar ul li{float: left;padding: 0 10px;height: 25px;}
+        .viewport .statusbar ul li a{float: left;margin: 0;line-height: 0;padding: 4px 0;}
     </style>
 <body>
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="position:absolute;width:0;height:0;visibility:hidden">
@@ -37,7 +39,7 @@
             <g>
                 <path d="M4.859,4.859H0.996V0.996h3.864V4.859z M10.011,0.996H6.147v3.864h3.864V0.996z M15.162,0.996h-3.863v3.864h3.863V0.996z
 	 M4.859,6.147H0.996v3.864h3.864V6.147z M10.011,6.147H6.147v3.864h3.864V6.147z M15.162,6.147h-3.863v3.864h3.863V6.147z
-	 M4.859,11.299H0.996v3.863h3.864V11.299z M10.011,11.299H6.147v3.863h3.864V11.299z M15.162,11.299h-3.863v3.863h3.863V11.299z"></path>
+	 M4.859,11.299H0.996v3.863h3.864V11.299z M10.011,11.299H6.147v3.863h3.864V11.299z M15.162,11.299h-3.863v3.863h3.863V11.299z" fill="#333333"></path>
             </g>
         </symbol>
 
@@ -62,15 +64,8 @@
                             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#octicon-menu"></use>
                         </svg>
                     </a>
-                    <!--
-                    <a href="#">
-                        <svg aria-hidden="true" class="octicon octicon-bookmarks" viewBox="0 0 16 16" width="16" height="16">
-                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#octicon-bookmarks"></use>
-                        </svg>
-                    </a>
-                    -->
                 </li>
-                <li>
+                <li class="active">
                     <a href="#">
                         <svg aria-hidden="true" class="octicon octicon-menu" viewBox="0 0 16 16" width="16" height="16">
                             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#octicon-menu"></use>
@@ -112,7 +107,7 @@
         </div>
 
         <div class="main-panel">
-
+            <div>Hello!</div>
         </div>
     </div>
 
@@ -120,9 +115,11 @@
     <div class="statusbar">
         <ul>
             <li>
-                <svg aria-hidden="true" class="octicon octicon-menu" viewBox="0 0 16 16" width="16" height="16">
-                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#octicon-menu"></use>
-                </svg>
+                <a>
+                    <svg aria-hidden="true" class="octicon octicon-menu" viewBox="0 0 16 16" width="16" height="16">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#octicon-menu"></use>
+                    </svg>
+                </a>
             </li>
         </ul>
     </div>
