@@ -1853,3 +1853,4 @@ http://www.adam-bien.com/roller/abien/entry/the_difference_between_soa_and
 https://www.martinfowler.com/articles/serverless.html
 
 Patterns of Enterprise Application Architecture
+https://www.martinfowler.com/books/
