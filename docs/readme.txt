@@ -1794,7 +1794,9 @@ http://microservices.io/
 http://www.enterpriseintegrationpatterns.com/
 http://www.workflowpatterns.com/
 https://martinfowler.com/
-
+https://www.martinfowler.com/articles/serverless.html
+Patterns of Enterprise Application Architecture
+https://www.martinfowler.com/books/
 Microservice Patterns
 
 https://www.manning.com
@@ -1847,14 +1849,7 @@ CRUD是指在做计算处理时的增加(Create)、读取(Retrieve)(重新得到
 
 http://www.infoq.com/cn/news/2015/12/soa-v-microservices
 http://www.adam-bien.com/roller/abien/entry/the_difference_between_soa_and
-
-https://www.martinfowler.com/articles/serverless.html
-
-Patterns of Enterprise Application Architecture
-https://www.martinfowler.com/books/
-
 https://my.oschina.net/agileai/blog/919970
-
 
 使用Baas和Faas是Serverless应用的基本特征，符合这两个基本特征的应用可称为Serverless应用。
 Baas(Backend as a Service，后端即服务，使用了公共云提供的对象存储和数据库服务)。
