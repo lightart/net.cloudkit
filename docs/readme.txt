@@ -1843,3 +1843,5 @@ Software entities should be open for extension, but closed for modification.
 使用多个专门的接口比适用单一的接口要好。
 6.合成/聚合复用原则(CARP)
 要尽量使用合成/聚合，尽量不要使用继承。
+
+Serverless
