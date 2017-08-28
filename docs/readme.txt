@@ -1854,3 +1854,15 @@ https://www.martinfowler.com/articles/serverless.html
 
 Patterns of Enterprise Application Architecture
 https://www.martinfowler.com/books/
+
+https://my.oschina.net/agileai/blog/919970
+
+
+使用Baas和Faas是Serverless应用的基本特征，符合这两个基本特征的应用可称为Serverless应用。
+Baas(Backend as a Service，后端即服务，使用了公共云提供的对象存储和数据库服务)。
+Faas(Functions as a Service, 函数即服务， 使用Lambda框架)。
+
+AI应用用到了对象存储和数据库，将来或许还会用到消息队列。直观感觉是在用PaaS，其实是用BaaS。
+PaaS和BaaS的区别在于: PaaS需要参与应用的生命周期管理，BaaS则仅仅提供应用依赖的第三方服务。典型的PaaS平台需要提供手段让开发者部署和配置应用。例如自动将应用部署到Tomcat容器中。并管理应用的生命周期。BaaS不包含这些内容。BaaS只以API的方式提供应用依赖的后端服务，例如数据库和对象存储。BaaS可以是公共云服务商提供。
+
+https://letsencrypt.org/
