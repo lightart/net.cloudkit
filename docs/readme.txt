@@ -1846,6 +1846,7 @@ Software entities should be open for extension, but closed for modification.
 
 Serverless
 
+CRUD是指在做计算处理时的增加(Create)、读取(Retrieve)(重新得到数据)、更新(Update)和删除(Delete)几个单词的首字母简写。
 
 http://www.infoq.com/cn/news/2015/12/soa-v-microservices
 http://www.adam-bien.com/roller/abien/entry/the_difference_between_soa_and
