@@ -1845,3 +1845,11 @@ Software entities should be open for extension, but closed for modification.
 要尽量使用合成/聚合，尽量不要使用继承。
 
 Serverless
+
+
+http://www.infoq.com/cn/news/2015/12/soa-v-microservices
+http://www.adam-bien.com/roller/abien/entry/the_difference_between_soa_and
+
+https://www.martinfowler.com/articles/serverless.html
+
+Patterns of Enterprise Application Architecture
