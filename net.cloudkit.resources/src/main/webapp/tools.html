@@ -24,7 +24,9 @@
         .viewport .main-wrapper .sidebar ul li a{float: left;padding: 10px;}
         .viewport .main-wrapper .sidebar ul li.active a{background: #ededed;border-top: 1px #bfbfbf solid;border-bottom: 1px #bfbfbf solid;}
 
-        .viewport .main-wrapper .main-panel {margin-left: 36px;background: #ededed;width: 100%;height: 100%;padding: 0;}
+        .viewport .main-wrapper .side-panel{width: 239px;border-right: 1px #bfbfbf solid;}
+
+        .viewport .main-wrapper .main-panel {margin-left: 36px;background: #ededed;width: 100%;height: 100%;padding: 8px;}
 
         .viewport .statusbar{height: 25px;width: 100%;background: #d6d6d6;border-top: 1px #bfbfbf solid;}
         .viewport .statusbar ul{list-style: none;color: #525252;margin: 0;padding: 0;}
@@ -57,7 +59,7 @@
     <div class="main-wrapper">
         <!-- Sidebar -->
         <div class="sidebar">
-            <ul>
+            <ul class="toolbar">
                 <li>
                     <a href="#">
                         <svg aria-hidden="true" class="octicon octicon-menu" viewBox="0 0 16 16" width="16" height="16">
@@ -104,10 +106,16 @@
                     </a>
                 </li>
             </ul>
+
+        </div>
+
+        <div class="side-panel">
+
         </div>
 
         <div class="main-panel">
-            <div>Hello!</div>
+            <!--<div>Hello!</div>-->
+            <p style="padding: 0;margin: 0;">Hello!</p>
         </div>
     </div>
 
