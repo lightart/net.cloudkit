@@ -1865,3 +1865,9 @@ http://xiangli.co/
 Payload
 
 http://bliki.net/
+
+https://www.liki.com/
+http://www.galeriedujouet.com/
+https://rocail.liki.com/
+https://www.etsy.com/
+https://lidia-r-joailliere.liki.com/
