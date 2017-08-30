@@ -1873,3 +1873,5 @@ https://www.etsy.com/
 https://lidia-r-joailliere.liki.com/
 
 https://www.24tidy.com/
+
+QUIC(Quick UDP Internet Connection)是谷歌制定的一种基于UDP的低时延的互联网传输层协议。
