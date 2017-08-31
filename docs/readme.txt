@@ -1880,3 +1880,7 @@ UDT 基于UDP的数据传输协议(UDP-based Data Transfer Protocol，简称UDT)
 Dijkstra算法
 
 http://blog.sina.com.cn/s/articlelist_2734614830_0_1.html
+
+
+P2SP
+就是下载不再象传统方式那样只能依赖服务器，内容的传递可以在网络上的各个终端机器中进行。P2SP除了包含P2P以外，P2SP的"S"是指服务器。P2SP有效地把原本孤立的服务器和其镜像资源以及P2P资源整合到了一起。
