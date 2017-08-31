@@ -1878,3 +1878,5 @@ QUIC(Quick UDP Internet Connection)是谷歌制定的一种基于UDP的低时延
 UDT 基于UDP的数据传输协议(UDP-based Data Transfer Protocol，简称UDT)是一种互联网数据传输协议。
 
 Dijkstra算法
+
+http://blog.sina.com.cn/s/articlelist_2734614830_0_1.html
