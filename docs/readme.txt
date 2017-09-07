@@ -1921,3 +1921,14 @@ amoeba for mysql
 cobar alibaba
 
 Vector Clock算法
+
+SQL语言共分为四大类：数据查询语言DQL，数据操纵语言DML，数据定义语言DDL，数据控制语言DCL。
+
+事务补偿
+
+TCC
+Try：预留业务资源
+Confirm：确认执行业务操作
+Cancel：取消执行业务操作
+
+2PC，2 Phase Commit
