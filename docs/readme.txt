@@ -1909,3 +1909,13 @@ P 问题和 NP 问题
 271制度，20%的人调薪在15%以上，70%在5-10%之间，10%的人不给调薪，调薪制度主要向基层倾斜，总监以上级别有股权的不予调薪
 
 MySQL router
+vitess
+Maxscale
+Atlas
+kingshard
+OneProxy
+Mango
+Sharding-JDBC
+atlas
+amoeba for mysql
+cobar alibaba
