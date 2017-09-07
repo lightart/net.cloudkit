@@ -1900,3 +1900,6 @@ https://github.com/cverges/expect4j
 http://www.cnblogs.com/ylqmf/archive/2012/06/28/2567811.html
 
 MurmurHash
+
+P 问题和 NP 问题
+程序员和商人的思想差距太大了
