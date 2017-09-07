@@ -1896,3 +1896,5 @@ NewSQL
 SSH
 http://www.jcraft.com/jsch/
 http://www.jcraft.com/jzlib/
+https://github.com/cverges/expect4j
+http://www.cnblogs.com/ylqmf/archive/2012/06/28/2567811.html
