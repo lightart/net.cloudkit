@@ -112,6 +112,17 @@
         .main-content .image-text-grid .image-text-group .grey-dark-box:hover,
         .main-content .image-text-grid .image-text-group .green-box:hover {
             -webkit-transform: translate(0,-2px);transform: translate(0,-2px);opacity: .85;
+            -webkit-transition: opacity .2s ease-out,-webkit-transform .2s ease-out;
+            transition: opacity .2s ease-out,-webkit-transform .2s ease-out;
+            /*
+            -webkit-backface-visibility: hidden;
+            -moz-backface-visibility: hidden;
+            -ms-backface-visibility: hidden;
+            -webkit-transition: opacity .2s ease-out,-webkit-transform .2s ease-out;
+            transition: opacity .2s ease-out,-webkit-transform .2s ease-out;
+            transition: transform .2s ease-out,opacity .2s ease-out;
+            transition: transform .2s ease-out,opacity .2s ease-out,-webkit-transform .2s ease-out;
+            */
         }
         .main-content .image-text-grid .image-text-group .light-grey-box {
             background: #eee url(resources/images/background_image-8ebecad7ac8a87833b409f7dc63fea3d.png) no-repeat center;background-size: cover;
