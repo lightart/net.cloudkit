@@ -42,9 +42,9 @@
         .top-nav input.search-input::-webkit-input-placeholder {
             color:#f6a8d1;font-style:italic;text-indent:0px;
             transition: text-indent .2s ease-out,background-color .2s ease-out,border-bottom .2s ease-out;
-            -moz-transition: text-indent .2s ease-out,background-color .2s ease-out,border-bottom .2s ease-out; /* Firefox 4 */
-            -webkit-transition: text-indent .2s ease-out,background-color .2s ease-out,border-bottom .2s ease-out; /* Safari and Chrome */
-            -o-transition: text-indent .2s ease-out,background-color .2s ease-out,border-bottom .2s ease-out; /* Opera */
+            -moz-transition: text-indent .2s ease-out,background-color .2s ease-out,border-bottom .2s ease-out;
+            -webkit-transition: text-indent .2s ease-out,background-color .2s ease-out,border-bottom .2s ease-out;
+            -o-transition: text-indent .2s ease-out,background-color .2s ease-out,border-bottom .2s ease-out;
         }
         /*
         .top-nav input.search-input:-moz-placeholder { }
@@ -63,9 +63,9 @@
             border: none;border-bottom: 1px solid #f6a8d1;height: 26px;font-size: 14px;width: 200px;
             background:transparent;outline: medium;color: #fff;text-indent:5px;
             transition: text-indent .2s ease-out,background-color .2s ease-out,border-bottom .2s ease-out;
-            -moz-transition: text-indent .2s ease-out,background-color .2s ease-out,border-bottom .2s ease-out; /* Firefox 4 */
-            -webkit-transition: text-indent .2s ease-out,background-color .2s ease-out,border-bottom .2s ease-out; /* Safari and Chrome */
-            -o-transition: text-indent .2s ease-out,background-color .2s ease-out,border-bottom .2s ease-out; /* Opera */
+            -moz-transition: text-indent .2s ease-out,background-color .2s ease-out,border-bottom .2s ease-out;
+            -webkit-transition: text-indent .2s ease-out,background-color .2s ease-out,border-bottom .2s ease-out;
+            -o-transition: text-indent .2s ease-out,background-color .2s ease-out,border-bottom .2s ease-out;
         }
         .top-nav .search-input:hover { border-bottom: 1px solid #fff;text-indent:5px; }
         .top-nav .search-button {
@@ -113,11 +113,26 @@
         .main-content .image-text-grid .image-text-group .green-box:hover {
             -webkit-transform: translate(0,-2px);transform: translate(0,-2px);opacity: .85;
         }
-        .main-content .image-text-grid .image-text-group .light-grey-box { background: #eee url(resources/images/background_image-8ebecad7ac8a87833b409f7dc63fea3d.png) no-repeat center;background-size: cover;min-height: 300px;margin: 8px; }
-        .main-content .image-text-grid .image-text-group .blue-box { background: #1a73ba url(resources/images/background_image-f4ae0969dd90ff42be10c4be05ed6b0b.jpeg) no-repeat center;background-size: cover;min-height: 170px;margin: 8px; }
-        .main-content .image-text-grid .image-text-group .pink-box { background: #b32059;margin: 8px; }
-        .main-content .image-text-grid .image-text-group .grey-dark-box { background: #737578 url(resources/images/background_image-3a33d09cb0b9ecd82600f4176e20049f.jpeg) no-repeat center;background-size: cover;min-height: 170px;margin: 8px; }
-        .main-content .image-text-grid .image-text-group .green-box { background: #a5ccb2 url(resources/images/background_image-bd16ae6d56ca6cca767ed406612bd5ae.jpeg) no-repeat center;background-size: cover;min-height: 300px;margin: 8px; }
+        .main-content .image-text-grid .image-text-group .light-grey-box {
+            background: #eee url(resources/images/background_image-8ebecad7ac8a87833b409f7dc63fea3d.png) no-repeat center;background-size: cover;
+            min-height: 300px;margin: 8px;
+        }
+        .main-content .image-text-grid .image-text-group .blue-box {
+            background: #1a73ba url(resources/images/background_image-f4ae0969dd90ff42be10c4be05ed6b0b.jpeg) no-repeat center;background-size: cover;min-height: 170px;margin: 8px;
+        }
+        .main-content .image-text-grid .image-text-group .pink-box {
+            background: #b32059;margin: 8px;
+        }
+        .main-content .image-text-grid .image-text-group .grey-dark-box {
+            background: #737578 url(resources/images/background_image-3a33d09cb0b9ecd82600f4176e20049f.jpeg) no-repeat center;background-size: cover;min-height: 170px;margin: 8px;
+        }
+        .main-content .image-text-grid .image-text-group .green-box {
+            background: #a5ccb2 url(resources/images/background_image-bd16ae6d56ca6cca767ed406612bd5ae.jpeg) no-repeat center;background-size: cover;min-height: 300px;margin: 8px;
+        }
+        .main-content .image-text-grid .image-text-group a {
+            width: 100%;height: 100%;display: inline-table;
+        }
+        .main-content .image-text-grid .image-text-group .box-content { display:table-cell; vertical-align:middle; }
 
         .main-content .insights-section { text-align: center;max-width: 100%;background: #eee; }
         .main-content .insights-section .insights-section-title { text-align: center;font-size: 32px; }
@@ -127,9 +142,11 @@
         .main-content .insights-section .insights-section-box .section-box-item {
             -webkit-box-flex: 1; flex: 1;min-height: 380px;background: #ccc;margin: 8px;
         }
+        /*
         .main-content .insights-section .insights-section-box .section-box-item:hover {
-            /*-webkit-transform: translate(0,-2px);transform: translate(0,-2px);opacity: .85;*/
+            -webkit-transform: translate(0,-2px);transform: translate(0,-2px);opacity: .85;
         }
+        */
         .main-content .insights-section .more-button-large {
             background: #000;padding: 12px 25px;border-radius: 2px;display: inline-block;margin: 8px;
             color: #fff;font-size: 20px;font-weight: 100;text-decoration: none;
@@ -235,8 +252,8 @@
         <div class="image-text-wrapper">
             <div class="image-text-group">
                 <div class="image-text-large light-grey-box">
-                    <a href="view.html" style="float:left;display:table;min-height: 300px;width: 100%;position: relative">
-                        <div class="uppercase-content" style="display:table-cell; vertical-align:middle;">
+                    <a href="view.html">
+                        <div class="box-content">
                             <h2 class="uppercase-title">技术雷达</h2>
                             <span>阅读最新版本</span>
                         </div>
