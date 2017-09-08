@@ -4,10 +4,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta charset="utf-8" />
     <meta name="referrer" content="always" />
-    <title>Official</title>
+    <title>ThoughtWorks | ThoughtWorks | Creative technology consultants</title>
     <link href="https://cdn.bootcss.com/normalize/7.0.0/normalize.min.css" rel="stylesheet" />
 
     <style rel="stylesheet" type="text/css">
+
+        @media screen and (max-width: 985px) {
+            .header .main-menu {display: none;}
+        }
+
         /* container wrapper navigation navbar */
         html {
             font-size: 100%;
@@ -19,8 +24,6 @@
             line-height: 1.6em;color: #333;margin: 0;padding: 0;font-weight: 100;-webkit-font-smoothing: antialiased;
         }
 
-
-
         .top-nav { background: #ef5ba1;height: 40px;line-height: 40px; }
         .top-nav .top-nav-inner { margin: 0 auto;max-width: 985px; }
         .top-nav .top-left-links { float: left; }
@@ -31,214 +34,150 @@
             display:inline-block;color: #fff;text-transform: uppercase;font-size: 12px;text-decoration: none;
             opacity: .7;padding: 0 8px;
         }
+        .top-nav .top-left-links li a:hover { opacity: 1; }
+        .top-nav .top-right-links li a { opacity: 1;border-left: 1px solid #f489bc;padding: 0 16px;font-weight: 900; }
+        .top-nav .top-right-links li a:hover { background: #fff;color: #ee0b77; }
+        .top-nav .top-right-links li:last-child a { border-right: 1px solid #f489bc; }
 
-
-        .search-input {
-            border: none;border-bottom: 1px solid #f6a8d1;height: 26px;font-size: 14px;width: 200px;
-            background:no-repeat 0 0;outline: medium;color: #fff;
-            /*-webkit-transition: border-bottom .2s ease-out;*/
-            /*transition: border-bottom .2s ease-out;*/
-            /*-webkit-transition: text-indent .2s ease-out,background-color .2s ease-out;*/
-            /*-moz-transition */
-            /*-o-transition*/
+        .top-nav input.search-input::-webkit-input-placeholder {
+            color:#f6a8d1;font-style:italic;text-indent:0px;
             transition: text-indent .2s ease-out,background-color .2s ease-out,border-bottom .2s ease-out;
-
-            /*
-            transition:width 2s;
-            -moz-transition:width 2s; !* Firefox 4 *!
-            -webkit-transition:width 2s; !* Safari and Chrome *!
-            -o-transition:width 2s; !* Opera *!
-            */
+            -moz-transition: text-indent .2s ease-out,background-color .2s ease-out,border-bottom .2s ease-out; /* Firefox 4 */
+            -webkit-transition: text-indent .2s ease-out,background-color .2s ease-out,border-bottom .2s ease-out; /* Safari and Chrome */
+            -o-transition: text-indent .2s ease-out,background-color .2s ease-out,border-bottom .2s ease-out; /* Opera */
         }
-        .search-input:hover { border-bottom: 1px solid #fff;text-indent:5px; }
-        input.search-input::-webkit-input-placeholder { color:#f6a8d1;font-style:italic; }
         /*
-        input.search-input:-moz-placeholder { color:#f6a8d1;font-style:italic; }
-        input.search-input::-moz-placeholder { color:#f6a8d1;font-style:italic; }
-        input.search-input:-ms-input-placeholder { color:#f6a8d1;font-style:italic; }
+        .top-nav input.search-input:-moz-placeholder { }
+        .top-nav input.search-input::-moz-placeholder { }
+        .top-nav input.search-input:-ms-input-placeholder { }
         */
-
-        input.search-input:hover::-webkit-input-placeholder { text-indent:5px; }
+        .top-nav input.search-input:focus::-webkit-input-placeholder { text-indent:5px; }
+        .top-nav input.search-input:hover::-webkit-input-placeholder { text-indent:5px; }
         /*
-        input.search-input:hover:-moz-placeholder { text-indent:5px; }
-        input.search-input:hover::-moz-placeholder { text-indent:5px; }
-        input.search-input:hover:-ms-input-placeholder { text-indent:5px; }
+        .top-nav input.search-input:hover:-moz-placeholder { }
+        .top-nav input.search-input:hover::-moz-placeholder { }
+        .top-nav input.search-input:hover:-ms-input-placeholder { }
         */
-
-        .header {
-            clear: both;
+        .top-nav .search-box { margin: 0 8px 0 0; }
+        .top-nav .search-input {
+            border: none;border-bottom: 1px solid #f6a8d1;height: 26px;font-size: 14px;width: 200px;
+            background:transparent;outline: medium;color: #fff;text-indent:5px;
+            transition: text-indent .2s ease-out,background-color .2s ease-out,border-bottom .2s ease-out;
+            -moz-transition: text-indent .2s ease-out,background-color .2s ease-out,border-bottom .2s ease-out; /* Firefox 4 */
+            -webkit-transition: text-indent .2s ease-out,background-color .2s ease-out,border-bottom .2s ease-out; /* Safari and Chrome */
+            -o-transition: text-indent .2s ease-out,background-color .2s ease-out,border-bottom .2s ease-out; /* Opera */
         }
-        .header .brand {
-            float: left;
-        }
-        .header .brand .logo {
-            width: 200px;
-        }
-        .header .main-menu {
-            float: right;list-style: none;margin: 0;padding: 0;
-        }
-        .header .main-menu li {
-            float: left;margin-right: 1em;
-        }
-        .header .main-menu li a {
-            color: #000;text-decoration: none;
+        .top-nav .search-input:hover { border-bottom: 1px solid #fff;text-indent:5px; }
+        .top-nav .search-button {
+            height: 30px;width: 30px;border: none;background:transparent;outline: medium;padding: 0;vertical-align: middle;cursor: pointer;
         }
 
-        /*.search-bar .search-bar__query {*/
-            /*background-color: #999A9E;*/
-            /*border: none;*/
-            /*float: left;*/
-            /*height: 50px;*/
-            /*margin-bottom: 0;*/
-            /*margin-right: -60px;*/
-            /*padding-left: 12.5px;*/
-            /*padding-right: 72.5px;*/
-            /*text-indent: 5px;*/
-            /*width: 100%;*/
-            /*-webkit-transition: text-indent .2s ease-out, background-color .2s ease-out;*/
-            /*transition: text-indent .2s ease-out, background-color .2s ease-out*/
-        /*}*/
+        .header { height: 60px;line-height: 30px;border-bottom: 1px solid #eee; }
+        .header .header-inner { margin: 0 auto;max-width: 985px;height: 60px;padding: 16px 0; }
+        .header .brand { float: left; padding-left: 8px; }
+        .header .brand .logo { width: 200px; }
+        .header .main-menu { float: right;padding: 0 8px 0 0;list-style: none;margin: 0; }
+        .header .main-menu li { float: left;margin-right: 1em; }
+        .header .main-menu li a { color: #000;text-decoration: none;font-size: 18px; }
 
-        /*@media screen and (min-width: 680px) {*/
-            /*.search-bar .search-bar__query {*/
-                /*background: 0 0;*/
-                /*border-bottom: 1px solid #f6a8d1;*/
-                /*-webkit-box-shadow: none;*/
-                /*box-shadow: none;*/
-                /*color: #fff;*/
-                /*float: none;*/
-                /*font-size: 12px;*/
-                /*height: 26px;*/
-                /*margin-right: 0;*/
-                /*padding-right: 0;*/
-                /*padding-left: 0;*/
-                /*-webkit-transition: border-bottom .2s ease-out;*/
-                /*transition: border-bottom .2s ease-out;*/
-                /*width: 160px*/
-            /*}*/
-        /*}*/
+        .main-content .content-item {
+            margin: 0 auto;max-width: 985px;padding: 16px 0;
+        }
+        .main-content .main-topic-text { text-align: center; }
+        .main-content .main-topic-text .topic-title { font-size: 48px;font-weight: 900;line-height: 1.2;text-transform: uppercase; }
+        .main-content .main-topic-text .topic-subtitle { font-size: 18px; }
 
-        /*@media screen and (min-width: 800px) {*/
-            /*.search-bar .search-bar__query {*/
-                /*font-size: 14px;*/
-                /*width: 200px*/
-            /*}*/
-        /*}*/
+        .main-content .image-text-grid .image-text-wrapper {
+            display: -webkit-flex;display: flex;-webkit-align-items: stretch;align-items: stretch;flex-flow: row nowrap;
+            text-align: center;
+        }
+        .main-content .image-text-grid .image-text-group {
+            -webkit-box-flex: 1; flex: 1;
+            display: -webkit-flex;display: flex;-webkit-align-items: stretch;align-items: stretch;flex-direction: column;
+        }
+        .main-content .image-text-grid .image-text-group .image-text-subgroup {
+            -webkit-box-flex: 1; flex: 1;
+            display: -webkit-flex;display: flex;-webkit-align-items: stretch;align-items: stretch;flex-flow: row nowrap;
+        }
+        .main-content .image-text-grid .image-text-group .image-text-small {
+            -webkit-box-flex: 1; flex: 1;
+        }
+        .main-content .image-text-grid .image-text-group .image-text-medium,
+        .main-content .image-text-grid .image-text-group .image-text-large {
+            -webkit-box-flex: 1; flex: 1;
+        }
+        .main-content .image-text-grid .image-text-group .light-grey-box:hover,
+        .main-content .image-text-grid .image-text-group .blue-box:hover,
+        .main-content .image-text-grid .image-text-group .pink-box:hover,
+        .main-content .image-text-grid .image-text-group .grey-dark-box:hover,
+        .main-content .image-text-grid .image-text-group .green-box:hover {
+            -webkit-transform: translate(0,-2px);transform: translate(0,-2px);opacity: .85;
+        }
+        .main-content .image-text-grid .image-text-group .light-grey-box { background: #eee url(resources/images/background_image-8ebecad7ac8a87833b409f7dc63fea3d.png) no-repeat center;background-size: cover;min-height: 300px;margin: 8px; }
+        .main-content .image-text-grid .image-text-group .blue-box { background: #1a73ba url(resources/images/background_image-f4ae0969dd90ff42be10c4be05ed6b0b.jpeg) no-repeat center;background-size: cover;min-height: 170px;margin: 8px; }
+        .main-content .image-text-grid .image-text-group .pink-box { background: #b32059;margin: 8px; }
+        .main-content .image-text-grid .image-text-group .grey-dark-box { background: #737578 url(resources/images/background_image-3a33d09cb0b9ecd82600f4176e20049f.jpeg) no-repeat center;background-size: cover;min-height: 170px;margin: 8px; }
+        .main-content .image-text-grid .image-text-group .green-box { background: #a5ccb2 url(resources/images/background_image-bd16ae6d56ca6cca767ed406612bd5ae.jpeg) no-repeat center;background-size: cover;min-height: 300px;margin: 8px; }
 
-        /*.search-bar .search-bar__query::-webkit-input-placeholder {*/
-            /*color: #CCC;*/
-            /*font-style: italic;*/
-            /*font-weight: 100;*/
-            /*text-indent: 0;*/
-            /*-webkit-transition: text-indent .2s ease-out;*/
-            /*transition: text-indent .2s ease-out*/
-        /*}*/
+        .main-content .insights-section { text-align: center;max-width: 100%;background: #eee; }
+        .main-content .insights-section .insights-section-title { text-align: center;font-size: 32px; }
+        .main-content .insights-section .insights-section-box {
+            margin: 0 auto;max-width: 985px;display: -webkit-flex;display: flex;-webkit-align-items: stretch;align-items: stretch;flex-flow: row nowrap;
+        }
+        .main-content .insights-section .insights-section-box .section-box-item {
+            -webkit-box-flex: 1; flex: 1;min-height: 380px;background: #ccc;margin: 8px;
+        }
+        .main-content .insights-section .insights-section-box .section-box-item:hover {
+            /*-webkit-transform: translate(0,-2px);transform: translate(0,-2px);opacity: .85;*/
+        }
+        .main-content .insights-section .more-button-large {
+            background: #000;padding: 12px 25px;border-radius: 2px;display: inline-block;margin: 8px;
+            color: #fff;font-size: 20px;font-weight: 100;text-decoration: none;
+        }
 
-        /*@media screen and (min-width: 680px) {*/
-            /*.search-bar .search-bar__query::-webkit-input-placeholder {*/
-                /*color: #f6a8d1*/
-            /*}*/
-        /*}*/
+        .footer { background: #333;color: #999; }
+        .footer .footer-inner-box {
+            margin: 0 auto;max-width: 985px;padding: 8px 0;
+            display: -webkit-flex;display: flex;-webkit-align-items: stretch;align-items: stretch;flex-flow: column nowrap;
+        }
+        .footer .footer-inner-box .footer-item {
+            -webkit-box-flex: 1; flex: 1;padding: 0 8px;
+        }
+        .footer .footer-inner-box .footer-well { border-bottom: 1px solid #c8d6df; }
+        .footer .footer-inner-box .footer-item .item-left {
+            float: left;width: 100%;
+        }
+        .footer .footer-inner-box .footer-item .item-right {
+            float: right;width: 100%;
+        }
 
-        /*.search-bar .search-bar__query::-webkit-input-placeholder:hover {*/
-            /*text-indent: 5px*/
-        /*}*/
+        .footer .footer-inner-box .footer-item .footer-nav {
+            margin: 0;padding: 0;list-style: none;
+        }
+        .footer .footer-inner-box .footer-item .footer-nav li {
+            float: left;margin: 8px;
+        }
+        .footer .footer-inner-box .footer-item .footer-nav li:first-child { margin-left: 0; }
+        .footer .footer-inner-box .footer-item .footer-nav li a { color: #999;font-size:16px;text-decoration: none; }
+        .footer .footer-inner-box .footer-item .text-copyright { clear: both; }
 
-        /*.search-bar .search-bar__query::-moz-placeholder {*/
-            /*color: #CCC;*/
-            /*font-style: italic;*/
-            /*font-weight: 100;*/
-            /*text-indent: 0;*/
-            /*-webkit-transition: text-indent .2s ease-out;*/
-            /*transition: text-indent .2s ease-out*/
-        /*}*/
-
-        /*@media screen and (min-width: 680px) {*/
-            /*.search-bar .search-bar__query::-moz-placeholder {*/
-                /*color: #f6a8d1*/
-            /*}*/
-        /*}*/
-
-        /*.search-bar .search-bar__query::-moz-placeholder:hover {*/
-            /*text-indent: 5px*/
-        /*}*/
-
-        /*.search-bar .search-bar__query:-moz-placeholder {*/
-            /*color: #CCC;*/
-            /*font-style: italic;*/
-            /*font-weight: 100;*/
-            /*text-indent: 0;*/
-            /*-webkit-transition: text-indent .2s ease-out;*/
-            /*transition: text-indent .2s ease-out*/
-        /*}*/
-
-        /*@media screen and (min-width: 680px) {*/
-            /*.search-bar .search-bar__query:-moz-placeholder {*/
-                /*color: #f6a8d1*/
-            /*}*/
-        /*}*/
-
-        /*.search-bar .search-bar__query:-moz-placeholder:hover {*/
-            /*text-indent: 5px*/
-        /*}*/
-
-        /*.search-bar .search-bar__query:-ms-input-placeholder {*/
-            /*color: #CCC;*/
-            /*font-style: italic;*/
-            /*font-weight: 100;*/
-            /*text-indent: 0;*/
-            /*-webkit-transition: text-indent .2s ease-out;*/
-            /*transition: text-indent .2s ease-out*/
-        /*}*/
-
-        /*.search-bar .search-bar__query:-ms-input-placeholder:hover {*/
-            /*text-indent: 5px*/
-        /*}*/
-
-        /*.search-bar .search-bar__query:focus, .search-bar .search-bar__query:hover {*/
-            /*background-color: #AAA*/
-        /*}*/
-
-        /*@media screen and (min-width: 600px) {*/
-            /*.search-bar .search-bar__query:focus, .search-bar .search-bar__query:hover {*/
-                /*background: 0 0;*/
-                /*border-bottom: 1px solid #fff*/
-            /*}*/
-        /*}*/
-
-        /*.search-bar .search-bar__query:focus::-webkit-input-placeholder, .search-bar .search-bar__query:hover::-webkit-input-placeholder {*/
-            /*text-indent: 5px*/
-        /*}*/
-
-        /*.search-bar .search-bar__query:focus::-moz-placeholder, .search-bar .search-bar__query:hover::-moz-placeholder {*/
-            /*text-indent: 5px*/
-        /*}*/
-
-        /*.search-bar .search-bar__query:focus:-moz-placeholder, .search-bar .search-bar__query:hover:-moz-placeholder {*/
-            /*text-indent: 5px*/
-        /*}*/
-
-        /*.search-bar .search-bar__query:focus:-ms-input-placeholder, .search-bar .search-bar__query:hover:-ms-input-placeholder {*/
-            /*text-indent: 5px*/
-        /*}*/
-
-        /*.search-bar .search-bar__query:active, .search-bar .search-bar__query:focus {*/
-            /*background: #fff*/
-        /*}*/
-
-        /*@media screen and (min-width: 680px) {*/
-            /*.search-bar .search-bar__query:-ms-input-placeholder {*/
-                /*color: #f6a8d1*/
-            /*}*/
-
-            /*.search-bar .search-bar__query:active, .search-bar .search-bar__query:focus {*/
-                /*background: 0 0*/
-            /*}*/
-        /*}*/
     </style>
 </head>
 <body>
-
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="position:absolute;width:0;height:0;visibility:hidden">
+    <defs>
+        <symbol viewBox="0 0 16 16" id="octicon-search">
+            <title>octicon-search</title>
+            <g>
+                <path fill="#FFFFFF" d="M15.323,13.4l-3.042-3.041c-0.045-0.047-0.096-0.08-0.144-0.117c0.659-1.01,1.044-2.214,1.044-3.51
+	c0-3.563-2.887-6.451-6.451-6.451c-3.562,0-6.45,2.888-6.45,6.451c0,3.563,2.889,6.452,6.451,6.452c1.296,0,2.502-0.387,3.513-1.047
+	c0.037,0.051,0.071,0.1,0.116,0.143l3.041,3.043c0.266,0.264,0.612,0.396,0.959,0.396c0.348,0,0.695-0.133,0.961-0.396
+	C15.852,14.791,15.852,13.932,15.323,13.4 M6.731,11.145c-2.433,0-4.413-1.98-4.413-4.413c0-2.433,1.98-4.414,4.413-4.414
+	c2.432,0,4.414,1.98,4.414,4.414C11.145,9.164,9.163,11.145,6.731,11.145"/>
+            </g>
+        </symbol>
+    </defs>
+</svg>
 
 <div class="top-nav">
     <div class="top-nav-inner">
@@ -255,37 +194,112 @@
         </ul>
 
         <div class="search-box">
-            <input type="text" class="search-input" placeholder="搜索thoughtworks.com" />
-            <button class="search-button" type="submit">搜索</button>
+            <form action="" method="get">
+                <input type="text" class="search-input" placeholder="搜索 thoughtworks.com" />
+                <button class="search-button" type="submit" title="搜索">
+                    <svg aria-hidden="true" class="octicon octicon-search" viewBox="0 0 16 16" width="16" height="16">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#octicon-search"></use>
+                    </svg>
+                </button>
+            </form>
         </div>
     </div>
 </div>
 
 <div class="header">
-    <div class="brand">
-        <a href="#"><img class="logo" alt="ThoughtWorks" src="resources/images/logo.png" title="ThoughtWorks"></a>
-    </div>
+    <div class="header-inner">
+        <div class="brand">
+            <a href="#"><img class="logo" alt="ThoughtWorks" src="resources/images/logo.png" title="ThoughtWorks"></a>
+        </div>
 
-    <ul class="main-menu">
-        <li><a href="view.html">客户</a></li>
-        <li><a href="view.html">服务</a></li>
-        <li><a href="view.html">产品</a></li>
-        <li><a href="view.html">观点</a></li>
-        <li><a href="view.html">活动</a></li>
-        <li><a href="view.html">关于我们</a></li>
-        <li><a href="view.html">加入我们</a></li>
-    </ul>
+        <ul class="main-menu">
+            <li><a href="view.html">客户</a></li>
+            <li><a href="view.html">服务</a></li>
+            <li><a href="view.html">产品</a></li>
+            <li><a href="view.html">观点</a></li>
+            <li><a href="view.html">活动</a></li>
+            <li><a href="view.html">关于我们</a></li>
+            <li><a href="view.html">加入我们</a></li>
+        </ul>
+    </div>
 </div>
 
-<div class="content">
-    <div class="content-item">
-        <h1></h1>
-        <div>万物相生相息，计算和数据生生不息。</div>
+<div class="main-content">
+    <div class="content-item main-topic-text">
+        <h1 class="topic-title">从不停止创新<br/>从未止于交付</h1>
+        <div class="topic-subtitle">我们助你开启未知，更以技术快速实现</div>
+        <!--<div>万物相生相息，计算和数据生生不息。</div>-->
     </div>
+
+    <div class="content-item image-text-grid">
+        <div class="image-text-wrapper">
+            <div class="image-text-group">
+                <div class="image-text-large light-grey-box">
+                    <a href="view.html" style="float:left;display:table;min-height: 300px;width: 100%;position: relative">
+                        <div class="uppercase-content" style="display:table-cell; vertical-align:middle;">
+                            <h2 class="uppercase-title">技术雷达</h2>
+                            <span>阅读最新版本</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="image-text-subgroup">
+                    <div class="image-text-small blue-box">
+                        <a href="view.html"></a>
+                    </div>
+                    <div class="image-text-small pink-box">
+                        <a href="view.html"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="image-text-group">
+                <div class="image-text-medium grey-dark-box">
+                    <a href="view.html"></a>
+                </div>
+                <div class="image-text-large green-box">
+                    <a href="view.html"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-item insights-section">
+        <div class="insights-section-wrapper">
+            <h2 class="insights-section-title">我们最新的洞见</h2>
+            <div class="insights-section-box">
+                <div class="section-box-item"></div>
+                <div class="section-box-item"></div>
+                <div class="section-box-item"></div>
+            </div>
+            <a class="more-button-large" href="view.html">了解更多</a>
+        </div>
+    </div>
+
 </div>
 
 <div class="footer">
-
+    <div class="footer-inner-box">
+        <div class="footer-item footer-well">
+            <div class="item-left">
+                <h2>关于ThoughtWorks</h2>
+                <p>我们不仅仅是一家软件公司，同时也是一个社区：我们汇集满怀激情的软件精英，通过技术和客户共同应对最艰巨的挑战。同时我们寻求IT行业的革新，并致力于对社会产生积极的影响力。</p>
+            </div>
+            <div class="item-right"></div>
+        </div>
+        <div class="footer-item">
+            <ul class="footer-nav">
+                <li class="menu-item"><a href="/">首页</a></li>
+                <li class="menu-item"><a href="clients.html">客户</a></li>
+                <li class="menu-item"><a href="services.html">服务</a></li>
+                <li class="menu-item"><a href="products.html">产品</a></li>
+                <li class="menu-item"><a href="insights.html">观点</a></li>
+                <li class="menu-item"><a href="events.html">活动</a></li>
+                <li class="menu-item"><a href="about-us.html">关于我们</a></li>
+                <li class="menu-item"><a href="careers.html">加入我们</a></li>
+                <li class="menu-item"><a href="contact-us.html">联系我们</a></li>
+            </ul>
+            <div class="text-copyright">新闻与媒体 | 政策声明 | © 2017 ThoughtWorks, Inc.</div>
+        </div>
+    </div>
 </div>
 
 </body>
