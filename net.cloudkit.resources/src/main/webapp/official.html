@@ -88,19 +88,23 @@
         .main-content .main-topic-text .topic-subtitle { font-size: 18px; }
 
         .main-content .image-text-grid .image-text-wrapper {
-            display: -webkit-flex;display: flex;-webkit-align-items: stretch;align-items: stretch;flex-flow: row nowrap;
+            display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;
+            -webkit-align-items: stretch;align-items: stretch;flex-flow: row nowrap;
             text-align: center;
         }
         .main-content .image-text-grid .image-text-group {
             -webkit-box-flex: 1; flex: 1;
-            display: -webkit-flex;display: flex;-webkit-align-items: stretch;align-items: stretch;flex-direction: column;
+            display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;
+            -webkit-align-items: stretch;align-items: stretch;flex-direction: column;
         }
         .main-content .image-text-grid .image-text-group .image-text-subgroup {
             -webkit-box-flex: 1; flex: 1;
-            display: -webkit-flex;display: flex;-webkit-align-items: stretch;align-items: stretch;flex-flow: row nowrap;
+            display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;
+            -webkit-align-items: stretch;align-items: stretch;flex-flow: row nowrap;
         }
         .main-content .image-text-grid .image-text-group .image-text-small {
             -webkit-box-flex: 1; flex: 1;
+
         }
         .main-content .image-text-grid .image-text-group .image-text-medium,
         .main-content .image-text-grid .image-text-group .image-text-large {
@@ -114,41 +118,44 @@
             -webkit-transform: translate(0,-2px);transform: translate(0,-2px);opacity: .85;
             -webkit-transition: opacity .2s ease-out,-webkit-transform .2s ease-out;
             transition: opacity .2s ease-out,-webkit-transform .2s ease-out;
-            /*
-            -webkit-backface-visibility: hidden;
-            -moz-backface-visibility: hidden;
-            -ms-backface-visibility: hidden;
-            -webkit-transition: opacity .2s ease-out,-webkit-transform .2s ease-out;
-            transition: opacity .2s ease-out,-webkit-transform .2s ease-out;
-            transition: transform .2s ease-out,opacity .2s ease-out;
-            transition: transform .2s ease-out,opacity .2s ease-out,-webkit-transform .2s ease-out;
-            */
+            -webkit-backface-visibility: hidden;-moz-backface-visibility: hidden;-ms-backface-visibility: hidden;
         }
         .main-content .image-text-grid .image-text-group .light-grey-box {
             background: #eee url(resources/images/background_image-8ebecad7ac8a87833b409f7dc63fea3d.png) no-repeat center;background-size: cover;
             min-height: 300px;margin: 8px;
+            -webkit-box-pack: center;-moz-justify-content: center;-webkit-justify-content: center;justify-content: center;
+            -webkit-box-align: center;-moz-align-items: center;-webkit-align-items: center;align-items: center;
+            display:-webkit-flex;
         }
         .main-content .image-text-grid .image-text-group .blue-box {
             background: #1a73ba url(resources/images/background_image-f4ae0969dd90ff42be10c4be05ed6b0b.jpeg) no-repeat center;background-size: cover;
             min-height: 170px;margin: 8px;
+            -webkit-box-pack: center;-moz-justify-content: center;-webkit-justify-content: center;justify-content: center;
+            -webkit-box-align: center;-moz-align-items: center;-webkit-align-items: center;align-items: center;
+            display:-webkit-flex;
         }
         .main-content .image-text-grid .image-text-group .pink-box {
             background: #b32059;margin: 8px;
+            -webkit-box-pack: center;-moz-justify-content: center;-webkit-justify-content: center;justify-content: center;
+            -webkit-box-align: center;-moz-align-items: center;-webkit-align-items: center;align-items: center;
+            display:-webkit-flex;
         }
         .main-content .image-text-grid .image-text-group .grey-dark-box {
             background: #737578 url(resources/images/background_image-3a33d09cb0b9ecd82600f4176e20049f.jpeg) no-repeat center;background-size: cover;
             min-height: 170px;margin: 8px;
+            -webkit-box-pack: center;-moz-justify-content: center;-webkit-justify-content: center;justify-content: center;
+            -webkit-box-align: center;-moz-align-items: center;-webkit-align-items: center;align-items: center;
+            display:-webkit-flex;
         }
         .main-content .image-text-grid .image-text-group .green-box {
             background: #a5ccb2 url(resources/images/background_image-bd16ae6d56ca6cca767ed406612bd5ae.jpeg) no-repeat center;background-size: cover;
             min-height: 300px;margin: 8px;
+            -webkit-box-pack: center;-moz-justify-content: center;-webkit-justify-content: center;justify-content: center;
+            -webkit-box-align: center;-moz-align-items: center;-webkit-align-items: center;align-items: center;
+            display:-webkit-flex;
         }
-        .main-content .image-text-grid .image-text-group a {
-            /*width: 100%;height: 100%;display: inline-table;*/
-        }
-        .main-content .image-text-grid .image-text-group .box-content {
-            /*display:table-cell; vertical-align:middle;*/
-        }
+        .main-content .image-text-grid .image-text-group a { color: #fff;text-decoration: none; }
+        .main-content .image-text-grid .image-text-group a h2 { margin: 0;padding: 0;}
 
         .main-content .insights-section { text-align: center;max-width: 100%;background: #eee; }
         .main-content .insights-section .insights-section-title { text-align: center;font-size: 32px; }
@@ -267,30 +274,40 @@
     <div class="content-item image-text-grid">
         <div class="image-text-wrapper">
             <div class="image-text-group">
-                <!--<div class="image-text-large light-grey-box">-->
-                    <a href="view.html" class="image-text-large light-grey-box">
-                        <div class="box-content">
+                <a href="view.html" class="image-text-large light-grey-box">
+                    <div class="box-text">
+                        <h2 class="uppercase-title">技术雷达</h2>
+                        <div>阅读最新版本</div>
+                    </div>
+                </a>
+                <div class="image-text-subgroup">
+                    <a class="image-text-small blue-box" href="view.html">
+                        <div class="box-text">
                             <h2 class="uppercase-title">技术雷达</h2>
-                            <span>阅读最新版本</span>
+                            <div>阅读最新版本</div>
                         </div>
                     </a>
-                <!--</div>-->
-                <div class="image-text-subgroup">
-                    <!--<div class="image-text-small blue-box">-->
-                        <a class="image-text-small blue-box" href="view.html"></a>
-                    <!--</div>-->
-                    <!--<div class="image-text-small pink-box">-->
-                        <a class="image-text-small pink-box" href="view.html"></a>
-                    <!--</div>-->
+                    <a class="image-text-small pink-box" href="view.html">
+                        <div class="box-text">
+                            <h2 class="uppercase-title">技术雷达</h2>
+                            <div>阅读最新版本</div>
+                        </div>
+                    </a>
                 </div>
             </div>
             <div class="image-text-group">
-                <!--<div class="image-text-medium grey-dark-box">-->
-                    <a class="image-text-medium grey-dark-box" href="view.html"></a>
-                <!--</div>-->
-                <!--<div class="image-text-large green-box">-->
-                    <a class="image-text-medium green-box" href="view.html"></a>
-                <!--</div>-->
+                <a class="image-text-medium grey-dark-box" href="view.html">
+                    <div class="box-text">
+                        <h2 class="uppercase-title">技术雷达</h2>
+                        <div>阅读最新版本</div>
+                    </div>
+                </a>
+                <a class="image-text-medium green-box" href="view.html">
+                    <div class="box-text">
+                        <h2 class="uppercase-title">技术雷达</h2>
+                        <div>阅读最新版本</div>
+                    </div>
+                </a>
             </div>
         </div>
     </div>
