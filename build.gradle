@@ -27,7 +27,7 @@ def buildVersion() {
 }
 
 task wrapper(type: Wrapper, description: 'Gradle Wrapper task') {
-    gradleVersion = '3.2'
+    gradleVersion = '4.1'
     // Need to configure the wrapper to point to the custom distribution
     // distributionUrl = uri("../plugin/build/distributions/gradle-${gradle.gradleVersion}.zip")
     distributionUrl = "https://services.gradle.org/distributions/gradle-$gradleVersion-all.zip"

@@ -528,10 +528,12 @@ else
 Paxos和Raft
 Consensus
 
-Nginx（或Haproxy） +keepalived
+Nginx（或HAProxy） +keepalived
 
 Keepalived
 ZooKeeper
+
+http://www.haproxy.org/
 
 http://thesecretlivesofdata.com/raft/
 CAP原理和BASE思想
