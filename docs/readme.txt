@@ -1969,3 +1969,5 @@ Durability. 一旦事务完成，就不能返回。
 
 拜占庭将军问题 Byzantine fault tolerance
 https://en.wikipedia.org/wiki/Byzantine_fault_tolerance
+拜占庭将军问题（Byzantine failures）又称两军问题，是由莱斯利·兰伯特提出的点对点通信中的基本问题。
+含义是在存在消息丢失的不可靠信道上试图通过消息传递的方式达到一致性是不可能的。因此对一致性的研究一般假设信道是可靠的，或不存在本问题。
