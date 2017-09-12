@@ -2004,3 +2004,5 @@ Facebook 的Puma：Facebook使用puma和HBase相结合来处理实时数据，�
 Akka
 http://akka.io/
 RXJava
+
+WebSocket
