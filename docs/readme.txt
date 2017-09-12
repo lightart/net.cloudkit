@@ -1944,3 +1944,4 @@ C语言核心技术
 
 Zab 协议
 ZAB（ZooKeeper Atomic Broadcast ） 全称为：原子消息广播协议；
+Epoch指的是一个特定的时间:1970-01-01 00:00:00 UTC。
