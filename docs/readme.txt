@@ -1978,3 +1978,15 @@ https://en.wikipedia.org/wiki/Byzantine_fault_tolerance
 最多一次（At-most-once）：消息可能会丢失，这通常是最不理想的结果。
 最少一次（At-least-once）：消息可能会再次发送（没有丢失的情况，但是会产生冗余）。在许多用例中已经足够。
 恰好一次（Exactly-once）：每条消息都被发送过一次且仅仅一次（没有丢失，没有冗余）。这是最佳情况，尽管很难保证在所有用例中都实现。
+
+1.数据实时采集
+目前的产品：Facebook的Scribe、LinkedIn的Kafka、Cloudera的Flume，淘宝开源的TimeTunnel、Hadoop的Chukwa等，均可以满足每秒数百MB的日志数据采集和传输需求。
+2.数据实时计算
+在流数据不断变化的运动过程中实时地进行分析，捕捉到可能对用户有用的信息，并把结果发送出去。
+Yahoo的S4：S4是一个通用的、分布式的、可扩展的、分区容错的、可插拔的流式系统，Yahoo开发S4系统，主要是为了解决：搜索广告的展现、处理用户的点击反馈。
+Twitter的Storm：是一个分布式的、容错的实时计算系统。可用于处理消息和更新数据库（流处理），在数据流上进行持续查询，并以流的形式返回结果到客户端（持续计算），并行化一个类似实时查询的热点查询（分布式的RPC）。
+Facebook 的Puma：Facebook使用puma和HBase相结合来处理实时数据，另外Facebook发表一篇利用HBase/Hadoop进行实时数据处理的论文（ApacheHadoop Goes Realtime at Facebook），通过一些实时性改造，让批处理计算平台也具备实时计算的能力。
+3.实时查询服务
+半内存：使用Redis、Memcache、MongoDB、BerkeleyDB等内存数据库提供数据实时查询服务，由这些系统进行持久化操作。
+全磁盘：使用HBase等以分布式文件系统（HDFS）为基础的NoSQL数据库，对于key-value引擎，关键是设计好key的分布。
+全内存：直接提供数据读取服务，定期dump到磁盘或数据库进行持久化。
