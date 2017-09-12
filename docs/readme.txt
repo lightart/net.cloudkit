@@ -2001,4 +2001,6 @@ Facebook 的Puma：Facebook使用puma和HBase相结合来处理实时数据，�
 全磁盘：使用HBase等以分布式文件系统（HDFS）为基础的NoSQL数据库，对于key-value引擎，关键是设计好key的分布。
 全内存：直接提供数据读取服务，定期dump到磁盘或数据库进行持久化。
 
+Akka
 http://akka.io/
+RXJava
