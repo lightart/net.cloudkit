@@ -1979,6 +1979,7 @@ https://en.wikipedia.org/wiki/Byzantine_fault_tolerance
 最少一次（At-least-once）：消息可能会再次发送（没有丢失的情况，但是会产生冗余）。在许多用例中已经足够。
 恰好一次（Exactly-once）：每条消息都被发送过一次且仅仅一次（没有丢失，没有冗余）。这是最佳情况，尽管很难保证在所有用例中都实现。
 
+对于产生海量数据且不间断的数据源，又要求对用户提供秒级的实时响应，这就是实时计算的主要场景。
 1.数据实时采集
 目前的产品：Facebook的Scribe、LinkedIn的Kafka、Cloudera的Flume，淘宝开源的TimeTunnel、Hadoop的Chukwa等，均可以满足每秒数百MB的日志数据采集和传输需求。
 2.数据实时计算
