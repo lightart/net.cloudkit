@@ -1967,4 +1967,5 @@ Durability. 一旦事务完成，就不能返回。
 前者是对副本冗余的处理。即存在多个拷贝的时候，拷贝和拷贝之间的一致性。
 而后者是集中于事务，对于事务进行前后的数据库状态一致性。
 
-拜占庭将军问题
+拜占庭将军问题 Byzantine fault tolerance
+https://en.wikipedia.org/wiki/Byzantine_fault_tolerance
