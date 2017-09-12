@@ -1947,3 +1947,5 @@ ZAB（ZooKeeper Atomic Broadcast ） 全称为：原子消息广播协议；
 Epoch指的是一个特定的时间:1970-01-01 00:00:00 UTC。
 
 状态机
+有限状态机
+无限状态机
