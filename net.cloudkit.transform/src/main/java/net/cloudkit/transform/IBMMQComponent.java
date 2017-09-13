@@ -28,7 +28,7 @@ public class IBMMQComponent {
         mq.setQueueManagerName("QMCqhz01");
         mq.setQueueName("TEST_LOCAL");
         mq.setCcsid(Integer.valueOf(819));
-        mq.setReceivePath("D:\\trans_mq\\downloads");
+        mq.setReceivePath("D:\\Program Files\\ePortClient\\exchange\\downloads");
         // mq.setUserId("Administrator");
         // mq.setPassword("password");
 
