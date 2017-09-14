@@ -26,6 +26,7 @@ public class Test {
 
         // 匿名类
         Formula formula = new Formula() {
+
             @Override
             public double calculate(int a) {
                 return sqrt(a * 100);
