@@ -2023,3 +2023,5 @@ https://javaee.github.io/
 https://javaee.github.io/hk2/
 https://javaee.github.io/grizzly/
 http://vertx.io/
+
+http://dubbo.io/
