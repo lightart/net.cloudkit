@@ -2026,3 +2026,9 @@ http://vertx.io/
 
 http://dubbo.io/
 https://grpc.io
+
+http://qpid.apache.org/
+http://thrift.apache.org/
+
+Lambda
+Java8 Parallel Stream API
