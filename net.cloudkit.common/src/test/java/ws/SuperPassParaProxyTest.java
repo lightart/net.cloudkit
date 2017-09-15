@@ -205,7 +205,7 @@ public class SuperPassParaProxyTest {
         // byte[] requestData = "<?xml version=\"1.0\"?>\n<LoadIntoMemoryRequest xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><QuerySql><![CDATA[SELECT CODE, NAME FROM mft8_un_locode_port ORDER BY CODE]]></QuerySql></LoadIntoMemoryRequest>".getBytes();
         byte[] requestData = "<?xml version=\"1.0\"?>\n<LoadIntoMemoryRequest xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><QuerySql><![CDATA[SELECT MFTEC_CODE, MFTEC_NAME FROM MFTEC_CODE ORDER BY MFTEC_CODE]]></QuerySql></LoadIntoMemoryRequest>".getBytes();
 
-        Holder<byte[]> responseData = new Holder<byte[]>();
+        Holder<byte[]> responseData = new Holder<>();
         System.out.println(new String(superPass.service(serviceName, requestContext, requestData, responseData)));
 
         // deflate 解压
