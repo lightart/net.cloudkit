@@ -24,7 +24,7 @@
         <property name="requestContext">
             <bean class="net.cloudkit.integration.services.RequestContext">
                 <property name="hashKey" value="KFavQzBQfZo8oD7DIJc4NWiw/5c=" />
-                <property name="requestType" value="decl" />
+                <property name="requestType" value="xxx" />
                 <property name="sourceAddress" value="" />
                 <property name="mac" value="" />
                 <property name="username" value="" />
@@ -53,7 +53,7 @@
         <property name="requestContext">
             <bean class="net.cloudkit.integration.services.RequestContext">
                 <property name="hashKey" value="KFavQzBQfZo8oD7DIJc4NWiw/5c=" />
-                <property name="requestType" value="decl" />
+                <property name="requestType" value="xxx" />
                 <property name="sourceAddress" value="" />
                 <property name="mac" value="" />
                 <property name="username" value="" />
