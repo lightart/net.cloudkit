@@ -9,26 +9,7 @@
        default-autowire="byName">
     <!-- 配置信息 -->
     <util:map id="arguments">
-        <entry key="saicSysNo" value="766350979" />
-        <entry key="depCodeChg" value="5300" />
-        <entry key="depInCode" value="5300" />
-        <entry key="externalSeq" value="5e97bd0204d08a0dd4b57df4a9d262a1" />
-        <entry key="clientId" value="5300001976914" />
-        <entry key="declPort " value="5301,5318,5317,5316,5304,5321,5141,5320,5341,3101,3104," />
-        <entry key="qpApiType" value="2" />
-        <entry key="comCode" value="JHWL" />
-        <entry key="comType" value="2" />
-        <entry key="operatorName" value="杨倩" />
-        <entry key="comName" value="深圳市巨航国际物流有限公司" />
-        <entry key="certNo" value="df630b" />
-        <entry key="iePort " value="5301,5318,5317,5316,5304,5321,5141,5320,5341,3101,3104," />
-        <entry key="regCoCgac" value="4403180237" />
-        <entry key="icCode" value="8930000011040" />
-        <entry key="ownerCode" value="4403180237" />
-        <entry key="ieFlag" value="E" />
-        <entry key="suFlag" value="S" />
-        <entry key="qpApiType" value="3" />
-        <!--<entry key="taskType" value="CDL_I_DECL" value-type="" />-->
+        <!--<entry key="taskType" value="XXX" value-type="" />-->
     </util:map>
 
     <!-- 下载数据 -->
