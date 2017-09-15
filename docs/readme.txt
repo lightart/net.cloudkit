@@ -2035,3 +2035,6 @@ Java8 Parallel Stream API
 
 exe4j
 instal4j
+
+sigar
+http://sigar.hyperic.com/
