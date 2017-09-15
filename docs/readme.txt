@@ -2032,3 +2032,6 @@ http://thrift.apache.org/
 
 Lambda
 Java8 Parallel Stream API
+
+exe4j
+instal4j
