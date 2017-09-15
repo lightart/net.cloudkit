@@ -2042,3 +2042,11 @@ http://sigar.hyperic.com/
 TFS
 mogileFS
 FastDFS
+
+GridFS >16M
+MongoDB
+
+对于小文件问题，Hadoop本身也提供了几个解决方案，分别为：Hadoop Archives，Sequence file和CombineFileInputFormat。
+http://blog.cloudera.com/blog/2009/02/the-small-files-problem/
+
+https://wrapper.tanukisoftware.com/doc/english/download.jsp
