@@ -2038,3 +2038,7 @@ instal4j
 
 sigar
 http://sigar.hyperic.com/
+
+TFS
+mogileFS
+FastDFS
