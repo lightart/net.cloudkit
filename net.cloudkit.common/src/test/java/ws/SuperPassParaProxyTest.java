@@ -10,6 +10,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 import java.net.URL;
+import java.util.UUID;
 
 /**
  * QP 参数查询
@@ -208,7 +209,9 @@ public class SuperPassParaProxyTest {
         System.out.println(new String(superPass.service(serviceName, requestContext, requestData, responseData)));
 
         // deflate 解压
-        DeflateCompressorInputStream gis = new DeflateCompressorInputStream(new ByteArrayInputStream(responseData.value));
+        DeflateCompressorInputStream gis = new DeflateCompressorInputStream(
+            new ByteArrayInputStream(responseData.value)
+        );
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         int count;
         byte data[] = new byte[1024];
@@ -223,7 +226,13 @@ public class SuperPassParaProxyTest {
 
         // System.out.println(new String(data));
         // System.out.println(new String(responseData.value, "UTF-8"));
-        FileOutputStream fos = new FileOutputStream("D:/code.xml");
+        FileOutputStream fos = new FileOutputStream(
+            new StringBuffer()
+                .append("D:/")
+                .append(UUID.randomUUID())
+                .append(".xml")
+                .toString()
+        );
         OutputStreamWriter osw = new OutputStreamWriter(fos, "UTF-8");
         osw.write(new String(data));
         osw.flush();
