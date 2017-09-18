@@ -506,3 +506,8 @@ public class IBMMQComponent {
         return this.getClass().getName() + ", { IBM MQ://" + (this.userId != null && !this.userId.isEmpty()?this.userId + "@":"") + this.hostname + ":" + this.port + "/" + this.queueManagerName + "/" + this.channel + "/" + this.queueName;
     }
 }
+
+interface IBMMQReceiveCallback {
+
+    void execute(byte[] paramArrayOfByte);
+}
