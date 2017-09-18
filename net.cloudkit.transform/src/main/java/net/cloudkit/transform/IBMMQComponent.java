@@ -20,7 +20,7 @@ public class IBMMQComponent {
     public static void main(String[] args) {
 
         // 回执 QLCqhz01 QTCqhz01
-        // IBMMQComponent mq = new IBMMQComponent("120.76.96.117", Integer.valueOf(1401), "SYSTEM.DEF.SVRCONN", "QMCqhz01", "TEST_LOCAL", "D:\\trans_mq\\downloads");
+        // IBMMQComponent mq = new IBMMQComponent("120.76.96.117", Integer.valueOf(1401), "SYSTEM.DEF.SVRCONN", "QMCqhz01", "TEST_LOCAL", "D:\\exchange\\downloads");
         IBMMQComponent mq = new IBMMQComponent();
         mq.setHostname("192.168.1.1");
         mq.setPort(1401);
@@ -28,7 +28,7 @@ public class IBMMQComponent {
         mq.setQueueManagerName("QMCqhz01");
         mq.setQueueName("TEST_LOCAL");
         mq.setCcsid(Integer.valueOf(819));
-        mq.setReceivePath("D:\\Program Files\\ePortClient\\exchange\\downloads");
+        mq.setReceivePath("D:\\Program Files\\exchange\\downloads");
         // mq.setUserId("Administrator");
         // mq.setPassword("password");
 
