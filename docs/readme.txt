@@ -1544,6 +1544,14 @@ NFV，即网络功能虚拟化，Network Function Virtualization
 
 比较并交换
 CAS（Compare and swap）比较和替换是设计并发算法时用到的一种技术
+int compare_and_swap (int* reg, int oldval, int newval) {
+  ATOMIC();
+  int old_reg_val = *reg;
+  if (old_reg_val == oldval)
+     *reg = newval;
+  END_ATOMIC();
+  return old_reg_val;
+}
 
 MVCC Multi-Version Concurrency Control 多版本并发控制
 
