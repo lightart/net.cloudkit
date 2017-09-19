@@ -573,5 +573,7 @@ ext.libraries += [
     // junit5
     "junit"                                 : "junit:junit:${versions.'junit'}",
     "hamcrest-core"                         : "org.hamcrest:hamcrest-core:${versions.'hamcrest-core'}",
+
+    // RabbitMQ
     "amqp-client"                           : "com.rabbitmq:amqp-client:4.2.1"
 ]
