@@ -62,7 +62,7 @@ ext.versions += [
 
     'jedis'                     : '2.9.0',
 
-    'grizzly'                   : '2.3.27',
+    'grizzly'                   : '2.4.0',
     'netty'                     : '5.0.0.Alpha2',
 
     'cglib'                     : '3.2.4',
