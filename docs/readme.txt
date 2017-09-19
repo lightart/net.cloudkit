@@ -1568,6 +1568,10 @@ Read uncommitted (读未提交)：最低级别，任何情况都无法保证。
 乐观锁
 悲观锁
 原子操作
+互斥锁
+
+互斥事件（exclusive event）
+对立事件（opposite event）
 
 事务处理 概念与技术 Jim Gray
 transaction processing concepts and techniques pdf
@@ -2109,3 +2113,5 @@ PhantomReference pr = new PhantomReference (object, queue);
 程序可以通过判断引用队列中是否已经加入了虚引用，来了解被引用的对象是否将要被垃圾回收。如果程序发现某个虚引用已经被加入到引用队列，那么就可以在所引用
 的对象的内存被回收之前采取必要的行动。
 
+
+select poll epoll
