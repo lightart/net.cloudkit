@@ -63,7 +63,7 @@ ext.versions += [
     'jedis'                     : '2.9.0',
 
     'grizzly'                   : '2.4.0',
-    'netty'                     : '5.0.0.Alpha2',
+    'netty'                     : '4.1.15',
 
     'cglib'                     : '3.2.4',
     'javassist'                 : '3.20.0-GA',
@@ -466,44 +466,56 @@ ext.libraries += [
     // netty
     "netty-all"                             : "io.netty:netty-all:${versions.'netty'}",
 
-    // grizzly
     // Core framework
-    "grizzly-core"                          : "org.glassfish.grizzly:grizzly-core:${versions.'grizzly'}",
-    // Connection Pool
-    "grizzly-connection-pool"               : "org.glassfish.grizzly:connection-pool:${versions.'grizzly'}",
-    "grizzly-httpservice-bundle"            : "org.glassfish.grizzly.osgi:grizzly-httpservice-bundle:${versions.'grizzly'}",
-    "grizzly-httpservice"                   : "org.glassfish.grizzly.osgi:grizzly-httpservice:${versions.'grizzly'}",
+    "grizzly-framework"                     : "org.glassfish.grizzly:grizzly-framework:${versions.'grizzly'}",
+    // HTTP framework
+    "grizzly-http"                          : "org.glassfish.grizzly:grizzly-http:${versions.'grizzly'}",
+    // HTTP Server framework
+    "grizzly-http-server"                   : "org.glassfish.grizzly:grizzly-http-server:${versions.'grizzly'}",
+    // HTTP Servlet framework
+    "grizzly-http-servlet"                  : "org.glassfish.grizzly:grizzly-http-servlet:${versions.'grizzly'}",
+    // Port unification
+    "grizzly-portunif"                      : "org.glassfish.grizzly:grizzly-portunif:${versions.'grizzly'}",
+    // Comet
+    "grizzly-comet"                         : "org.glassfish.grizzly:grizzly-comet:${versions.'grizzly'}",
+    // WebSockets
+    "grizzly-websockets"                    : "org.glassfish.grizzly:grizzly-websockets:${versions.'grizzly'}",
+    // AJP
+    "grizzly-http-ajp"                      : "org.glassfish.grizzly:grizzly-http-ajp:${versions.'grizzly'}",
     // JAX-WS
     "grizzly-http-server-jaxws"             : "org.glassfish.grizzly:grizzly-http-server-jaxws:${versions.'grizzly'}",
-    "grizzly-http-all"                      : "org.glassfish.grizzly:grizzly-http-all:${versions.'grizzly'}",
-    "grizzly-websockets-server"             : "org.glassfish.grizzly:grizzly-websockets-server:${versions.'grizzly'}",
-    "grizzly-comet-server"                  : "org.glassfish.grizzly:grizzly-comet-server:${versions.'grizzly'}",
-    "grizzly-http-servlet-server"           : "org.glassfish.grizzly:grizzly-http-servlet-server:${versions.'grizzly'}",
-    "grizzly-http-servlet-extras"           : "org.glassfish.grizzly:grizzly-http-servlet-extras:${versions.'grizzly'}",
-    "grizzly-http-server-core"              : "org.glassfish.grizzly:grizzly-http-server-core:${versions.'grizzly'}",
-    "grizzly-http-server-multipart"         : "org.glassfish.grizzly:grizzly-http-server-multipart:${versions.'grizzly'}",
     // Monitoring
     "grizzly-http-server-monitoring"        : "org.glassfish.grizzly:grizzly-http-server-monitoring:${versions.'grizzly'}",
     "grizzly-http-monitoring"               : "org.glassfish.grizzly:grizzly-http-monitoring:${versions.'grizzly'}",
     "grizzly-framework-monitoring"          : "org.glassfish.grizzly:grizzly-framework-monitoring:${versions.'grizzly'}",
-    // SPDY
-    "grizzly-spdy"                          : "org.glassfish.grizzly:grizzly-spdy:${versions.'grizzly'}",
-    // Ajp
-    "grizzly-http-ajp"                      : "org.glassfish.grizzly:grizzly-http-ajp:${versions.'grizzly'}",
-    // Port unification
-    "grizzly-portunif"                      : "org.glassfish.grizzly:grizzly-portunif:${versions.'grizzly'}",
-    // WebSockets
-    "grizzly-websockets"                    : "org.glassfish.grizzly:grizzly-websockets:${versions.'grizzly'}",
-    // Comet
-    "grizzly-comet"                         : "org.glassfish.grizzly:grizzly-comet:${versions.'grizzly'}",
-    // HTTP Server framework
-    "grizzly-http-servlet"                  : "org.glassfish.grizzly:grizzly-http-servlet:${versions.'grizzly'}",
-    "grizzly-http2"                         : "org.glassfish.grizzly:grizzly-http2:${versions.'grizzly'}",
-    "grizzly-http-server"                   : "org.glassfish.grizzly:grizzly-http-server:${versions.'grizzly'}",
-    // HTTP framework
-    "grizzly-http"                          : "org.glassfish.grizzly:grizzly-http:${versions.'grizzly'}",
-    "grizzly-framework"                     : "org.glassfish.grizzly:grizzly-framework:${versions.'grizzly'}",
+    // Connection Pool
+    "grizzly-connection-pool"               : "org.glassfish.grizzly:connection-pool:${versions.'grizzly'}",
+    // Server Name Indication (SNI) TLS extension support
     "grizzly-tls-sni"                       : "org.glassfish.grizzly:tls-sni:${versions.'grizzly'}",
+    // OSGi HTTP Service
+    "grizzly-httpservice-bundle"            : "org.glassfish.grizzly.osgi:grizzly-httpservice-bundle:${versions.'grizzly'}",
+    // HTTP Server Multipart
+    "grizzly-http-server-multipart"         : "org.glassfish.grizzly:grizzly-http-server-multipart:${versions.'grizzly'}",
+    // Grizzly HTTP Servlet Extras
+    "grizzly-http-servlet-extras"           : "org.glassfish.grizzly:grizzly-http-servlet-extras:${versions.'grizzly'}",
+
+    // #Bundles
+    // Core framework
+    "grizzly-core"                          : "org.glassfish.grizzly:grizzly-core:${versions.'grizzly'}",
+    // The HTTP Server Core Bundle
+    "grizzly-http-server-core"              : "org.glassfish.grizzly:grizzly-http-server-core:${versions.'grizzly'}",
+    // The HTTP Servlet Bundle
+    "grizzly-http-servlet-server"           : "org.glassfish.grizzly:grizzly-http-servlet-server:${versions.'grizzly'}",
+    // The Grizzly Comet Bundle
+    "grizzly-comet-server"                  : "org.glassfish.grizzly:grizzly-comet-server:${versions.'grizzly'}",
+    // The Grizzly Websockets Bundle
+    "grizzly-websockets-server"             : "org.glassfish.grizzly:grizzly-websockets-server:${versions.'grizzly'}",
+    // The Grizzly HTTP ‘All’ Bundle
+    "grizzly-http-all"                      : "org.glassfish.grizzly:grizzly-http-all:${versions.'grizzly'}",
+    /*
+    "grizzly-httpservice"                   : "org.glassfish.grizzly.osgi:grizzly-httpservice:${versions.'grizzly'}",
+    "grizzly-spdy"                          : "org.glassfish.grizzly:grizzly-spdy:${versions.'grizzly'}",
+    "grizzly-http2"                         : "org.glassfish.grizzly:grizzly-http2:${versions.'grizzly'}",
     "grizzly-config"                        : "org.glassfish.grizzly:grizzly-config:2.3.2",
     "grizzly-thrift"                        : "org.glassfish.grizzly:grizzly-thrift:2.2.1",
     "grizzly-http-client"                   : "org.glassfish.grizzly:grizzly-http-client:1.9",
@@ -515,6 +527,7 @@ ext.libraries += [
     "grizzly-utils"                         : "org.glassfish.grizzly:grizzly-utils:2.0.0-RC3",
     "grizzly-servlet-webserver"             : "org.glassfish.grizzly:grizzly-servlet-webserver:2.0.0-M2",
     "grizzly-http-webserver"                : "org.glassfish.grizzly:grizzly-http-webserver:2.0.0-M2",
+    */
 
     // Mail
     "javax.mail-api"                        : "javax.mail:javax.mail-api:1.5.5",
