@@ -2053,3 +2053,5 @@ https://wrapper.tanukisoftware.com/doc/english/download.jsp
 
 The Art of UNIX Programming
 算法:C语言实现(第1～4部分)基础知识、数据结构、排序及搜索(原书第3版)
+
+http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-088-introduction-to-c-memory-management-and-c-object-oriented-programming-january-iap-2010/index.htm#features
