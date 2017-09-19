@@ -1542,6 +1542,7 @@ libGDX
 SDN，软件定义网络(Software Defined Network, SDN )，是Emulex网络一种新型网络创新架构，是网络虚拟化的一种实现方式，其核心技术OpenFlow通过将网络设备控制面与数据面分离开来，从而实现了网络流量的灵活控制，使网络作为管道变得更加智能。
 NFV，即网络功能虚拟化，Network Function Virtualization
 
+比较并交换
 CAS（Compare and swap）比较和替换是设计并发算法时用到的一种技术
 
 MVCC Multi-Version Concurrency Control 多版本并发控制
@@ -2055,3 +2056,8 @@ The Art of UNIX Programming
 算法:C语言实现(第1～4部分)基础知识、数据结构、排序及搜索(原书第3版)
 
 http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-088-introduction-to-c-memory-management-and-c-object-oriented-programming-january-iap-2010/index.htm#features
+
+Implementing Lock-Free Queues
+http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.53.8674&rep=rep1&type=pdf
+
+ABA problem
