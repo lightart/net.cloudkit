@@ -545,6 +545,7 @@ ext.libraries += [
     // Sybase
     // DB2
     // Oracle
+    // SQL Server
 
 
     "groovy-all"                            : "org.codehaus.groovy:groovy-all:2.4.4",
