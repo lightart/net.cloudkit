@@ -37,26 +37,25 @@ ext.versions += [
 
     'spring-boot'               : '1.4.0.RELEASE',
 
-    'hibernate'                 : '5.2.2.Final',
-    'hibernate-search'          : '5.5.4.Final',
-    'hibernate-validator'       : '5.2.4.Final',
-    'hibernate-ogm'             : '5.0.1.Final',
-    'hibernate-ogm'             : '5.0.1.Final',
+    'hibernate'                 : '5.2.11.Final',
+    'hibernate-search'          : '5.8.0.Final',
+    'hibernate-validator'       : '6.0.2.Final',
+    'hibernate-ogm'             : '5.2.0.Final',
 
-    'mybatis'                   : '3.4.1',
+    'mybatis'                   : '3.4.5',
 
     'querydsl'                  : '4.1.4',
 
     // Ebean
     'avaje-ebeanorm'            : '8.2.2',
 
-    'jersey'                    : '2.23.2',
+    'jersey'                    : '2.26',
 
-    'quartz'                    : '2.2.3',
+    'quartz'                    : '2.3.0',
 
     'shiro'                     : '1.3.2',
 
-    'spymemcached'              : '2.12.1',
+    'spymemcached'              : '2.12.3',
 
     'ehcache-core'              : '2.6.11',
 
