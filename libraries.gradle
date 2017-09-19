@@ -534,8 +534,18 @@ ext.libraries += [
 
     "activation"                            : "javax.activation:activation:1.1.1",
 
+    // H2
     "h2"                                    : "com.h2database:h2:1.4.189",
+    // MySQL
     "mysql-connector-java"                  : "mysql:mysql-connector-java:5.1.34",
+    // Derby
+    // HSQLDB
+    // PostgreSQL
+    // SQLite
+    // Sybase
+    // DB2
+    // Oracle
+
 
     "groovy-all"                            : "org.codehaus.groovy:groovy-all:2.4.4",
 
