@@ -75,7 +75,7 @@ ext.versions += [
 
     'zxing'                     : '3.2.1',
 
-    'velocity'                  : '1.7',
+    'velocity'                  : '2.0',
     'freemarker'                : '2.3.23',
     'thymeleaf'                 : '3.0.1.RELEASE',
 
@@ -432,7 +432,7 @@ ext.libraries += [
 
     "aspectjweaver"                         : "org.aspectj:aspectjweaver:${versions.'aspectjweaver'}",
 
-    "velocity"                              : "org.apache.velocity:velocity:${versions.'velocity'}",
+    "velocity"                              : "org.apache.velocity:velocity-engine-core:${versions.'velocity'}",
     "freemarker"                            : "org.freemarker:freemarker:${versions.'freemarker'}",
 
     // 面向Java的XML/HTML模板引擎
