@@ -252,7 +252,7 @@ public class IBMMQComponent {
                     }
                 } catch (MQException e) {
                     // 并发取出时可能已取空
-                    if(e.completionCode == 2033) {
+                    if(e.completionCode == CMQC.MQRC_NO_MSG_AVAILABLE) {
                         /*
                         if(LOG.isDebugEnabled()) {
                             LOG.debug("Queue [" + this.toString() + "] is empty.");
