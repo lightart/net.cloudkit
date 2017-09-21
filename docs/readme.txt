@@ -955,8 +955,9 @@ https://www.cairographics.org/
 Skia
 https://skia.org/
 FreeType
-xlib x.org
-
+xlib
+XCB
+x.org
 
 ------------------------------------------------------------------------------------------------------------------------
 Firebase Meteor
