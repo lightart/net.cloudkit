@@ -1043,6 +1043,8 @@ https://www.viksoe.dk/code/
 https://tronche.com/gui/x/xlib-tutorial/2nd-program-anatomy.html
 https://tronche.com/gui/x/xlib/
 https://www.x.org/docs/X11/xlib.pdf
+libxcb
+https://www.x.org/releases/X11R7.7/doc/libxcb/tutorial/index.html
 
 
 http://www.jianshu.com/u/1f0067e24ff8
