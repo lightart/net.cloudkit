@@ -951,7 +951,9 @@ kern.maxvnodes=3
 
 framebuffer
 Cairo
+https://www.cairographics.org/
 Skia
+https://skia.org/
 FreeType
 xlib x.org
 
