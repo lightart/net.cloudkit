@@ -2183,6 +2183,16 @@ W.Richard Stevens (2009-07-08 10:13:11)
 http://www.kohala.com/start/
 2006年3月  《UNIX环境高级编程（第2版）》英文影印版出版
 2006年5月  《UNIX环境高级编程（第2版） 》中译版出版
+
+UNIX Network Programming, Volume 1, Second Edition: Networking APIs: Sockets and XTI, Prentice Hall, 1998, ISBN 0-13-490012-X.
+UNIX Network Programming, Volume 2, Second Edition: Interprocess Communications, Prentice Hall, 1999, ISBN 0-13-081081-9.
 2009年11月 《UNIX网络编程 卷1：套接字联网API（英文版•第3版）》《UNIX网络编程 卷2：进程间通信（英文版•第2版）》出版
-2010年3月  《TCP/IP详解 卷1：协议（英文版）》、《TCP/IP详解 卷2：实现（英文版）》和《TCP/IP详解 卷3：T/TCP、HTTP、NNTP及UNIX域协议（英文版） 》三卷出版
 2010年6月  《UNIX网络编程 卷1：套接字联网API（第3版）》《UNIX网络编程 卷2：进程间通信（第2版）》中译版出版
+
+TCP/IP Illustrated, Volume 1: The Protocols, Addison-Wesley, 1994, ISBN 0-201-63346-9.
+TCP/IP Illustrated, Volume 2: The Implementation, Addison-Wesley, 1995, ISBN 0-201-63354-X.
+TCP/IP Illustrated, Volume 3: TCP for Transactions, HTTP, NNTP, and the UNIX Domain Protocols, Addison-Wesley, 1996, ISBN 0-201-63495-3.
+2010年3月  《TCP/IP详解 卷1：协议（英文版）》、《TCP/IP详解 卷2：实现（英文版）》和《TCP/IP详解 卷3：T/TCP、HTTP、NNTP及UNIX域协议（英文版） 》三卷出版
+
+Advanced Programming in the UNIX Environment, Addison-Wesley, 1992, ISBN 0-201-56317-7.
+UNIX Network Programming, Prentice Hall, 1990, ISBN 0-13-949876-1.
