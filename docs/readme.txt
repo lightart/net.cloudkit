@@ -2157,4 +2157,4 @@ https://www.sqlite.org/
 
 https://stackoverflow.com/
 
-GPL,LGPL,BSD,MIT,Apache,GNU
+GPL, LGPL, BSD, MIT, Apache, GNU
