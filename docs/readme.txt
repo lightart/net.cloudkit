@@ -2160,3 +2160,6 @@ https://stackoverflow.com/
 GPL, LGPL, BSD, MIT, Apache, GNU
 
 Graphics Library
+
+POSIX 表示可移植操作系统接口(Portable Operating System Interface ，缩写为 POSIX )，POSIX标准定义了操作系统应该为应用程序提供的接口标
+准，是IEEE为要在各种UNIX操作系统上运行的软件而定义的一系列API标准的总称，其正式称呼为IEEE 1003，而国际标准名称为ISO/IEC 9945。
