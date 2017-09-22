@@ -2156,3 +2156,5 @@ https://www.unqlite.org/
 https://www.sqlite.org/
 
 https://stackoverflow.com/
+
+GPL,LGPL,BSD,MIT,Apache,GNU
