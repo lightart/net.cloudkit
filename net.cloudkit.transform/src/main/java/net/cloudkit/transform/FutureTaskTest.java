@@ -9,6 +9,7 @@ import java.util.concurrent.TimeUnit;
  * http://www.jianshu.com/p/1dd951412ff5
  */
 public class FutureTaskTest {
+
     public static void main(String[] args) throws InterruptedException{
         FutureTask<Integer> ft = new FutureTask<>(new Callable<Integer>() {
             @Override
