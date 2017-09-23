@@ -801,6 +801,17 @@ TensorFlow
 Lamda
 
 Trie树
+B-tree
+B+ Tree
+B* Tree
+R-tree
+Red–black tree
+2–3 tree
+2–3–4 tree
+伸展树
+Treap树
+平衡二叉树
+二叉查找树
 
 ------------------------------------------------------------------------------------------------------------------------
 http://blog.jobbole.com/30940/
