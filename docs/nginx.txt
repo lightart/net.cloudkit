@@ -1,0 +1,56 @@
+./configure \
+  --prefix=/usr/local/nginx-1.12.1 \
+  --user=nginx \
+  --group=nginx \
+  --with-http_ssl_module \
+  --with-http_realip_module \
+  --with-http_addition_module \
+  --with-poll_module \
+  --with-http_sub_module \
+  --with-http_dav_module \
+  --with-http_flv_module \
+  --with-http_mp4_module \
+  --with-http_gunzip_module \
+  --with-http_gzip_static_module \
+  --with-http_random_index_module \
+  --with-http_secure_link_module \
+  --with-http_stub_status_module \
+  --with-http_auth_request_module \
+  --with-http_v2_module \
+  --with-mail \
+  --with-mail_ssl_module \
+  --with-file-aio \
+  --with-ipv6 \
+  --with-threads \
+  --with-stream \
+  --with-stream_ssl_module \
+  --with-openssl=../openssl-1.0.2l \
+  --with-pcre=../pcre-8.41 \
+  --with-zlib=../zlib-1.2.11 \
+
+https://www.openssl.org/source/openssl-1.0.2l.tar.gz
+https://ftp.pcre.org/pub/pcre/pcre-8.41.tar.gz
+http://zlib.net/zlib-1.2.11.tar.gz
+
+--prefix=path
+--sbin-path=path
+--conf-path=path
+--pid-path=path
+--error-log-path=path
+--http-log-path=path
+--build=name
+--user=name
+--group=name
+--with-select_module
+--without-select_module
+--with-poll_module
+--without-poll_module
+--without-http_gzip_module
+--without-http_rewrite_module
+--without-http_proxy_module
+--with-http_ssl_module
+--with-pcre=path
+--with-pcre-jit
+--with-zlib=path
+--with-cc-opt=parameters
+--with-ld-opt=parameters
