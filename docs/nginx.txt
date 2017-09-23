@@ -3,6 +3,9 @@ wget https://www.openssl.org/source/openssl-1.0.2l.tar.gz
 wget https://ftp.pcre.org/pub/pcre/pcre-8.41.tar.gz
 wget http://zlib.net/zlib-1.2.11.tar.gz
 
+groupadd nginx
+useradd -g nginx nginx
+
 ./configure \
   --prefix=/usr/local/nginx-1.12.1 \
   --user=nginx \
