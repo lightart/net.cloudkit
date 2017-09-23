@@ -949,7 +949,7 @@ To free pagecache, dentries and inodes:
 As this is a non-destructive operation, and dirty objects are notfreeable, the user should run "sync" first in order to make sure allcached objects are freed.
 This tunable was added in 2.6.16.
 
-  修改/etc/sysctl.conf 添加如下选项后就不会内存持续增加
+修改/etc/sysctl.conf 添加如下选项后就不会内存持续增加
 vm.dirty_ratio = 1
 vm.dirty_background_ratio=1
 vm.dirty_writeback_centisecs=2
