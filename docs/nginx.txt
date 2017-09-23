@@ -1,3 +1,8 @@
+yum install -y gcc gcc-c++
+wget https://www.openssl.org/source/openssl-1.0.2l.tar.gz
+wget https://ftp.pcre.org/pub/pcre/pcre-8.41.tar.gz
+wget http://zlib.net/zlib-1.2.11.tar.gz
+
 ./configure \
   --prefix=/usr/local/nginx-1.12.1 \
   --user=nginx \
@@ -20,7 +25,6 @@
   --with-mail \
   --with-mail_ssl_module \
   --with-file-aio \
-  --with-ipv6 \
   --with-threads \
   --with-stream \
   --with-stream_ssl_module \
@@ -28,9 +32,7 @@
   --with-pcre=../pcre-8.41 \
   --with-zlib=../zlib-1.2.11 \
 
-https://www.openssl.org/source/openssl-1.0.2l.tar.gz
-https://ftp.pcre.org/pub/pcre/pcre-8.41.tar.gz
-http://zlib.net/zlib-1.2.11.tar.gz
+
 
 --prefix=path
 --sbin-path=path
