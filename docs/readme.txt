@@ -931,6 +931,10 @@ free内存减少到几十兆，系统运行缓慢
 运行sync将dirty的内容写回硬盘
 $sync
 
+读写文件时，Linux内核为了提高读写效率与速度，会将文件在内存中进行缓存，这就是Cache Memory(缓存内存)。即使程序运行结束后，Cache Memory也不会自
+动释放。这就会导致程序频繁读写文件后，可用物理内存会很少，在你需要使用内存的时候会自动释放，如果你希望手动去释放Cache Memory(缓存内存)，在清理缓
+存（drop_caches）的官方文档：http://www.kernel.org/doc/Documentation/sysctl/vm.txt，已有说明。
+
 通过修改proc系统的drop_caches清理free的cache
 $echo 3 > /proc/sys/vm/drop_caches
 
