@@ -2237,3 +2237,9 @@ http://data.stats.gov.cn/
 信用
 环比 同比 定基
 布雷顿森林体系
+
+CDO
+担保债务凭证(Collateralized Debt Obligation，简称CDO)，资产证券化家族中重要的组成部分。它的标的资产通常是信贷资产或债券。
+
+CDS
+信用违约互换(Credit Default Swap,CDS)又称为信贷违约掉期，也叫贷款违约保险，是目前全球交易最为广泛的场外信用衍生品。
