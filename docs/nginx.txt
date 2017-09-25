@@ -61,7 +61,7 @@ useradd  -s /sbin/nologin -M -g nginx nginx
 --with-ld-opt=parameters
 
 
-useradd  -s /sbin/nologin -M -r -g mysql mysql
+useradd -s /sbin/nologin -M -r -g mysql mysql
 chown -R mysql:mysql ./
 bin/mysqld --initialize --user=mysql --basedir=/usr/local/mysql --datadir=/usr/local/mysql/data
 bin/mysql_ssl_rsa_setup --datadir=/usr/local/mysql/data
