@@ -2225,3 +2225,5 @@ possibly,probably,perhaps,maybe
 additionally, in addition, besides, moreover, furthermore, admittedly, though, even though, while
 
 http://luajit.org/
+
+迪克斯加算法(Dijkstra)
