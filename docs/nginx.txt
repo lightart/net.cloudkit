@@ -69,3 +69,31 @@ bin/mysql_ssl_rsa_setup --datadir=/usr/local/mysql/data
 set password=password('123456');
 grant all privileges on *.* to root@'%' identified by '123456';
 flush privileges;
+
+
+
+编译安装php7
+yum install libxml2-devel curl-devel openjpeg openjpeg-devel openjpeg-libs libjpeg libpng freetype libjpeg libpng-devel freetype-devel  mcrypt php-mcrypt libmcrypt libmcrypt-devel
+
+1.创建php用户和用户组:
+groupadd -r php && useradd -r -g php -s /bin/flase -M /usr/local/php7
+
+2.编译安装（以php-fpm 方式安装）：
+./configure --prefix=/usr/local/php7 --exec-prefix=/usr/local/php7 --bindir=/usr/local/php7/bin --sbindir=/usr/local/php7/sbin --includedir=/usr/local/php7/include --libdir=/usr/local/php7/lib/php --mandir=/usr/local/php7/php/man --with-config-file-path=/usr/local/php7/etc --with-mysql-sock=/var/run/mysql/mysql.sock  --with-mcrypt=/usr/include --with-mhash --with-openssl --with-zlib --enable-zip --enable-mysqlnd --with-mysqli=shared,mysqlnd --with-pdo-mysql=shared,mysqlnd --with-gd --with-iconv --with-zlib --enable-zip --enable-inline-optimization --disable-debug --disable-rpath --enable-shared --enable-xml --enable-bcmath --enable-shmop --enable-sysvsem --enable-mbregex --enable-mbstring --enable-ftp --enable-gd-native-ttf --enable-pcntl --enable-sockets --with-xmlrpc --enable-soap --without-pear --with-gettext --enable-session --with-curl --with-jpeg-dir --with-freetype-dir --enable-opcache --enable-fpm  --with-fpm-user=apache --with-fpm-group=apache --without-gdbm --disable-fileinfo --with-bz2 --enable-maintainer-zts
+
+3.配置文件的服务控制脚本
+配置文件：
+cp /php.7/php.ini-production  /usr/local/php7/etc/php.ini
+cp /usr/local/php7/etc/php-fpm.conf.default  /usr/local/php7/etc/php-fpm.conf
+
+服务控制脚本：
+cp /php.7/sapi/fpm/init.d.php-fpm  /etc/rc.d/init.d/php-fpm && chown +x php-fpm
+
+4.设置php日志文件目录和运行ID文件目录,修改session目录配置
+mkdir -p /var/log/php-fpm/ && mkdir -p /var/run/php-fpm && cd /var/run/ && chown -R apache:apache php-fpm
+mkdir -p /var/lib/php/session
+chown -R apache:apache /var/lib/php
+
+ 5.加入环境变量
+vim /etc/profile.d/php7.sh
+export PATH=/usr/local/php7/bin:/usr/local/php7/sbin:$PATH
