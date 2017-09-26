@@ -211,8 +211,8 @@ $ service nginx start
 $ service nginx stop
 $ chkconfig nginx on
 
-systemctl stop mysql
-systemctl start mysql
+$ systemctl stop mysql
+$ systemctl start mysql
 ------------------------------------------------------------------------------------------------------------------------
 set password=password('123456');
 grant all privileges on *.* to root@'%' identified by '123456';
