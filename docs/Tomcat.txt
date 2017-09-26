@@ -1,4 +1,4 @@
-vim /etc/init.d/tomcat_xxx workbench management mobile
+vim /etc/init.d/tomcat_xxx
 
 ########################################################################################################################
 
