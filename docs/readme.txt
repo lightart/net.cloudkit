@@ -2243,3 +2243,6 @@ CDO
 
 CDS
 信用违约互换(Credit Default Swap,CDS)又称为信贷违约掉期，也叫贷款违约保险，是目前全球交易最为广泛的场外信用衍生品。
+
+huishuwu.com
+fanshu.net
