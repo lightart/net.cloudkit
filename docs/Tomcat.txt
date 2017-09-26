@@ -71,3 +71,24 @@ $ chkconfig --add tomcat_xxx
 $ chkconfig tomcat_xxx on
 $ /etc/init.d/tomcat_xxx start
 $ reboot
+
+
+
+
+1.启动nfs服务
+systemctl start nfs-server.service
+
+2.设置开机自启动
+systemctl enable nfs-server.service
+
+3.停止开机自启动
+systemctl disable nfs-server.service
+
+4.查看服务当前状态
+systemctl status nfs-server.service
+
+5.重新启动某服务
+systemctl restart nfs-server.service
+
+6.查看所有已启动的服务
+systemctl list-units --type=service
