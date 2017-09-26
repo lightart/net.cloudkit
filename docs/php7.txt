@@ -26,6 +26,7 @@ sudo make install
 groupadd www
 useradd -g www www
 
+cp /usr/local/src/php-7.1.9/php.ini-production /usr/local/php-7.1.9/php.ini
 cp /usr/local/src/php-7.1.9/sapi/fpm/init.d.php-fpm /etc/rc.d/init.d/php-fpm
 cp /usr/local/php-7.1.9/etc/php-fpm.d/www.conf.default /usr/local/php-7.1.9/etc/php-fpm.d/www.conf
 
@@ -40,6 +41,7 @@ location ~ \.php$ {
 }
 
 
+------------------------------------------------------------------------------------------------------------------------
 ./configure \
 --prefix=/usr/local/php-7.1.9 \
 --exec-prefix=/usr/local/php-7.1.9 \
