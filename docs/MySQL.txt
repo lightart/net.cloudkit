@@ -62,7 +62,6 @@ chgrp -R mysql .
 chown -R root .
 chown -R mysql data mysql-files
 
-
 shell> groupadd mysql
 shell> useradd -r -g mysql -s /bin/false mysql
 shell> cd /usr/local

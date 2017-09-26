@@ -30,6 +30,9 @@ cp /usr/local/src/php-7.1.9/php.ini-production /usr/local/php-7.1.9/php.ini
 cp /usr/local/src/php-7.1.9/sapi/fpm/init.d.php-fpm /etc/rc.d/init.d/php-fpm
 cp /usr/local/php-7.1.9/etc/php-fpm.d/www.conf.default /usr/local/php-7.1.9/etc/php-fpm.d/www.conf
 
+$ chkconfig --list php-fpm
+$ chkconfig --add php-fpm
+
 $ vim /usr/local/nginx-1.12.1/conf/nginx.conf
 location ~ \.php$ {
     root           html;
