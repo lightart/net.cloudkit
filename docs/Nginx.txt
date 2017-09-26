@@ -65,6 +65,7 @@ useradd  -s /sbin/nologin -M -g nginx nginx
 
 $ vim /etc/init.d/nginx
 
+########################################################################################################################
 #!/bin/sh
 #
 # nginx - this script starts and stops the nginx daemon
@@ -196,6 +197,7 @@ case "$1" in
         echo $"Usage: $0 {start|stop|status|restart|condrestart|try-restart|reload|force-reload|configtest}"
         exit 2
 esac
+########################################################################################################################
 
 $ chmod a+x /etc/init.d/nginx
 $ chkconfig --list nginx
