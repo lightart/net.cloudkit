@@ -1,0 +1,93 @@
+#yum install libxml2-devel
+#yum install curl-devel
+#yum install openjpeg openjpeg-libs openjpeg-devel
+#yum install libjpeg libjpeg
+yum install libpng libpng-devel
+#yum install freetype freetype-devel
+#yum install mcrypt php-mcrypt
+#yum install libmcrypt libmcrypt-devel
+
+groupadd -r php && useradd -r -g php -s /bin/flase -M /usr/local/php-7.1.9
+
+./configure \
+--prefix=/usr/local/php-7.1.9 \
+--enable-fpm \
+--with-mysqli \
+--enable-ftp \
+--with-gd \
+--with-zlib \
+--enable-zip \
+--enable-sockets \
+--enable-session
+
+make
+sudo make install
+
+groupadd www
+useradd -g www www
+
+cp /usr/local/src/php-7.1.9/sapi/fpm/init.d.php-fpm /etc/rc.d/init.d/php-fpm
+cp /usr/local/php-7.1.9/etc/php-fpm.d/www.conf.default /usr/local/php-7.1.9/etc/php-fpm.d/www.conf
+
+$ vim /usr/local/nginx-1.12.1/conf/nginx.conf
+location ~ \.php$ {
+    root           html;
+    fastcgi_pass   127.0.0.1:9000;
+    fastcgi_index  index.php;
+#   fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;
+    fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+    include        fastcgi_params;
+}
+
+
+./configure \
+--prefix=/usr/local/php-7.1.9 \
+--exec-prefix=/usr/local/php-7.1.9 \
+--bindir=/usr/local/php-7.1.9/bin \
+--sbindir=/usr/local/php-7.1.9/sbin \
+--includedir=/usr/local/php-7.1.9/include \
+--libdir=/usr/local/php-7.1.9/lib/php \
+--mandir=/usr/local/php-7.1.9/php/man \
+--with-config-file-path=/usr/local/php-7.1.9/etc \
+--with-mysql-sock=/var/run/mysql/mysql.sock \
+--with-mcrypt=/usr/include \
+--with-mhash \
+--with-openssl \
+--with-zlib \
+--enable-zip \
+--enable-mysqlnd \
+--with-mysqli \
+--with-pdo-mysql \
+--with-gd \
+--with-iconv \
+--enable-inline-optimization \
+--disable-debug \
+--disable-rpath \
+--enable-shared \
+--enable-xml \
+--enable-bcmath \
+--enable-shmop \
+--enable-sysvsem \
+--enable-mbregex \
+--enable-mbstring \
+--enable-ftp \
+--enable-gd-native-ttf \
+--enable-pcntl \
+--enable-sockets \
+--with-xmlrpc \
+--enable-soap \
+--without-pear \
+--with-gettext \
+--enable-session \
+--with-curl \
+--with-jpeg-dir \
+--with-freetype-dir \
+--enable-opcache \
+--enable-fpm \
+#--with-fpm-user=apache \
+#--with-fpm-group=apache \
+--without-gdbm \
+--disable-fileinfo \
+--with-bz2 \
+--enable-maintainer-zts
+
