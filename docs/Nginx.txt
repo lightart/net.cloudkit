@@ -202,6 +202,17 @@ esac
 $ chmod a+x /etc/init.d/nginx
 $ chkconfig --list nginx
 $ chkconfig --add nginx
+
+$ /etc/init.d/nginx start
+$ /etc/init.d/nginx stop
+
+$ chkconfig --add /etc/init.d/nginx
+$ service nginx start
+$ service nginx stop
+$ chkconfig nginx on
+
+systemctl stop mysql
+systemctl start mysql
 ------------------------------------------------------------------------------------------------------------------------
 set password=password('123456');
 grant all privileges on *.* to root@'%' identified by '123456';
