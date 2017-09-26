@@ -49,7 +49,6 @@ case "$1" in
    stop)
        stop
        ;;
-
    restart)
        echo $"Restaring Tomcat"
        $0 stop
