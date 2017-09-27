@@ -2256,3 +2256,4 @@ ETL:Extraction-Transformation-Loading
 http://scm-blog.com
 http://www.wangjianshuo.com
 http://home.wangjianshuo.com/cn/
+http://www.mindmeters.com
