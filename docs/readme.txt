@@ -2258,7 +2258,7 @@ http://www.wangjianshuo.com
 http://home.wangjianshuo.com/cn/
 http://www.mindmeters.com
 
-$MAJOR.$MINOR.$SECURITY.$PATCH
+The format of the version-string is $MAJOR.$MINOR.$SECURITY.$PATCH
 $MAJOR is the version number that is incremented for a major release, for example JDK 9, which contains significant new
 features as specified by the Java SE platform specification. A major release contains new features and changes to
 existing features, which are planned and announced well in advance.
