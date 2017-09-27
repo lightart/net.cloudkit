@@ -6,6 +6,9 @@ import java.nio.channels.Channels;
 import java.nio.channels.FileChannel;
 import java.nio.channels.WritableByteChannel;
 
+/**
+ * GeneralClassLoader
+ */
 public class GeneralClassLoader extends ClassLoader {
     private String fileName;
 
