@@ -2252,3 +2252,6 @@ zaodu.net
 yishe.net
 
 ETL:Extraction-Transformation-Loading
+
+http://scm-blog.com
+http://www.wangjianshuo.com
