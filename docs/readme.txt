@@ -2257,3 +2257,16 @@ http://scm-blog.com
 http://www.wangjianshuo.com
 http://home.wangjianshuo.com/cn/
 http://www.mindmeters.com
+
+$MAJOR.$MINOR.$SECURITY.$PATCH
+$MAJOR is the version number that is incremented for a major release, for example JDK 9, which contains significant new
+features as specified by the Java SE platform specification. A major release contains new features and changes to
+existing features, which are planned and announced well in advance.
+
+$MINOR is the version number that is incremented for each minor update, such as bug fixes, revisions to standard APIs,
+or implementation of features outside the scope of the relevant platform specifications.
+
+$SECURITY is the version number that is incremented for a security-update release, which contains critical fixes,
+including those necessary to improve security.
+$PATCH is the version number that is incremented for a release containing security and high-priority customer fixes that
+have been tested together.
