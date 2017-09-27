@@ -26,8 +26,8 @@ public class MyTest {
 
 
         try {
-            //实例化一个Programmer对象
-            Object o = clazz.newInstance();
+            //实例化一个Programmer对象 newInstance()
+            Object o = clazz.getDeclaredConstructor().newInstance();
             //调用Programmer的code方法
             clazz.getMethod("code", null).invoke(o, null);
         } catch (IllegalArgumentException | InvocationTargetException
