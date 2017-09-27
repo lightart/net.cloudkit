@@ -2,6 +2,9 @@ package net.cloudkit.commmon;
 
 import java.util.logging.Logger;
 
+/**
+ * HelloWorld
+ */
 public class HelloWorld {
 
     private static final Logger LOGGER = Logger.getLogger("HelloWorld");
