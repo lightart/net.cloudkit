@@ -1,4 +1,4 @@
-module net.cloudkit.commmon {
+module commmon {
 
     requires java.logging;
     requires java.xml;
