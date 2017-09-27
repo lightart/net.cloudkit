@@ -1381,7 +1381,9 @@ http://openjdk.java.net/projects/jigsaw/quick-start
 
 REPL
 Read-Eval-Print Loop (REPL)
-jshell jcmd jlink jdeprscan
+jshell jcmd jlink jdeprscan jrunscript
+
+Nashorn JavaScript
 
 Doclet API
 
