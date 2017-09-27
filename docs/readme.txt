@@ -1379,7 +1379,7 @@ JAVA 9
 Jigsaw
 http://openjdk.java.net/projects/jigsaw/quick-start
 REPL
-Read-Eval-Print Loop (REPL) jshell
+Read-Eval-Print Loop (REPL) jshell jcmd
 JSON API
 JIT(Just-in-time)
 http://javamoney.github.io/
