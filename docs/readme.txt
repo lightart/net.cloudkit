@@ -2280,3 +2280,5 @@ $PATCH is the version number that is incremented for a release containing securi
 have been tested together.
 
 https://docs.oracle.com/javase/9/index.html
+
+https://www.merriam-webster.com/
