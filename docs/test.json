@@ -1,1 +1,7 @@
-{}
+{
+    "success":false,
+    "data":{
+        "error_code":200001,
+        "error_message":"server error"
+    }
+}
