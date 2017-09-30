@@ -2286,3 +2286,6 @@ https://www.merriam-webster.com/
 RFID
 射频识别，RFID(Radio Frequency Identification)技术，又称无线射频识别，是一种通信技术，俗称电子标签。可通过无线电讯号识别特定目标并读写相关
 数据，而无需识别系统与特定目标之间建立机械或光学接触。
+
+贸易逆差 Unfavorable Balance 0f Trade
+贸易顺差 Favorable Balance 0f Trade
