@@ -93,3 +93,12 @@ vt verb transitive (及物动词)及物动词
 
 
 http://www.enbus.cn/
+
+i me my mine myself
+we us our ours ourselves
+you you your yours yourself
+you you your yours yourselves
+he him his his himself
+she her her hers herself
+it it it its itself
+they them their theirs themselves
