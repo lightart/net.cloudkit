@@ -2297,3 +2297,10 @@ RFID
 Gartner's Hype Cycle（技术成熟度曲线）
 
 https://micro-editor.github.io
+
+
+Programmable
+Assembly
+Assemble
+Mountable
+Package
