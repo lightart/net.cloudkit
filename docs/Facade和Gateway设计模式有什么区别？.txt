@@ -14,21 +14,29 @@ Facade提供了对(一个或多个)外部客户的复杂内部结构的简单统
 3.次佳解决方案
 
 门面的意图由http://c2.com/cgi/wiki?FacadePattern (http://wiki.c2.com/?FacadePattern)作为
-Provide a unified interface to a set of interfaces in a subsystem. Facade defines a higher-level interface that makes the subsystem easier to use. This can be used to simplify a number of complicated object interactions into a single interface.
+Provide a unified interface to a set of interfaces in a subsystem. Facade defines a higher-level interface that makes
+the subsystem easier to use. This can be used to simplify a number of complicated object interactions into a single
+interface.
 这里的重点是设计隐藏复杂性的接口，我认为主要的想法是在一个更可用的交互中隐藏多个fine-grained交互。因此，Facade的重点是client-facing。
 网关模式不是原始GOF模式之一，我将其视为企业集成模式，即在与Facade相比更高的级别。参见Fowler的definition
-我认为网关主要关于隐藏技术复杂性，而不是界面复杂性 – 隐藏连接到大型机和外部系统的细节。实际上，我经常期望网关成为一个请求路由器，甚至可以根据请求的细节选择不同的后端系统。所以我看到Gateway把重点放在了它的门户网站上。
+我认为网关主要关于隐藏技术复杂性，而不是界面复杂性 – 隐藏连接到大型机和外部系统的细节。实际上，我经常期望网关成为一个请求路由器，甚至可以根据请求的
+细节选择不同的后端系统。所以我看到Gateway把重点放在了它的门户网站上。
 显然，非正式的Gateway是一个门面，因为它隐藏了细节，但是我想当你实现一个GOF门面和一个Fowler网关时，你最终会做很多不同的事情。
 4.第三种解决方案
 
-这两种模式非常相似，它们都是作为包装物的东西。区别在于上下文：立面站在一组子系统上，而网关可以站在任何功能上。从这个角度来看，对我来说，门面是Gateway的具体案例(不是相反的)。
-当我们认为使用子系统是复杂的或者我们想要将几个子系统调用组合成一个[方法]执行时，应用Facade。然而，这并不一定意味着子系统不可访问，或者它们足够复杂。它只是意味着我们有子系统。
-当我们想要包装一些东西并将它们暴露于不同的方式时，应用网关。网关可能不是子系统，而只是一个相对复杂的功能。网关是一种通用模式，可以被认为是立面，代理和其他模式的基础。
+这两种模式非常相似，它们都是作为包装物的东西。区别在于上下文：立面站在一组子系统上，而网关可以站在任何功能上。从这个角度来看，对我来说，门面是
+Gateway的具体案例(不是相反的)。
+当我们认为使用子系统是复杂的或者我们想要将几个子系统调用组合成一个[方法]执行时，应用Facade。然而，这并不一定意味着子系统不可访问，或者它们足够复
+杂。它只是意味着我们有子系统。
+当我们想要包装一些东西并将它们暴露于不同的方式时，应用网关。网关可能不是子系统，而只是一个相对复杂的功能。网关是一种通用模式，可以被认为是立面，代理
+和其他模式的基础。
 如果需要澄清的例子：
 门面可以通过查询帐户子系统，信用账户子系统，储蓄子系统和后台子系统来计算客户的信用度(我想我在GOF书中看到过类似的例子)。
 class MortgateFacade {
     bool IsCreditWorth(string customerName) {
-        return !_checkingAccSystem.HasNegativeBalance(customerName) && !_creditAccSystem.HasNegativeCredit(customerName) && !_backOfficeSystem.IsInBlackList(customerName);
+        return !_checkingAccSystem.HasNegativeBalance(customerName)
+        && !_creditAccSystem.HasNegativeCredit(customerName)
+        && !_backOfficeSystem.IsInBlackList(customerName);
     }
 }
 网关可以通过ID查询数据库表并返回客户端。 (是的，那么简单！)
@@ -44,12 +52,16 @@ class CustomersGateway {
 
 6.第五种方案
 这可能有些简化，但这里是我的承诺。
-使用Facade模式时，您可以提供其他人可以使用的界面与您的应用程序通信。示例：您已经实现了一些具有多个”modules”的应用程序，使得访问”modules”更容易创建一个Facade，使其更容易与模块进行交互…单点联系。
-使用网关模式时，您封装了要使用的一些外部部件。示例：您希望使用日志记录，但不希望绑定到特定的日志记录框架，在这种情况下，您可以定义您的网关来定义要使用的功能，并让网关处理与要进行的日志记录框架的交互使用。这样可以在将来更改日志框架。
+使用Facade模式时，您可以提供其他人可以使用的界面与您的应用程序通信。示例：您已经实现了一些具有多个”modules”的应用程序，使得访问”modules”更容易
+创建一个Facade，使其更容易与模块进行交互…单点联系。
+使用网关模式时，您封装了要使用的一些外部部件。示例：您希望使用日志记录，但不希望绑定到特定的日志记录框架，在这种情况下，您可以定义您的网关来定义要使
+用的功能，并让网关处理与要进行的日志记录框架的交互使用。这样可以在将来更改日志框架。
 
 7.第六种方案
 这是Fowler的书的直接引用：
-While Facade simplifies a more complex API, it’s usually done by the writer of the service for general use. A Gateway is written by the client for its particular use. In addition, a Facade always implies a different interface to what it’s covering, whereas a Gateway may copy the wrapped facade entirely, being used for substitution or testing purposes.
+While Facade simplifies a more complex API, it’s usually done by the writer of the service for general use. A Gateway
+is written by the client for its particular use. In addition, a Facade always implies a different interface to what
+it’s covering, whereas a Gateway may copy the wrapped facade entirely, being used for substitution or testing purposes.
 [第十八章]
 
 8.第七种方案
@@ -59,7 +71,8 @@ While Facade simplifies a more complex API, it’s usually done by the writer of
 简单地说，Facade是一种设计模式，而Gateway是一种建筑模式。
 例如，应用网关是基础设施架构模式。该节点驻留在DMZ中，并将外部客户端的内部节点与只能连接到应用网关的内部节点隔离开来。
 当您考虑架构模式时，请考虑节​​点。当您考虑设计模式时，请考虑类/对象。
-节点是以下的抽象：设备 – 硬件和系统软件 – 例如OS，平台/框架等。系统软件是”assigned”到设备。节点”encapsulates”既包括设备和系统软件，又与包含架构的其他节点相关。
+节点是以下的抽象：设备 – 硬件和系统软件 – 例如OS，平台/框架等。系统软件是”assigned”到设备。节点”encapsulates”既包括设备和系统软件，又与包含
+架构的其他节点相关。
 网关是将服务器节点与客户端节点隔离的节点 – 客户端节点不能直接连接到服务器节点。网关接收连接，然后建立与目的节点的连接。
 
 参考文献
