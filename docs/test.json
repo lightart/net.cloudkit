@@ -41,9 +41,9 @@
 // response_context
 // response_data
 
-// service action method
-// service_response_code
-// service_response_message
+// "service action method": "",
+// "service_response_code": "",
+// "service_response_message": "",
 // "exception_detail": []
 
 // source_ip_address
