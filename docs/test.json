@@ -1,7 +1,50 @@
+// http://respo.cloudkit.net/support
 {
-    "success":false,
+    "service_name": "",
+    "version": "1.0",
+    "success": false,
+    "is_compile": "false",
     "data":{
-        "error_code":200001,
-        "error_message":"server error"
+        // "error_code": 200001,
+        "response_code": 200001,
+        // "error_message": "server error"
+        "description": "server error"
+
     }
 }
+
+// "limit": 0,
+// "offset": 0,
+// "page_size": 0,
+// "page_number": false,
+// "has_previous": true,
+// "total_count": 10,
+// "elements": []
+
+// service_name
+
+// request_context
+//     "access_key_id": "Gi0Yziw4U8wzEL4I",
+//     "access_key_secret": "975bf42bdf837a1e43508a9bf6340420",
+//     "message_id": "b34cc138-af1a-11e7-882b-7cd30ac334a2",
+//     "encoding": "UTF-8",
+//     "content_type": "application/json",
+//     "timestamp": "1507791604000",
+//     "compress_algorithm": "gzip",
+//     "signature_algorithm": "",
+//     "encrypt_algorithm": "3DES",
+//     "signature": "",
+//     "keywords": [],
+//     "arguments": []
+
+// request_data
+// response_context
+// response_data
+
+// service action method
+// service_response_code
+// service_response_message
+// "exception_detail": []
+
+// source_ip_address
+// mac_address
