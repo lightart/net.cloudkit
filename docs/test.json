@@ -73,3 +73,11 @@
 //91800	DATA_PERSISTENT_FAILED	数据持久化失败	持久化：把数据(如内存中的对象)保存到可永久保存的存储设备中(如磁盘、数据库)
 //91900	UNKNOWN_ERROR	未知错误
 //10000	REQUEST_SUCCESS	请求访问成功
+
+
+
+//Mac_Address NetCardMACAddress
+//Mem_Model
+//Hd_Serial_No HardDiskSerialNumber
+//CPU_Serial
+//OS_Version
