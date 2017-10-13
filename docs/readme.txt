@@ -2349,3 +2349,6 @@ support
 MNV*
 https://www.w3ctech.com/topic/1827
 使用nativeView来代替目前html的view，而交互逻辑依然可以使用viewModel、virtual Dom或者controller来实现
+
+理查德·塞勒
+反常行为、经济人假设、禀赋效应、跨期选择、心理账户和股票市场

@@ -30,6 +30,7 @@
 //     "encoding": "UTF-8",
 //     "content_type": "application/json",
 //     "timestamp": "1507791604000",
+//     "is_compile": "false",
 //     "compress_algorithm": "gzip",
 //     "signature_algorithm": "",
 //     "encrypt_algorithm": "3DES",
