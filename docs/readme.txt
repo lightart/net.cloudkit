@@ -2361,3 +2361,7 @@ CIIA
 注册国际投资分析师 Certified International Investment Analyst，CIIA 资格是全球投资分析领域最具国际影响力的专业资格之一，由注册国际投资分
 析师协会Association of Certified International Investment Analyst, ACIIA统一管理。
 
+笛卡尔积
+等值连接
+
+https://www.w3resource.com
