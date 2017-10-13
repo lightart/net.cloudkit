@@ -2344,3 +2344,8 @@ support
 纠缠的另一端，因此是无法解码的。
 
 所以说，你必须先制造出两个互相纠结的光子，然后输入加密信息后再发送出去一个光子，所以来说，量子保密通讯还是无法实现超光速通讯的
+
+
+MNV*
+https://www.w3ctech.com/topic/1827
+使用nativeView来代替目前html的view，而交互逻辑依然可以使用viewModel、virtual Dom或者controller来实现
