@@ -51,8 +51,10 @@ public class MergePDF {
             PdfWriter writer = PdfWriter.getInstance(document, outputStream);
 
             document.open();
-            BaseFont bf = BaseFont.createFont(BaseFont.HELVETICA,
-                BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
+            BaseFont bf = BaseFont.createFont(
+                BaseFont.HELVETICA,
+                BaseFont.CP1252, BaseFont.NOT_EMBEDDED
+            );
             PdfContentByte cb = writer.getDirectContent(); // Holds the PDF
             // data
 
@@ -70,16 +72,20 @@ public class MergePDF {
                     document.newPage();
                     pageOfCurrentReaderPDF++;
                     currentPageNumber++;
-                    page = writer.getImportedPage(pdfReader,
-                        pageOfCurrentReaderPDF);
+                    page = writer.getImportedPage(
+                        pdfReader,
+                        pageOfCurrentReaderPDF
+                    );
                     cb.addTemplate(page, 0, 0);
 
                     // Code for pagination.
                     if (paginate) {
                         cb.beginText();
                         cb.setFontAndSize(bf, 9);
-                        cb.showTextAligned(PdfContentByte.ALIGN_CENTER,
-                            "" + currentPageNumber + " of " + totalPages, 520, 5, 0);
+                        cb.showTextAligned(
+                            PdfContentByte.ALIGN_CENTER,
+                            "" + currentPageNumber + " of " + totalPages, 520, 5, 0
+                        );
                         cb.endText();
                     }
                 }
