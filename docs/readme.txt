@@ -2373,6 +2373,8 @@ Linux Kernel Development
 正态分布（normal distribution）
 
 垃圾回收算法手册 自动内存管理的艺术
+信息论基础(原书第2版)
+信息论与编码理论
 
 http://www.rfc-editor.org/rfc-index.txt
 http://www.mbalib.com
