@@ -2371,3 +2371,5 @@ Linux Kernel Development
 矩阵乘法
 蒙特卡罗方法
 正态分布（normal distribution）
+
+垃圾回收算法手册 自动内存管理的艺术
