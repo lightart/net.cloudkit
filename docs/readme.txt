@@ -2376,3 +2376,5 @@ Linux Kernel Development
 
 http://www.rfc-editor.org/rfc-index.txt
 http://www.mbalib.com
+
+http://richardlee/torvalds-says-linux.mp3
