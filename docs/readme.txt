@@ -2370,3 +2370,4 @@ Linux Kernel Development
 
 矩阵乘法
 蒙特卡罗方法
+正态分布（normal distribution）
