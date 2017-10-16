@@ -2373,3 +2373,5 @@ Linux Kernel Development
 正态分布（normal distribution）
 
 垃圾回收算法手册 自动内存管理的艺术
+
+http://www.rfc-editor.org/rfc-index.txt
