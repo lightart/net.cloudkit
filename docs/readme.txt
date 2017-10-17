@@ -2372,6 +2372,7 @@ Linux Kernel Development
 蒙特卡罗方法
 正态分布（Normal distribution）又名高斯分布（Gaussian distribution）
 原子钟
+双中子星合并产生引力波
 
 垃圾回收算法手册 自动内存管理的艺术
 信息论基础(原书第2版)
