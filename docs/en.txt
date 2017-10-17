@@ -1,8 +1,13 @@
 noun 名词
 英 [naʊn] 美 [naʊn]
 缩写 n
-缩写 cn (可数)可数名词 countable noun
-缩写 un (不可数)不可数名词 uncountable noun
+缩写 num 数词 numeral
+缩写 cn 可数名词 countable noun
+缩写 un 不可数名词 uncountable noun
+缩写 pl (复)复数(的) plural
+缩写 sing (单)单数(的) singular
+缩写 pers (人称)人称 person
+缩写 pers pron (人称代)人称代名词 personal pronoun
 
 pronoun 代词
 英 ['prəʊnaʊn] 美 ['pronaʊn]
@@ -11,8 +16,10 @@ pronoun 代词
 verb 动词
 英 [vɜːb] 美 [vɝb]
 缩写 v 兼指及物动词和不及物动词
-缩写 vi. intransitive verb
-缩写 vt. transitive verb
+缩写 vi 不及物动词 intransitive verb
+缩写 vt 及物动词 transitive verb
+缩写 pt 过去式 past tense
+缩写 pp 过去分词 past participle
 
 adverb 副词
 英 ['ædvɜːb] 美 ['ædvɝb]
@@ -30,51 +37,33 @@ conjunction 连接词
 英 [kən'dʒʌŋ(k)ʃ(ə)n] 美 [kən'dʒʌŋkʃən]
 缩写 conj
 
+article 冠词
+英 ['ɑːtɪk(ə)l] 美 ['ɑrtɪkl]
+缩写 art
+缩写 indef art 不定冠词 indefinite article
+缩写 def art (定冠)定冠词 definite article
 
-s = 主词
-sc = 主词补语
-o = 受词
-oc = 受词补语
+interjection 感叹词
+英 [ɪntə'dʒekʃ(ə)n] 美 [,ɪntɚ'dʒɛkʃən]
+缩写 int
 
-aux.v = 助动词 ,auxiliary的缩写
-a = 形容词,adjective的缩写
-ad = 副词,adverb的缩写
-art = 冠词,article的缩写
-num = 数词,numeral的缩写
-int = 感叹词,interjection的缩写
-u = 不可数名词,uncountable noun的缩写
-c = 可数名词,countable noun的缩写
-pl = 复数,plural的缩写
-语气词 int.
-缩写词 abbr.
-abbr abbreviation(略)略语
-adv partadverbial particle(副接)副词接语
-aux auxiliary(助)助动词
+auxiliary 助动词
+英 [ɔːg'zɪlɪərɪ; ɒg-]   美 [ɔːɡ'zɪlɪəri]
+缩写 aux
 
-def art definite article(定冠)定冠词
-egfor example(例如)例如
-esp especially(尤指)尤指
-etc and the others(等)等等
-ie which is to say(意即)意即
-indef art indefinite article(不定冠词)不定冠词
-inf infinitive(不定词)不定词
-int interjection(感)感叹词
-neg negative(ly)(否定)否定的(地)
-part adj participial adjective(分形)分词形容词
-pers person(人称)人称
-pers pron personal pronoun(人称代)人称代名词
-pl plural(复)复数(的)
-pp past participle (过去分词)过去分词
-pref prefix(字首)字首
-prep preposition(al) (介词)介词,介系词,介词的
-pron pronoun (代)代名词
-pt past tense(过去)过去式
-sb somebody(某人)某人
-sing singular(单)单数(的)
-sth something(某事物)某物或某事
-suff suffix(字尾)字尾
-
-
+缩写 abbr (略)略语 abbreviation
+缩写 eg (例如)例如 for example(exempli gratia)
+缩写 etc (等)等等 and the others(et cetra)
+缩写 sb 某人 somebody
+缩写 sth 某物或某事 something
+缩写 pref 字首 prefix
+缩写 suff 字尾 suffix
+缩写 ie 意即 which is to say
+缩写 adv part (副接)副词接语 adverbial particle
+缩写 esp 尤指 especially
+缩写 inf 不定词 infinitive
+缩写 neg 否定的(地) negative(ly)
+缩写 part adj (分形)分词形容词 participial adjective
 
 http://www.enbus.cn/
 
