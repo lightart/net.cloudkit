@@ -2384,3 +2384,5 @@ http://richardlee/torvalds-says-linux.mp3
 https://herbertograca.com/2017/10/05/event-driven-architecture/?imm_mid=0f735b&cmp=em-prog-na-na-newsltr_20171014
 https://herbertograca.com/2017/07/03/the-software-architecture-chronicles/
 https://herbertograca.com/2017/01/26/microservices-architecture/
+
+https://8thlight.com/blog/
