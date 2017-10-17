@@ -68,11 +68,16 @@ auxiliary 助动词
 http://www.enbus.cn/
 
 主格 宾格 所有格 形容词性物主代词 名词性物主代词
-i me my mine myself
-we us our ours ourselves
-you you your yours yourself
-you you your yours yourselves
-he him his his himself
-she her her hers herself
-it it it its itself
-they them their theirs themselves
+i       me      my      mine    myself
+we      us      our     ours    ourselves
+you     you     your    yours   yourself
+you     you     your    yours   yourselves
+he      him     his     his     himself
+she     her     her     hers    herself
+it      it      it      its     itself
+they    them    their   theirs  themselves
+
+
+
+
+
