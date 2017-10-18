@@ -502,6 +502,7 @@ public class IBMMQComponent {
         this.ibmMQReceiveCallback = ibmMQReceiveCallback;
     }
 
+    @Override
     public String toString() {
         return this.getClass().getName() + ", { IBM MQ://" + (this.userId != null && !this.userId.isEmpty()?this.userId + "@":"") + this.hostname + ":" + this.port + "/" + this.queueManagerName + "/" + this.channel + "/" + this.queueName;
     }

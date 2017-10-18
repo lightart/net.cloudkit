@@ -16,13 +16,8 @@
 package net.cloudkit.transform;
 
 import okhttp3.*;
-import org.apache.commons.compress.compressors.gzip.GzipCompressorOutputStream;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -45,7 +40,7 @@ public class SWTest {
         try {
 
             // Properties
-            Map<String, String>  params1 = new HashMap<>();
+            Map<String, String> params1 = new HashMap<>();
             params1.put("userId", "");
             params1.put("platId", "");
             params1.put("msgType", "");
@@ -94,20 +89,20 @@ public class SWTest {
         // RequestBody body = RequestBody.create(JSON, params);
         // MultipartBody.Builder builder = new MultipartBody.Builder().setType(MultipartBody.FORM);
         FormBody.Builder builder = new FormBody.Builder();
-        for(Map.Entry<String, String> entry : params.entrySet()) {
+        for (Map.Entry<String, String> entry : params.entrySet()) {
             /**
-            // MultipartBody
-            .addPart(
-                Headers.of("Content-Disposition", "form-data; name=\"file\"; filename=\"" + fileName + "\""),
-                RequestBody.create(MEDIA_TYPE_PNG, file)
-            )
-            .addPart(
-                Headers.of("Content-Disposition", "form-data; name=\"imagetype\""),
-                RequestBody.create(null, imageType)
-            )
-            .addPart(
-                Headers.of("Content-Disposition", "form-data; name=\"userphone\""),
-                RequestBody.create(null, userPhone)
+             // MultipartBody
+             .addPart(
+             Headers.of("Content-Disposition", "form-data; name=\"file\"; filename=\"" + fileName + "\""),
+             RequestBody.create(MEDIA_TYPE_PNG, file)
+             )
+             .addPart(
+             Headers.of("Content-Disposition", "form-data; name=\"imagetype\""),
+             RequestBody.create(null, imageType)
+             )
+             .addPart(
+             Headers.of("Content-Disposition", "form-data; name=\"userphone\""),
+             RequestBody.create(null, userPhone)
              )
              builder.addFormDataPart(entry.getKey(), entry.getValue());
              */
@@ -180,18 +175,20 @@ public class SWTest {
                     }
                     outBuffer.append((char) value);
                 } else {
-                    if (aChar == 't')
+                    if (aChar == 't') {
                         aChar = '\t';
-                    else if (aChar == 'r')
+                    } else if (aChar == 'r') {
                         aChar = '\r';
-                    else if (aChar == 'n')
+                    } else if (aChar == 'n') {
                         aChar = '\n';
-                    else if (aChar == 'f')
+                    } else if (aChar == 'f') {
                         aChar = '\f';
+                    }
                     outBuffer.append(aChar);
                 }
-            } else
+            } else {
                 outBuffer.append(aChar);
+            }
 
         }
         return outBuffer.toString();
