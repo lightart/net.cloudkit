@@ -1,4 +1,4 @@
-noun 名词
+1. noun 名词
 英 [naʊn] 美 [naʊn]
 缩写 n
 缩写 num 数词 numeral
@@ -9,11 +9,11 @@ noun 名词
 缩写 pers (人称)人称 person
 缩写 pers pron (人称代)人称代名词 personal pronoun
 
-pronoun 代词
+2. pronoun 代词
 英 ['prəʊnaʊn] 美 ['pronaʊn]
 缩写 pron 代名词
 
-verb 动词
+3. verb 动词
 英 [vɜːb] 美 [vɝb]
 缩写 v 兼指及物动词和不及物动词
 缩写 vi 不及物动词 intransitive verb
@@ -21,33 +21,33 @@ verb 动词
 缩写 pt 过去式 past tense
 缩写 pp 过去分词 past participle
 
-adverb 副词
+4. adverb 副词
 英 ['ædvɜːb] 美 ['ædvɝb]
 缩写 adv
 
-adjective 形容词
+5. adjective 形容词
 英 ['ædʒɪktɪv] 美 ['ædʒɪktɪv]
 缩写 adj
 
-preposition 介词
+6. preposition 介词
 英 [,prepə'zɪʃ(ə)n] 美 [,prɛpə'zɪʃən]
 缩写 prep
 
-conjunction 连接词
+7. conjunction 连接词
 英 [kən'dʒʌŋ(k)ʃ(ə)n] 美 [kən'dʒʌŋkʃən]
 缩写 conj
 
-article 冠词
+8. article 冠词
 英 ['ɑːtɪk(ə)l] 美 ['ɑrtɪkl]
 缩写 art
 缩写 indef art 不定冠词 indefinite article
 缩写 def art (定冠)定冠词 definite article
 
-interjection 感叹词
+9. interjection 感叹词
 英 [ɪntə'dʒekʃ(ə)n] 美 [,ɪntɚ'dʒɛkʃən]
 缩写 int
 
-auxiliary 助动词
+10. auxiliary 助动词
 英 [ɔːg'zɪlɪərɪ; ɒg-]   美 [ɔːɡ'zɪlɪəri]
 缩写 aux
 
