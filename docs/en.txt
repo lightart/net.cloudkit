@@ -76,3 +76,23 @@ he      him     his     his     himself
 she     her     her     hers    herself
 it      it      it      its     itself
 they    them    their   theirs  themselves
+
+test, inspect和check的区别
+
+这几个词都相当于汉语的“检查”，但各有侧重:
+1. test:侧重于是以某种手段来试一试某人或某物是否达到了一定的标准，如:
+I think I failed the Intelligence Test. 我想我的智力测验没及格。
+I was being tested for a driving licence for the third time.为了取得驾驶执照，我正在接受第三次考试。
+
+2. inspect:侧重于为了发现问题进行的仔细而挑剔的检查。如:
+inspect a school 视察学校
+inspect the troops 阅兵
+inspect a factory 视察工厂;
+
+3. examine:侧重于通过观察、调检或测试来确定某人或某物的资格或者性能，如:
+You should examine your own heart 你应该扪心自问。
+The teacher will examine the students in English. 老师要考学生的英语了。
+We are going examine the data for clues. 我们打算检查数据以寻找线索
+4. check:侧重于进行“校对”、“找错”，或通过察看、观察以了解情况，如:
+They have the clock checked twice a day.他们每天对钟表检查两次。
+Check your homework before you hand it in. 把你的家庭作业检查一下然后再交。
