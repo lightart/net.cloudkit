@@ -10,6 +10,9 @@ import org.tanukisoftware.wrapper.WrapperManager;
 /**
  * 实现WrapperListener 由Java Service Wrapper执行
  * http://wrapper.tanukisoftware.com/doc/english/download.jsp
+ *
+ * @author hongquanli <hongquanli@qq.com>
+ * @version 1.0 2015年08月26日 上午11:38:34
  */
 public class Bootstrap implements WrapperListener {
 
@@ -33,8 +36,9 @@ public class Bootstrap implements WrapperListener {
         // TODO Auto-generated method stub
 
         // 打印参数
-        for (String arg : args)
+        for (String arg : args) {
             logger.debug(arg);
+        }
         WrapperManager.start(new Bootstrap(), args);
 
 
@@ -43,7 +47,10 @@ public class Bootstrap implements WrapperListener {
     @Override
     public void controlEvent(int event) {
         logger.debug("controlEvent(" + event + ")");
-        if ((event == WrapperManager.WRAPPER_CTRL_LOGOFF_EVENT) && (WrapperManager.isLaunchedAsService() || WrapperManager.isIgnoreUserLogoffs())) {
+
+        boolean bool = (event == WrapperManager.WRAPPER_CTRL_LOGOFF_EVENT) && (WrapperManager.isLaunchedAsService() || WrapperManager.isIgnoreUserLogoffs());
+        if (bool) {
+
         } else {
             WrapperManager.stop(0);
         }
