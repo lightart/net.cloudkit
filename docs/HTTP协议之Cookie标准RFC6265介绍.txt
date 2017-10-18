@@ -3,56 +3,83 @@ http协议之cookie标准RFC6265介绍
 cookie是现代web系统开发中非常重要的一个技术，最近对cookie标准RFC6265进行了了解，从中选取了部分内容。
 
 1.cookie的主要作用
-
-因为HTTP协议是无状态的，对于一个浏览器发出的多次请求，WEB服务器无法区分是不是来源于同一个浏览器。所以，需要额外的数据用于维护会话。 Cookie 正是这样的一段随HTTP请求一起被传递的额外数据。
+因为HTTP协议是无状态的，对于一个浏览器发出的多次请求，WEB服务器无法区分是不是来源于同一个浏览器。所以，需要额外的数据用于维护会话。 Cookie 正是
+这样的一段随HTTP请求一起被传递的额外数据。
 
 2.cookie的主要作用
-
-除了name、value这两个必备属性外，还有下面几个可选属性（这些属性名都是大小写不敏感的,并且只要设置了浏览器是必须处理的），分别控制cookie的生存周期、可见性、安全性。
+除了name、value这两个必备属性外，还有下面几个可选属性（这些属性名都是大小写不敏感的,并且只要设置了浏览器是必须处理的），分别控制cookie的生存周
+期、可见性、安全性。
 
 2.1） expires：绝对过期时间
 
 如果这个属性的值不能被转换为日期，客户端会忽略该属性。当同一个cookie两次请求的expires值不相同时，新的 可能 会替换旧的。
 If the attribute-value failed to parse as a cookie date, ignore the cookie-av.
-If the expiry-time is later than the last date the user agent can represent, the user agent MAY replace the expiry-time with the last representable date.
-If the expiry-time is earlier than the earliest date the user agent can represent, the user agent MAY replace the expiry-time with the earliest representable date
+If the expiry-time is later than the last date the user agent can represent, the user agent MAY replace the expiry-time
+with the last representable date.
+If the expiry-time is earlier than the earliest date the user agent can represent, the user agent MAY replace the
+expiry-time with the earliest representable date
 
 2.2）Max-Age：相对过期时间,以秒为单位。如果该属性的值不是数字，客户端将不做处理。
 
 If the first character of the attribute-value is not a DIGIT or a "-" character, ignore the cookie-av.
 If the remainder of attribute-value contains a non-DIGIT character, ignore the cookie-av.
-If delta-seconds is less than or equal to zero (0), let expiry-time be the earliest representable date and time. Otherwise, let the expiry-time be the current date and time plus delta-seconds seconds.
+If delta-seconds is less than or equal to zero (0), let expiry-time be the earliest representable date and time.
+Otherwise, let the expiry-time be the current date and time plus delta-seconds seconds.
 
-Max-age和expires这两个属性控制cookie生命周期。 如果两个都设置了，以Max-Age为准。 默认情况下，cookie是暂时存在的，他们存储的值只在浏览器会话期间存在。当浏览器推出后，这些值也就丢失了.
-If a cookie has neither the Max-Age nor the Expires attribute, the user agent will retain the cookie until "the current session is over" (as defined by the user agent)。
+Max-age和expires这两个属性控制cookie生命周期。 如果两个都设置了，以Max-Age为准。 默认情况下，cookie是暂时存在的，他们存储的值只在浏览器会话
+期间存在。当浏览器推出后，这些值也就丢失了.
+If a cookie has neither the Max-Age nor the Expires attribute, the user agent will retain the cookie until "the current
+session is over" (as defined by the user agent)。
 
-2.3）path：指定了与cookie关联在一起的网页，默认情况下，cookie会和创建它的网页以及与这个网页处于同一个目录下的网页和处于该目录的子目录下的网页关联，同时不能用这个属性来确定安全性
+2.3）path：指定了与cookie关联在一起的网页，默认情况下，cookie会和创建它的网页以及与这个网页处于同一个目录下的网页和处于该目录的子目录下的网页关
+联，同时不能用这个属性来确定安全性
 
-The scope of each cookie is limited to a set of paths, controlled by the Path attribute. If the server omits the Path attribute, the user agent will use the "directory" of the request-uri’s path component as the default value.
-The user agent will include the cookie in an HTTP request only if the path portion of the request-uri matches (or is a subdirectory of) the cookie’s Path attribute, where the %x2F ("/") character is interpreted as a directory separator.
-Although seemingly useful for isolating cookies between different paths within a given host,the Path attribute cannot be relied upon for security
+The scope of each cookie is limited to a set of paths, controlled by the Path attribute. If the server omits the Path
+attribute, the user agent will use the "directory" of the request-uri’s path component as the default value.
+The user agent will include the cookie in an HTTP request only if the path portion of the request-uri matches (or is a
+subdirectory of) the cookie’s Path attribute, where the %x2F ("/") character is interpreted as a directory separator.
+Although seemingly useful for isolating cookies between different paths within a given host,the Path attribute cannot
+be relied upon for security
 
 2.4）domain：如果没有设置cookie的domain值，该属性的默认值就是创建cookie的网页所在的服务器的主机名
 
-If the server omits the Domain attribute, the user agent will return the cookie only to the origin server。但不能将一个cookie的域设置成服务器所在的域之外的域
-The user agent will reject cookies unless the Domain attribute specifies a scope for the cookie that would include the origin server. For example, the user agent will accept a cookie with a Domain attribute of "example.com" or of "foo.example.com" from foo.example.com, but the user agent will not accept a cookie with a Domain attribute of "bar.example.com" or of "baz.foo.example.com". NOTE: For security reasons, many user agents are configured to reject Domain attributes that correspond to "public suffixes". For example, some user agents will reject Domain attributes of "com" or "co.uk".
-When a user agent receives a Set-Cookie header field in an HTTP response, the user agent MAY ignore the Set-Cookie header field in its entirety. For example, the user agent might wish to block responses to "third-party" requests from setting cookies。
+If the server omits the Domain attribute, the user agent will return the cookie only to the origin server。
+但不能将一个cookie的域设置成服务器所在的域之外的域
+The user agent will reject cookies unless the Domain attribute specifies a scope for the cookie that would include the
+origin server. For example, the user agent will accept a cookie with a Domain attribute of "example.com" or of
+"foo.example.com" from foo.example.com, but the user agent will not accept a cookie with a Domain attribute of
+"bar.example.com" or of "baz.foo.example.com". NOTE: For security reasons, many user agents are configured to reject
+Domain attributes that correspond to "public suffixes". For example, some user agents will reject Domain attributes of
+"com" or "co.uk".
+When a user agent receives a Set-Cookie header field in an HTTP response, the user agent MAY ignore the Set-Cookie
+header field in its entirety. For example, the user agent might wish to block responses to "third-party" requests from
+setting cookies。
 
-2.5）secure：它指定了在网络上如何传输cookie值。默认情况下，cookie是不安全的，也就是说，他们是通过一个普通的、不安全的http链接传输的。但是如果将cookie标记为安全的，那么它将只在浏览器和服务器通过https或其他安全协议链接是才被传输。这个属性只能保证cookie是保密的。
+2.5）secure：它指定了在网络上如何传输cookie值。默认情况下，cookie是不安全的，也就是说，他们是通过一个普通的、不安全的http链接传输的。但是如果
+将cookie标记为安全的，那么它将只在浏览器和服务器通过https或其他安全协议链接是才被传输。这个属性只能保证cookie是保密的。
 
-The Secure attribute limits the scope of the cookie to "secure" channels (where "secure" is defined by the user agent). When a cookie has the Secure attribute, the user agent will include the cookie in an HTTP request only if the request is transmitted over a secure channel (typically HTTP over Transport Layer Security (TLS)
+The Secure attribute limits the scope of the cookie to "secure" channels (where "secure" is defined by the user agent).
+When a cookie has the Secure attribute, the user agent will include the cookie in an HTTP request only if the request
+is transmitted over a secure channel (typically HTTP over Transport Layer Security (TLS)
 
 2.6）HttpOnly：设为true后，只能通过http访问，不能通过document.cookie获取设定为httponly的键值,防止xss读取cookie。
 
 httpOnly属性和secure是独立的，一个cookie可以同时设置这两个属性。
-The HttpOnly attribute limits the scope of the cookie to HTTP requests. In particular, the attribute instructs the user agent to omit the cookie when providing access to cookies via "non-HTTP" APIs (such as a web browser API that exposes cookies to scripts). Note that the HttpOnly attribute is independent of the Secure attribute: a cookie can have both the HttpOnly and the Secure attribute.
+The HttpOnly attribute limits the scope of the cookie to HTTP requests. In particular, the attribute instructs the user
+agent to omit the cookie when providing access to cookies via "non-HTTP" APIs (such as a web browser API that exposes
+cookies to scripts). Note that the HttpOnly attribute is independent of the Secure attribute: a cookie can have both
+the HttpOnly and the Secure attribute.
 
 2.7）cookie属性其他相关内容
 
 User agents ignore unrecognized cookie attributes (but not the entire cookie).
-To maximize compatibility with user agents, servers that wish to store arbitrary data in a cookie-value SHOULD encode that data, for example, using Base64 [RFC4648].
-To maximize compatibility with user agents, servers SHOULD NOT produce two attributes with the same name in the same set-cookie-string.
-If the user agent receives a new cookie with the same cookie-name, domain-value, and path-value as a cookie that it has already stored, the existing cookie is evicted and replaced with the new cookie. Notice that servers can delete cookies by sending the user agent a new cookie with an Expires attribute with a value in the past.
+To maximize compatibility with user agents, servers that wish to store arbitrary data in a cookie-value SHOULD encode
+that data, for example, using Base64 [RFC4648].
+To maximize compatibility with user agents, servers SHOULD NOT produce two attributes with the same name in the same
+set-cookie-string.
+If the user agent receives a new cookie with the same cookie-name, domain-value, and path-value as a cookie that it has
+already stored, the existing cookie is evicted and replaced with the new cookie. Notice that servers can delete cookies
+by sending the user agent a new cookie with an Expires attribute with a value in the past.
 
 3.cookie值在何处设置
 
@@ -69,11 +96,15 @@ If the user agent receives a new cookie with the same cookie-name, domain-value,
 
 4.2cookie属性其他相关内容
 
-通过http的request头，浏览器也不是发送它所接收到的所有Cookie，它会检查当前要请求的域名以及目录， 只要这二项目与Cookie对应的Domain和Path匹配，才会发送。对于Domain则是按照尾部匹配的原则进行的。发送的内容只有name和value，其他的属性是不发送的。
-Each cookie-pair represents a cookie stored by the user agent. The cookie-pair contains the cookie-name and cookie-value the user agent received in the Set-Cookie header.
+通过http的request头，浏览器也不是发送它所接收到的所有Cookie，它会检查当前要请求的域名以及目录， 只要这二项目与Cookie对应的Domain和Path匹配，
+才会发送。对于Domain则是按照尾部匹配的原则进行的。发送的内容只有name和value，其他的属性是不发送的。
+Each cookie-pair represents a cookie stored by the user agent. The cookie-pair contains the cookie-name and
+cookie-value the user agent received in the Set-Cookie header.
 Notice that the cookie attributes are not returned.
 因而当客户端发送两个同名的cookie时，服务端是无法区分这两个cookie的归属。
-Although cookies are serialized linearly in the Cookie header, servers SHOULD NOT rely upon the serialization order. In particular, if the Cookie header contains two cookies with the same name (e.g., that were set with different Path or Domain attributes), servers SHOULD NOT rely upon the order in which these cookies appear in the header.
+Although cookies are serialized linearly in the Cookie header, servers SHOULD NOT rely upon the serialization order. In
+particular, if the Cookie header contains two cookies with the same name (e.g., that were set with different Path or
+Domain attributes), servers SHOULD NOT rely upon the order in which these cookies appear in the header.
 
 5.cookie是否可以被截获
 
@@ -84,7 +115,9 @@ Although cookies are serialized linearly in the Cookie header, servers SHOULD NO
 6.cookie是否可以被非法修改
 
 可以通过一些插件（如edit this cookie）或者其他技术手段进行修改。Secure属性也有其局限性。
-Although seemingly useful for protecting cookies from active network attackers, the Secure attribute protects only the cookie’s confidentiality. An active network attacker can overwrite Secure cookies from an insecure channel, disrupting their integrity
+Although seemingly useful for protecting cookies from active network attackers, the Secure attribute protects only the
+cookie’s confidentiality. An active network attacker can overwrite Secure cookies from an insecure channel, disrupting
+their integrity
 
 参考资料
 
