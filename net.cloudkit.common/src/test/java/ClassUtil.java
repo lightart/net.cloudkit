@@ -83,7 +83,19 @@ public class ClassUtil {
             }
 
         } catch (Throwable thr) {
-            String msg = (new StringBuilder()).append("Class: ").append(clz.getName()).append(", ").append(clz.getProtectionDomain().getCodeSource().getLocation()).append(", ").append(clz.getClassLoader()).toString();
+            String msg = (new StringBuilder())
+                .append("Class: ")
+                .append(clz.getName())
+                .append(", ")
+                .append(
+                    clz.getProtectionDomain()
+                        .getCodeSource()
+                        .getLocation()
+                )
+                .append(", ")
+                .append(
+                    clz.getClassLoader()
+                ).toString();
             throw new RuntimeException(msg, thr);
         }
         return constructor;
