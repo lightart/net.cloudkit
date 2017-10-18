@@ -34,7 +34,7 @@ package net.cloudkit.resources.components.backoff;
  *     // sleep, e.g. Thread.sleep(waitInterval)
  *     // retry operation
  * }
- * }</pre>
+ * </pre>
  *
  * Once the underlying operation has completed successfully,
  * the execution instance can be simply discarded.
