@@ -2400,6 +2400,7 @@ http://nucc.com/
 https://www.digitaling.com/
 http://www.goodzilla.cn/
 
+http://sortbenchmark.org/
 腾讯打破全球计算奥运4项纪录，98.8秒完成100TB数据排序 2016年11月10日17:57
 
 腾讯科技讯 11月10日，Sort Benchmark全球排序竞赛公布2016年最终成绩，腾讯云大数据联合团队用时不到99秒（98.8秒）就完成100TB的数据排序，打破阿里
