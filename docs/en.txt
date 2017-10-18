@@ -93,6 +93,7 @@ inspect a factory 视察工厂;
 You should examine your own heart 你应该扪心自问。
 The teacher will examine the students in English. 老师要考学生的英语了。
 We are going examine the data for clues. 我们打算检查数据以寻找线索
+
 4. check:侧重于进行“校对”、“找错”，或通过察看、观察以了解情况，如:
 They have the clock checked twice a day.他们每天对钟表检查两次。
 Check your homework before you hand it in. 把你的家庭作业检查一下然后再交。
