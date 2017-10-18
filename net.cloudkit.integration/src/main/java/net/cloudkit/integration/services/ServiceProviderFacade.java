@@ -7,6 +7,11 @@ import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
 import javax.xml.ws.Holder;
 
+
+/**
+ * @author hongquanli <hongquanli@qq.com>
+ * @version 1.0 2015年08月26日 上午11:38:34
+ */
 /*
  * 通过annotation方式实现webservice
  * targetNamespace属性定义了自己的命名空间，
