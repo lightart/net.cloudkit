@@ -6,5 +6,12 @@ package net.cloudkit.integration.services;
  */
 public interface ServiceExecutor {
 
+    /**
+     * 执行
+     *
+     * @param settings
+     * @param serviceName
+     * @param serviceContext
+     */
     void execute(Settings settings, String serviceName, RequestContext serviceContext);
 }

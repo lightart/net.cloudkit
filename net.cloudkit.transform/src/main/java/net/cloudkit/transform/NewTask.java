@@ -7,6 +7,9 @@ import com.rabbitmq.client.MessageProperties;
 
 /**
  * https://github.com/rabbitmq/rabbitmq-tutorials
+ *
+ * @author hongquanli <hongquanli@qq.com>
+ * @version 1.0 2015年08月26日 上午11:38:34
  */
 public class NewTask {
 

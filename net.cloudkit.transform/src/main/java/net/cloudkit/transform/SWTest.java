@@ -40,7 +40,7 @@ public class SWTest {
         try {
 
             // Properties
-            Map<String, String> params1 = new HashMap<>();
+            Map<String, String> params1 = new HashMap<>(8);
             params1.put("userId", "");
             params1.put("platId", "");
             params1.put("msgType", "");

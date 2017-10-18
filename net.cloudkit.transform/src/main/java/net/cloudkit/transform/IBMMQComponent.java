@@ -14,6 +14,9 @@ import java.util.UUID;
  * <p>
  * IBM MQ Downloads
  * https://www.ibm.com/developerworks/mydeveloperworks/blogs/messaging/entry/downloads?lang=en
+ *
+ * @author hongquanli <hongquanli@qq.com>
+ * @version 1.0 2015年08月26日 上午11:38:34
  */
 public class IBMMQComponent {
 
@@ -64,18 +67,30 @@ public class IBMMQComponent {
     public static int MQ_DEFAULT_CCSID = 1381;
     public static String MQ_DEFAULT_CONN_CHANNEL = "SYSTEM.DEF.SVRCONN";
 
-    // MQ服务器的IP地址
+    /**
+     * MQ服务器的IP地址
+     */
     private String hostname;
-    // MQ端口
+    /**
+     * MQ端口
+     */
     private Integer port = MQ_DEFAULT_PORT;
 
-    // 服务器连接的通道
+    /**
+     * 服务器连接的通道
+     */
     private String channel = MQ_DEFAULT_CONN_CHANNEL;
-    // MQ的队列管理器名称
+    /**
+     * MQ的队列管理器名称
+     */
     private String queueManagerName;
-    // MQ远程队列的名称
+    /**
+     * MQ远程队列的名称
+     */
     private String queueName;
-    // 服务器MQ服务使用的编码 1381
+    /**
+     * 服务器MQ服务使用的编码 1381
+     */
     private Integer ccsid = MQ_DEFAULT_CCSID;
 
     private String userId;
@@ -510,5 +525,9 @@ public class IBMMQComponent {
 
 interface IBMMQReceiveCallback {
 
+    /**
+     * 执行
+     * @param paramArrayOfByte
+     */
     void execute(byte[] paramArrayOfByte);
 }

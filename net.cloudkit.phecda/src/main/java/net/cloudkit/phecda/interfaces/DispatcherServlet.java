@@ -8,7 +8,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
+ * DispatcherServlet
  *
+ * @author hongquanli <hongquanli@qq.com>
+ * @version 1.0 2015年08月26日 上午11:38:34
  */
 @WebServlet(name = "DispatcherServlet")
 public class DispatcherServlet extends HttpServlet {

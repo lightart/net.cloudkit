@@ -7,6 +7,9 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * http://www.jianshu.com/p/1dd951412ff5
+ *
+ * @author hongquanli <hongquanli@qq.com>
+ * @version 1.0 2015年08月26日 上午11:38:34
  */
 public class FutureTaskTest {
 

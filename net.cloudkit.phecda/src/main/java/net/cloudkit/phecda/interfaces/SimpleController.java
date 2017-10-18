@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * SimpleController.java
+ *
+ * @author hongquanli <hongquanli@qq.com>
+ * @version 1.0 2015年08月26日 上午11:38:34
  */
 @RestController
 public class SimpleController {

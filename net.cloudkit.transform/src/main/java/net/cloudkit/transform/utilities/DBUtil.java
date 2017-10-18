@@ -40,6 +40,9 @@ public class DBUtil {
      */
     private static DataSource dataSource;
 
+    /**
+     *
+     */
     // private static String url = "jdbc:mysql://127.0.0.1:3306/wbdata?useUnicode=true&characterEncoding=UTF-8";
     // private static String url = "jdbc:mysql://192.168.0.18:3306/wbdata?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&failOverReadOnly=false&maxReconnects=10";
     // private static String url = "jdbc:mysql://192.168.0.18:3306/wbdata?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&failOverReadOnly=false";

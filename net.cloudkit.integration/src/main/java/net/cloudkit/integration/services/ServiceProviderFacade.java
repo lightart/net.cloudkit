@@ -7,11 +7,6 @@ import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
 import javax.xml.ws.Holder;
 
-
-/**
- * @author hongquanli <hongquanli@qq.com>
- * @version 1.0 2015年08月26日 上午11:38:34
- */
 /*
  * 通过annotation方式实现webservice
  * targetNamespace属性定义了自己的命名空间，
@@ -28,8 +23,21 @@ import javax.xml.ws.Holder;
 // 3.RPC：
 @SOAPBinding(style = SOAPBinding.Style.RPC, use = SOAPBinding.Use.ENCODED, parameterStyle = SOAPBinding.ParameterStyle.WRAPPED)
 // @SOAPBinding(style = SOAPBinding.Style.DOCUMENT, use = SOAPBinding.Use.LITERAL)
+/**
+ * @author hongquanli <hongquanli@qq.com>
+ * @version 1.0 2015年08月26日 上午11:38:34
+ */
 public interface ServiceProviderFacade {
 
+    /**
+     * 服务处理
+     *
+     * @param serviceName
+     * @param requestContext
+     * @param requestData
+     * @param responseData
+     * @return
+     */
     @WebMethod(action = "service", operationName = "service", exclude = false)
     @WebResult(name = "result")
     byte[] service(@WebParam(name = "serviceName") String serviceName, @WebParam(name = "requestContext") byte[] requestContext, @WebParam(name = "requestData") byte[] requestData, @WebParam(name = "responseData", mode = WebParam.Mode.OUT) Holder<byte[]> responseData);

@@ -10,6 +10,13 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.DispatcherServlet;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
+
+/**
+ * PhecdaApplication
+ *
+ * @author hongquanli <hongquanli@qq.com>
+ * @version 1.0 2015年08月26日 上午11:38:34
+ */
 @EntityScan("net.cloudkit.phecda.domain.model")
 @EnableJpaRepositories(basePackages = "net.cloudkit.phecda.domain")
 @EnableTransactionManagement

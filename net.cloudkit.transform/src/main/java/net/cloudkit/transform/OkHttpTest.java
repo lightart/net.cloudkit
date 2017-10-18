@@ -137,7 +137,7 @@ public class OkHttpTest {
             // String m = new String(Base64Encrypt.decode(message.getBytes()), "UTF-8");
             // System.out.println(m);
 
-            Map<String, String> params1 = new HashMap<>();
+            Map<String, String> params1 = new HashMap<>(10);
             params1.put("Sender", "Guangmaoyun");
             params1.put("Receiver", "Sino");
             params1.put("MessageType", "xml_BGD");

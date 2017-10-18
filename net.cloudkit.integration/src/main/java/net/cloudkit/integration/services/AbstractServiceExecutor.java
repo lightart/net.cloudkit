@@ -40,6 +40,13 @@ public abstract class AbstractServiceExecutor implements ServiceExecutor {
         propertiesConfiguration = SpringContextHolder.getBean("propertiesConfiguration");
     }
 
+    /**
+     * 执行
+     *
+     * @param settings
+     * @param serviceName
+     * @param serviceContext
+     */
     @Override
     public abstract void execute(Settings settings, String serviceName, RequestContext serviceContext);
 

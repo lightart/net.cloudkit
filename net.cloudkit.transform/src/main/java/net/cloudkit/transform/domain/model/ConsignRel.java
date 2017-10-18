@@ -3,54 +3,43 @@ package net.cloudkit.transform.domain.model;
 import java.util.Objects;
 
 /**
- * DeclContainer.java
+ * CONSIGN_REL
  *
  * @author hongquanli <hongquanli@qq.com>
  * @version 1.0 2015年08月26日 上午11:38:34
  */
-// CONSIGN_REL
 public class ConsignRel {
 
 	private static final long serialVersionUID = 1L;
 
-	/** 对应公司代码 所属用户公司代码 */
-    // COMPANY_CODE
+	/** COMPANY_CODE 对应公司代码 所属用户公司代码 */
 	private String companyCode;
 
-	/** 流水号 */
-    // CONSIGN_REL_NO
+	/** CONSIGN_REL_NO 流水号 */
 	private String consignRelNo;
 
-	/** 批次号 */
-    // BATCH_NO
+	/** BATCH_NO 批次号 */
 	private String batchNo;
 
-	/** 平台编号 */
-    // PALT_NO
+	/** PALT_NO 平台编号 */
 	private String paltNo;
 
-	/** 委托类别 1、客户录单所属公司非报关行2、代理录单所属公司报关行3、客户自报经营单位与申报单位的海关代一致 */
-    // CONSIGN_TYPE
+	/** CONSIGN_TYPE 委托类别 1、客户录单所属公司非报关行2、代理录单所属公司报关行3、客户自报经营单位与申报单位的海关代一致 */
 	private Integer consignType;
 
-	/** 1、自报 2、委托 */
-    // CONSIGN_MODE
+	/** CONSIGN_MODE 1、自报 2、委托 */
 	private Integer consignMode;
 
-	/** 委托日期 */
-    // CONSIGN_TIME
+	/** CONSIGN_TIME 委托日期 */
 	private Long consignTime;
 
-	/** 委托方代码 编码参考SHIPPER表 */
-    // SHIP_NO
+	/** SHIP_NO 委托方代码 编码参考SHIPPER表 */
 	private String shipNo;
 
-	/** 经营单位代码 */
-    // EXPORT_CODE
+	/** EXPORT_CODE 经营单位代码 */
 	private String exportCode;
 
-	/** 经营单位名称 */
-    // EXPORT_NAME
+	/** EXPORT_NAME 经营单位名称 */
 	private String exportName;
 
 	/** 收发货单位代码 */

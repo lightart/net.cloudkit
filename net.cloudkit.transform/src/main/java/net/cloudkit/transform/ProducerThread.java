@@ -56,7 +56,7 @@ public class ProducerThread extends Thread {
                 BizOrdInfoType bizOrdInfo = decMessage.getBizOrdInfo();
 
                 // 添加队列
-                Map<String, Object> dataMap = new HashMap<>();
+                Map<String, Object> dataMap = new HashMap<>(3);
                 dataMap.put("file", file);
                 dataMap.put("history_path", historyPath);
                 dataMap.put("failed_path", failedPath);

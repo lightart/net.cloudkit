@@ -38,6 +38,8 @@ public interface BackOffExecution {
 	 * Return the number of milliseconds to wait before retrying the operation
 	 * or {@link #STOP} ({@value #STOP}) to indicate that no further attempt
 	 * should be made for the operation.
+     *
+     * @return
 	 */
 	long nextBackOff();
 
