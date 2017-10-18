@@ -82,7 +82,7 @@ public abstract class AbstractServiceExecutor implements ServiceExecutor {
                 "    <!-- 版本 -->" +
                 "    <property name=\"version\" value=\"1.0\" />" +
                 "    <!-- 请求时间戳 -->" +
-                "    <property name=\"timestamp\" value=\"" + new Date().getTime() + "\" />" +
+                "    <property name=\"timestamp\" value=\"" + System.currentTimeMillis() + "\" />" +
                 "    <!-- 说明 -->" +
                 "    <property name=\"description\" value=\"\" />" +
                 "    <!-- 附加参数 -->" +
