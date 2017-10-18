@@ -2378,6 +2378,8 @@ Linux Kernel Development
 信息论基础(原书第2版)
 信息论与编码理论
 
+莱洛三角形
+
 http://www.rfc-editor.org/rfc-index.txt
 http://www.mbalib.com
 
