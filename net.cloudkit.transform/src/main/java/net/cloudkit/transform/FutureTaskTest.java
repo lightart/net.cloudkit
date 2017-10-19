@@ -25,9 +25,9 @@ public class FutureTaskTest {
         Thread t = new Thread(ft);
         t.start();
 
-        //这里可以做一些其它的事情，跟futureTask任务并行，等需要futureTask的运行结果时，可以调用get方法获取。
+        // 这里可以做一些其它的事情，跟futureTask任务并行，等需要futureTask的运行结果时，可以调用get方法获取。
         try {
-            //等待任务执行完成，获取返回值
+            // 等待任务执行完成，获取返回值
             Integer num = ft.get();
             System.out.println(num);
         } catch (Exception e) {
