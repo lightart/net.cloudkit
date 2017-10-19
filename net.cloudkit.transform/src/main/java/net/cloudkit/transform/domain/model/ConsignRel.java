@@ -42,44 +42,34 @@ public class ConsignRel {
 	/** EXPORT_NAME 经营单位名称 */
 	private String exportName;
 
-	/** 收发货单位代码 */
-    // SHIP_CODE
+	/** SHIP_CODE 收发货单位代码 */
 	private String shipCode;
 
-	/** 收发货单位名称 */
-    // SHIP_NAME
+	/** SHIP_NAME 收发货单位名称 */
 	private String shipName;
 
-	/** 制单单位(录入单位) */
-    // CREATE_COM_CODE
+	/** CREATE_COM_CODE 制单单位(录入单位) */
 	private String createComCode;
 
-	/** 制单单位名称 */
-    // CREATE_COM_NAME
+	/** CREATE_COM_NAME 制单单位名称 */
 	private String createComName;
 
-	/** 申报单位代码 */
-    // DECL_COM_CODE
+	/** DECL_COM_CODE 申报单位代码 */
 	private String declComCode;
 
-	/** 申报单位名称 */
-    // DECL_COM_NAME
+	/** DECL_COM_NAME 申报单位名称 */
 	private String declComName;
 
-	/** 状态 1、待委托2、已委托3、取消委托 */
-    // STATUS
+	/** STATUS 状态 1、待委托2、已委托3、取消委托 */
 	private Integer status;
 
-	/** 来源平台编号 */
-    // SOURCE_PALT_NO
+	/** SOURCE_PALT_NO 来源平台编号 */
 	private String sourcePaltNo;
 
-	/** 制单类型(数据来源) 1、报关单2、清单3、公路舱单 */
-    // SOURCE
+	/** SOURCE 制单类型(数据来源) 1、报关单2、清单3、公路舱单 */
 	private Integer source;
 
-	/** 委托事项 1、报关单2、集报清单3、公路舱单4、海运舱单 */
-    // CONSIGN_ITEM
+	/** CONSIGN_ITEM 委托事项 1、报关单2、集报清单3、公路舱单4、海运舱单 */
 	private Integer consignItem;
 
 	/** 进出口方式 I-进口，E-出口 */
