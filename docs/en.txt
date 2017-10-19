@@ -101,3 +101,35 @@ We are going examine the data for clues. 我们打算检查数据以寻找线索
 4. check:侧重于进行“校对”、“找错”，或通过察看、观察以了解情况，如:
 They have the clock checked twice a day.他们每天对钟表检查两次。
 Check your homework before you hand it in. 把你的家庭作业检查一下然后再交。
+
+
+* Australia: Sydney
+* Brazil: Sao Paulo
+* Chile: Vina del Mar
+* France: Paris
+* Germany: Frankfurt
+* Hong Kong
+* Iceland: Reykjavik
+* Ireland: Dublin
+* Italy: Milan
+* Japan: Osaka
+* Japan: Tokyo (Amazon)
+* Japan: Tokyo (Vultr)
+* Netherlands: Amsterdam
+* New Zealand: Auckland
+* Russia: Moscow - slow
+* Singapore - down
+* South Africa: Johannesburg
+* Spain: Madrid
+* Sweden: Stockholm
+* UK: London (Rackspace)
+* UK: London (Vultr)
+* UK: Manchester (LoveServers)
+* USA: Chicago
+* USA: Dallas
+* USA: Los Angeles
+* USA: New York - slow
+* USA: North California
+* USA: San Jose
+* USA: Seattle
+* USA: Virginia
