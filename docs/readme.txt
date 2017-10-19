@@ -2460,3 +2460,55 @@ FROM_UNIXTIME(unix_timestamp,format)
 
 例子：
 SELECT FROM_UNIXTIME(1234567890, '%Y-%m-%d %H:%i:%S')
+
+------------------------------------------------------------------------------------------------------------------------
+MYSQL自带函数计算给定的两个日期的间隔天数
+
+有两个途径可获得
+1、利用TO_DAYS函数
+select to_days(now()) - to_days('20120512')
+
+2、利用DATEDIFF函数
+select datediff(now(),'20120512')
+参数1 - 参数2 等于间隔天数
+
+3、利用TIMESTAMPDIFF函数
+计算两日期时间之间相差的天数，秒数，分钟数，周数，小时数，这里主要分享的是通过MySql内置的函数 TimeStampDiff() 实现。
+
+函数 TimeStampDiff() 是MySQL本身提供的可以计算两个时间间隔的函数，语法为：
+TIMESTAMPDIFF(unit, datetime_expr1, datetime_expr2)
+
+返回日期或日期时间表达式datetime_expr1 和datetime_expr2the 之间的整数差。其中unit单位有如下几种，分别是：FRAC_SECOND (microseconds),
+SECOND, MINUTE, HOUR, DAY, WEEK, MONTH, QUARTER, YEAR 。该参数具体释义如下：
+
+FRAC_SECOND   表示间隔是毫秒
+SECOND   秒
+MINUTE   分钟
+HOUR   小时
+DAY   天
+WEEK   星期
+MONTH   月
+QUARTER   季度
+YEAR   年
+
+例如：
+#计算两日期之间相差多少周
+SELECT TIMESTAMPDIFF(week,'2011-09-30','2015-05-04');
+#计算两日期之间相差多少天
+
+SELECT TIMESTAMPDIFF(day,'2011-09-30','2015-05-04');
+另外计算两日期或时间之间相差多少天还可以使用 to_days 函数，但是该函数不用于阳历出现(1582)前的值，原因是当日历改变时，遗失的日期不会被考虑在内。
+因此对于1582 年之前的日期(或许在其它地区为下一年 ), 该函数的结果实不可靠的。具体用法如：
+
+TO_DAYS(end_time) - TO_DAYS(start_time);
+
+#计算两日期/时间之间相差的秒数：
+SELECT TIMESTAMPDIFF(SECOND,'2011-09-30','2015-05-04');
+另外还可以使用 MySql 内置函数 UNIX_TIMESTAMP 实现，如下：
+SELECT　UNIX_TIMESTAMP(end_time) - UNIX_TIMESTAMP(start_time);　
+
+#计算两日期/时间之间相差的时分数：　
+SELECT TIMESTAMPDIFF(MINUTE,'2011-09-30','2015-05-04');
+
+另外还可以如下实现：
+SELECT　SEC_TO_TIME(UNIX_TIMESTAMP(end_time) -　UNIX_TIMESTAMP(start_time));
