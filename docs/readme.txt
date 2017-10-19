@@ -2481,15 +2481,15 @@ TIMESTAMPDIFF(unit, datetime_expr1, datetime_expr2)
 返回日期或日期时间表达式datetime_expr1 和datetime_expr2the 之间的整数差。其中unit单位有如下几种，分别是：FRAC_SECOND (microseconds),
 SECOND, MINUTE, HOUR, DAY, WEEK, MONTH, QUARTER, YEAR 。该参数具体释义如下：
 
-FRAC_SECOND   表示间隔是毫秒
-SECOND   秒
-MINUTE   分钟
-HOUR   小时
-DAY   天
-WEEK   星期
-MONTH   月
-QUARTER   季度
-YEAR   年
+FRAC_SECOND 表示间隔是毫秒
+SECOND      秒
+MINUTE      分钟
+HOUR        小时
+DAY         天
+WEEK        星期
+MONTH       月
+QUARTER     季度
+YEAR        年
 
 例如：
 #计算两日期之间相差多少周
