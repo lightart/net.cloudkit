@@ -45,21 +45,21 @@ dependencies {
 
     compile(
 
-            // 依赖 cloudkit-commons 项目
-            // project(':cloudkit-commons'),
+        // 依赖 cloudkit-commons 项目
+        // project(':cloudkit-commons'),
 
-            libraries.'spring-core',
-            libraries.'spring-integration-core',
-            libraries.'spring-integration-scripting',
-            libraries.'spring-integration-jms',
-            libraries.'spring-integration-stream',
-            libraries.'spring-integration-file',
-            libraries.'spring-integration-jpa',
-            libraries.'spring-integration-ftp',
-            libraries.'spring-integration-jdbc',
-            libraries.'spring-integration-ws',
-            libraries.'spring-integration-mail',
-            libraries.'spring-integration-xml',
+        libraries.'spring-core',
+        libraries.'spring-integration-core',
+        libraries.'spring-integration-scripting',
+        libraries.'spring-integration-jms',
+        libraries.'spring-integration-stream',
+        libraries.'spring-integration-file',
+        libraries.'spring-integration-jpa',
+        libraries.'spring-integration-ftp',
+        libraries.'spring-integration-jdbc',
+        libraries.'spring-integration-ws',
+        libraries.'spring-integration-mail',
+        libraries.'spring-integration-xml',
     )
 }
 
