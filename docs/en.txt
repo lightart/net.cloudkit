@@ -134,4 +134,60 @@ Check your homework before you hand it in. 把你的家庭作业检查一下然�
 * USA: Seattle
 * USA: Virginia
 
-现在进行时的被动语态：be动词+being done
+一般现在时
+am/is/are + P.P.
+(1) Do they speak French?
+Is French spoken by them ?
+(2) They don't use the room.
+The room isn’t used by them.
+一般过去时
+was/were + p.p.
+(1) The hunter killed a tiger.
+A tiger was killed by the hunter .
+(2) He wrote many stories last year.
+Many stories was written by him last year.
+现在进行时
+am/is/are + being + p.p.
+(1) These workers are building a new bridge.
+A new bridge is being built by these workers.
+(2) He is mending his car.
+His car is being mended by him.
+过去进行时
+was/were + being + p.p.
+(1) He was selling books.
+Books were being built by him.
+(2) They were discussing the plan at that time.
+The plan was being discussed by them at that time.
+现在完成时
+have/has + been + p.p.
+(1) She has learned many English words.
+Many English words have been learned by her.
+(2) He has finished the work.
+The work has been finished by him.
+过去完成时
+had + been + p.p.
+(1) They has solved the problem.
+The problem had been solved by them.
+(2) We had told him the news by then.
+The news had been told to him by us.
+一般将来时
+shall/will be + p.p.
+am/is/are going to be + p.p.
+be to be + p.p.
+(1) I shall make a plan.
+A plan will be made by me.
+(2) They are going to fix the radio in an hour.
+The radio is going to be fixed by them in an hour.
+过去将来时
+would be + p.p.
+was/were going to be + p.p.
+(1) He told me they would paint the room.
+He told me the room would be painted by them.
+(2) They were going to put on a play the next week.
+A play was going to be put by them the next week.
+情态动词
+can/may/must/ should + be + p.p.
+(1) We should hand in our homework.
+Our homework should be handed in by us.
+(2) You must answer the question in English.
+The question must be answered in English by you.
