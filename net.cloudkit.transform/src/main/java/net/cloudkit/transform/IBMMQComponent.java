@@ -29,14 +29,14 @@ public class IBMMQComponent {
         mq.setPort(1401);
         mq.setChannel("SYSTEM.DEF.SVRCONN");
         mq.setQueueManagerName("QMCqhz01");
-        mq.setQueueName("TEST_LOCAL");
+        mq.setQueueName("QRCqhz01");
         mq.setCcsid(Integer.valueOf(819));
-        mq.setReceivePath("D:\\Program Files\\exchange\\downloads");
-        // mq.setUserId("Administrator");
-        // mq.setPassword("password");
+//        mq.setReceivePath("D:\\Program Files\\exchange\\downloads");
+//        // mq.setUserId("Administrator");
+//        // mq.setPassword("password");
 
 //        try {
-//            mq.send(new File("D:\\trans_mq\\uploads\\message.txt"));
+//            mq.send(new File("D:\\Program Files\\exchange\\uploads\\bwhns_20171022_1546.xml"));
 //        } catch (Exception e) {
 //            e.printStackTrace();
 //        }
@@ -48,19 +48,19 @@ public class IBMMQComponent {
 //            }
 //        };
 
-        while (true) {
-            try {
-                mq.receive();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
-            try {
-                Thread.sleep(3000L);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
+//        while (true) {
+//            try {
+//                mq.receive();
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//
+//            try {
+//                Thread.sleep(3000L);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+//        }
     }
 
     public static int MQ_DEFAULT_PORT = 1414;

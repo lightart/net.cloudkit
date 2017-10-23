@@ -2514,3 +2514,4 @@ SELECT TIMESTAMPDIFF(MINUTE,'2011-09-30','2015-05-04');
 SELECT　SEC_TO_TIME(UNIX_TIMESTAMP(end_time) -　UNIX_TIMESTAMP(start_time));
 
 ------------------------------------------------------------------------------------------------------------------------
+http://survivor.ruanyifeng.com/
