@@ -25,7 +25,7 @@ public class IBMMQComponent {
         // 回执 QLCqhz01 QTCqhz01
         // IBMMQComponent mq = new IBMMQComponent("120.76.96.117", Integer.valueOf(1401), "SYSTEM.DEF.SVRCONN", "QMCqhz01", "TEST_LOCAL", "D:\\exchange\\downloads");
         IBMMQComponent mq = new IBMMQComponent();
-        mq.setHostname("192.168.1.1");
+        mq.setHostname("120.76.96.117");
         mq.setPort(1401);
         mq.setChannel("SYSTEM.DEF.SVRCONN");
         mq.setQueueManagerName("QMCqhz01");
