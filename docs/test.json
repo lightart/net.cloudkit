@@ -3,7 +3,7 @@
     "service_name": "",
     "version": "1.0",
     "success": false,
-    "is_compile": "false",
+    "is_compressed": "false",
     "data":{
         // "error_code": 200001,
         "response_code": 200001,
@@ -12,6 +12,8 @@
 
     }
 }
+
+// compile
 
 // "limit": 0,
 // "offset": 0,
