@@ -2515,3 +2515,6 @@ SELECT　SEC_TO_TIME(UNIX_TIMESTAMP(end_time) -　UNIX_TIMESTAMP(start_time));
 
 ------------------------------------------------------------------------------------------------------------------------
 http://survivor.ruanyifeng.com/
+
+http://www.istockphoto.com/
+http://www.veer.com/
