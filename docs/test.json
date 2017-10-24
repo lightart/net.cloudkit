@@ -29,6 +29,7 @@
 //     "access_key_id": "Gi0Yziw4U8wzEL4I",
 //     "access_key_secret": "975bf42bdf837a1e43508a9bf6340420",
 //     "message_id": "b34cc138-af1a-11e7-882b-7cd30ac334a2",
+//     // charset
 //     "encoding": "UTF-8",
 //     "content_type": "application/json",
 //     "timestamp": "1507791604000",
@@ -53,7 +54,16 @@
 // mac_address
 
 
-
+//payload
+//channel
+//handler
+//
+//interceptor
+//filter
+//adapter
+//chain
+//
+//自动生成代理调用
 
 //90100	INVALID_PARAMS	请求参数非法
 //90200	MISSING_REQUIRED_PARAMS	缺少必填参数
