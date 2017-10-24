@@ -6,7 +6,7 @@
  * @param companyid 文件的公司id
  * @param filename 文件名称
  */
-public void SaveFile(String collectionName, File file, String fileid, String companyid, String filename) {
+public void saveFile(String collectionName, File file, String fileid, String companyid, String filename) {
         try {
                 DB db = mongoTemplate.getDb();
                 // 存储fs的根节点
