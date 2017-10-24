@@ -2518,3 +2518,5 @@ http://survivor.ruanyifeng.com/
 
 http://www.istockphoto.com/
 http://www.veer.com/
+http://www.xianyou.tv/
+http://www.3g-sys.com/
