@@ -2522,3 +2522,4 @@ http://www.xianyou.tv/
 http://www.3g-sys.com/
 
 http://www.kaiyuan.net/
+https://www.vcg.com/
