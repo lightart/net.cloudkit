@@ -216,3 +216,6 @@ Do you want a cup of tea?
 I will tell you the truth
 I have told you the truth, Must I keep repeating it?
 我已经告诉过你了，我必须重复一遍吗？
+
+Unfortunately, we can't provide support by email.
+For any questions or support, please visit https://community.domain.org/.
