@@ -2514,6 +2514,11 @@ SELECT TIMESTAMPDIFF(MINUTE,'2011-09-30','2015-05-04');
 SELECT　SEC_TO_TIME(UNIX_TIMESTAMP(end_time) -　UNIX_TIMESTAMP(start_time));
 
 ------------------------------------------------------------------------------------------------------------------------
+InnoDB 全文索引
+
+SELECT * FROM TEST T WHERE MATCH(TEST_NO, TEST2_NO) AGAINST('XXX');
+
+------------------------------------------------------------------------------------------------------------------------
 http://survivor.ruanyifeng.com/
 
 http://www.istockphoto.com/
