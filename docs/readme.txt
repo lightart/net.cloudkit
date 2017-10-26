@@ -2565,3 +2565,24 @@ https://yarnpkg.com/zh-Hans/
 服务发现
 项目管理
 
+Monday
+Tuesday
+Wednesday
+Thursday
+Friday
+Saturday
+Sunday
+
+January
+February
+March
+April
+May
+June
+July
+August
+September
+October
+November
+December
+
