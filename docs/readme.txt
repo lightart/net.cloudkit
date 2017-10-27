@@ -2570,6 +2570,8 @@ https://yarnpkg.com/zh-Hans/
 服务发现
 项目管理
 
+服务编排
+
 Monday
 Tuesday
 Wednesday
@@ -2594,3 +2596,9 @@ December
 
 vi /etc/crontab
 0  0  1  *  *  root  ntpdate  ntp1.aliyun.com
+
+------------------------------------------------------------------------------------------------------------------------
+executeLogin onLoginSuccess onLoginFailure onAccessDenied
+doGetAuthenticationInfo
+doGetAuthorizationInfo
+
