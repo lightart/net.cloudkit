@@ -2592,3 +2592,5 @@ November
 December
 
 
+vi /etc/crontab
+0  0  1  *  *  root  ntpdate  ntp1.aliyun.com
