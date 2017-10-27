@@ -2606,3 +2606,5 @@ doGetAuthorizationInfo
 
 当你试图解决一个问题时，那么新的问题就会诞生，这样简单的逻辑就慢慢变得复杂了。
 没有最优，只有更优。
+
+http://0pointer.de/blog/projects/the-biggest-myths.html
