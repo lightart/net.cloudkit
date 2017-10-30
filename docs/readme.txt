@@ -265,6 +265,9 @@ Sign out
 
 console/workbench/dashboard/main
 
+shopping mall
+sell
+
 merchant
   products
   orders
