@@ -2611,3 +2611,5 @@ doGetAuthorizationInfo
 没有最优，只有更优。
 
 http://0pointer.de/blog/projects/the-biggest-myths.html
+
+阿基米德
