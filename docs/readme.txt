@@ -2618,3 +2618,5 @@ https://uispace.net
 https://freebiesbug.com
 https://envato.com
 https://www.mockuuups.com
+https://proto.io
+https://cn.fotolia.com
