@@ -2620,3 +2620,5 @@ https://envato.com
 https://www.mockuuups.com
 https://proto.io
 https://cn.fotolia.com
+https://www.patpat.com/
+https://www.moo.com
