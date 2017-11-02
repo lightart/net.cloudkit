@@ -2629,3 +2629,5 @@ Optional
 https://www.trip.com/
 https://www.tianxun.com/
 http://www.xiaozhu.com/
+http://www.vision.com/
+https://www.spotify.com/
