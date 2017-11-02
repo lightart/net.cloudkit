@@ -2633,7 +2633,8 @@ http://www.vision.com/
 https://www.spotify.com/
 http://www.slideshare.net/
 https://www.linkedin.com/
-https://fancy.com/
+https://www.fancy.com/
+https://www.wish.com/
 
 ------------------------------------------------------------------------------------------------------------------------
 SERVICES & SUPPORT
