@@ -13,7 +13,11 @@ import javax.xml.ws.Holder;
  * serviceName则定义了< definitions >标签和<service>标签的name属性
  */
 // Service Endpoint Interface
-@WebService(name = "ServiceProviderFacade", targetNamespace = "http://ws.interfaces.quickpass.cloudkit.net/ServiceProviderFacade", serviceName = "ServiceProviderFacade")
+@WebService(
+    name = "ServiceProviderFacade",
+    targetNamespace = "http://ws.interfaces.quickpass.cloudkit.net/ServiceProviderFacade",
+    serviceName = "ServiceProviderFacade"
+)
 // SOAP绑定方式，默认是document wrapped方式
 // @SOAPBinding(style = SOAPBinding.Style.RPC)
 // 1.Document Wrapped：
@@ -21,7 +25,11 @@ import javax.xml.ws.Holder;
 // 2.Document Bare：
 // @SOAPBinding(style=SOAPBinding.Style.DOCUMENT, use=SOAPBinding.Use.LITERAL, parameterStyle=SOAPBinding.ParameterStyle.BARE)
 // 3.RPC：
-@SOAPBinding(style = SOAPBinding.Style.RPC, use = SOAPBinding.Use.ENCODED, parameterStyle = SOAPBinding.ParameterStyle.WRAPPED)
+@SOAPBinding(
+    style = SOAPBinding.Style.RPC,
+    use = SOAPBinding.Use.ENCODED,
+    parameterStyle = SOAPBinding.ParameterStyle.WRAPPED
+)
 // @SOAPBinding(style = SOAPBinding.Style.DOCUMENT, use = SOAPBinding.Use.LITERAL)
 /**
  * @author hongquanli <hongquanli@qq.com>
