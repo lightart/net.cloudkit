@@ -2635,7 +2635,7 @@ http://www.slideshare.net/
 https://www.linkedin.com/
 https://www.fancy.com/
 https://www.wish.com/
-
+http://www.maijia.com/
 ------------------------------------------------------------------------------------------------------------------------
 SERVICES & SUPPORT
 
@@ -2765,3 +2765,4 @@ Size Guide
 Social
 Footer links
 
+Partners
