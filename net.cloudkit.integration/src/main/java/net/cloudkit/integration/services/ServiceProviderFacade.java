@@ -40,6 +40,11 @@ public interface ServiceProviderFacade {
      */
     @WebMethod(action = "service", operationName = "service", exclude = false)
     @WebResult(name = "result")
-    byte[] service(@WebParam(name = "serviceName") String serviceName, @WebParam(name = "requestContext") byte[] requestContext, @WebParam(name = "requestData") byte[] requestData, @WebParam(name = "responseData", mode = WebParam.Mode.OUT) Holder<byte[]> responseData);
+    byte[] service(
+        @WebParam(name = "serviceName") String serviceName,
+        @WebParam(name = "requestContext") byte[] requestContext,
+        @WebParam(name = "requestData") byte[] requestData,
+        @WebParam(name = "responseData", mode = WebParam.Mode.OUT) Holder<byte[]> responseData
+    );
 
 }
