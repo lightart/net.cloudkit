@@ -2632,3 +2632,135 @@ http://www.xiaozhu.com/
 http://www.vision.com/
 https://www.spotify.com/
 http://www.slideshare.net/
+https://www.linkedin.com/
+https://fancy.com/
+
+------------------------------------------------------------------------------------------------------------------------
+SERVICES & SUPPORT
+
+Access Token
+
+Passport
+Dashboard
+Favorite
+Shopping Mall
+
+Product Promotions
+
+Consumer
+Merchant
+Product/Goods
+Coupons
+Campaign
+
+Description
+Product Details
+
+Shopping
+Cart
+Cart items
+Order
+Order items
+Payment
+Subtotal
+Payment method
+
+Brand
+Option
+SKU (Stock Keeping Unit)
+Length
+Width
+Height
+Weight
+Price
+In Stock
+Main Image URL
+Extra Image URL
+Product Name
+Quantity (Qty)
+Tags
+Optional Attributes
+Size
+Color
+MSRP (Manufacturer Suggested Retail Price)
+Landing Page URL
+UPC
+Brand Image
+Inventory
+Total quantity
+Sold
+Category
+
+
+Shipping Cost
+Shipping Time
+
+Security
+Authentication
+Authorization
+
+Shipping Addresses
+
+Buy
+Purchases
+
+Wish List
+
+Followers
+Following
+
+On Sale
+
+
+Shipping calculation
+Free Shipping
+
+Shipping profile
+Ships to
+Shipping location
+
+HS Code
+Country of Manufacture
+
+
+Return & Exchange
+Return Policy
+Policy description
+
+No returns
+This item is non-returnable.
+
+Final sale and no returns
+This item is final sale and non-returnable.
+
+15 day returns
+If for any reason you are not happy with your purchase, you may return the item(s) within 15 days of receiving the order for Fancy Credit of the merchandise cost.
+Please note that we cannot accept returns on monogrammed, personalized, special-order items, or on items damaged through normal wear and tear.
+
+30 day returns
+If for any reason you are not happy with your purchase, you may return the item(s) within 30 days of receiving the order for Fancy Credit of the merchandise cost.
+Please note that we cannot accept returns on monogrammed, personalized, special-order items, or on items damaged through normal wear and tear.
+
+Custom day returns
+If for any reason you are not happy with your purchase, you may return the item(s) within {custom_return_policy_days} days of receiving the order for Fancy Credit of the merchandise cost.
+ Please note that we cannot accept returns on monogrammed, personalized, special-order items, or on items damaged through normal wear and tear.
+
+Status
+Active
+Mark as sold out
+
+Store details
+Store name
+Tagline
+Description
+
+Store logo
+Logo image
+
+Store Header
+
+Size Guide
+
+Social
+Footer links
+
