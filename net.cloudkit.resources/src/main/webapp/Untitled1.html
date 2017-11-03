@@ -6,15 +6,11 @@
     <meta name="referrer" content="always" />
     <title>text-editor</title>
     <style rel="stylesheet" type="text/css">
-        .text-editor {
+        .editor-view {
             background: #000000;
             cursor: text;
             width: 300px;
             color: #f1f1f1;
-            overflow: scroll;
-            height: 100%;
-            outline: none;
-            padding: 8px;
         }
 
         .text-input {
@@ -24,18 +20,28 @@
             outline: none;
         }
     </style>
+
 </head>
 <body>
 
-<!--
-<div class="text-editor" contenteditable="true">
+<div id="text-editor">
+    <textarea class="text-input" autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0"></textarea>
+    <div class="editor-view">Hello!</div>
 </div>
+
+<!--
+<input type="button" id="b1" value="获取value" onclick="alert(document.getElementById('b1').value)" />
+<input type="button" id="b2" value="获取innerHTML" onclick="alert(document.getElementById('b2').innerHTML)" />
 -->
 
-<textarea class="text-input" autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0"></textarea>
-<div class="editor-view">
+<script type="text/javascript">
 
-</div>
-
+    var textEditor = document.getElementById("text-editor")
+    var textInput = textEditor.getElementsByClassName("text-input")[0];
+    textInput.addEventListener("keypress", function () {
+        // alert(textInput.value);
+        textEditor.getElementsByClassName("editor-view")[0].innerHTML = textInput.value;
+    }, false);
+</script>
 </body>
 </html>
