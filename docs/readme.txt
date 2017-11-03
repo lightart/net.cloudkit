@@ -2775,3 +2775,6 @@ Social
 Footer links
 
 Partners
+
+make future
+make possible
