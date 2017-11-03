@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta charset="utf-8" />
+    <meta name="referrer" content="always" />
+    <title>text-editor</title>
+    <style rel="stylesheet" type="text/css">
+        .text-editor {
+            background: #000000;
+            cursor: text;
+            width: 300px;
+            color: #f1f1f1;
+            overflow: scroll;
+            height: 100%;
+            outline: none;
+            padding: 8px;
+        }
+
+        .text-input {
+            padding: 0px;
+            width: 1000px;
+            height: 1em;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+
+<!--
+<div class="text-editor" contenteditable="true">
+</div>
+-->
+
+<textarea class="text-input" autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0"></textarea>
+<div class="editor-view">
+
+</div>
+</body>
+</html>
