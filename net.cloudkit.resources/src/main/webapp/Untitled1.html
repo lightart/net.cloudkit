@@ -11,6 +11,7 @@
             cursor: text;
             width: 1000px;
             color: #f1f1f1;
+            padding: 8px;
         }
 
         .text-input {
@@ -26,7 +27,9 @@
 <body>
 
 <div id="text-editor">
-    <textarea class="text-input" autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0"></textarea>
+    <textarea class="text-input" autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0">
+        ss
+    </textarea>
     <div class="editor-view">Hello!</div>
 </div>
 
@@ -43,12 +46,26 @@
 
         // alert(textInput.value);
         var viewText = "";
-        var texts = textInput.value.split(/\n/ig);
+        var texts = textInput.value.split("\n");
         for(var i = 0; i < texts.length; i ++) {
             viewText += "<div><span>" + (i+1) + "</span>" + texts[i] + "</div>";
         }
         textEditor.getElementsByClassName("editor-view")[0].innerHTML = viewText;
     }, false);
+    go(10);
+
+
+    function go(line) {
+        textInput.focus();
+        var v = textInput.value.split("\n");
+        ch = 0;
+        for(var i=0; i<line-1; i++) {
+            ch += v[i].length;
+        }
+        var o = textInput.createTextRange();
+        o.move("character", ch);
+        o.select();
+    }
 </script>
 </body>
 </html>
