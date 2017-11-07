@@ -2783,3 +2783,5 @@ make possible
 
 atomikos、bitronix、narayana
 仅atomikos支持XA和TCC两种机制，bitronix、narayana仅支持XA机制
+
+https://www.bytesoft.org/
