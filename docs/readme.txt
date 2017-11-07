@@ -2778,3 +2778,8 @@ Partners
 
 make future
 make possible
+
+------------------------------------------------------------------------------------------------------------------------
+
+atomikos、bitronix、narayana
+仅atomikos支持XA和TCC两种机制，bitronix、narayana仅支持XA机制
