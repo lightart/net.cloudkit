@@ -2779,6 +2779,9 @@ Partners
 make future
 make possible
 
+order history
+
+Access your purchases and view your order history
 ------------------------------------------------------------------------------------------------------------------------
 
 atomikos、bitronix、narayana
@@ -2791,3 +2794,4 @@ https://www.bytesoft.org/
 
 相互性的需要
 ------------------------------------------------------------------------------------------------------------------------
+
