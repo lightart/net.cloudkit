@@ -2799,3 +2799,6 @@ https://www.bytesoft.org/
 ------------------------------------------------------------------------------------------------------------------------
 http://www.swftools.org/
 xpdf-chinese-simplified
+
+tdt.net
+xhv.net
