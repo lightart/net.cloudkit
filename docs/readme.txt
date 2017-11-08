@@ -2854,5 +2854,8 @@ response body
 profile
 module
 
+component-scan
+base-package
+property-placeholder
 
 
