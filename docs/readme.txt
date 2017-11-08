@@ -2841,10 +2841,15 @@ terminal
 list
 view
 
+payload
+
 request context
 request data
+request body
 response context
 response data
+response body
+
 
 profile
 module
