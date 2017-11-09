@@ -18,6 +18,7 @@ $ ./bin/mysql_ssl_rsa_setup --datadir=/usr/local/mysql-5.7.19/data
 # ./bin/mysql_ssl_rsa_setup --defaults-file=/usr/local/mysql-5.7.19/my.cnf
 
 +0f9E8ml=ors
+kbi<&i:+9hlB
 
 # ./bin/mysqld --defaults-file=/usr/local/mysql-5.7.19/my.cnf
 $ cp support-files/mysql.server /etc/init.d/mysql
@@ -36,18 +37,18 @@ $ ./bin/mysql --socket=/usr/local/mysql-5.7.19/tmp/mysql.sock --port=3306 -uroot
 $ ./bin/mysql --defaults-file=/usr/local/mysql-5.7.19/my.cnf -uroot -p
 
 
-SET PASSWORD = PASSWORD('s87483281');
+SET PASSWORD = PASSWORD('rootroot');
 ALTER USER 'root'@'localhost' PASSWORD EXPIRE NEVER;
 FLUSH PRIVILEGES;
 
 GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'root' WITH GRANT OPTION;
 
-ALTER USER 'root'@'%' IDENTIFIED BY 's87483281';
+ALTER USER 'root'@'%' IDENTIFIED BY 'rootroot';
 
-SET PASSWORD  FOR 'root'@localhost = PASSWORD（'123456');
+SET PASSWORD  FOR 'root'@localhost = PASSWORD（'rootroot');
 
 UPDATE mysql.user
-    SET authentication_string = PASSWORD('123456'), password_expired = 'N'
+    SET authentication_string = PASSWORD('rootroot'), password_expired = 'N'
     WHERE User = 'root' AND Host = 'localhost';
 FLUSH PRIVILEGES;
 
