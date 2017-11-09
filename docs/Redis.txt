@@ -8,11 +8,11 @@ $ vi /etc/init.d/redis
 #PATH=/usr/local/bin:/sbin:/usr/bin:/bin
 
 REDISPORT=6379
-EXEC=/usr/local/redis-3.0.5/src/redis-server
-REDIS_CLI=/usr/local/redis-3.0.5/src/redis-cli
+EXEC=/usr/local/redis-4.0.2/src/redis-server
+REDIS_CLI=/usr/local/redis-4.0.2/src/redis-cli
 
 PIDFILE=/var/run/redis.pid
-CONF="/usr/local/redis-3.0.5/redis.conf"
+CONF="/usr/local/redis-4.0.2/redis.conf"
 
 case "$1" in
     start)

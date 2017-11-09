@@ -7,7 +7,7 @@ groupadd nginx
 useradd  -s /sbin/nologin -M -g nginx nginx
 
 ./configure \
-  --prefix=/usr/local/nginx-1.12.1 \
+  --prefix=/usr/local/nginx-1.12.2 \
   --user=nginx \
   --group=nginx \
   --with-http_ssl_module \
@@ -88,10 +88,10 @@ $ vim /etc/init.d/nginx
 # Check that networking is up.
 [ "$NETWORKING" = "no" ] && exit 0
 
-nginx="/usr/local/nginx-1.12.1/sbin/nginx"
+nginx="/usr/local/nginx-1.12.2/sbin/nginx"
 prog=$(basename $nginx)
 
-NGINX_CONF_FILE="/usr/local/nginx-1.12.1/conf/nginx.conf"
+NGINX_CONF_FILE="/usr/local/nginx-1.12.2/conf/nginx.conf"
 
 [ -f /etc/sysconfig/nginx ] && . /etc/sysconfig/nginx
 
