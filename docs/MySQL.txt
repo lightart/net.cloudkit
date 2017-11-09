@@ -119,6 +119,8 @@ socket = /usr/local/mysql-5.7.20/tmp/mysql.sock
 # sort_buffer_size = 2M
 # read_rnd_buffer_size = 2M
 
+lower_case_table_names=1
+
 sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES
 
 log-error = /usr/local/mysql-5.7.20/tmp/error.log
@@ -139,3 +141,10 @@ CREATE USER 'test'@'localhost' IDENDIFIED BY '123456';
 GRANT ALL PRIVILEGES ON test.* TO 'test'@'localhost' IDENTIFIED BY '123456' WITH GRANT OPTION;
 GRANT ALL PRIVILEGES ON test.* TO 'test'@'localhost' IDENTIFIED BY '1234456' WITH GRANT OPTION;
 GRANT ALL PRIVILEGES ON test.* TO 'test'@'localhost' IDENTIFIED BY '123456' WITH GRANT OPTION;
+
+
+
+CREATE USER 'gmydb'@'10.24.157.123' IDENDIFIED BY 'a1s2d3f4g5h6';
+GRANT ALL PRIVILEGES ON test.* TO 'gmydb'@'10.24.157.123' IDENTIFIED BY 'a1s2d3f4g5h6' WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON test.* TO 'gmydb'@'10.24.157.123' IDENTIFIED BY 'a1s2d3f4g5h6' WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON test.* TO 'gmydb'@'10.24.157.123' IDENTIFIED BY 'a1s2d3f4g5h6' WITH GRANT OPTION;
