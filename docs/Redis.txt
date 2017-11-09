@@ -129,3 +129,6 @@ $ systemctl disable redis
 6. 查看状态
 查看状态
 $ systemctl status redis
+
+
+http://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-commands.html
