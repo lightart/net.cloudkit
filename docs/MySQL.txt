@@ -133,3 +133,9 @@ pid-file = /usr/local/mysql-5.7.19/data/mysql.pid
 # port = 3306
 socket = /usr/local/mysql-5.7.19/tmp/mysql.sock
 ########################################################################################################################
+
+
+CREATE USER 'test'@'localhost' IDENDIFIED BY '123456';
+GRANT ALL PRIVILEGES ON test.* TO 'test'@'localhost' IDENTIFIED BY '123456' WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON test.* TO 'test'@'localhost' IDENTIFIED BY '1234456' WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON test.* TO 'test'@'localhost' IDENTIFIED BY '123456' WITH GRANT OPTION;
