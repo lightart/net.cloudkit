@@ -316,7 +316,7 @@ public class IBMMQComponent {
                     }
 
                     *//*
-                    if(e.completionCode == 2033) {
+                    if(e.completionCode == CMQC.MQRC_NO_MSG_AVAILABLE) {
                         if(LOG.isDebugEnabled()) {
                             LOG.debug("Queue [" + this.toString() + "] is empty.");
                         }
