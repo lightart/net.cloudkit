@@ -248,6 +248,7 @@ public class IBMMQComponent {
                 try {
                     MQMessage inMessage = new MQMessage();
                     /*
+                    // TODO
                     inMessage.encoding = 546;
                     inMessage.characterSet = 1381;
                     inMessage.format = MQConstants.MQFMT_STRING;
