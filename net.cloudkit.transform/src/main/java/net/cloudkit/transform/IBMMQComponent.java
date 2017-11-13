@@ -154,7 +154,12 @@ public class IBMMQComponent {
 
             // 定义一个消息
             MQMessage message = new MQMessage();
-            //message.format = CMQC.MQFMT_STRING;
+            /*
+            // TODO
+            inMessage.encoding = 546;
+            inMessage.characterSet = 1381;
+            inMessage.format = CMQC.MQFMT_STRING;
+            */
             message.correlationId = id.getBytes();
             // 将数据放入消息缓冲区
             message.write(data);
@@ -247,12 +252,6 @@ public class IBMMQComponent {
             while (currentDepth-- > 0) {
                 try {
                     MQMessage inMessage = new MQMessage();
-                    /*
-                    // TODO
-                    inMessage.encoding = 546;
-                    inMessage.characterSet = 1381;
-                    inMessage.format = MQConstants.MQFMT_STRING;
-                    */
 
                     // 从队列中取出消息
                     queue.get(inMessage, gmo);
