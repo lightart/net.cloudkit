@@ -2,6 +2,7 @@ package net.cloudkit.transform;
 
 import com.ibm.mq.*;
 import com.ibm.mq.constants.CMQC;
+import com.ibm.mq.constants.MQConstants;
 import org.apache.commons.io.FileUtils;
 
 import java.io.File;
@@ -246,6 +247,11 @@ public class IBMMQComponent {
             while (currentDepth-- > 0) {
                 try {
                     MQMessage inMessage = new MQMessage();
+                    /*
+                    inMessage.encoding = 546;
+                    inMessage.characterSet = 1381;
+                    inMessage.format = MQConstants.MQFMT_STRING;
+                    */
 
                     // 从队列中取出消息
                     queue.get(inMessage, gmo);
