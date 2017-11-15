@@ -2869,9 +2869,9 @@ infrastructure
 CloudKit
   Shopping
     Add to Cart
+    Buy Now
     View Your Cart
     View Your Orders
-    Buy Now
     Proceed to Checkout
     Place your order
 
