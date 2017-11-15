@@ -2883,6 +2883,8 @@ CloudKit
     Place your order
 
   Security
+    Authentication
+    Authorization
 
   Merchant
     Orders
@@ -2960,8 +2962,12 @@ Resource
 Message
 
 
+Configuration
+Setting
 
 Dashboard
+Console
+Terminal
 
 FAQ
 About
