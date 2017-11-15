@@ -2877,7 +2877,6 @@ CloudKit
 
   Security
 
-
   Merchant
     Orders
       View Orders
@@ -2891,6 +2890,7 @@ CloudKit
     Log Out/Sign Out
     Sign Up
     Join
+  Captcha
 
 
 Order
@@ -2907,6 +2907,7 @@ Product
     Expired
     Awaiting Approval
     On Sale
+
 
 
 Cart
