@@ -2877,11 +2877,45 @@ cloudkit
 
   Security
   Merchant
-    View Orders
-    Add Product
-    View Products
+    Orders
+      View Orders
+    Products
+      Add Product
+      View Products
+      Export
+      Import
   Account
     Log In/Sign In
+    Log Out/Sign Out
     Sign Up
     Join
 
+
+Order
+    Open
+    All
+    Completed
+    Cancelled
+    Affiliate
+Product
+    All Products
+    Active
+    Inactive
+    Sold Out
+    Expired
+    Awaiting Approval
+    On Sale
+
+
+Cart
+Messages
+
+Dashboard
+
+FAQ
+About
+Get the app
+Help
+Privacy
+Terms
+Contact
