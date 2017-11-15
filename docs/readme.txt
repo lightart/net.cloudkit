@@ -2885,6 +2885,9 @@ CloudKit
   Security
     Authentication
     Authorization
+    Is Access Allowed
+    On Access Denied
+    Get User Permissions
 
   Merchant
     Orders
