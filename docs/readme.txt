@@ -2850,7 +2850,6 @@ response context
 response data
 response body
 
-
 profile
 module
 
@@ -2859,3 +2858,6 @@ base-package
 property-placeholder
 resource-pattern
 
+common
+service
+infrastructure
