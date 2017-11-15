@@ -2866,7 +2866,7 @@ common
 service
 infrastructure
 
-cloudkit
+CloudKit
   Shopping
     Add to Cart
     View Your Cart
@@ -2876,6 +2876,8 @@ cloudkit
     Place your order
 
   Security
+
+
   Merchant
     Orders
       View Orders
