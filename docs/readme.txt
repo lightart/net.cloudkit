@@ -2859,6 +2859,11 @@ property-placeholder
 resource-pattern
 
 ------------------------------------------------------------------------------------------------------------------------
+
+https://www.ebay.com/
+https://www.fancy.com/
+https://www.wish.com/
+
 buy/purchase
 pay
 
