@@ -2858,6 +2858,30 @@ base-package
 property-placeholder
 resource-pattern
 
+------------------------------------------------------------------------------------------------------------------------
+buy/purchase
+pay
+
 common
 service
 infrastructure
+
+cloudkit
+  Shopping
+    Add to Cart
+    View Your Cart
+    View Your Orders
+    Buy Now
+    Proceed to Checkout
+    Place your order
+
+  Security
+  Merchant
+    View Orders
+    Add Product
+    View Products
+  Account
+    Log In/Sign In
+    Sign Up
+    Join
+
