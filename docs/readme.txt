@@ -2986,3 +2986,4 @@ JVM上的随机数与熵池策略
 http://ifeve.com/jvm-random-and-entropy-source/
 http://blog.csdn.net/u011627980/article/details/54024974
 https://segmentfault.com/a/1190000009039011
+https://wiki.apache.org/tomcat/HowTo/FasterStartUp
