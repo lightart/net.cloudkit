@@ -3010,5 +3010,16 @@ https://blog.coding.net/blog/Haproxy&Keepalived
 ------------------------------------------------------------------------------------------------------------------------
 export MALLOC_ARENA_MAX=4
 
+pmap -x 196586|grep anon
 jemalloc tcmalloc
 ------------------------------------------------------------------------------------------------------------------------
+vi /etc/profile
+在profile文件末尾加入：
+export JAVA_HOME=/usr/share/jdk1.6.0_14
+export PATH=$JAVA_HOME/bin:$PATH
+export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+
+vi ~/.bash_profile
+export JAVA_HOME=/usr/share/jdk1.6.0_14
+export PATH=$JAVA_HOME/bin:$PATH
+export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
