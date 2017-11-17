@@ -34,5 +34,5 @@ public interface SuperPass {
         @WebParam(name = "requestContext") byte[] requestContext,
         @WebParam(name = "requestData") byte[] requestData,
         @WebParam(name = "responseData", mode = WebParam.Mode.OUT) Holder<byte[]> responseData
-    )
+    );
 }
