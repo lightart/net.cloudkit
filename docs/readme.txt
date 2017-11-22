@@ -2646,8 +2646,10 @@ https://www.thoughtworks.com
 https://zaozuo.com/
 http://www.muji.com.cn/
 http://www.ikea.com/
+http://www.quantum.com/
+http://www.palantir.com/
+http://www.pearson.com/
 
-yijinyuan.com
 ------------------------------------------------------------------------------------------------------------------------
 SERVICES & SUPPORT
 
