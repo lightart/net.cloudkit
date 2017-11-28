@@ -1,6 +1,6 @@
 译文：星巴克不使用两阶段提交
 
-原文： Starbucks Does Not Use Two-Phase Commit (http://www.eaipatterns.com/ramblings/18_starbucks.html)
+原文：Starbucks Does Not Use Two-Phase Commit (http://www.eaipatterns.com/ramblings/18_starbucks.html)
 作者：Gregor --Google 架构师, Enterprise Integration Patterns  合著者
 
 2004年11月19日
