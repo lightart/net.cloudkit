@@ -3070,3 +3070,26 @@ https://angular.cn/docs
 https://developer.android.google.cn
 
 https://www.instagram.com
+------------------------------------------------------------------------------------------------------------------------
+https://nwjs.io/
+https://electronjs.org/
+
+GraphQL REST
+http://facebook.github.io/graphql/October2016/
+
+https://tc39.github.io/ecma262/
+https://tc39.github.io/ecma402/
+
+https://cocoon.io
+
+2D 游戏的开发者可以选择免费开源的 Phaser 或收费的 ImpactJS
+那些更偏向设计游戏的人员可以使用 Construct 2 或 Game Maker
+3D 游戏开发有 PlayCanvas 或 Babylon.js
+
+CocoonJS 或 Intel XDK 打包发布
+https://html5gameengine.com/
+
+https://www.openwebgames.com/
+https://w3c.github.io/webvr/spec/1.1/
+https://webvr.info/
+https://threejs.org/
