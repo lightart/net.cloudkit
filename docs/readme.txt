@@ -3051,3 +3051,20 @@ http://sketch.im
 ------------------------------------------------------------------------------------------------------------------------
 background: url(pattern.png),linear-gradient(to bottom, #fffed6 0, #bbba9e 270px, #2dbab4 900px);
 background-attachment: fixed;
+
+
+------------------------------------------------------------------------------------------------------------------------
+https://www.coursera.org/learn/machine-learning
+
+Theano、Torch与Caffe
+Tensorflow、MXNet与Caffe
+
+www.cs.toronto.edu/~kriz/cifar.html
+ImageNet（www.image-net.org/）和COCO（http://mscoco.org/）
+
+http://wiki.ros.org/cn/ROS/Tutorials
+
+Maple 和Mathematica Matlab
+
+https://angular.cn/docs
+https://developer.android.google.cn
