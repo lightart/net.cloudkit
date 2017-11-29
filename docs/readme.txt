@@ -3047,3 +3047,7 @@ http://www.yilin.com/
 http://principleux.com
 http://ssourcee.com
 http://sketch.im
+
+------------------------------------------------------------------------------------------------------------------------
+background: url(pattern.png),linear-gradient(to bottom, #fffed6 0, #bbba9e 270px, #2dbab4 900px);
+background-attachment: fixed;
