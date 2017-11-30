@@ -731,3 +731,188 @@ server {
 #    }
 #}
 ------------------------------------------------------------------------------------------------------------------------
+
+# 运行用户
+#user  nobody;
+# 工作进程数量
+worker_processes  1;
+
+# 错误日志
+#error_log  logs/error.log;
+#error_log  logs/error.log  notice;
+#error_log  logs/error.log  info;
+
+# PID文件
+#pid        logs/nginx.pid;
+
+# 工作模式及连接数限制
+events {
+    #use  epoll;
+    worker_connections  1024;
+}
+
+
+http {
+    # mime类型
+    include       mime.types;
+    default_type  application/octet-stream;
+
+    # 设定日志格式
+    #log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+    #                  '$status $body_bytes_sent "$http_referer" '
+    #                  '"$http_user_agent" "$http_x_forwarded_for"';
+
+    #access_log  logs/access.log  main;
+
+    sendfile        on;
+    #tcp_nopush     on;
+
+    #keepalive_timeout  0;
+    keepalive_timeout  65;
+
+    gzip  on;
+
+    #client_header_buffer_size 1k;
+    #large_client_header_buffers 4 8k;
+
+    # weight 指定权重
+    # max_fails 允许请求失败最大的次数 默认为1 设置为0永久无效 当超过最大次数时，返回proxy_next_upstream模块定义的错误
+    # fail_timeout max_fails 次失败后，暂停的时间 默认为10秒
+    # backup 备机 其它所有的非backup server down或者忙的时候，请求备机
+    # down 标识无效状态 表示当前的server不参与负载
+    # max_conns 限制最大连接数量
+    # resolve 指定域名
+    upstream backend {
+        # 2/6
+        server 127.0.0.1:8080 weight=2 max_fails=3 fail_timeout=15;
+	# 3/6
+        server 127.0.0.1:8081 weight=3;
+	# 1/6
+        server 127.0.0.1:8082 weight=1;
+	server 127.0.0.1:9999 backup;
+	# server 127.0.0.2.8080 down;
+	# server 127.0.0.3:8080 max_conns=1000;
+	# server example.com resolve;
+    }
+
+    # ip_hash 请求按访问ip的hash结果分配，每个访客固定访问一个后端服务器
+    #upstream backend {
+    #    server 127.0.0.1:8080;
+    #    server 127.0.0.1:8081;
+    #    ip_hash;
+    #}
+
+    # fair url_hash
+
+    server {
+        listen       80;
+        server_name  localhost;
+
+        #charset koi8-r;
+
+        #access_log  logs/host.access.log  main;
+
+        #location / {
+        #    root   html;
+        #    index  index.html index.htm;
+        #}
+
+        #error_page  404              /404.html;
+
+        # redirect server error pages to the static page /50x.html
+        #
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   html;
+        }
+
+        location / {
+            proxy_pass http://backend;
+            proxy_next_upstream  http_500  http_502  http_503  error  timeout  invalid_header;
+
+            # include proxy.conf;
+	    proxy_redirect  off;
+            proxy_set_header  Host  $host;
+            proxy_set_header  X-Real-IP $remote_addr;
+            proxy_set_header  X-Forwarded-For  $proxy_add_x_forwarded_for;
+	    # 允许客户端请求的最大单文件字节数
+	    client_max_body_size  10m;
+	    # 缓冲区代理缓冲用户端请求的最大字节数
+            client_body_buffer_size  128k;
+	    # 代理连接超时
+            proxy_connect_timeout  90;
+	    # 代理发送超时
+	    proxy_send_timeout  90;
+	    # 代理接收超时
+            proxy_read_timeout  90;
+	    # 保存用户头信息的缓冲区大小
+            proxy_buffer_size  4k;
+	    # proxy_buffers缓冲区
+            proxy_buffers  4 32k;
+	    # 高负荷下缓冲大小（proxy_buffers*2）
+            proxy_busy_buffers_size  64k;
+	    # 设定缓存文件夹大小
+            proxy_temp_file_write_size  64k;
+        }
+
+        # proxy the PHP scripts to Apache listening on 127.0.0.1:80
+        #
+        #location ~ \.php$ {
+        #    proxy_pass   http://127.0.0.1;
+        #}
+
+        # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+        #
+        #location ~ \.php$ {
+        #    root           html;
+        #    fastcgi_pass   127.0.0.1:9000;
+        #    fastcgi_index  index.php;
+        #    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;
+        #    include        fastcgi_params;
+        #}
+
+        # deny access to .htaccess files, if Apache's document root
+        # concurs with nginx's one
+        #
+        #location ~ /\.ht {
+        #    deny  all;
+        #}
+    }
+
+
+    # another virtual host using mix of IP-, name-, and port-based configuration
+    #
+    #server {
+    #    listen       8000;
+    #    listen       somename:8080;
+    #    server_name  somename  alias  another.alias;
+
+    #    location / {
+    #        root   html;
+    #        index  index.html index.htm;
+    #    }
+    #}
+
+
+    # HTTPS server
+    #
+    #server {
+    #    listen       443 ssl;
+    #    server_name  localhost;
+
+    #    ssl_certificate      cert.pem;
+    #    ssl_certificate_key  cert.key;
+
+    #    ssl_session_cache    shared:SSL:1m;
+    #    ssl_session_timeout  5m;
+
+    #    ssl_ciphers  HIGH:!aNULL:!MD5;
+    #    ssl_prefer_server_ciphers  on;
+
+    #    location / {
+    #        root   html;
+    #        index  index.html index.htm;
+    #    }
+    #}
+
+}
