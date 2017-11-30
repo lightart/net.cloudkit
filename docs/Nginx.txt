@@ -781,7 +781,6 @@ http {
     # backup 备机 其它所有的非backup server宕机或者忙的时候，请求备机
     # down 标识无效状态 表示当前的server不参与负载
     # max_conns 限制最大连接数量
-    # resolve 指定域名
     upstream backend {
         # 2/6
         server 10.0.0.1:8080 weight=2 max_fails=3 fail_timeout=15;
