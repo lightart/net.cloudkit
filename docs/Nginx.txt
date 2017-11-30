@@ -409,13 +409,15 @@ stream {
 }
 
 ------------------------------------------------------------------------------------------------------------------------
+# 添加认证登录
+
 location / {
     auth_basic "Restricted";
     auth_basic_user_file conf/htpasswd;
     autoindex on;
 }
 
-vim conf/htpasswd
+$ vim conf/htpasswd
 # 用户名:密码
 user1:password
 # 用户名2:密码2:注释
@@ -426,4 +428,6 @@ user2:password:comment
 $ printf "user1:$(openssl passwd -crypt 123456)\n" >>conf/htpasswd
 $ cat conf/htpasswd
 user1:L4LHJ9VLY4C6w
+
+$ /usr/local/nginx-1.5.2/sbin/nginx -s reload
 ------------------------------------------------------------------------------------------------------------------------
