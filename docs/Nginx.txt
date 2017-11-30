@@ -775,36 +775,37 @@ http {
     #client_header_buffer_size 1k;
     #large_client_header_buffers 4 8k;
 
-    # http://nginx.org/en/docs/http/ngx_http_upstream_module.html
-    # weight 指定权重
-    # max_fails 允许请求失败最大的次数 默认为1 设置为0永久无效 当超过最大次数时，返回proxy_next_upstream模块定义的错误
-    # fail_timeout max_fails 次失败后，暂停的时间 默认为10秒
-    # backup 备机 其它所有的非backup server宕机或者忙的时候，请求备机
-    # down 标识无效状态 表示当前的server不参与负载
-    # max_conns 限制最大连接数量
+    resolver 10.0.0.1 valid=300s ipv6=off;
+    resolver_timeout 10s;
+
+    # https://www.nginx.com/resources/admin-guide/load-balancer/
     upstream backend {
-        # 2/6
-        server  10.0.0.1:8080  weight=2  max_fails=3  fail_timeout=15;
-	    # 3/6
-        server  10.0.0.1:8081  weight=3;
-	    # 1/6
-        server  10.0.0.1:8082  weight=1;
+        #zone backend 64k;
+        #least_conn;
+        #ip_hash;
+        #hash $request_uri consistent;
+        #least_time header;
 
-	    server  10.0.0.1:9999  backup;
+        server backend1.example.com weight=2 max_fails=3 fail_timeout=30s;
+        server backend2.example.com; weight=3;
+        server 10.0.0.1:8080 weight=1;
 
-	    #server  10.0.0.2.8080  down;
-	    #server  10.0.0.3:8080  max_conns=1000;
-	    #server  example.com;
+        #server 10.0.0.1:8080 max_conns=1000;
+
+	    #server 10.0.0.1:9999 backup;
+	    #server 10.0.0.1.8080 down;
+	    #server 10.0.0.1.8080 slow_start=30s;;
+
+	    #server backend1.example.com resolve;
+        #server backend2.example.com resolve;
+
+	    #sticky cookie srv_id expires=1h domain=.example.com path=/;
+	    #sticky route $route_cookie $route_uri;
+
+        #queue 100 timeout=70;
 
 	    #keepalive 32;
     }
-
-    # ip_hash 请求按访问ip的hash结果分配，每个访客固定访问一个后端服务器
-    #upstream backend {
-    #    server 10.0.0.1:8080;
-    #    server 10.0.0.1:8081;
-    #    ip_hash;
-    #}
 
     # fair url_hash
 
@@ -832,6 +833,7 @@ http {
 
         location / {
             proxy_pass http://backend;
+            health_check interval=10 fails=3 passes=2;
             proxy_next_upstream  http_500  http_502  http_503  error  timeout  invalid_header;
 
             # include proxy.conf;
@@ -839,23 +841,14 @@ http {
             proxy_set_header  Host  $host;
             proxy_set_header  X-Real-IP $remote_addr;
             proxy_set_header  X-Forwarded-For  $proxy_add_x_forwarded_for;
-	        # 允许客户端请求的最大单文件字节数
 	        client_max_body_size  10m;
-	        # 缓冲区代理缓冲用户端请求的最大字节数
             client_body_buffer_size  128k;
-	        # 代理连接超时
             proxy_connect_timeout  90;
-	        # 代理发送超时
 	        proxy_send_timeout  90;
-	        # 代理接收超时
             proxy_read_timeout  90;
-	        # 保存用户头信息的缓冲区大小
             proxy_buffer_size  4k;
-	        # proxy_buffers缓冲区
             proxy_buffers  4 32k;
-	        # 高负荷下缓冲大小（proxy_buffers*2）
             proxy_busy_buffers_size  64k;
-	        # 设定缓存文件夹大小
             proxy_temp_file_write_size  64k;
         }
 
