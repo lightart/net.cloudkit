@@ -778,7 +778,7 @@ http {
     # weight 指定权重
     # max_fails 允许请求失败最大的次数 默认为1 设置为0永久无效 当超过最大次数时，返回proxy_next_upstream模块定义的错误
     # fail_timeout max_fails 次失败后，暂停的时间 默认为10秒
-    # backup 备机 其它所有的非backup server down或者忙的时候，请求备机
+    # backup 备机 其它所有的非backup server宕机或者忙的时候，请求备机
     # down 标识无效状态 表示当前的server不参与负载
     # max_conns 限制最大连接数量
     # resolve 指定域名
