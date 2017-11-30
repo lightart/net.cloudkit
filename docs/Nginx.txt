@@ -831,7 +831,9 @@ http {
             #proxy_pass  example.com:12345;
             #proxy_pass  unix:/tmp/stream.socket;
             proxy_pass  http://backend;
+
             health_check  interval=10 fails=3 passes=2;
+
             proxy_next_upstream  http_500  http_502  http_503  error  timeout  invalid_header;
 
             #proxy_redirect http://www.example.com/ /;
@@ -851,6 +853,8 @@ http {
             proxy_buffers               4 32k;
             proxy_busy_buffers_size     64k;
             proxy_temp_file_write_size  64k;
+
+            expires  12h;
         }
 
         # proxy the PHP scripts to Apache listening on 127.0.0.1:80
