@@ -783,15 +783,16 @@ http {
     # max_conns 限制最大连接数量
     upstream backend {
         # 2/6
-        server 10.0.0.1:8080 weight=2 max_fails=3 fail_timeout=15;
+        server  10.0.0.1:8080  weight=2  max_fails=3  fail_timeout=15;
 	    # 3/6
-        server 10.0.0.1:8081 weight=3;
+        server  10.0.0.1:8081  weight=3;
 	    # 1/6
-        server 10.0.0.1:8082 weight=1;
-	    server 10.0.0.1:9999 backup;
-	    #server 10.0.0.2.8080 down;
-	    #server 10.0.0.3:8080 max_conns=1000;
-	    #server example.com;
+        server  10.0.0.1:8082  weight=1;
+	    server  10.0.0.1:9999  backup;
+
+	    #server  10.0.0.2.8080  down;
+	    #server  10.0.0.3:8080  max_conns=1000;
+	    #server  example.com;
 
 	    #keepalive 32;
     }
