@@ -793,6 +793,8 @@ http {
 	    #server 10.0.0.2.8080 down;
 	    #server 10.0.0.3:8080 max_conns=1000;
 	    #server example.com;
+
+	    #keepalive 32;
     }
 
     # ip_hash 请求按访问ip的hash结果分配，每个访客固定访问一个后端服务器
