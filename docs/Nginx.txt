@@ -775,6 +775,7 @@ http {
     #client_header_buffer_size 1k;
     #large_client_header_buffers 4 8k;
 
+    # http://nginx.org/en/docs/http/ngx_http_upstream_module.html
     # weight 指定权重
     # max_fails 允许请求失败最大的次数 默认为1 设置为0永久无效 当超过最大次数时，返回proxy_next_upstream模块定义的错误
     # fail_timeout max_fails 次失败后，暂停的时间 默认为10秒
