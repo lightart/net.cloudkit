@@ -810,6 +810,7 @@ http {
         server_name  localhost;
 
         #charset koi8-r;
+        charset utf-8;
 
         #access_log  logs/host.access.log  main;
 
@@ -834,14 +835,16 @@ http {
 
             health_check  interval=10 fails=3 passes=2;
 
-            proxy_next_upstream  http_500  http_502  http_503  error  timeout  invalid_header;
+            proxy_next_upstream  http_500 http_502 http_503 error timeout invalid_header;
 
-            #proxy_redirect http://www.example.com/ /;
+            #proxy_redirect http://www.example.com/  /;
 	        proxy_redirect off;
 
             proxy_set_header  Host  $host;
             proxy_set_header  X-Real-IP $remote_addr;
+            proxy_set_header  REMOTE-HOST $remote_addr;
             proxy_set_header  X-Forwarded-For  $proxy_add_x_forwarded_for;
+            proxy_set_header  Cookie $http_cookie;
 
 	        client_max_body_size     10m;
             client_body_buffer_size  128k;
@@ -853,9 +856,27 @@ http {
             proxy_buffers               4 32k;
             proxy_busy_buffers_size     64k;
             proxy_temp_file_write_size  64k;
+            proxy_max_temp_file_size    128m;
 
             expires  12h;
         }
+
+        # Add expires header for static content
+        #location ~* \.(html|jpg|jpeg|gif|png|swf|js|css|woff|otf|ttf)$ {
+        #     if (-f $request_filename) {
+        #         #root  html/workbench;
+        #         expires  1d;
+        #         break;
+        #     }
+        #}
+
+        #location ~ .*.(gif|jpg|jpeg|png|bmp|swf)$ {
+        #    expires  10d;
+        #}
+
+        #location ~ .*.(js|css)?$ {
+        #    expires  1h;
+        #}
 
         # proxy the PHP scripts to Apache listening on 127.0.0.1:80
         #
