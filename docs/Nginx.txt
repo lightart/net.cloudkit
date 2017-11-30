@@ -807,7 +807,7 @@ http {
 
     server {
         listen       80;
-        server_name  localhost;
+        server_name  localhost example.com www.example.com;
 
         #charset koi8-r;
         charset utf-8;
