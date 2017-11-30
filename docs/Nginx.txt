@@ -422,4 +422,8 @@ user1:password
 user2:password:comment
 
 密码必须使用函数 crypt(3) 加密
+
+$ printf "user1:$(openssl passwd -crypt 123456)\n" >>conf/htpasswd
+$ cat conf/htpasswd
+user1:L4LHJ9VLY4C6w
 ------------------------------------------------------------------------------------------------------------------------
