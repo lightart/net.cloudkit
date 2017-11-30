@@ -780,31 +780,27 @@ http {
 
     # https://www.nginx.com/resources/admin-guide/load-balancer/
     upstream backend {
-        #zone backend 64k;
+        #zone  backend  64k;
         #least_conn;
         #ip_hash;
-        #hash $request_uri consistent;
-        #least_time header;
+        #hash  $request_uri  consistent;
+        #least_time  header;
 
-        server backend1.example.com weight=2 max_fails=3 fail_timeout=30s;
-        server backend2.example.com; weight=3;
-        server 10.0.0.1:8080 weight=1;
+        server  backend1.example.com  weight=2  max_fails=3  fail_timeout=30s;
+        server  backend2.example.com  weight=3;
+        server  10.0.0.1:8080  weight=1;
+        #server  10.0.0.1:8080  max_conns=1000;
+	    #server  10.0.0.1:9999  backup;
+	    #server  10.0.0.1.8080  down;
+	    #server  10.0.0.1.8080  slow_start=30s;
+	    #server  backend1.example.com  resolve;
+        #server  backend2.example.com  resolve;
 
-        #server 10.0.0.1:8080 max_conns=1000;
+	    #sticky  cookie  srv_id  expires=1h  domain=.example.com  path=/;
+	    #sticky  route  $route_cookie $route_uri;
 
-	    #server 10.0.0.1:9999 backup;
-	    #server 10.0.0.1.8080 down;
-	    #server 10.0.0.1.8080 slow_start=30s;;
-
-	    #server backend1.example.com resolve;
-        #server backend2.example.com resolve;
-
-	    #sticky cookie srv_id expires=1h domain=.example.com path=/;
-	    #sticky route $route_cookie $route_uri;
-
-        #queue 100 timeout=70;
-
-	    #keepalive 32;
+        #queue  100  timeout=70;
+	    #keepalive  32;
     }
 
     # fair url_hash
@@ -832,23 +828,28 @@ http {
         }
 
         location / {
-            proxy_pass http://backend;
-            health_check interval=10 fails=3 passes=2;
+            #proxy_pass  example.com:12345;
+            #proxy_pass  unix:/tmp/stream.socket;
+            proxy_pass  http://backend;
+            health_check  interval=10 fails=3 passes=2;
             proxy_next_upstream  http_500  http_502  http_503  error  timeout  invalid_header;
 
-            # include proxy.conf;
-	        proxy_redirect  off;
+            #proxy_redirect http://www.example.com/ /;
+	        proxy_redirect off;
+
             proxy_set_header  Host  $host;
             proxy_set_header  X-Real-IP $remote_addr;
             proxy_set_header  X-Forwarded-For  $proxy_add_x_forwarded_for;
-	        client_max_body_size  10m;
+
+	        client_max_body_size     10m;
             client_body_buffer_size  128k;
-            proxy_connect_timeout  90;
-	        proxy_send_timeout  90;
-            proxy_read_timeout  90;
-            proxy_buffer_size  4k;
-            proxy_buffers  4 32k;
-            proxy_busy_buffers_size  64k;
+
+            proxy_connect_timeout       90;
+	        proxy_send_timeout          90;
+            proxy_read_timeout          90;
+            proxy_buffer_size           4k;
+            proxy_buffers               4 32k;
+            proxy_busy_buffers_size     64k;
             proxy_temp_file_write_size  64k;
         }
 
