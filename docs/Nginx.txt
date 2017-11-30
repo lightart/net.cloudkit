@@ -784,21 +784,21 @@ http {
     # resolve 指定域名
     upstream backend {
         # 2/6
-        server 127.0.0.1:8080 weight=2 max_fails=3 fail_timeout=15;
-	# 3/6
-        server 127.0.0.1:8081 weight=3;
-	# 1/6
-        server 127.0.0.1:8082 weight=1;
-	server 127.0.0.1:9999 backup;
-	# server 127.0.0.2.8080 down;
-	# server 127.0.0.3:8080 max_conns=1000;
-	# server example.com resolve;
+        server 10.0.0.1:8080 weight=2 max_fails=3 fail_timeout=15;
+	    # 3/6
+        server 10.0.0.1:8081 weight=3;
+	    # 1/6
+        server 10.0.0.1:8082 weight=1;
+	    server 10.0.0.1:9999 backup;
+	    #server 10.0.0.2.8080 down;
+	    #server 10.0.0.3:8080 max_conns=1000;
+	    #server example.com;
     }
 
     # ip_hash 请求按访问ip的hash结果分配，每个访客固定访问一个后端服务器
     #upstream backend {
-    #    server 127.0.0.1:8080;
-    #    server 127.0.0.1:8081;
+    #    server 10.0.0.1:8080;
+    #    server 10.0.0.1:8081;
     #    ip_hash;
     #}
 
@@ -831,27 +831,27 @@ http {
             proxy_next_upstream  http_500  http_502  http_503  error  timeout  invalid_header;
 
             # include proxy.conf;
-	    proxy_redirect  off;
+	        proxy_redirect  off;
             proxy_set_header  Host  $host;
             proxy_set_header  X-Real-IP $remote_addr;
             proxy_set_header  X-Forwarded-For  $proxy_add_x_forwarded_for;
-	    # 允许客户端请求的最大单文件字节数
-	    client_max_body_size  10m;
-	    # 缓冲区代理缓冲用户端请求的最大字节数
+	        # 允许客户端请求的最大单文件字节数
+	        client_max_body_size  10m;
+	        # 缓冲区代理缓冲用户端请求的最大字节数
             client_body_buffer_size  128k;
-	    # 代理连接超时
+	        # 代理连接超时
             proxy_connect_timeout  90;
-	    # 代理发送超时
-	    proxy_send_timeout  90;
-	    # 代理接收超时
+	        # 代理发送超时
+	        proxy_send_timeout  90;
+	        # 代理接收超时
             proxy_read_timeout  90;
-	    # 保存用户头信息的缓冲区大小
+	        # 保存用户头信息的缓冲区大小
             proxy_buffer_size  4k;
-	    # proxy_buffers缓冲区
+	        # proxy_buffers缓冲区
             proxy_buffers  4 32k;
-	    # 高负荷下缓冲大小（proxy_buffers*2）
+	        # 高负荷下缓冲大小（proxy_buffers*2）
             proxy_busy_buffers_size  64k;
-	    # 设定缓存文件夹大小
+	        # 设定缓存文件夹大小
             proxy_temp_file_write_size  64k;
         }
 
