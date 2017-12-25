@@ -31,7 +31,7 @@ useradd  -s /sbin/nologin -M -g nginx nginx
   --with-threads \
   --with-stream \
   --with-stream_ssl_module \
-  --with-openssl=../openssl-1.0.2l \
+  --with-openssl=../openssl-1.1.0g \
   --with-pcre=../pcre-8.41 \
   --with-zlib=../zlib-1.2.11 \
 
