@@ -6,35 +6,35 @@ $ useradd -r -g mysql -s /bin/false mysql
 # useradd -s /sbin/nologin -M -r -g mysql mysql
 $ chown -R mysql:mysql .
 $ cd /mnt
-$ wget https://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-5.7.20-linux-glibc2.12-x86_64.tar.gz
-$ tar -zxf /mnt/mysql-5.7.20-linux-glibc2.12-x86_64.tar.gz -C /usr/local
-$ mv /usr/local/mysql-5.7.20-linux-glibc2.12-x86_64 /usr/local/mysql-5.7.20
+$ wget https://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-5.7.21-linux-glibc2.12-x86_64.tar.gz
+$ tar -zxf /mnt/mysql-5.7.21-linux-glibc2.12-x86_64.tar.gz -C /usr/local
+$ mv /usr/local/mysql-5.7.21-linux-glibc2.12-x86_64 /usr/local/mysql-5.7.21
 $ yum install numactl
 $ yum install -y libaio libaio-devel
-$ cd /usr/local/mysql-5.7.20
+$ cd /usr/local/mysql-5.7.21
 $ mkdir data
-$ ./bin/mysqld --initialize --user=mysql --basedir=/usr/local/mysql-5.7.20 --datadir=/usr/local/mysql-5.7.20/data
-$ ./bin/mysql_ssl_rsa_setup --datadir=/usr/local/mysql-5.7.20/data
-# ./bin/mysql_ssl_rsa_setup --defaults-file=/usr/local/mysql-5.7.20/my.cnf
+$ ./bin/mysqld --initialize --user=mysql --basedir=/usr/local/mysql-5.7.21 --datadir=/usr/local/mysql-5.7.21/data
+$ ./bin/mysql_ssl_rsa_setup --datadir=/usr/local/mysql-5.7.21/data
+# ./bin/mysql_ssl_rsa_setup --defaults-file=/usr/local/mysql-5.7.21/my.cnf
 
 +0f9E8ml=ors
 kbi<&i:+9hlB
 
-# ./bin/mysqld --defaults-file=/usr/local/mysql-5.7.20/my.cnf
+# ./bin/mysqld --defaults-file=/usr/local/mysql-5.7.21/my.cnf
 $ cp support-files/mysql.server /etc/init.d/mysql
 $ chmod +x /etc/init.d/mysql
 $ vim my.cnf
 # cp support-files/my-default.cnf /etc/my.cnf
 $ ./bin/mysqld_safe &
-$ ./bin/mysqld_safe --defaults-file=/usr/local/mysql-5.7.20/my.cnf --user=mysql &
+$ ./bin/mysqld_safe --defaults-file=/usr/local/mysql-5.7.21/my.cnf --user=mysql &
 $ chkconfig --list mysql
 $ chkconfig --add mysql
 
 $ /etc/init.d/mysql start
 $ /etc/init.d/mysql stop
 
-$ ./bin/mysql --socket=/usr/local/mysql-5.7.20/tmp/mysql.sock --port=3306 -uroot -p
-$ ./bin/mysql --defaults-file=/usr/local/mysql-5.7.20/my.cnf -uroot -p
+$ ./bin/mysql --socket=/usr/local/mysql-5.7.21/tmp/mysql.sock --port=3306 -uroot -p
+$ ./bin/mysql --defaults-file=/usr/local/mysql-5.7.21/my.cnf -uroot -p
 
 
 SET PASSWORD = PASSWORD('rootroot');
@@ -58,7 +58,7 @@ mkdir mysql-files
 chmod 750 mysql-files
 chown -R mysql .
 chgrp -R mysql .
-#chown -R mysql:mysql /usr/local/mysql-5.7.20/
+#chown -R mysql:mysql /usr/local/mysql-5.7.21/
 
 chown -R root .
 chown -R mysql data mysql-files
@@ -106,11 +106,11 @@ my.cnf
 # log_bin
 
 # These are commonly set, remove the # and set as required.
-basedir = /usr/local/mysql-5.7.20
-datadir = /usr/local/mysql-5.7.20/data
+basedir = /usr/local/mysql-5.7.21
+datadir = /usr/local/mysql-5.7.21/data
 port = 3306
 server_id = 10
-socket = /usr/local/mysql-5.7.20/tmp/mysql.sock
+socket = /usr/local/mysql-5.7.21/tmp/mysql.sock
 
 # Remove leading # to set options mainly useful for reporting servers.
 # The server defaults are faster for transactions and fast SELECTs.
@@ -123,17 +123,17 @@ lower_case_table_names=1
 
 sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES
 
-log-error = /usr/local/mysql-5.7.20/tmp/error.log
-pid-file = /usr/local/mysql-5.7.20/data/mysql.pid
+log-error = /usr/local/mysql-5.7.21/tmp/error.log
+pid-file = /usr/local/mysql-5.7.21/data/mysql.pid
 
 #long_query_time = 4
-#log-slow-queries=/usr/local/mysql-5.7.20/log/mysql-slow.log
+#log-slow-queries=/usr/local/mysql-5.7.21/log/mysql-slow.log
 #log-queries-not-using-indexes
 
 [client]
 # character-set-server = utf8
 # port = 3306
-socket = /usr/local/mysql-5.7.20/tmp/mysql.sock
+socket = /usr/local/mysql-5.7.21/tmp/mysql.sock
 ########################################################################################################################
 
 
