@@ -36,6 +36,8 @@ $ chmod a+x /etc/init.d/php-fpm
 $ chkconfig --list php-fpm
 $ chkconfig --add php-fpm
 
+$ /etc/init.d/php-fpm start
+
 $ vim /usr/local/nginx-1.12.1/conf/nginx.conf
 location ~ \.php$ {
     root           html;
