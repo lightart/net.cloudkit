@@ -1,11 +1,13 @@
-#yum install libxml2-devel
-#yum install curl-devel
-#yum install openjpeg openjpeg-libs openjpeg-devel
-#yum install libjpeg libjpeg
-yum install libpng libpng-devel
-#yum install freetype freetype-devel
-#yum install mcrypt php-mcrypt
+yum install -y libxml2 libxml2-devel
+yum install -y curl curl-devel
+yum install -y libjpeg libjpeg-devel
+yum install -y libpng libpng-devel
+yum install -y freetype freetype-devel
+#yum install -y mcrypt php-mcrypt
 #yum install libmcrypt libmcrypt-devel
+yum install -y openssl openssl-devel
+yum install -y bzip2 bzip2-devel
+#yum install openjpeg openjpeg-libs openjpeg-devel
 
 groupadd -r php && useradd -r -g php -s /bin/flase -M /usr/local/php-7.2.3
 
