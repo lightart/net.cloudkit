@@ -7,10 +7,10 @@ yum install libpng libpng-devel
 #yum install mcrypt php-mcrypt
 #yum install libmcrypt libmcrypt-devel
 
-groupadd -r php && useradd -r -g php -s /bin/flase -M /usr/local/php-7.1.11
+groupadd -r php && useradd -r -g php -s /bin/flase -M /usr/local/php-7.2.3
 
 ./configure \
---prefix=/usr/local/php-7.1.11 \
+--prefix=/usr/local/php-7.2.3 \
 --enable-fpm \
 --with-mysqli \
 --enable-ftp \
@@ -26,9 +26,9 @@ sudo make install
 groupadd www
 useradd -g www www
 
-$ cp /usr/local/src/php-7.1.11/php.ini-production /usr/local/php-7.1.11/php.ini
-$ cp /usr/local/src/php-7.1.11/sapi/fpm/init.d.php-fpm /etc/rc.d/init.d/php-fpm
-$ cp /usr/local/php-7.1.11/etc/php-fpm.d/www.conf.default /usr/local/php-7.1.11/etc/php-fpm.d/www.conf
+$ cp /usr/local/src/php-7.2.3/php.ini-production /usr/local/php-7.2.3/php.ini
+$ cp /usr/local/src/php-7.2.3/sapi/fpm/init.d.php-fpm /etc/rc.d/init.d/php-fpm
+$ cp /usr/local/php-7.2.3/etc/php-fpm.d/www.conf.default /usr/local/php-7.2.3/etc/php-fpm.d/www.conf
 $ chmod a+x /etc/init.d/php-fpm
 $ chkconfig --list php-fpm
 $ chkconfig --add php-fpm
@@ -46,14 +46,14 @@ location ~ \.php$ {
 
 ------------------------------------------------------------------------------------------------------------------------
 ./configure \
---prefix=/usr/local/php-7.1.11 \
---exec-prefix=/usr/local/php-7.1.11 \
---bindir=/usr/local/php-7.1.11/bin \
---sbindir=/usr/local/php-7.1.11/sbin \
---includedir=/usr/local/php-7.1.11/include \
---libdir=/usr/local/php-7.1.11/lib/php \
---mandir=/usr/local/php-7.1.11/php/man \
---with-config-file-path=/usr/local/php-7.1.11/etc \
+--prefix=/usr/local/php-7.2.3 \
+--exec-prefix=/usr/local/php-7.2.3 \
+--bindir=/usr/local/php-7.2.3/bin \
+--sbindir=/usr/local/php-7.2.3/sbin \
+--includedir=/usr/local/php-7.2.3/include \
+--libdir=/usr/local/php-7.2.3/lib/php \
+--mandir=/usr/local/php-7.2.3/php/man \
+--with-config-file-path=/usr/local/php-7.2.3/etc \
 --with-mysql-sock=/var/run/mysql/mysql.sock \
 --with-mcrypt=/usr/include \
 --with-mhash \
