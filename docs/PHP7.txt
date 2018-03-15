@@ -29,6 +29,7 @@ groupadd www
 useradd -g www www
 
 $ cp /usr/local/src/php-7.2.3/php.ini-production /usr/local/php-7.2.3/php.ini
+$ cp /usr/local/php-7.2.3/etc/php-fpm.conf.default /usr/local/php-7.2.3/etc/php-fpm.conf
 $ cp /usr/local/src/php-7.2.3/sapi/fpm/init.d.php-fpm /etc/rc.d/init.d/php-fpm
 $ cp /usr/local/php-7.2.3/etc/php-fpm.d/www.conf.default /usr/local/php-7.2.3/etc/php-fpm.d/www.conf
 $ chmod a+x /etc/init.d/php-fpm
